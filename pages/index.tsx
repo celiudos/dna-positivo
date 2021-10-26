@@ -17,9 +17,23 @@ export default function Index() {
 
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <ListHeader primary="Início" secondary="Introdução" />
+            {" "}
+            <ListHeader
+              primary="Início"
+              secondary="Introdução"
+              modal={{
+                title: "Introdução",
+                conteudo:
+                  "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
+              }}
+            />
             <Paper>
-              <ListItens itens={[{ title: "COVID" }, { title: "Técnicas" }]} />
+              <ListItens
+                itens={[
+                  { title: "COVID", href: "/posts" },
+                  { title: "Técnicas", href: "/posts" },
+                ]}
+              />
             </Paper>
           </Grid>
           <Grid item xs={12}>
@@ -30,8 +44,8 @@ export default function Index() {
             <Paper>
               <ListItens
                 itens={[
-                  { title: "DNA Positivo" },
-                  { title: "DNA físico e Quântico" },
+                  { title: "DNA Positivo", href: "/posts" },
+                  { title: "DNA físico e Quântico", href: "/posts" },
                 ]}
               />
             </Paper>
@@ -40,7 +54,9 @@ export default function Index() {
             <ListHeader secondary="Para tratar problemas, neutralizar ameaças e as mais diversas manipulações no nosso planeta" />
             <Paper>
               <ListItens
-                itens={[{ title: "Inteligência Artificial Positiva" }]}
+                itens={[
+                  { title: "Inteligência Artificial Positiva", href: "/posts" },
+                ]}
               />
             </Paper>
           </Grid>
