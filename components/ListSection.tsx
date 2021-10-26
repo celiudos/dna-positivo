@@ -1,21 +1,18 @@
-import { ItemProps } from "@components/ListItens";
+import { PostType } from "@data/ApiApp";
 import { ListSubheader, Tab, Tabs, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import TextUtils from "@utils/TextUtils";
 import lodash from "lodash";
+import Link from "next/link";
 import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList as List, ListChildComponentProps } from "react-window";
 import styled from "styled-components";
 
-type AgrupamentoPorLetrasProps = {
-  isSubheader: boolean;
-} & ItemProps;
-
 type Props = {
-  itens: AgrupamentoPorLetrasProps[];
+  itens: PostType[];
 };
 
 function agruparPorLetras(rawData: [], key: string) {
@@ -40,9 +37,7 @@ function agruparPorLetras(rawData: [], key: string) {
 }
 
 export default function ListSection({ itens }: Props) {
-  const [itensFormatados, setItensFormatados] = React.useState<
-    AgrupamentoPorLetrasProps[]
-  >([]);
+  const [itensFormatados, setItensFormatados] = React.useState<PostType[]>([]);
 
   const listRef = React.useRef(null);
 
@@ -109,11 +104,13 @@ export default function ListSection({ itens }: Props) {
                   component="div"
                   disablePadding
                 >
-                  <ListItemButton>
-                    <ListItemText
-                      primary={TextUtils.limitarTexto(item.title, 120)}
-                    />
-                  </ListItemButton>
+                  <Link href={item.href || ""} passHref>
+                    <ListItemButton>
+                      <ListItemText
+                        primary={TextUtils.limitarTexto(item.title, 120)}
+                      />
+                    </ListItemButton>
+                  </Link>
                 </ListItem>
               );
             }}

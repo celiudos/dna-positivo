@@ -19,7 +19,7 @@ export default function MainAppBar({
   hrefVoltar,
   naoTemMenuDir,
 }: Props) {
-  const titleDefinitivo = title || "DNA Positivo";
+  const titleDefinitivo = title || "Página Inicial";
   return (
     <AppBar position="static">
       <Toolbar>

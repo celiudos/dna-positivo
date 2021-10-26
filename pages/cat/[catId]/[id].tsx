@@ -1,7 +1,6 @@
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
-import BloggerJsonType from "@data/BloggerJsonType";
-import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
+import ApiApp from "@data/ApiApp";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StarIcon from "@mui/icons-material/Star";
@@ -23,25 +22,26 @@ type PostProps = { title: string; content: string };
 
 type Props = {
   post: PostProps;
+  converseComDNAPost: PostProps;
 };
 
-export default function Post({ post }: Props) {
+export default function Post({ post, converseComDNAPost }: Props) {
   const router = useRouter();
+  const { catId } = router.query;
 
   if (router.isFallback) return "Carregando...";
   return (
     <Container maxWidth="sm">
-      <MainAppBar title="Post" hrefVoltar="/posts" />
+      <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <ListHeader
               primary="Atenção"
-              secondary="Sobre Coronavírus (COVID-19)"
+              secondary={converseComDNAPost.title}
               modal={{
-                title: "Sobre Coronavírus (COVID-19)",
-                conteudo:
-                  "Estamos passando por uma grande pandemia de CORONAVIRUS em todo planeta. Estamos disponibilizando o acesso imediato a 8 técnicas para nos ajudar, e também ao planeta, afim de superarmos juntos este momento! Não deixe de seguir as recomendações de prevenção ao contágio, como: Lavar as mãos com água e sabão ou use álcool em gel, use máscara, cubra o nariz e boca ao tossir ou espirrar, evite aglomerações, mantenha os ambientes bem ventilados, não compartilhe objetos pessoais e, se possível, flque em casa.",
+                title: converseComDNAPost.title,
+                conteudo: converseComDNAPost.content,
               }}
             />
             <Paper>
@@ -115,24 +115,16 @@ export async function getStaticPaths() {
 
 type Params = {
   params: {
-    index: string;
+    id: string;
   };
 };
 
 export async function getStaticProps({ params }: Params) {
-  const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
+  const posts = ApiApp.getTodos();
 
-  const posts = DnafisicoequanticoDados.feed.entry;
-  const post = posts.filter((item, key) => key.toString() === params.index);
-
-  const postFormatado = post.map(
-    (item): PostProps => ({
-      title: item.title.$t,
-      content: item.content.$t,
-    })
-  );
-
+  const converseComDNAPost = posts.filter((item) => item.id === 50)[0];
+  const post = posts.filter((item) => item.id.toString() === params.id);
   return {
-    props: { post: postFormatado[0] },
+    props: { post: post[0], converseComDNAPost },
   };
 }

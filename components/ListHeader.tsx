@@ -54,9 +54,10 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
         >
           <DialogTitle id="alert-dialog-title">{modal?.title}</DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              {modal?.conteudo}
-            </DialogContentText>
+            <DialogContentText
+              id="alert-dialog-description"
+              dangerouslySetInnerHTML={{ __html: modal?.conteudo }}
+            ></DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>

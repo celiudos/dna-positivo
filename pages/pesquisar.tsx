@@ -1,5 +1,4 @@
-import BloggerJsonType from "@data/BloggerJsonType";
-import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
+import ApiApp, { PostType } from "@data/ApiApp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -25,13 +24,7 @@ import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
 
 function getSearchObj() {
-  const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
-
-  const posts = DnafisicoequanticoDados.feed.entry;
-  const itens = posts.map((item, key) => ({
-    title: item.title.$t,
-    id: key,
-  }));
+  const itens = ApiApp.getTodos();
 
   const search = new JsSearch.Search("id");
 
@@ -55,14 +48,9 @@ const negritoCss = {
 
 let timeout: NodeJS.Timeout;
 
-type PostProps = {
-  id: string;
-  title: string;
-};
-
 export default function Pesquisar() {
   const [inputPesquisa, setinputPesquisa] = useState("");
-  const [resultadosPesquisa, setResultadosPesquisa] = useState<PostProps[]>([]);
+  const [resultadosPesquisa, setResultadosPesquisa] = useState<PostType[]>([]);
   const [searchWords, setSearchWords] = useState<string[]>([]);
   const [progress, setProgress] = useState(false);
 
@@ -89,7 +77,7 @@ export default function Pesquisar() {
       if (!getSearchObj) return false;
 
       const resultados = getSearchObj().search(val);
-      setResultadosPesquisa(resultados as PostProps[]);
+      setResultadosPesquisa(resultados as PostType[]);
       setSearchWords(val.split(" "));
       setProgress(false);
     }, 1000);
@@ -150,31 +138,34 @@ export default function Pesquisar() {
                     key={keyResult}
                     divider={keyResult !== resultadosPesquisa.length - 1}
                   >
-                    <ListItemText
-                      primary={
-                        <Highlighter
-                          highlightStyle={negritoCss}
-                          searchWords={searchWords}
-                          autoEscape={true}
-                          sanitize={(text) =>
-                            TextUtils.stringToSlugSemHifen(text)
-                          }
-                          textToHighlight={i.title}
-                        />
-                      }
-                      // secondaryTypographyProps={{ component: "div" }}
-                      // secondary={
-                      //   <Highlighter
-                      //     highlightStyle={negritoCss}
-                      //     searchWords={searchWords}
-                      //     autoEscape={true}
-                      // sanitize={(text) =>
-                      //   TextUtils.stringToSlugSemHifen(text)
-                      // }
-                      //     textToHighlight={i.title}
-                      //   />
-                      // }
-                    />
+                    <Link href={i.href} passHref>
+                      <ListItemText
+                        primary={
+                          <Highlighter
+                            highlightStyle={negritoCss}
+                            searchWords={searchWords}
+                            autoEscape={true}
+                            sanitize={(text) =>
+                              TextUtils.stringToSlugSemHifen(text)
+                            }
+                            textToHighlight={i.title}
+                          />
+                        }
+                        secondary={i.catName}
+                        // secondaryTypographyProps={{ component: "div" }}
+                        // secondary={
+                        //   <Highlighter
+                        //     highlightStyle={negritoCss}
+                        //     searchWords={searchWords}
+                        //     autoEscape={true}
+                        // sanitize={(text) =>
+                        //   TextUtils.stringToSlugSemHifen(text)
+                        // }
+                        //     textToHighlight={i.title}
+                        //   />
+                        // }
+                      />
+                    </Link>
                   </ListItem>
                 );
               })}
