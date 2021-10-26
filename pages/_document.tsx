@@ -1,7 +1,7 @@
+import theme from "@styles/theme";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
-import theme from "../src/theme";
 
 // https://mui.com/styles/advanced/#next-js
 export default class MyDocument extends Document {

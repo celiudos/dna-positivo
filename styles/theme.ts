@@ -1,17 +1,16 @@
-import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#556cd6",
+      main: "#260273",
     },
     secondary: {
-      main: "#19857b",
+      main: "#D9A918",
     },
-    error: {
-      main: red.A400,
+    info: {
+      main: "#578BF2",
     },
   },
 });
