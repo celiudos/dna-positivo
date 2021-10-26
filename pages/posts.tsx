@@ -21,7 +21,7 @@ const itens = posts.map(
 export default function Posts() {
   return (
     <Container maxWidth="sm">
-      <MainAppBar />
+      <MainAppBar title="Posts" hrefVoltar="/" />
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
