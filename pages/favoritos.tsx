@@ -4,10 +4,9 @@ import { Grid, Paper } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
 import DnafisicoequanticoJson from "./api/dnafisicoequantico.json";
-import DnafisicoequanticoType from "./api/DnafisicoequanticoType";
+import BloggerJsonType from "./api/DnafisicoequanticoType";
 
-const DnafisicoequanticoDados =
-  DnafisicoequanticoJson as DnafisicoequanticoType;
+const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
 
 const posts = DnafisicoequanticoDados.feed.entry;
 const itens = posts.map(

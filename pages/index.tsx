@@ -31,7 +31,7 @@ export default function Index() {
               <ListItens
                 itens={[
                   { title: "COVID", href: "/posts" },
-                  { title: "Técnicas", href: "/posts" },
+                  { title: "Técnicas", href: "/tecnicas" },
                 ]}
               />
             </Paper>

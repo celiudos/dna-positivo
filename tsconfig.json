@@ -19,6 +19,7 @@
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
       "@styles/*": ["./styles/*"],
       "@hooks/*": ["./hooks/*"],
+      "@data/*": ["./data/*"],
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"]
     }

@@ -1,3 +1,5 @@
+import BloggerJsonType from "@data/BloggerJsonType";
+import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -21,12 +23,9 @@ import * as JsSearch from "js-search";
 import Link from "next/link";
 import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
-import DnafisicoequanticoJson from "./api/dnafisicoequantico.json";
-import DnafisicoequanticoType from "./api/DnafisicoequanticoType";
 
 function getSearchObj() {
-  const DnafisicoequanticoDados =
-    DnafisicoequanticoJson as DnafisicoequanticoType;
+  const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
 
   const posts = DnafisicoequanticoDados.feed.entry;
   const itens = posts.map((item, key) => ({
@@ -55,7 +54,7 @@ const negritoCss = {
 };
 
 let timeout: NodeJS.Timeout;
-let timeoutFull: NodeJS.Timeout;
+
 type PostProps = {
   id: string;
   title: string;

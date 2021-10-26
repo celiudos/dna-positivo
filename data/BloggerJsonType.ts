@@ -1,4 +1,4 @@
-interface DnafisicoequanticoType {
+interface BloggerJsonType {
   version: string;
   encoding: string;
   feed: Feed;
@@ -76,4 +76,4 @@ interface Id {
   $t: string;
 }
 
-export default DnafisicoequanticoType;
+export default BloggerJsonType;

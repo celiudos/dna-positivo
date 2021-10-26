@@ -1,17 +1,16 @@
 import ListHeader from "@components/ListHeader";
 import ListItens, { ItemProps } from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
+import BloggerJsonType from "@data/BloggerJsonType";
+import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
 import { Grid, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
-import DnafisicoequanticoJson from "./api/dnafisicoequantico.json";
-import DnafisicoequanticoType from "./api/DnafisicoequanticoType";
 
-const DnafisicoequanticoDados =
-  DnafisicoequanticoJson as DnafisicoequanticoType;
+const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
 
 const posts = DnafisicoequanticoDados.feed.entry;
 const itens = posts.map(
-  (item, key): ItemProps => ({
+  (item: any, key: any): ItemProps => ({
     title: item.title.$t,
     href: `/post/${key}`,
     hasStar: true,

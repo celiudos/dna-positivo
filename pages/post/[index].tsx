@@ -1,5 +1,7 @@
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
+import BloggerJsonType from "@data/BloggerJsonType";
+import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StarIcon from "@mui/icons-material/Star";
@@ -16,8 +18,6 @@ import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { useRouter } from "next/dist/client/router";
-import DnafisicoequanticoJson from "../api/dnafisicoequantico.json";
-import DnafisicoequanticoType from "../api/DnafisicoequanticoType";
 
 type PostProps = { title: string; content: string };
 
@@ -120,13 +120,10 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const DnafisicoequanticoDados =
-    DnafisicoequanticoJson as DnafisicoequanticoType;
-  console.log("params:", params);
+  const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
 
   const posts = DnafisicoequanticoDados.feed.entry;
   const post = posts.filter((item, key) => key.toString() === params.index);
-  console.log("post:", post);
 
   const postFormatado = post.map(
     (item): PostProps => ({
@@ -134,8 +131,6 @@ export async function getStaticProps({ params }: Params) {
       content: item.content.$t,
     })
   );
-
-  console.log("postFormatado:", postFormatado);
 
   return {
     props: { post: postFormatado[0] },
