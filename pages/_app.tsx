@@ -17,8 +17,8 @@ export default function MyApp(props: AppProps) {
         <title>Next App</title>
         <link href="/favicon.ico" rel="icon" />
         <meta
-          content="minimum-scale=1, initial-scale=1, width=device-width"
           name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
       </Head>
       <ThemeProvider theme={theme}>
