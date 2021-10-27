@@ -1,6 +1,7 @@
 import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
+import ApiApp from "@data/ApiApp";
 import { Grid, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
@@ -8,7 +9,7 @@ import Image from "next/image";
 
 export default function Index() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" disableGutters>
       <MainAppBar />
       <main>
         <DisplayFlexCenter>
@@ -50,8 +51,16 @@ export default function Index() {
               <ListItens
                 hasStar={false}
                 itens={[
-                  { title: "DNA Positivo", href: "/cat/2" },
-                  { title: "DNA físico e Quântico", href: "/cat/1" },
+                  {
+                    ...ApiApp.getDefaultPost(),
+                    title: "DNA Positivo",
+                    href: "/cat/2",
+                  },
+                  {
+                    ...ApiApp.getDefaultPost(),
+                    title: "DNA físico e Quântico",
+                    href: "/cat/1",
+                  },
                 ]}
               />
             </Paper>
@@ -63,6 +72,7 @@ export default function Index() {
                 hasStar={false}
                 itens={[
                   {
+                    ...ApiApp.getDefaultPost(),
                     title: "Inteligência Artificial Positiva",
                     href: "/cat/3",
                   },

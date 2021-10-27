@@ -1,5 +1,4 @@
 import ApiApp from "@data/ApiApp";
-import { PostType } from "@data/PostType";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -18,6 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { Box } from "@mui/system";
 import theme from "@styles/theme";
+import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
 import * as JsSearch from "js-search";
 import Link from "next/link";
@@ -51,7 +51,7 @@ let timeout: NodeJS.Timeout;
 
 export default function Pesquisar() {
   const [inputPesquisa, setinputPesquisa] = useState("");
-  const [resultadosPesquisa, setResultadosPesquisa] = useState<PostType[]>([]);
+  const [resultadosPesquisa, setResultadosPesquisa] = useState<IPost[]>([]);
   const [searchWords, setSearchWords] = useState<string[]>([]);
   const [progress, setProgress] = useState(false);
 
@@ -78,7 +78,7 @@ export default function Pesquisar() {
       if (!getSearchObj) return false;
 
       const resultados = getSearchObj().search(val);
-      setResultadosPesquisa(resultados as PostType[]);
+      setResultadosPesquisa(resultados as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);
     }, 1000);

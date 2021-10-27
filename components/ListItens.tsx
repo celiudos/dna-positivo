@@ -8,7 +8,7 @@ import EstrelaFavorito from "./EstrelaFavorito";
 
 export default function ListItens({ itens, hasStar = true }: IListItem) {
   return (
-    <List component="nav" aria-label="Lista de itens">
+    <List component="nav" aria-label="Lista de itens" disablePadding>
       {itens
         ? itens.map((item, key) => (
             <ListItem

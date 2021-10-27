@@ -5,6 +5,16 @@ import IBloggerJson from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 
 export default class ApiApp {
+  static defaultPost: IPost = {
+    title: "",
+    content: "",
+    cat: 0,
+    catName: "",
+    id: 0,
+    isSubheader: false,
+    href: "",
+  };
+
   static getTodos(): IPost[] {
     const DnafisicoequanticoDados = DnafisicoequanticoJson as IBloggerJson;
     const DnapositivoDados = DnapositivoJson as IBloggerJson;
@@ -40,5 +50,9 @@ export default class ApiApp {
     );
 
     return itens;
+  }
+
+  static getDefaultPost(): IPost {
+    return ApiApp.defaultPost;
   }
 }

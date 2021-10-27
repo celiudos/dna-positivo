@@ -1,9 +1,9 @@
 export interface IPost {
-  id?: number;
+  id: number;
   title: string;
-  content?: string;
-  cat?: number;
-  catName?: string;
+  content: string;
+  cat: number;
+  catName: string;
   href: string;
-  isSubheader?: boolean;
+  isSubheader: boolean;
 }

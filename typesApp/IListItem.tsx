@@ -1,6 +1,6 @@
 import { IPost } from "@typesApp/IPost";
 
-export interface IListItem extends IPost {
+export interface IListItem {
   itens: IPost[];
   hasStar?: boolean;
 }
