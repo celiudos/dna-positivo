@@ -4,16 +4,19 @@ import InteligenciaartificialpositivaJson from "@data/inteligenciaartificialposi
 import IBloggerJson from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
+import sanitizeHtml from "sanitize-html";
 
 export default class ApiApp {
   static defaultPost: IPost = {
     title: "",
     content: "",
+    contentSanitized: "",
     cat: 0,
     catName: "",
     id: 0,
     isSubheader: false,
     href: "",
+    hrefOriginal: "",
   };
 
   static getTodos(): IPost[] {
@@ -42,11 +45,34 @@ export default class ApiApp {
       (item: any, key): IPost => ({
         title: item.title.$t,
         content: item.content.$t,
+        contentSanitized: sanitizeHtml(item.content.$t, {
+          // allowedTags: [""],
+          // allowedAttributes: {},
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          allowedStyles: {
+            "*": {
+              // Match HEX and RGB
+              color: [
+                /^#(0x)?[0-9a-f]+$/i,
+                /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/,
+              ],
+              "text-align": [/^left$/, /^right$/, /^center$/],
+              // Match any number with px, em, or %
+              "font-size": [/^\d+(?:px|em|%)$/],
+            },
+            p: {
+              "font-size": [/^\d+rem$/],
+            },
+          },
+        }),
         cat: item.cat,
         catName: item.catName,
         id: key,
         isSubheader: false,
         href: `/cat/${item.cat}/${key}`,
+        hrefOriginal: item.link.filter(
+          (l: any) => l.type === "text/html" && l.rel === "alternate"
+        )[0].href,
       })
     );
 

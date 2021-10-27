@@ -78,7 +78,7 @@ export default function Pesquisar() {
       if (!getSearchObj) return false;
 
       const resultados = getSearchObj().search(val);
-      setResultadosPesquisa(resultados as IPost[]);
+      setResultadosPesquisa(resultados.slice(0, 50) as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);
     }, 1000);

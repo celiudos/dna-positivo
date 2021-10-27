@@ -9,12 +9,13 @@ import DialogTitle from "@mui/material/DialogTitle";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import { IPost } from "@typesApp/IPost";
 import * as React from "react";
 
 type Props = {
   primary?: string;
   secondary?: string;
-  modal?: { title: string; conteudo: string };
+  modal?: Pick<IPost, "title" | "contentSanitized">;
 };
 
 export default function ListHeader({ primary, secondary, modal }: Props) {
@@ -56,7 +57,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
           <DialogContent>
             <DialogContentText
               id="alert-dialog-description"
-              dangerouslySetInnerHTML={{ __html: modal?.conteudo }}
+              dangerouslySetInnerHTML={{ __html: modal?.contentSanitized }}
             ></DialogContentText>
           </DialogContent>
           <DialogActions>

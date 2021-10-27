@@ -19,10 +19,27 @@ Todas são gratuitas, inclusive hospedagem
 
 # TODO
 
-- Redimensionar fonte
 - Favoritar
 - Deixar responsivo mobile
 - Permitir acesso offline
 - Publicar na Vercel
 - Tratar os textos do JSON
 - Refinar layout (distância textos corpo)
+- Como tratar novos dados (ex: Diálogo)
+- Redimensionar fonte (salvar no cookie)
+- Últimos diálogos acessados (Cookie)
+
+# URLS
+
+Sites:
+
+- https://dnapositivo.blogspot.com/
+- https://dnafisicoequantico.blogspot.com/
+- https://inteligenciaartificialpositiva.blogspot.com/
+
+Aux:
+
+- https://www.exeideas.com/2016/02/parameters-in-blogspot-feed.html
+
+- Recuperar últimos posts
+  -- https://dnafisicoequantico.blogspot.com/feeds/posts/default?alt=json&updated-min=2021-10-25T00:00:00&orderby=updated

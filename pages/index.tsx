@@ -23,7 +23,7 @@ export default function Index() {
               secondary="Todas as explicações detalhadas sobre cada técnica"
               modal={{
                 title: "Introdução",
-                conteudo:
+                contentSanitized:
                   "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
               }}
             />

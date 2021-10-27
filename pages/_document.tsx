@@ -7,7 +7,7 @@ import { ServerStyleSheet } from "styled-components";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="pt-br">
         <Head>
           {/* PWA primary color */}
           <meta content={theme.palette.primary.main} name="theme-color" />

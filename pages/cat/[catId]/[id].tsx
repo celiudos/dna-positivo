@@ -17,8 +17,8 @@ import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import React, { useState } from "react";
-import sanitizeHtml from "sanitize-html";
 import styled from "styled-components";
 
 type Props = {
@@ -34,24 +34,6 @@ export default function Post({ post, converseComDNAPost }: Props) {
 
   if (router.isFallback) return "Carregando...";
 
-  const conteudoSantize = sanitizeHtml(post.content, {
-    allowedStyles: {
-      "*": {
-        // Match HEX and RGB
-        color: [
-          /^#(0x)?[0-9a-f]+$/i,
-          /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/,
-        ],
-        "text-align": [/^left$/, /^right$/, /^center$/],
-        // Match any number with px, em, or %
-        "font-size": [/^\d+(?:px|em|%)$/],
-      },
-      p: {
-        "font-size": [/^\d+rem$/],
-      },
-    },
-  });
-
   return (
     <Container maxWidth="sm" disableGutters>
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
@@ -63,7 +45,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
               secondary={converseComDNAPost.title}
               modal={{
                 title: converseComDNAPost.title,
-                conteudo: converseComDNAPost.content,
+                contentSanitized: converseComDNAPost.contentSanitized,
               }}
             />
             <Paper>
@@ -120,21 +102,31 @@ export default function Post({ post, converseComDNAPost }: Props) {
                   >
                     {post.title}
                   </Typography>
-                  {/* <Divider />
-                  <Typography
-                    variant="body1"
-                    style={{ fontSize: `1.${tamanhoFonte}rem` }}
-                    gutterBottom
-                    dangerouslySetInnerHTML={{ __html: conteudoSantize }}
-                  /> */}
-                  <Divider />
+                  <Link href={post.hrefOriginal || ""} passHref>
+                    <Button variant="outlined" href="" target="_blank">
+                      Publicação original
+                    </Button>
+                  </Link>
+
                   <ContainerPostCss>
+                    <Box my={2}>
+                      <Divider />
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      style={{ fontSize: `1.${tamanhoFonte}rem` }}
+                      gutterBottom
+                      dangerouslySetInnerHTML={{
+                        __html: post.contentSanitized,
+                      }}
+                    />
+                    {/* <Divider />
                     <Typography
                       variant="body1"
                       style={{ fontSize: `1.${tamanhoFonte}rem` }}
                       gutterBottom
                       dangerouslySetInnerHTML={{ __html: post.content }}
-                    />
+                    /> */}
                   </ContainerPostCss>
                 </Grid>
               </Grid>
