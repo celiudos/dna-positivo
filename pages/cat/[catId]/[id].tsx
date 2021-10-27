@@ -26,11 +26,16 @@ type Props = {
   converseComDNAPost: IPost;
 };
 
+const FONTE_CONFIG = {
+  min: 0,
+  max: 5,
+};
+
 export default function Post({ post, converseComDNAPost }: Props) {
   const router = useRouter();
   const { catId } = router.query;
 
-  let [tamanhoFonte, setTamanhoFonte] = useState(0);
+  let [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
 
   if (router.isFallback) return "Carregando...";
 
@@ -58,10 +63,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
                   alignItems="center"
                 >
                   <Grid item xs={6}>
-                    <DisplayFlexCenter style={{ justifyContent: "start" }}>
-                      <Box mr={1}>FAVORITO</Box>
-                      <EstrelaFavorito item={post} />
-                    </DisplayFlexCenter>
+                    <EstrelaFavorito item={post} typeBtn />
                   </Grid>
                   <Grid item xs={6}>
                     <DisplayFlexCenter style={{ justifyContent: "end" }}>
@@ -72,22 +74,24 @@ export default function Post({ post, converseComDNAPost }: Props) {
                         aria-label="alterar tamanho da fonte"
                       >
                         <Button
+                          disabled={FONTE_CONFIG.min === tamanhoFonte}
                           onClick={() =>
-                            tamanhoFonte < 5
-                              ? setTamanhoFonte(++tamanhoFonte)
-                              : setTamanhoFonte(5)
-                          }
-                        >
-                          <AddIcon />
-                        </Button>
-                        <Button
-                          onClick={() =>
-                            tamanhoFonte > 0
+                            tamanhoFonte > FONTE_CONFIG.min
                               ? setTamanhoFonte(--tamanhoFonte)
-                              : setTamanhoFonte(0)
+                              : setTamanhoFonte(FONTE_CONFIG.min)
                           }
                         >
                           <RemoveIcon />
+                        </Button>
+                        <Button
+                          disabled={FONTE_CONFIG.max === tamanhoFonte}
+                          onClick={() =>
+                            tamanhoFonte < FONTE_CONFIG.max
+                              ? setTamanhoFonte(++tamanhoFonte)
+                              : setTamanhoFonte(FONTE_CONFIG.max)
+                          }
+                        >
+                          <AddIcon />
                         </Button>
                       </ButtonGroup>
                     </DisplayFlexCenter>

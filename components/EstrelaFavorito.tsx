@@ -1,17 +1,20 @@
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
-import { IconButton } from "@mui/material";
-import { favoritoAlteradoAction } from "@store/actionCreator";
+import { Button, IconButton } from "@mui/material";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
 import * as React from "react";
-import { useDispatch } from "react-redux";
 
-export default function EstrelaFavorito({ item }: { item: IPost }) {
+export default function EstrelaFavorito({
+  item,
+  typeBtn,
+}: {
+  item: IPost;
+  typeBtn?: boolean;
+}) {
   const [favStorage, setFavStorage] = React.useState(
     FavoritosStorageUtils.getObjDefault
   );
-  const dispatch = useDispatch();
 
   React.useEffect(() => {
     setFavStorage(FavoritosStorageUtils.get());
@@ -19,26 +22,34 @@ export default function EstrelaFavorito({ item }: { item: IPost }) {
 
   const isItemComEstrela = !!favStorage.favoritos[item.id];
 
-  return (
-    <IconButton
-      edge="end"
-      aria-label="favorito"
-      onClick={() => {
-        let jsonStorage;
-        if (isItemComEstrela) {
-          jsonStorage = FavoritosStorageUtils.removeById(item.id.toString());
-        } else {
-          jsonStorage = FavoritosStorageUtils.set(item);
-        }
-        dispatch(favoritoAlteradoAction(item));
-        setFavStorage(jsonStorage);
-      }}
+  function onClickIcon() {
+    let jsonStorage;
+    if (isItemComEstrela) {
+      jsonStorage = FavoritosStorageUtils.removeById(item.id.toString());
+    } else {
+      jsonStorage = FavoritosStorageUtils.set(item);
+    }
+    setFavStorage(jsonStorage);
+  }
+
+  const ElemEstrela = isItemComEstrela ? (
+    <StarIcon color="secondary" />
+  ) : (
+    <StarBorderOutlinedIcon />
+  );
+
+  return typeBtn ? (
+    <Button
+      variant="outlined"
+      color="inherit"
+      endIcon={ElemEstrela}
+      onClick={onClickIcon}
     >
-      {isItemComEstrela ? (
-        <StarIcon color="secondary" />
-      ) : (
-        <StarBorderOutlinedIcon />
-      )}
+      Favorito
+    </Button>
+  ) : (
+    <IconButton edge="end" aria-label="favorito" onClick={onClickIcon}>
+      {ElemEstrela}
     </IconButton>
   );
 }
