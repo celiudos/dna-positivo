@@ -1,5 +1,5 @@
 import InfoIcon from "@mui/icons-material/Info";
-import { IconButton } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -42,7 +42,10 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
             ) : null
           }
         >
-          <ListItemText primary={primary} secondary={secondary} />
+          <ListItemText
+            primary={<Typography variant="h5">{primary}</Typography>}
+            secondary={secondary}
+          />
         </ListItem>
       </List>
 

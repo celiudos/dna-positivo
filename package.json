@@ -16,6 +16,8 @@
     "@mui/material": "^5.0.5",
     "@mui/styled-engine-sc": "^5.0.3",
     "@types/js-search": "^1.4.0",
+    "axios": "^0.24.0",
+    "date-fns": "^2.25.0",
     "js-search": "^2.0.0",
     "lodash": "^4.17.21",
     "next": "11.1.2",

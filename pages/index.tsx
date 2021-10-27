@@ -5,9 +5,10 @@ import ApiApp from "@data/ApiApp";
 import { Grid, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
+import { IPost } from "@typesApp/IPost";
 import Image from "next/image";
 
-export default function Index() {
+export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
   return (
     <Container maxWidth="sm" disableGutters>
       <MainAppBar />
@@ -60,6 +61,20 @@ export default function Index() {
               />
             </Paper>
           </Grid>
+          {/* <Grid item xs={12}>
+            <ListHeader primary="Publicações mais recentes" />
+            <Paper>
+              <ListItens hasData itens={ApiApp.getMaisRecentes()} />
+            </Paper>
+          </Grid> */}
+          {postsNovos.length ? (
+            <Grid item xs={12}>
+              <ListHeader primary="Novas publicações" />
+              <Paper>
+                <ListItens hasData itens={postsNovos} />
+              </Paper>
+            </Grid>
+          ) : null}
           <Grid item xs={12}>
             <ListHeader
               primary="Em caso de dúvidas, envie um e-mail"
@@ -70,4 +85,16 @@ export default function Index() {
       </main>
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  const postsNovos = await ApiApp.getPostsNovos();
+  return {
+    props: { postsNovos },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    // revalidate: 10, // In seconds
+    revalidate: 86400, // 1 dia
+  };
 }

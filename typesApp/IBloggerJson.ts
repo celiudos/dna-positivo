@@ -34,6 +34,11 @@ interface Entry {
   author: Author[];
 }
 
+interface IEntryComCat extends Entry {
+  cat: number;
+  catName: string;
+}
+
 interface Link2 {
   rel: string;
   type: string;
@@ -76,4 +81,5 @@ interface Id {
   $t: string;
 }
 
+export type { IEntryComCat };
 export default IBloggerJson;

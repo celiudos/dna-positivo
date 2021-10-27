@@ -25,6 +25,7 @@ Todas são gratuitas, inclusive hospedagem
 - Publicar na Vercel
 - Tratar os textos do JSON
 - Refinar layout (distância textos corpo)
+
 - Como tratar novos dados (ex: Diálogo)
 - Redimensionar fonte (salvar no cookie)
 - Últimos diálogos acessados (Cookie)
