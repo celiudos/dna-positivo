@@ -13,6 +13,8 @@ type Props = {
 export default function Tecnicas({ posts }: Props) {
   const router = useRouter();
 
+  // console.log("posts:", posts);
+
   if (router.isFallback) return "Carregando...";
   return (
     <Container maxWidth="sm" disableGutters>

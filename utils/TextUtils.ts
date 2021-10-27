@@ -1,4 +1,105 @@
+import lodash from "lodash";
+
+interface IFiltrarPorTermos {
+  termos: Array<string>;
+  alvoPesquisa: string;
+  isOtimizado?: boolean /* Remove chars especiais */;
+  isTermoExato?: boolean /* Procura exatamente o valor do alvoPesquisa */;
+}
+
+type TFiltrarPorTermos = {
+  isEncontrado: boolean;
+  encontradoPor: string;
+};
 export default class TextUtils {
+  static filtrarPorTermos({
+    termos,
+    alvoPesquisa,
+    isOtimizado,
+    isTermoExato,
+  }: IFiltrarPorTermos): TFiltrarPorTermos {
+    let resJson = {
+      isEncontrado: false,
+      encontradoPor: "",
+    };
+
+    if (typeof alvoPesquisa !== "string") {
+      console.log(
+        "Erro filtrarPorTermosETrazerResultado: alvoPesquisa não é String"
+      );
+      return resJson;
+    }
+
+    const alvoPesquisaLowerCase = alvoPesquisa.trim().toLowerCase();
+
+    termos.filter((c) => {
+      const termoObjLowerCase = c.trim().toLowerCase();
+      let filtrado = false;
+
+      if (isTermoExato && isOtimizado) {
+        filtrado =
+          TextUtils.substituirCharsSpeciais(alvoPesquisaLowerCase) ==
+          TextUtils.substituirCharsSpeciais(termoObjLowerCase);
+      } else if (isTermoExato && !isOtimizado) {
+        filtrado = alvoPesquisaLowerCase == termoObjLowerCase;
+      } else if (!isTermoExato && isOtimizado) {
+        filtrado =
+          TextUtils.substituirCharsSpeciais(alvoPesquisaLowerCase).indexOf(
+            TextUtils.substituirCharsSpeciais(termoObjLowerCase)
+          ) !== -1;
+      } else if (!isTermoExato && !isOtimizado) {
+        filtrado = alvoPesquisaLowerCase.indexOf(termoObjLowerCase) !== -1;
+      } else {
+        filtrado = false;
+      }
+
+      if (filtrado) {
+        resJson.isEncontrado = true;
+        resJson.encontradoPor = c;
+      }
+      return c;
+    });
+
+    return resJson;
+  }
+
+  static substituirCharsSpeciais(s: string): string {
+    if (!s) return "";
+    // var i;
+    // var r = s.toLowerCase();
+    // var non_asciis = {
+    //   "": "[.,?()!@#%&*()?<>=-]",
+    //   " ": "[/]",
+    //   S: "[$]",
+    //   a: "[àáâãäå]",
+    //   ae: "æ",
+    //   c: "ç",
+    //   e: "[èéêë]",
+    //   i: "[ìíîï]",
+    //   n: "ñ",
+    //   o: "[òóôõö]",
+    //   oe: "œ",
+    //   u: "[ùúûűü]",
+    //   y: "[ýÿ]",
+    //   ____: '["]',
+    //   ___: "[:]",
+    //   __: "[}]",
+    //   _: "[{]",
+    // };
+    // for (i in non_asciis) {
+    //   r = r.replace(new RegExp(non_asciis[i], "g"), i);
+    // }
+    // return r;
+    // s = s.trim();
+    // s = s
+    //   .replaceAll("  ", " ")
+    //   .replaceAll(new RegExp("[.,?()!@#%&*()?<>=-]", "g"), "");
+    s = s.replaceAll(new RegExp("[.-]", "g"), "");
+    s = lodash.words(s).join(" ");
+    s = lodash.deburr(s);
+    return s;
+  }
+
   static removerEspacosString(str: string): string {
     try {
       return str.replaceAll("\n", "").replaceAll("\t", "").trim();

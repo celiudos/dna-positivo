@@ -4,8 +4,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { IListItem } from "@typesApp/IListItem";
 import { IPost } from "@typesApp/IPost";
+import GenericUtils from "@utils/GenericUtils";
 import TextUtils from "@utils/TextUtils";
-import lodash from "lodash";
 import Link from "next/link";
 import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
@@ -14,19 +14,27 @@ import styled from "styled-components";
 import EstrelaFavorito from "./EstrelaFavorito";
 
 function agruparPorLetras(rawData: [], key: string) {
-  const semEspaco = rawData.map((r: any) => ({ ...r, [key]: r[key].trim() }));
-  const ordenado = lodash.orderBy(semEspaco, key);
+  const semEspaco = rawData.map((r: any) => ({
+    ...r,
+    [key]: r[key].trim(),
+  })) as [];
+  // const ordenado = lodash.orderBy(semEspaco, key);
+  const ordenado = GenericUtils.orderByLocale(semEspaco, key);
   let firstLetterActual = "";
   let data = ordenado.reduce((r: any, e: any) => {
-    let firstLetter = e[key][0];
+    let firstLetter = TextUtils.stringToSlugSemHifen(e[key][0]);
+
+    // if (firstLetter === "o") {
+    //   console.log("e[key]:", e[key], firstLetter);
+    // }
 
     if (firstLetter !== firstLetterActual) {
       r.push({
-        title: firstLetter,
+        title: firstLetter.toUpperCase(),
         href: "",
         isSubheader: true,
       });
-      firstLetterActual = firstLetter;
+      firstLetterActual = TextUtils.stringToSlugSemHifen(firstLetter);
     }
     return r.concat({ ...e, isSubheader: false });
   }, []);

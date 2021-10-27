@@ -3,6 +3,7 @@ import DnapositivoJson from "@data/dnapositivo.json";
 import InteligenciaartificialpositivaJson from "@data/inteligenciaartificialpositiva.json";
 import IBloggerJson from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
+import TextUtils from "@utils/TextUtils";
 
 export default class ApiApp {
   static defaultPost: IPost = {
@@ -49,10 +50,33 @@ export default class ApiApp {
       })
     );
 
-    return itens;
+    return ApiApp.tratarDados(itens);
   }
 
   static getDefaultPost(): IPost {
     return ApiApp.defaultPost;
+  }
+
+  static tratarDados(posts: IPost[]): IPost[] {
+    const postsTratados = posts.map((p) => {
+      // if (p.title.indexOf("-ureteral grau IV") !== -1) {
+      //   console.log("p.title:", p.title);
+      // }
+      let novoTitle = p.title;
+
+      novoTitle = novoTitle
+        .replace("Diálogo dirigido com o ", "")
+        .replace("Diálogo Dirigido com o ", "")
+        .replace("Diálogo dirigido com a ", "")
+        .replace("Diálogo Dirigido com a ", "")
+        .replace("Diálogo Dirigido com ", "");
+      novoTitle = novoTitle.trim();
+      novoTitle = TextUtils.capitalize(novoTitle);
+
+      p.title = novoTitle;
+
+      return p;
+    });
+    return postsTratados;
   }
 }

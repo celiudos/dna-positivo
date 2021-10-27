@@ -14,6 +14,14 @@ export default class GenericUtils {
     s = lodash.deburr(s);
     return s;
   }
+  static orderByLocale = (arr: [], campoNome: string) => {
+    if (Array.isArray(arr)) {
+      /* @ts-ignore */
+      return arr.sort((a, b) => a[campoNome].localeCompare(b[campoNome]));
+    } else {
+      return [];
+    }
+  };
 
   static getDinheiroFormatado({
     valor = 0.0,
