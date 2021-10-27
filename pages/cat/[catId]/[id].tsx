@@ -17,6 +17,7 @@ import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { useRouter } from "next/dist/client/router";
+import { useState } from "react";
 
 type PostProps = { title: string; content: string };
 
@@ -29,7 +30,10 @@ export default function Post({ post, converseComDNAPost }: Props) {
   const router = useRouter();
   const { catId } = router.query;
 
+  let [tamanhoFonte, setTamanhoFonte] = useState(0);
+
   if (router.isFallback) return "Carregando...";
+
   return (
     <Container maxWidth="sm">
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
@@ -69,17 +73,29 @@ export default function Post({ post, converseComDNAPost }: Props) {
                     </Button>
                   </Grid>
                   <Grid item xs={6}>
-                    <DisplayFlexCenter>
+                    <DisplayFlexCenter style={{ justifyContent: "end" }}>
                       <Box mr={1}>FONTE</Box>
                       <ButtonGroup
                         color="inherit"
                         variant="outlined"
                         aria-label="alterar tamanho da fonte"
                       >
-                        <Button>
+                        <Button
+                          onClick={() =>
+                            tamanhoFonte < 5
+                              ? setTamanhoFonte(++tamanhoFonte)
+                              : setTamanhoFonte(5)
+                          }
+                        >
                           <AddIcon />
                         </Button>
-                        <Button>
+                        <Button
+                          onClick={() =>
+                            tamanhoFonte > 0
+                              ? setTamanhoFonte(--tamanhoFonte)
+                              : setTamanhoFonte(0)
+                          }
+                        >
                           <RemoveIcon />
                         </Button>
                       </ButtonGroup>
@@ -87,12 +103,18 @@ export default function Post({ post, converseComDNAPost }: Props) {
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography variant="h4" gutterBottom component="div">
+                  <Typography
+                    variant="h4"
+                    gutterBottom
+                    component="div"
+                    style={{ fontSize: `2.${tamanhoFonte}25rem` }}
+                  >
                     {post.title}
                   </Typography>
                   <Divider />
                   <Typography
                     variant="body1"
+                    style={{ fontSize: `1.${tamanhoFonte}rem` }}
                     gutterBottom
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
