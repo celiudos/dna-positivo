@@ -48,6 +48,7 @@ export default function Index() {
             />
             <Paper>
               <ListItens
+                hasStar={false}
                 itens={[
                   { title: "DNA Positivo", href: "/cat/2" },
                   { title: "DNA físico e Quântico", href: "/cat/1" },
@@ -59,6 +60,7 @@ export default function Index() {
             <ListHeader secondary="Para tratar problemas, neutralizar ameaças e as mais diversas manipulações no nosso planeta" />
             <Paper>
               <ListItens
+                hasStar={false}
                 itens={[
                   {
                     title: "Inteligência Artificial Positiva",

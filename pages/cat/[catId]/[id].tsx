@@ -1,10 +1,9 @@
+import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import StarIcon from "@mui/icons-material/Star";
-import StarOutlineIcon from "@mui/icons-material/StarBorderOutlined";
 import {
   Button,
   ButtonGroup,
@@ -16,14 +15,13 @@ import {
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
+import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
-import { useState } from "react";
-
-type PostProps = { title: string; content: string };
+import React, { useState } from "react";
 
 type Props = {
-  post: PostProps;
-  converseComDNAPost: PostProps;
+  post: IPost;
+  converseComDNAPost: IPost;
 };
 
 export default function Post({ post, converseComDNAPost }: Props) {
@@ -58,19 +56,10 @@ export default function Post({ post, converseComDNAPost }: Props) {
                   alignItems="center"
                 >
                   <Grid item xs={6}>
-                    <Button
-                      color="inherit"
-                      variant="outlined"
-                      endIcon={
-                        false ? (
-                          <StarOutlineIcon />
-                        ) : (
-                          <StarIcon color="secondary" />
-                        )
-                      }
-                    >
-                      Favorito
-                    </Button>
+                    <DisplayFlexCenter style={{ justifyContent: "start" }}>
+                      <Box mr={1}>FAVORITO</Box>
+                      <EstrelaFavorito item={post} />
+                    </DisplayFlexCenter>
                   </Grid>
                   <Grid item xs={6}>
                     <DisplayFlexCenter style={{ justifyContent: "end" }}>

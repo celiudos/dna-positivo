@@ -1,4 +1,4 @@
-interface BloggerJsonType {
+interface IBloggerJson {
   version: string;
   encoding: string;
   feed: Feed;
@@ -76,4 +76,4 @@ interface Id {
   $t: string;
 }
 
-export default BloggerJsonType;
+export default IBloggerJson;

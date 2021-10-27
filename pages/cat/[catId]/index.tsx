@@ -1,25 +1,13 @@
 import ListSection from "@components/ListSection";
 import MainAppBar from "@components/MainAppBar";
-import ApiApp, { PostType } from "@data/ApiApp";
-import BloggerJsonType from "@data/BloggerJsonType";
-import DnaPositivoJson from "@data/dnapositivo.json";
+import ApiApp from "@data/ApiApp";
 import { Grid, Paper } from "@mui/material";
 import Container from "@mui/material/Container";
+import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
 
-const DnaPositivoDados = DnaPositivoJson as BloggerJsonType;
-
-const posts = DnaPositivoDados.feed.entry;
-const itens = posts.map((item, key) => ({
-  id: key,
-  title: item.title.$t,
-  href: `/post/${key}`,
-  hasStar: true,
-  isSubheader: false,
-}));
-
 type Props = {
-  posts: PostType[];
+  posts: IPost[];
 };
 
 export default function Tecnicas({ posts }: Props) {

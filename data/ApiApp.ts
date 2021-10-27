@@ -1,24 +1,15 @@
-import BloggerJsonType from "@data/BloggerJsonType";
 import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
 import DnapositivoJson from "@data/dnapositivo.json";
 import InteligenciaartificialpositivaJson from "@data/inteligenciaartificialpositiva.json";
-
-export type PostType = {
-  id: number;
-  title: string;
-  content: string;
-  cat: number;
-  catName: string;
-  href: string;
-  isSubheader: boolean;
-};
+import IBloggerJson from "@typesApp/IBloggerJson";
+import { IPost } from "@typesApp/IPost";
 
 export default class ApiApp {
-  static getTodos(): PostType[] {
-    const DnafisicoequanticoDados = DnafisicoequanticoJson as BloggerJsonType;
-    const DnapositivoDados = DnapositivoJson as BloggerJsonType;
+  static getTodos(): IPost[] {
+    const DnafisicoequanticoDados = DnafisicoequanticoJson as IBloggerJson;
+    const DnapositivoDados = DnapositivoJson as IBloggerJson;
     const InteligenciaartificialpositivaDados =
-      InteligenciaartificialpositivaJson as BloggerJsonType;
+      InteligenciaartificialpositivaJson as IBloggerJson;
     const posts1 = DnafisicoequanticoDados.feed.entry.map((p) => ({
       ...p,
       cat: 1,
@@ -37,7 +28,7 @@ export default class ApiApp {
 
     const posts = [...posts1, ...posts2, ...posts3];
     const itens = posts.map(
-      (item: any, key): PostType => ({
+      (item: any, key): IPost => ({
         title: item.title.$t,
         content: item.content.$t,
         cat: item.cat,

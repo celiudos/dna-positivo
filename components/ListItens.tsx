@@ -1,30 +1,19 @@
-import StarIcon from "@mui/icons-material/StarBorderOutlined";
-import { IconButton, ListItem, ListItemButton } from "@mui/material";
+import { ListItem, ListItemButton } from "@mui/material";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
+import { IListItem } from "@typesApp/IListItem";
 import Link from "next/link";
 import * as React from "react";
+import EstrelaFavorito from "./EstrelaFavorito";
 
-export type ItemProps = { title: string; href: string; hasStar?: boolean };
-
-export type ListItensProps = {
-  itens: ItemProps[];
-};
-
-export default function ListItens({ itens }: ListItensProps) {
+export default function ListItens({ itens, hasStar = true }: IListItem) {
   return (
     <List component="nav" aria-label="Lista de itens">
       {itens
         ? itens.map((item, key) => (
             <ListItem
               key={key}
-              secondaryAction={
-                item.hasStar ? (
-                  <IconButton edge="end" aria-label="favorito">
-                    <StarIcon />
-                  </IconButton>
-                ) : null
-              }
+              secondaryAction={hasStar ? <EstrelaFavorito item={item} /> : null}
               disablePadding
             >
               <Link href={item.href || ""} passHref>

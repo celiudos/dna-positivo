@@ -1,4 +1,5 @@
-import ApiApp, { PostType } from "@data/ApiApp";
+import ApiApp from "@data/ApiApp";
+import { PostType } from "@data/PostType";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ClearIcon from "@mui/icons-material/Clear";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";

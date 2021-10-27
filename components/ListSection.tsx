@@ -1,8 +1,9 @@
-import { PostType } from "@data/ApiApp";
 import { ListSubheader, Tab, Tabs, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { IListItem } from "@typesApp/IListItem";
+import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
 import lodash from "lodash";
 import Link from "next/link";
@@ -10,10 +11,7 @@ import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList as List, ListChildComponentProps } from "react-window";
 import styled from "styled-components";
-
-type Props = {
-  itens: PostType[];
-};
+import EstrelaFavorito from "./EstrelaFavorito";
 
 function agruparPorLetras(rawData: [], key: string) {
   const semEspaco = rawData.map((r: any) => ({ ...r, [key]: r[key].trim() }));
@@ -26,7 +24,6 @@ function agruparPorLetras(rawData: [], key: string) {
       r.push({
         title: firstLetter,
         href: "",
-        hasStar: false,
         isSubheader: true,
       });
       firstLetterActual = firstLetter;
@@ -36,8 +33,8 @@ function agruparPorLetras(rawData: [], key: string) {
   return data;
 }
 
-export default function ListSection({ itens }: Props) {
-  const [itensFormatados, setItensFormatados] = React.useState<PostType[]>([]);
+export default function ListSection({ itens, hasStar = true }: IListItem) {
+  const [itensFormatados, setItensFormatados] = React.useState<IPost[]>([]);
 
   const listRef = React.useRef(null);
 
@@ -55,6 +52,8 @@ export default function ListSection({ itens }: Props) {
   const apenasItensSubheaders = itensFormatados
     .map((i, key) => ({ ...i, ind: key }))
     .filter((item) => item.isSubheader);
+
+  // console.log("itensFormatados:", itensFormatados);
 
   return (
     <ContainerCss>
@@ -103,6 +102,9 @@ export default function ListSection({ itens }: Props) {
                   key={index}
                   component="div"
                   disablePadding
+                  secondaryAction={
+                    hasStar ? <EstrelaFavorito item={item} /> : null
+                  }
                 >
                   <Link href={item.href || ""} passHref>
                     <ListItemButton>
