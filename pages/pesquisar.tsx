@@ -90,7 +90,7 @@ export default function Pesquisar() {
     resultadosPesquisa.length === 0 && inputPesquisa === "";
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" disableGutters>
       <AppBar position="static" color="transparent">
         <Toolbar>
           <Input
@@ -125,9 +125,9 @@ export default function Pesquisar() {
             dense
             subheader={
               resultadosPesquisa.length
-                ? `Resultado${resultadosPesquisa.length ? "s" : ""} ${
-                    resultadosPesquisa.length
-                  }`
+                ? `${resultadosPesquisa.length} resultado${
+                    resultadosPesquisa.length ? "s" : ""
+                  } `
                 : ""
             }
           >

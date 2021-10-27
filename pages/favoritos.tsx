@@ -23,7 +23,7 @@ export default function Favoritos() {
   }, [favoritoAlteradoRedux.id]);
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" disableGutters>
       <MainAppBar title="Favoritos" hrefVoltar="/" naoTemMenuDir />
       <main>
         <Grid container spacing={2}>

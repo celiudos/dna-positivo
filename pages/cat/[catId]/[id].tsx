@@ -18,6 +18,8 @@ import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
 import React, { useState } from "react";
+import sanitizeHtml from "sanitize-html";
+import styled from "styled-components";
 
 type Props = {
   post: IPost;
@@ -32,8 +34,26 @@ export default function Post({ post, converseComDNAPost }: Props) {
 
   if (router.isFallback) return "Carregando...";
 
+  const conteudoSantize = sanitizeHtml(post.content, {
+    allowedStyles: {
+      "*": {
+        // Match HEX and RGB
+        color: [
+          /^#(0x)?[0-9a-f]+$/i,
+          /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/,
+        ],
+        "text-align": [/^left$/, /^right$/, /^center$/],
+        // Match any number with px, em, or %
+        "font-size": [/^\d+(?:px|em|%)$/],
+      },
+      p: {
+        "font-size": [/^\d+rem$/],
+      },
+    },
+  });
+
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" disableGutters>
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
       <main>
         <Grid container spacing={2}>
@@ -100,13 +120,22 @@ export default function Post({ post, converseComDNAPost }: Props) {
                   >
                     {post.title}
                   </Typography>
-                  <Divider />
+                  {/* <Divider />
                   <Typography
                     variant="body1"
                     style={{ fontSize: `1.${tamanhoFonte}rem` }}
                     gutterBottom
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
+                    dangerouslySetInnerHTML={{ __html: conteudoSantize }}
+                  /> */}
+                  <Divider />
+                  <ContainerPostCss>
+                    <Typography
+                      variant="body1"
+                      style={{ fontSize: `1.${tamanhoFonte}rem` }}
+                      gutterBottom
+                      dangerouslySetInnerHTML={{ __html: post.content }}
+                    />
+                  </ContainerPostCss>
                 </Grid>
               </Grid>
             </Paper>
@@ -116,6 +145,10 @@ export default function Post({ post, converseComDNAPost }: Props) {
     </Container>
   );
 }
+
+export const ContainerPostCss = styled.div`
+  overflow-y: auto;
+`;
 
 export async function getStaticPaths() {
   return {

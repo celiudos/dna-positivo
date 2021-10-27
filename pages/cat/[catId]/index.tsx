@@ -1,7 +1,7 @@
 import ListSection from "@components/ListSection";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import Container from "@mui/material/Container";
 import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
@@ -15,16 +15,13 @@ export default function Tecnicas({ posts }: Props) {
 
   if (router.isFallback) return "Carregando...";
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" disableGutters>
       <MainAppBar title={posts[0].catName} hrefVoltar="/" />
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Paper>
-              <ListSection itens={posts} />
-            </Paper>
+            <ListSection itens={posts} />
           </Grid>
-          -
         </Grid>
       </main>
     </Container>

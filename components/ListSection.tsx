@@ -109,7 +109,7 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                   <Link href={item.href || ""} passHref>
                     <ListItemButton>
                       <ListItemText
-                        primary={TextUtils.limitarTexto(item.title, 120)}
+                        primary={TextUtils.limitarTexto(item.title, 80)}
                       />
                     </ListItemButton>
                   </Link>
