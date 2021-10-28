@@ -1,5 +1,5 @@
 import InfoIcon from "@mui/icons-material/Info";
-import { Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -32,13 +32,13 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
         <ListItem
           secondaryAction={
             modal?.title ? (
-              <Button
+              <IconButton
+                edge="end"
+                aria-label="mais"
                 onClick={handleClickOpen}
-                variant="outlined"
-                color="inherit"
               >
                 <InfoIcon />
-              </Button>
+              </IconButton>
             ) : null
           }
         >
