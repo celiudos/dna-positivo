@@ -3,7 +3,7 @@ import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import Image from "next/image";
@@ -28,51 +28,48 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
                   "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
               }}
             />
-            <Paper>
-              <ListItens
-                hasStar={false}
-                itens={[
-                  {
-                    ...ApiApp.getDefaultPost(),
-                    title: "DNA Positivo",
-                    href: "/cat/2",
-                  },
-                  {
-                    ...ApiApp.getDefaultPost(),
-                    title: "DNA físico e Quântico",
-                    href: "/cat/1",
-                  },
-                ]}
-              />
-            </Paper>
+
+            <ListItens
+              hasStar={false}
+              itens={[
+                {
+                  ...ApiApp.getDefaultPost(),
+                  title: "DNA Positivo",
+                  href: "/cat/2",
+                },
+                {
+                  ...ApiApp.getDefaultPost(),
+                  title: "DNA físico e Quântico",
+                  href: "/cat/1",
+                },
+              ]}
+            />
           </Grid>
           <Grid item xs={12}>
             <ListHeader secondary="Para tratar problemas, neutralizar ameaças e as mais diversas manipulações no nosso planeta" />
-            <Paper>
-              <ListItens
-                hasStar={false}
-                itens={[
-                  {
-                    ...ApiApp.getDefaultPost(),
-                    title: "Inteligência Artificial Positiva",
-                    href: "/cat/3",
-                  },
-                ]}
-              />
-            </Paper>
+
+            <ListItens
+              hasStar={false}
+              itens={[
+                {
+                  ...ApiApp.getDefaultPost(),
+                  title: "Inteligência Artificial Positiva",
+                  href: "/cat/3",
+                },
+              ]}
+            />
           </Grid>
           {/* <Grid item xs={12}>
             <ListHeader primary="Publicações mais recentes" />
-            <Paper>
+            
               <ListItens hasData itens={ApiApp.getMaisRecentes()} />
-            </Paper>
+            
           </Grid> */}
           {postsNovos.length ? (
             <Grid item xs={12}>
               <ListHeader primary="Novas publicações" />
-              <Paper>
-                <ListItens hasData itens={postsNovos} />
-              </Paper>
+
+              <ListItens hasData itens={postsNovos} />
             </Grid>
           ) : null}
           <Grid item xs={12}>

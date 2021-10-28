@@ -2,6 +2,7 @@ import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
+import TelaLoading from "@components/TelaLoading";
 import ApiApp from "@data/ApiApp";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -37,7 +38,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
 
   let [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
 
-  if (router.isFallback) return "Carregando...";
+  if (router.isFallback) return <TelaLoading />;
 
   return (
     <ContainerApp>

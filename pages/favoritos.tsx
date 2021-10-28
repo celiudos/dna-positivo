@@ -1,8 +1,9 @@
 import ContainerApp from "@components/ContainerApp";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import { Box } from "@mui/system";
 import { RootState } from "@store/storeConfig";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
@@ -28,13 +29,13 @@ export default function Favoritos() {
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Paper>
-              <ListItens itens={favStorage} />
-            </Paper>
+            <ListItens itens={favStorage} />
 
-            <Alert severity="info">
-              Os itens favoritos ficam armazenados apenas nesse dispositivo
-            </Alert>
+            <Box m={2}>
+              <Alert severity="info">
+                Os itens favoritos ficam armazenados apenas nesse dispositivo
+              </Alert>
+            </Box>
             {/* <Alert severity="info">
               Os itens favoritos ficam armazenados offline
             </Alert> */}

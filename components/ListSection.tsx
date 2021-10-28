@@ -1,4 +1,4 @@
-import { ListSubheader, Tab, Tabs, Typography } from "@mui/material";
+import { ListSubheader, Paper, Tab, Tabs, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -65,75 +65,87 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
 
   return (
     <ContainerCss>
-      <Tabs
-        variant="scrollable"
-        scrollButtons="auto"
-        value={valueTab}
-        onChange={handleChangeTab}
-      >
-        {apenasItensSubheaders
-          ? apenasItensSubheaders.map((item, key) => (
-              <Tab
-                key={key}
-                value={key}
-                label={item.title}
-                onClick={() => {
-                  /* @ts-ignore */
-                  return listRef.current.scrollToItem(item.ind, "start");
-                }}
-              />
-            ))
-          : null}
-      </Tabs>
-      <AutoSizer>
-        {({ height, width }) => (
-          <List
-            ref={listRef}
-            height={height}
-            width={width}
-            itemSize={76}
-            itemCount={itensFormatados.length}
-            overscanCount={5}
-          >
-            {(props: ListChildComponentProps) => {
-              const { index, style } = props;
-              const item = itensFormatados[index];
+      <Paper variant="outlined" square>
+        <Tabs
+          variant="scrollable"
+          scrollButtons="auto"
+          value={valueTab}
+          onChange={handleChangeTab}
+        >
+          {apenasItensSubheaders
+            ? apenasItensSubheaders.map((item, key) => (
+                <Tab
+                  key={key}
+                  value={key}
+                  label={item.title}
+                  onClick={() => {
+                    /* @ts-ignore */
+                    return listRef.current.scrollToItem(item.ind, "start");
+                  }}
+                />
+              ))
+            : null}
+        </Tabs>
+      </Paper>
+      <ContainerAutoSizerCss>
+        <AutoSizer>
+          {({ height, width }) => (
+            <List
+              ref={listRef}
+              height={height}
+              width={width}
+              itemSize={76}
+              itemCount={itensFormatados.length}
+              overscanCount={5}
+            >
+              {(props: ListChildComponentProps) => {
+                const { index, style } = props;
+                const item = itensFormatados[index];
 
-              return item.isSubheader ? (
-                <ListSubheaderCss style={style} key={index}>
-                  <Typography variant="h5">{item.title}</Typography>
-                </ListSubheaderCss>
-              ) : (
-                <ListItem
-                  divider
-                  style={style}
-                  key={index}
-                  component="div"
-                  disablePadding
-                  secondaryAction={
-                    hasStar ? <EstrelaFavorito item={item} /> : null
-                  }
-                >
-                  <Link href={item.href || ""} passHref>
-                    <ListItemButton>
-                      <ListItemText
-                        primary={TextUtils.limitarTexto(item.title, 80)}
-                      />
-                    </ListItemButton>
-                  </Link>
-                </ListItem>
-              );
-            }}
-          </List>
-        )}
-      </AutoSizer>
+                return item.isSubheader ? (
+                  <ListSubheaderCss style={style} key={index}>
+                    <Typography variant="h5">{item.title}</Typography>
+                  </ListSubheaderCss>
+                ) : (
+                  <ListItem
+                    divider
+                    style={{ ...style, backgroundColor: "#FFF" }}
+                    key={index}
+                    component="div"
+                    disablePadding
+                    secondaryAction={
+                      hasStar ? <EstrelaFavorito item={item} /> : null
+                    }
+                  >
+                    <Link href={item.href || ""} passHref>
+                      <ListItemButton>
+                        <ListItemText
+                          primary={TextUtils.limitarTexto(item.title, 80)}
+                        />
+                      </ListItemButton>
+                    </Link>
+                  </ListItem>
+                );
+              }}
+            </List>
+          )}
+        </AutoSizer>
+      </ContainerAutoSizerCss>
     </ContainerCss>
   );
 }
 
 const ContainerCss = styled.div`
-  height: 80vh;
-  width: 100%;
+  /* height: 80vh;
+  width: 100%; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: hidden;
+`;
+
+const ContainerAutoSizerCss = styled.div`
+  flex: 1;
 `;
 
 const ListSubheaderCss = styled(ListSubheader)`

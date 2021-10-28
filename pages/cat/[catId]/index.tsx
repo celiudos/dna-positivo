@@ -1,8 +1,8 @@
 import ContainerApp from "@components/ContainerApp";
 import ListSection from "@components/ListSection";
 import MainAppBar from "@components/MainAppBar";
+import TelaLoading from "@components/TelaLoading";
 import ApiApp from "@data/ApiApp";
-import { Grid } from "@mui/material";
 import { IPost } from "@typesApp/IPost";
 import { useRouter } from "next/dist/client/router";
 
@@ -13,18 +13,13 @@ type Props = {
 export default function Tecnicas({ posts }: Props) {
   const router = useRouter();
 
-  // console.log("posts:", posts);
+  if (router.isFallback) return <TelaLoading />;
 
-  if (router.isFallback) return "Carregando...";
   return (
     <ContainerApp>
       <MainAppBar title={posts[0].catName} hrefVoltar="/" />
       <main>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <ListSection itens={posts} />
-          </Grid>
-        </Grid>
+        <ListSection itens={posts} />
       </main>
     </ContainerApp>
   );

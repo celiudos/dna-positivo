@@ -86,10 +86,10 @@ export default function Pesquisar() {
     }, 1000);
   }
 
-  const semResultado = resultadosPesquisa.length === 0 && inputPesquisa !== "";
-  const comResultado = resultadosPesquisa.length > 0 && inputPesquisa !== "";
-  const nadaPesquisado =
-    resultadosPesquisa.length === 0 && inputPesquisa === "";
+  const qntResultados = resultadosPesquisa.length;
+  const semResultado = qntResultados === 0 && inputPesquisa !== "";
+  const comResultado = qntResultados > 0 && inputPesquisa !== "";
+  const nadaPesquisado = qntResultados === 0 && inputPesquisa === "";
 
   return (
     <ContainerApp>
@@ -122,23 +122,24 @@ export default function Pesquisar() {
         {progress && <LinearProgress />}
       </AppBar>
       <main>
-        <Box m={2}>
-          <Typography variant="subtitle1">
-            {resultadosPesquisa.length
-              ? `${resultadosPesquisa.length}
-              resultado${resultadosPesquisa.length ? "s" : ""} `
-              : ""}
-          </Typography>
-        </Box>
-        <Paper>
-          <List dense>
-            {comResultado &&
-              resultadosPesquisa.map((i, keyResult) => {
+        {qntResultados > 0 ? (
+          <Box m={2}>
+            <Typography variant="subtitle1">
+              {qntResultados} resultado
+              {qntResultados ? "s" : ""}
+            </Typography>
+          </Box>
+        ) : null}
+
+        {comResultado && (
+          <Paper>
+            <List dense>
+              {resultadosPesquisa.map((i, keyResult) => {
                 return (
                   <ListItem
                     button
                     key={keyResult}
-                    divider={keyResult !== resultadosPesquisa.length - 1}
+                    divider={keyResult !== qntResultados - 1}
                   >
                     <Link href={i.href} passHref>
                       <ListItemText
@@ -171,11 +172,12 @@ export default function Pesquisar() {
                   </ListItem>
                 );
               })}
-          </List>
-        </Paper>
+            </List>
+          </Paper>
+        )}
 
         {semResultado && (
-          <Box pb={2}>
+          <Box pt={2}>
             <Alert
               icon={<ReportProblemOutlinedIcon fontSize="inherit" />}
               severity="warning"
@@ -186,7 +188,7 @@ export default function Pesquisar() {
         )}
 
         {nadaPesquisado && (
-          <Box pb={2}>
+          <Box pt={2}>
             <Alert
               icon={<InfoOutlinedIcon fontSize="inherit" />}
               severity="info"
