@@ -44,6 +44,8 @@ function getSearchObj() {
   return search;
 }
 
+const searchObj = getSearchObj();
+
 const negritoCss = {
   backgroundColor: "inherit",
   color: theme.palette.info.main,
@@ -77,9 +79,9 @@ export default function Pesquisar() {
 
     clearTimeout(timeout);
     timeout = setTimeout(async () => {
-      if (!getSearchObj) return false;
+      if (!searchObj) return false;
 
-      const resultados = getSearchObj().search(val);
+      const resultados = searchObj.search(val);
       setResultadosPesquisa(resultados.slice(0, 50) as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);
@@ -155,18 +157,6 @@ export default function Pesquisar() {
                           />
                         }
                         secondary={i.catName}
-                        // secondaryTypographyProps={{ component: "div" }}
-                        // secondary={
-                        //   <Highlighter
-                        //     highlightStyle={negritoCss}
-                        //     searchWords={searchWords}
-                        //     autoEscape={true}
-                        // sanitize={(text) =>
-                        //   TextUtils.stringToSlugSemHifen(text)
-                        // }
-                        //     textToHighlight={i.title}
-                        //   />
-                        // }
                       />
                     </Link>
                   </ListItem>

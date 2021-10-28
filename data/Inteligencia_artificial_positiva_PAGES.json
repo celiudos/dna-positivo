@@ -1,0 +1,203 @@
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+    "xmlns$gd": "http://schemas.google.com/g/2005",
+    "id": { "$t": "tag:blogger.com,1999:blog-8241371385644778622" },
+    "updated": { "$t": "2021-10-26T15:01:37.314-07:00" },
+    "title": { "type": "text", "$t": "Inteligência Artificial Positiva" },
+    "subtitle": { "type": "html", "$t": "" },
+    "link": [
+      {
+        "rel": "http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": "https://inteligenciaartificialpositiva.blogspot.com/feeds/pages/default"
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default?alt=json"
+      },
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://inteligenciaartificialpositiva.blogspot.com/"
+      }
+    ],
+    "author": [
+      {
+        "name": { "$t": "DNA Positivo" },
+        "uri": { "$t": "http://www.blogger.com/profile/12680980880370164731" },
+        "email": { "$t": "noreply@blogger.com" },
+        "gd$image": {
+          "rel": "http://schemas.google.com/g/2005#thumbnail",
+          "width": "33",
+          "height": "21",
+          "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+        }
+      }
+    ],
+    "generator": {
+      "version": "7.00",
+      "uri": "http://www.blogger.com",
+      "$t": "Blogger"
+    },
+    "openSearch$totalResults": { "$t": "3" },
+    "openSearch$startIndex": { "$t": "1" },
+    "openSearch$itemsPerPage": { "$t": "25" },
+    "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8241371385644778622.page-5352901060260714509"
+        },
+        "published": { "$t": "2020-03-22T08:39:00.000-07:00" },
+        "updated": { "$t": "2020-03-22T08:39:24.054-07:00" },
+        "title": { "type": "text", "$t": "" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://inteligenciaartificialpositiva.blogspot.com/\"\u003E\u003Cimg border=\"0\" data-original-height=\"142\" data-original-width=\"218\" src=\"https://1.bp.blogspot.com/-qwbyzs03cvM/XTxl-gbOSPI/AAAAAAAABKU/MtloKuJma0cn_HQ6Q5AJNy5T8cfD3krVQCEwYBhgL/s1600/chave%2Bnova.png\" /\u003E\u003C/a\u003E\u003Cspan id=\"goog_1455466550\"\u003E\u003C/span\u003E\u003Ca href=\"https://www.blogger.com/\"\u003E\u003C/a\u003E\u003Cspan id=\"goog_1455466551\"\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Cspan id=\"goog_107264051\"\u003E\u003C/span\u003E\u003Ca href=\"https://www.blogger.com/\"\u003E\u003C/a\u003E\u003Cspan id=\"goog_107264052\"\u003E\u003C/span\u003E\u003Cspan id=\"goog_2104140948\"\u003E\u003C/span\u003E\u003Ca href=\"https://www.blogger.com/\"\u003E\u003C/a\u003E\u003Cspan id=\"goog_2104140949\"\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Cspan id=\"goog_107264059\"\u003E\u003C/span\u003E\u003Ca href=\"https://www.blogger.com/\"\u003E\u003C/a\u003E\u003Cspan id=\"goog_107264060\"\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: center;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://1.bp.blogspot.com/--8NFZJgItmQ/XneGo9_n_RI/AAAAAAAABPI/1wueWroi_MIqVKoRUOdmTNdm0oB--RJoQCLcBGAsYHQ/s1600/Mente%2BInternautica%2BNova%2B-%2B5x%2B-%2Bchave_novo%2Bcodigo.jpg\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\"\u003E\u003Cimg border=\"0\" data-original-height=\"639\" data-original-width=\"429\" height=\"320\" src=\"https://1.bp.blogspot.com/--8NFZJgItmQ/XneGo9_n_RI/AAAAAAAABPI/1wueWroi_MIqVKoRUOdmTNdm0oB--RJoQCLcBGAsYHQ/s320/Mente%2BInternautica%2BNova%2B-%2B5x%2B-%2Bchave_novo%2Bcodigo.jpg\" width=\"214\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003C/div\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: center;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: center;\"\u003E\u003Cbr /\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/5352901060260714509"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/5352901060260714509"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://inteligenciaartificialpositiva.blogspot.com/p/blog-page.html",
+            "title": ""
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://1.bp.blogspot.com/-qwbyzs03cvM/XTxl-gbOSPI/AAAAAAAABKU/MtloKuJma0cn_HQ6Q5AJNy5T8cfD3krVQCEwYBhgL/s72-c/chave%2Bnova.png",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8241371385644778622.page-2835681783915687742"
+        },
+        "published": { "$t": "2019-09-03T18:58:00.000-07:00" },
+        "updated": { "$t": "2019-09-03T18:58:10.755-07:00" },
+        "title": {
+          "type": "text",
+          "$t": "VEJA O QUE VOCÊ PODE FAZER PARA CONTRIBUIR COM ESSE TRABALHO"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: red; font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cb\u003EO que vem a ser os controladores?\u003C/b\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EOs controladores são Hologramas Virtuais com a função de se transformarem em holografias mentais, que quando direcionados pelo aplicador, cumprem a sua função determinada descrita no texto ao qual ele foi criado e com isso ajuda a equilibrar as energias negativas, seja do local ou da doença. Eles passarão a encaminhar as partículas quânticas negativas existentes para os portais dimensionais da nova criação.\u003C/span\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EPara implantar um controlador, você precisa ler o texto nele contido na íntegra e, ao final, pensar ou dizer em voz alta: \"SER CONTROLADOR, EM NOME DA NOVA CRIAÇÃO GANHE VIDA, IMPLANTE-SE NESTE LOCAL E CUMPRA COM AS FUNÇÕES PARA AS QUAIS FOI CRIADO\".\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://drive.google.com/drive/folders/1PfTaKsvQZLtEqZog53bt-DqdPwkzsMNS\"\u003E\u003Cimg border=\"0\" data-original-height=\"573\" data-original-width=\"1228\" height=\"93\" src=\"https://1.bp.blogspot.com/-Adlq_mRM6fY/XW8Z2Vy1idI/AAAAAAAABLQ/MmrBKTnodvY0ugWmznab2iL3Uy4OcR3FQCLcBGAs/s200/AQUI.png\" width=\"200\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u0026nbsp;\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif; font-size: x-small;\"\u003E\u003Ci\u003EObservação: O holograma não aceitará nenhuma alteração feita pelo aplicador, onde os códigos existentes bloquearão qualquer forma de manipulação, portanto, ao aplicar leia exatamente como está escrito.\u003C/i\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/2835681783915687742"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/2835681783915687742"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://inteligenciaartificialpositiva.blogspot.com/p/clique-aqui-e-veja-o-que-voce-pode.html",
+            "title": "VEJA O QUE VOCÊ PODE FAZER PARA CONTRIBUIR COM ESSE TRABALHO"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://1.bp.blogspot.com/-Adlq_mRM6fY/XW8Z2Vy1idI/AAAAAAAABLQ/MmrBKTnodvY0ugWmznab2iL3Uy4OcR3FQCLcBGAs/s72-c/AQUI.png",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8241371385644778622.page-6387547220320733693"
+        },
+        "published": { "$t": "2019-04-05T16:19:00.000-07:00" },
+        "updated": { "$t": "2019-04-05T16:19:50.690-07:00" },
+        "title": { "type": "text", "$t": "SEUS FILHOS CORREM GRANDE PERIGO!!" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EJá que estamos falando em Internet, você sabe como a rede mundial de computadores pode afetar a saúde das crianças?\u0026nbsp;\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cb\u003EA internet, geralmente associada a alguns videos no youtube e jogos em excesso \u003Cspan style=\"color: red;\"\u003Eestão destruindo a mente, a saúde e a vida das crianças\u003C/span\u003E\u003C/b\u003E, fato este já comprovado pela ciência e medicina. As escolas, clinicas psicológicas e psiquiátricas estão lotadas de crianças e adolescentes com depressão e com vontade de suicidar (ou que até já tentaram), que estão deixando os profissionais apavorados.\u0026nbsp;\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EA imensidão de energia negativa contida nesse cenário (internet+videos no youtube+jogos) é capaz de tomar o controle das ações, razões e emoções de todos aqueles totalmente submersos nela (adultos e crianças), porém nas\u0026nbsp; crianças e adolescentes o impacto é extremamente mais forte.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EEsta energia é capaz de multiplicar rapidamente as partículas negativas das células a ponto de criar diversos sintomas que nem sempre observamos nas crianças ou achamos que é bobagem, não dando a devida atenção. Segue abaixo alguns exemplos desses sintomas:\u003C/span\u003E\u003C/div\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EDepressão\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EIsolamento\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EVontade/Tentativa de suicídio\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EDificuldade em dormir\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EDificuldades na escola\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EDificuldade e revolta por ficar sem usar o smartphone\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EVício em Jogos\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EAnsiedade\u0026nbsp;\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EAgitação\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003ETristeza\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EMelancolia\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EVontade de Chorar\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EEtc.\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cbr /\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EO maior erro dos pais é deixar que as crianças usem seus smartphones e videogames em excesso, com o agravante de não controlarem adequadamente\u0026nbsp; o que eles estão fazendo ou vendo nos equipamentos. É muito importante conhecer o conteúdo dos vídeos e jogos que as crianças estão utilizando.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cb\u003E\u003Cspan style=\"color: red;\"\u003EO que podemos fazer para ajudar as crianças?\u003C/span\u003E\u003C/b\u003E Segue abaixo algumas recomendações:\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003C/div\u003E\u003Cul\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EUtilizar a Mente Internáutica para combater a energia negativa contida na internet.\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003ECortar a ligação das crianças com essa energia negativa imaginando um disco com a potência de um raio laser.\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003ESe as crianças/adolescentes estiverem com algum comportamento estranho ou algum dos sintomas acima, procure imediatamente um médico, psicólogo ou psiquiatra.\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EMonitore a utilização dos smartphones das crianças e adolescentes, saibam o que eles estão vendo, acessando ou jogando.\u0026nbsp;\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003ERestrinja o tempo de utilização de smartphones para horários aceitáveis.\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003ENão deixem as crianças e adolescentes usarem o smartphone durante a madrugada enquanto você estiver dormindo, pois eles podem jogar escondidos. Lembrando que o jogo da Baleia Azul casou suicídios durante a madrugada.\u003C/span\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EUtilizem a tecnologia para monitorar o smartphone das crianças. Existem aplicativos que auxiliam neste monitoramento, efetua bloqueios de instalação de jogos e de tempo de utilização, sem que as crianças deixem de usar o smartphone para telefonar, receber ligações ou fazer pesquisas saudáveis, que é o mais importante. Um exemplo destes aplicativos chama-se\u0026nbsp; \"\u003Cb\u003EQustodio\u003C/b\u003E\".\u0026nbsp;\u003C/span\u003E\u003Cb\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EClique \u003Ca href=\"https://play.google.com/store/apps/details?id=com.qustodio.qustodioapp\"\u003EAQUI\u003C/a\u003E para baixar o aplicativ\u003C/span\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003Eo\u0026nbsp;\u003C/span\u003E\u003C/span\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\"Qustodio\".\u0026nbsp;\u003C/span\u003E\u003C/b\u003E\u003C/li\u003E\u003Cli style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003EAcompanhe e esteja atento, senão pode ser tarde demais.\u003C/span\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003Cbr /\u003E\u003Cul\u003E\u003C/ul\u003E\u003Cdiv style=\"text-align: center;\"\u003E\u003Cspan style=\"color: blue; font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cb\u003E\u003Cspan style=\"color: red;\"\u003EClique \u003C/span\u003E\u003Cspan style=\"color: blue; font-size: large;\"\u003E\u003Ca href=\"https://inteligenciaartificialpositiva.blogspot.com/2019/03/voce-quer-ajudar-o-nosso-planeta-contra.html\"\u003EAQUI\u003C/a\u003E \u003C/span\u003E\u003Cspan style=\"color: red;\"\u003Epara voltar à página anterior\u0026nbsp;e conhecer mais sobre a Mente Internáutica.\u003C/span\u003E\u003C/b\u003E\u003C/span\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: \u0026quot;verdana\u0026quot; , sans-serif;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/6387547220320733693"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8241371385644778622/pages/default/6387547220320733693"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://inteligenciaartificialpositiva.blogspot.com/p/seus-filhos-correm-grande-perigo.html",
+            "title": "SEUS FILHOS CORREM GRANDE PERIGO!!"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

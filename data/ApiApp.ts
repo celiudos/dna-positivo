@@ -1,10 +1,14 @@
-import DnafisicoequanticoJson from "@data/dnafisicoequantico.json";
-import DnapositivoJson from "@data/dnapositivo.json";
-import InteligenciaartificialpositivaJson from "@data/inteligenciaartificialpositiva.json";
+import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
+import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
+import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
+import DNA_positivo_POSTS from "@data/DNA_positivo_POSTS.json";
+import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
+import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
 import axios from "axios";
+import configApp from "configApp";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 
@@ -18,30 +22,52 @@ export default class ApiApp {
     cat: 0,
     catName: "",
     id: 0,
+    isPage: false,
     isSubheader: false,
     href: "",
     hrefOriginal: "",
   };
 
   static getTodos(): IPost[] {
-    const {
+    let {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
-    } = ApiApp.getJsonsEstaticos();
+    } = ApiApp.getJsonsEstaticosDePosts();
 
-    const posts = ApiApp.getApenasPostsDoEntry(
+    let posts = ApiApp.getApenasPostsDoEntry(
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados
     );
 
-    return ApiApp.formatarPostDoBlogParaOApp(posts);
+    let { InteligenciaartificialpositivaDadosPages } =
+      ApiApp.getJsonsEstaticosDePages();
+
+    let pages = ApiApp.getApenasPostsDoEntryGenerico(
+      InteligenciaartificialpositivaDadosPages,
+      3,
+      "Inteligência Artificial Positiva"
+    );
+
+    const postsFormatados = ApiApp.formatarPostDoBlogParaOApp(posts);
+    const pagesFormatados = ApiApp.formatarPostDoBlogParaOApp(pages, true);
+
+    let todosPosts = [...postsFormatados, ...pagesFormatados];
+    if (configApp.unirPostsComTituloIgual) {
+      todosPosts = ApiApp.unirPostsIguais(todosPosts);
+    }
+
+    return todosPosts;
   }
 
-  private static formatarPostDoBlogParaOApp(posts: IEntryComCat[]) {
-    const itens = posts.map(
-      (item: any, key): IPost => ({
+  private static formatarPostDoBlogParaOApp(
+    posts: IEntryComCat[],
+    isPage: boolean = false
+  ): IPost[] {
+    const itens = posts.map((item: any, key): IPost => {
+      const id = isPage ? key + 1000 : key;
+      return {
         title: item.title.$t,
         published: item.published.$t,
         updated: item.updated.$t,
@@ -68,14 +94,15 @@ export default class ApiApp {
         }),
         cat: item.cat,
         catName: item.catName,
-        id: key,
+        id,
         isSubheader: false,
-        href: `/cat/${item.cat}/${key}`,
+        isPage,
+        href: `/cat/${item.cat}/${id}`,
         hrefOriginal: item.link.filter(
           (l: any) => l.type === "text/html" && l.rel === "alternate"
         )[0].href,
-      })
-    );
+      };
+    });
 
     return ApiApp.tratarDados(itens);
   }
@@ -117,15 +144,34 @@ export default class ApiApp {
     return posts;
   }
 
-  private static getJsonsEstaticos() {
-    const DnafisicoequanticoDados = DnafisicoequanticoJson as IBloggerJson;
-    const DnapositivoDados = DnapositivoJson as IBloggerJson;
-    const InteligenciaartificialpositivaDados =
-      InteligenciaartificialpositivaJson as IBloggerJson;
+  private static getApenasPostsDoEntryGenerico(
+    bloggerJson: IBloggerJson,
+    catId: number,
+    catName: string
+  ): IEntryComCat[] {
+    let posts: any = [];
+
+    try {
+      posts = bloggerJson.feed.entry.map((p) => ({
+        ...p,
+        cat: catId,
+        catName: catName,
+      }));
+    } catch (error) {}
+    return posts;
+  }
+
+  private static getJsonsEstaticosDePages() {
+    const DnafisicoequanticoDadosPages =
+      DNA_fisico_e_quantico_PAGES as IBloggerJson;
+    const DnapositivoDadosPages = DNA_positivo_PAGES as IBloggerJson;
+    const InteligenciaartificialpositivaDadosPages =
+      Inteligencia_artificial_positiva_PAGES as IBloggerJson;
+
     return {
-      DnafisicoequanticoDados,
-      DnapositivoDados,
-      InteligenciaartificialpositivaDados,
+      DnafisicoequanticoDadosPages,
+      DnapositivoDadosPages,
+      InteligenciaartificialpositivaDadosPages,
     };
   }
 
@@ -140,7 +186,7 @@ export default class ApiApp {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
-    } = ApiApp.getJsonsEstaticos();
+    } = ApiApp.getJsonsEstaticosDePosts();
 
     const posts1 = await ApiApp.verificarSeTemPostNovoNoSite(
       DnafisicoequanticoDados,
@@ -163,6 +209,19 @@ export default class ApiApp {
     }
 
     return posts;
+  }
+
+  private static getJsonsEstaticosDePosts() {
+    const DnafisicoequanticoDados = DNA_fisico_e_quantico_POSTS as IBloggerJson;
+    const DnapositivoDados = DNA_positivo_POSTS as IBloggerJson;
+    const InteligenciaartificialpositivaDados =
+      Inteligencia_artificial_positiva_POSTS as IBloggerJson;
+
+    return {
+      DnafisicoequanticoDados,
+      DnapositivoDados,
+      InteligenciaartificialpositivaDados,
+    };
   }
 
   private static async verificarSeTemPostNovoNoSite(
@@ -192,7 +251,7 @@ export default class ApiApp {
   }
 
   static tratarDados(posts: IPost[]): IPost[] {
-    const postsTratados = posts.map((p) => {
+    let postsTratados = posts.map((p) => {
       let novoTitle = p.title;
 
       novoTitle = novoTitle
@@ -208,6 +267,14 @@ export default class ApiApp {
 
       return p;
     });
+
+    postsTratados = postsTratados.filter((p) => p.title !== "");
+
     return postsTratados;
+  }
+
+  private static unirPostsIguais(posts: IPost[]): IPost[] {
+    posts = lodash.uniqBy(posts, "title");
+    return posts;
   }
 }

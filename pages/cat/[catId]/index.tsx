@@ -14,6 +14,7 @@ export default function Tecnicas({ posts }: Props) {
   const router = useRouter();
 
   if (router.isFallback) return <TelaLoading />;
+  // console.log("posts:", posts);
 
   return (
     <ContainerApp>
