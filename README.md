@@ -30,6 +30,13 @@ Todas são gratuitas, inclusive hospedagem
 - Redimensionar fonte (salvar no cookie)
 - Últimos diálogos acessados (Cookie)
 
+- Melhorar aparência do botão de modal
+- Loading de telas que ainda não carregaram no server
+- Deixar a view proporcional à tela com Display flex
+- Scroll infinito na pesquisa
+- Juntar diálogos iguais em um só
+- Inserir controladores
+
 # URLS
 
 Sites:
