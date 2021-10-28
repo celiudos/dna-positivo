@@ -1,8 +1,8 @@
+import ContainerApp from "@components/ContainerApp";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import { Grid, Paper } from "@mui/material";
 import Alert from "@mui/material/Alert";
-import Container from "@mui/material/Container";
 import { RootState } from "@store/storeConfig";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
@@ -23,7 +23,7 @@ export default function Favoritos() {
   }, [favoritoAlteradoRedux.id]);
 
   return (
-    <Container maxWidth="sm" disableGutters>
+    <ContainerApp>
       <MainAppBar title="Favoritos" hrefVoltar="/" naoTemMenuDir />
       <main>
         <Grid container spacing={2}>
@@ -41,6 +41,6 @@ export default function Favoritos() {
           </Grid>
         </Grid>
       </main>
-    </Container>
+    </ContainerApp>
   );
 }

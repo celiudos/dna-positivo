@@ -1,16 +1,16 @@
+import ContainerApp from "@components/ContainerApp";
 import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
 import { Grid, Paper } from "@mui/material";
-import Container from "@mui/material/Container";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import Image from "next/image";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
   return (
-    <Container maxWidth="sm" disableGutters>
+    <ContainerApp>
       <MainAppBar />
       <main>
         <DisplayFlexCenter>
@@ -83,7 +83,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
           </Grid>
         </Grid>
       </main>
-    </Container>
+    </ContainerApp>
   );
 }
 

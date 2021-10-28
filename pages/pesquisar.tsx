@@ -1,3 +1,4 @@
+import ContainerApp from "@components/ContainerApp";
 import ApiApp from "@data/ApiApp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -10,9 +11,10 @@ import {
   List,
   ListItem,
   ListItemText,
+  Paper,
+  Typography,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { Box } from "@mui/system";
@@ -90,7 +92,7 @@ export default function Pesquisar() {
     resultadosPesquisa.length === 0 && inputPesquisa === "";
 
   return (
-    <Container maxWidth="sm" disableGutters>
+    <ContainerApp>
       <AppBar position="static" color="transparent">
         <Toolbar>
           <Input
@@ -120,17 +122,16 @@ export default function Pesquisar() {
         {progress && <LinearProgress />}
       </AppBar>
       <main>
-        <Container>
-          <List
-            dense
-            subheader={
-              resultadosPesquisa.length
-                ? `${resultadosPesquisa.length} resultado${
-                    resultadosPesquisa.length ? "s" : ""
-                  } `
-                : ""
-            }
-          >
+        <Box m={2}>
+          <Typography variant="subtitle1">
+            {resultadosPesquisa.length
+              ? `${resultadosPesquisa.length}
+              resultado${resultadosPesquisa.length ? "s" : ""} `
+              : ""}
+          </Typography>
+        </Box>
+        <Paper>
+          <List dense>
             {comResultado &&
               resultadosPesquisa.map((i, keyResult) => {
                 return (
@@ -171,30 +172,30 @@ export default function Pesquisar() {
                 );
               })}
           </List>
+        </Paper>
 
-          {semResultado && (
-            <Box pb={2}>
-              <Alert
-                icon={<ReportProblemOutlinedIcon fontSize="inherit" />}
-                severity="warning"
-              >
-                Nenhum resultado encontrado
-              </Alert>
-            </Box>
-          )}
+        {semResultado && (
+          <Box pb={2}>
+            <Alert
+              icon={<ReportProblemOutlinedIcon fontSize="inherit" />}
+              severity="warning"
+            >
+              Nenhum resultado encontrado
+            </Alert>
+          </Box>
+        )}
 
-          {nadaPesquisado && (
-            <Box pb={2}>
-              <Alert
-                icon={<InfoOutlinedIcon fontSize="inherit" />}
-                severity="info"
-              >
-                Digite algum valor no campo de busca
-              </Alert>
-            </Box>
-          )}
-        </Container>
+        {nadaPesquisado && (
+          <Box pb={2}>
+            <Alert
+              icon={<InfoOutlinedIcon fontSize="inherit" />}
+              severity="info"
+            >
+              Digite algum valor no campo de busca
+            </Alert>
+          </Box>
+        )}
       </main>
-    </Container>
+    </ContainerApp>
   );
 }

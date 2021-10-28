@@ -1,3 +1,4 @@
+import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
@@ -12,7 +13,6 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
@@ -40,7 +40,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
   if (router.isFallback) return "Carregando...";
 
   return (
-    <Container maxWidth="sm" disableGutters>
+    <ContainerApp>
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
       <main>
         <Grid container spacing={2}>
@@ -138,7 +138,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
           </Grid>
         </Grid>
       </main>
-    </Container>
+    </ContainerApp>
   );
 }
 
