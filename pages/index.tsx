@@ -68,7 +68,6 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
           {postsNovos.length ? (
             <Grid item xs={12}>
               <ListHeader primary="Novas publicações" />
-
               <ListItens hasData itens={postsNovos} />
             </Grid>
           ) : null}

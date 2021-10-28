@@ -1,12 +1,16 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/StarBorderOutlined";
-import { Typography } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
+import { carregandoPaginaAction } from "@store/actionCreator";
+import { RootState } from "@store/storeConfig";
 import Link from "next/link";
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
 type Props = {
   title?: string;
@@ -20,12 +24,30 @@ export default function MainAppBar({
   naoTemMenuDir,
 }: Props) {
   const titleDefinitivo = title || "Página Inicial";
+  const carregandoPagina = useSelector(
+    (state: RootState) => state.rootReducer.carregandoPagina
+  );
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(carregandoPaginaAction(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <AppBar position="static">
+    <AppBarCss position="static">
       <Toolbar>
         {hrefVoltar ? (
           <Link href={hrefVoltar || ""} passHref>
-            <IconButton size="large" aria-label="voltar" color="inherit">
+            <IconButton
+              size="large"
+              aria-label="voltar"
+              color="inherit"
+              href={hrefVoltar || ""}
+              onClick={(): void => {
+                dispatch(carregandoPaginaAction());
+              }}
+            >
               <ArrowBackIcon />
             </IconButton>
           </Link>
@@ -53,6 +75,17 @@ export default function MainAppBar({
           </>
         ) : null}
       </Toolbar>
-    </AppBar>
+      {carregandoPagina !== 0 && <LinearProgressCss color="secondary" />}
+    </AppBarCss>
   );
 }
+
+const AppBarCss = styled(AppBar)`
+  position: relative;
+`;
+
+const LinearProgressCss = styled(LinearProgress)`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;

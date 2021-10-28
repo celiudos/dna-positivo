@@ -10,3 +10,9 @@ export function favoritoAlteradoAction(valor: {}) {
     valor,
   };
 }
+export function carregandoPaginaAction(isZerar?: boolean) {
+  return {
+    type: "CARREGANDO_PAGINA",
+    valor: isZerar ? 0 : new Date().getTime(),
+  };
+}

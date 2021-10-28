@@ -5,11 +5,13 @@ import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
 interface ReduxState {
   favorito: IFavoritosStorage;
   favoritoAlterado: IPost | {};
+  carregandoPagina: number;
 }
 
 let stateInicial: ReduxState = {
   favorito: FavoritosStorageUtils.getObjDefault(),
   favoritoAlterado: {},
+  carregandoPagina: 0,
 };
 
 export default function rootReducer(
@@ -31,6 +33,11 @@ export default function rootReducer(
       return {
         ...state,
         favoritoAlterado: action.valor,
+      };
+    case "CARREGANDO_PAGINA":
+      return {
+        ...state,
+        carregandoPagina: action.valor,
       };
     default:
       return state;
