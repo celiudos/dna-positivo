@@ -274,7 +274,7 @@ export default class ApiApp {
   }
 
   private static unirPostsIguais(posts: IPost[]): IPost[] {
-    posts = lodash.uniqBy(posts, "title");
+    // posts = lodash.uniqBy(posts, "title");
     return posts;
   }
 }
