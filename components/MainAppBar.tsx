@@ -1,5 +1,4 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/StarBorderOutlined";
 import { LinearProgress, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -11,6 +10,7 @@ import Link from "next/link";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import PesquisarDialog from "./PesquisarDialog";
 
 type Props = {
   title?: string;
@@ -67,11 +67,7 @@ export default function MainAppBar({
                 <StarIcon />
               </IconButton>
             </Link>
-            <Link href={"/pesquisar"} passHref>
-              <IconButton size="large" aria-label="pesquisar" color="inherit">
-                <SearchIcon />
-              </IconButton>
-            </Link>
+            <PesquisarDialog />
           </>
         ) : null}
       </Toolbar>
