@@ -17,7 +17,7 @@ export default function ContainerApp({ children }: Props) {
 }
 
 export const ContainerCss = styled(Container)`
-  background: #fafafa;
+  background: #f3f3f3;
   display: flex !important;
   height: 100%;
   flex-direction: column;

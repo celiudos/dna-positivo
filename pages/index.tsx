@@ -18,7 +18,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
           <Image src="/img/logo.png" alt="Logo" width={150} height={97} />
         </DisplayFlexCenter>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid item xs={12}>
             <ListHeader
               primary="Início"

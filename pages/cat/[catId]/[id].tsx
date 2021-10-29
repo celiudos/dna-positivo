@@ -119,7 +119,7 @@ export default function Post({ post, converseComDNAPost }: Props) {
                     </Box>
                     <Typography
                       variant="body1"
-                      style={{ fontSize: `1.${tamanhoFonte}rem` }}
+                      style={{ fontSize: `1.${tamanhoFonte + 2}rem` }}
                       gutterBottom
                       dangerouslySetInnerHTML={{
                         __html: post.contentSanitized,
