@@ -27,14 +27,19 @@ Todas são gratuitas, inclusive hospedagem
 - Refinar layout (distância textos corpo)
 - Como tratar novos dados (ex: Diálogo)
 - Últimos diálogos acessados (Cookie)
-- Melhorar aparência do botão de modal
 - Loading de telas que ainda não carregaram no server
 - Deixar a view proporcional à tela com Display flex
 
+- Links rápidos na home (controladores, diálogos recorrentes)
+- Melhorar aparência do botão de modal
+- Corpo texto diálogo homeopatia tabela
+- Aparência do compartilhar
+- View de Pesquisa como modal
+
+- Inserir controladores
 - Redimensionar fonte (salvar no cookie)
 - Scroll infinito na pesquisa
 - Juntar diálogos iguais em um só
-- Inserir controladores
 
 # URLS
 

@@ -11,6 +11,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { IPost } from "@typesApp/IPost";
 import * as React from "react";
+import styled from "styled-components";
 
 type Props = {
   primary?: string;
@@ -32,13 +33,13 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
         <ListItem
           secondaryAction={
             modal?.title ? (
-              <IconButton
+              <IconButtonCss
                 edge="end"
                 aria-label="mais"
                 onClick={handleClickOpen}
               >
                 <InfoIcon />
-              </IconButton>
+              </IconButtonCss>
             ) : null
           }
         >
@@ -73,3 +74,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
     </>
   );
 }
+
+export const IconButtonCss = styled(IconButton)`
+  background: #d9d9d9 !important;
+`;
