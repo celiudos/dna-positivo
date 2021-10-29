@@ -80,9 +80,10 @@ export default class ApiApp {
         updated: item.updated.$t,
         content: item.content.$t,
         contentSanitized: sanitizeHtml(item.content.$t, {
-          // allowedTags: [""],
-          // allowedAttributes: {},
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          allowedAttributes: {
+            table: ["border"],
+          },
           allowedStyles: {
             "*": {
               // Match HEX and RGB
@@ -92,11 +93,11 @@ export default class ApiApp {
               ],
               "text-align": [/^left$/, /^right$/, /^center$/],
               // Match any number with px, em, or %
-              "font-size": [/^\d+(?:px|em|%)$/],
+              // "font-size": [/^\d+(?:px|em|%)$/],
             },
-            p: {
-              "font-size": [/^\d+rem$/],
-            },
+            // p: {
+            //   "font-size": [/^\d+rem$/],
+            // },
           },
         }),
         resumo,

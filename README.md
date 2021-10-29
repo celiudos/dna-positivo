@@ -32,8 +32,8 @@ Todas são gratuitas, inclusive hospedagem
 - Melhorar aparência do botão de modal
 - Aparência do compartilhar
 - Links rápidos na home (controladores, diálogos recorrentes)
-
 - Corpo texto diálogo homeopatia tabela
+
 - View de Pesquisa como modal
 
 - Inserir controladores
