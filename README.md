@@ -29,11 +29,11 @@ Todas são gratuitas, inclusive hospedagem
 - Últimos diálogos acessados (Cookie)
 - Loading de telas que ainda não carregaram no server
 - Deixar a view proporcional à tela com Display flex
+- Melhorar aparência do botão de modal
+- Aparência do compartilhar
 
 - Links rápidos na home (controladores, diálogos recorrentes)
-- Melhorar aparência do botão de modal
 - Corpo texto diálogo homeopatia tabela
-- Aparência do compartilhar
 - View de Pesquisa como modal
 
 - Inserir controladores

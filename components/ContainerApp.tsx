@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import * as React from "react";
 import styled from "styled-components";
+import NextSeoHeader from "./NextSeoHeader";
 
 type Props = {
   children: React.ReactNode;
@@ -9,6 +10,7 @@ type Props = {
 export default function ContainerApp({ children }: Props) {
   return (
     <ContainerCss maxWidth="sm" disableGutters>
+      <NextSeoHeader />
       {children}
     </ContainerCss>
   );
