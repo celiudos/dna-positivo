@@ -19,6 +19,7 @@ export default class ApiApp {
     updated: "",
     content: "",
     contentSanitized: "",
+    resumo: "",
     cat: 0,
     catName: "",
     id: 0,
@@ -67,6 +68,12 @@ export default class ApiApp {
   ): IPost[] {
     const itens = posts.map((item: any, key): IPost => {
       const id = isPage ? key + 1000 : key;
+      let resumo = sanitizeHtml(item.content.$t, {
+        allowedTags: [""],
+        allowedAttributes: {},
+      });
+      resumo = resumo.slice(0, 180);
+
       return {
         title: item.title.$t,
         published: item.published.$t,
@@ -92,6 +99,7 @@ export default class ApiApp {
             },
           },
         }),
+        resumo,
         cat: item.cat,
         catName: item.catName,
         id,

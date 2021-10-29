@@ -6,6 +6,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
 import {
   Alert,
+  Chip,
   Input,
   LinearProgress,
   List,
@@ -38,6 +39,7 @@ function getSearchObj() {
     },
   };
   search.addIndex("title");
+  search.addIndex("resumo");
 
   search.addDocuments(itens);
 
@@ -146,17 +148,35 @@ export default function Pesquisar() {
                     <Link href={i.href} passHref>
                       <ListItemText
                         primary={
-                          <Highlighter
-                            highlightStyle={negritoCss}
-                            searchWords={searchWords}
-                            autoEscape={true}
-                            sanitize={(text) =>
-                              TextUtils.stringToSlugSemHifen(text)
-                            }
-                            textToHighlight={i.title}
-                          />
+                          <>
+                            <Chip label={i.catName} size="small" />{" "}
+                            <Typography variant="subtitle1">
+                              <Highlighter
+                                highlightStyle={negritoCss}
+                                searchWords={searchWords}
+                                autoEscape={true}
+                                sanitize={(text) =>
+                                  TextUtils.stringToSlugSemHifen(text)
+                                }
+                                textToHighlight={i.title}
+                              />
+                            </Typography>
+                          </>
                         }
-                        secondary={i.catName}
+                        secondary={
+                          <>
+                            <Highlighter
+                              highlightStyle={negritoCss}
+                              searchWords={searchWords}
+                              autoEscape={true}
+                              sanitize={(text) =>
+                                TextUtils.stringToSlugSemHifen(text)
+                              }
+                              textToHighlight={i.resumo}
+                            />
+                            ...
+                          </>
+                        }
                       />
                     </Link>
                   </ListItem>

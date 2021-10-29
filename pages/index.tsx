@@ -6,6 +6,7 @@ import ApiApp from "@data/ApiApp";
 import { Grid } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import configApp from "configApp";
 import Image from "next/image";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
@@ -65,6 +66,16 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               <ListItens hasData itens={ApiApp.getMaisRecentes()} />
             
           </Grid> */}
+          <Grid item xs={12}>
+            <ListHeader primary="Destaques" />
+            <ListItens
+              hasStar={false}
+              itens={configApp.postsDestaques.map((p) => ({
+                ...ApiApp.getDefaultPost(),
+                ...p,
+              }))}
+            />
+          </Grid>
           {postsNovos.length ? (
             <Grid item xs={12}>
               <ListHeader primary="Novas publicações" />

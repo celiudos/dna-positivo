@@ -3,6 +3,7 @@ export interface IPost {
   title: string;
   published: string;
   updated: string;
+  resumo: string;
   content: string;
   contentSanitized: string;
   cat: number;
