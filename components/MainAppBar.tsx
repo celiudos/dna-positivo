@@ -18,6 +18,8 @@ type Props = {
   naoTemMenuDir?: boolean;
 };
 
+let timeout: NodeJS.Timeout;
+
 export default function MainAppBar({
   title,
   hrefVoltar,
@@ -31,6 +33,18 @@ export default function MainAppBar({
 
   React.useEffect(() => {
     dispatch(carregandoPaginaAction(true));
+    limpaForcado();
+    function limpaForcado() {
+      clearTimeout(timeout);
+      timeout = setTimeout(async () => {
+        dispatch(carregandoPaginaAction(true));
+      }, 5000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

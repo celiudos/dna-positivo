@@ -36,7 +36,6 @@ const FONTE_CONFIG = {
 export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   const router = useRouter();
   const { catId } = router.query;
-
   let [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
 
   if (router.isFallback) return <TelaLoading />;
@@ -174,7 +173,15 @@ export async function getStaticProps({ params }: Params) {
     (item) => configApp.idsPostsAntesDeQualquerDialogo.indexOf(item.id) !== -1
   );
   const post = posts.filter((item) => item.id.toString() === params.id);
+
+  let postCarregado = post[0];
+
+  if (!postCarregado) {
+    const postsNovos = await ApiApp.getPostsNovos();
+    postCarregado = postsNovos.filter((np: IPost) => np.id === params.id)[0];
+  }
+
   return {
-    props: { post: post[0], postsAntesDeQualquerDialogo },
+    props: { post: postCarregado, postsAntesDeQualquerDialogo },
   };
 }
