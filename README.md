@@ -19,26 +19,11 @@ Todas são gratuitas, inclusive hospedagem
 
 # TODO
 
-- Favoritar
-- Deixar responsivo mobile
-- Permitir acesso offline
-- Publicar na Vercel
-- Tratar os textos do JSON
-- Refinar layout (distância textos corpo)
-- Como tratar novos dados (ex: Diálogo)
-- Últimos diálogos acessados (Cookie)
-- Loading de telas que ainda não carregaram no server
-- Deixar a view proporcional à tela com Display flex
-- Melhorar aparência do botão de modal
-- Aparência do compartilhar
-- Links rápidos na home (controladores, diálogos recorrentes)
-- Corpo texto diálogo homeopatia tabela
-- View de Pesquisa como modal
-
+- Adicionar número de versão
+- Adicionar testes unitários e E2E
 - Inserir controladores
 - Redimensionar fonte (salvar no cookie)
 - Scroll infinito na pesquisa
-- Juntar diálogos iguais em um só
 
 # URLS
 
