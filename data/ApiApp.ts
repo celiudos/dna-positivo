@@ -84,6 +84,7 @@ export default class ApiApp {
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
           allowedAttributes: {
             table: ["border"],
+            img: ["src"],
             a: ["href", "target"],
           },
           allowedStyles: {
