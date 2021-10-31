@@ -11,5 +11,6 @@ body,
 
 #__next main {
   flex: 1 0 auto;
+  background: #f3f3f3;
   /* height: 100%; */
 }

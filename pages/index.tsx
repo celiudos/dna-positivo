@@ -3,7 +3,7 @@ import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
-import { Grid } from "@mui/material";
+import { Alert, AlertTitle, Grid } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import configApp from "configApp";
@@ -80,6 +80,18 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
             <Grid item xs={12}>
               <ListHeader primary="Novas publicações" />
               <ListItens hasData itens={postsNovos} />
+            </Grid>
+          ) : null}
+          {postsNovos.length ? (
+            <Grid item xs={12}>
+              <Alert severity="info">
+                <AlertTitle>Ajustes recentes do App</AlertTitle>
+                {configApp.muralDeAvisos
+                  ? configApp.muralDeAvisos.map((item, key) => (
+                      <div key={key}>{item}</div>
+                    ))
+                  : null}
+              </Alert>
             </Grid>
           ) : null}
           <Grid item xs={12}>

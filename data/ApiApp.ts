@@ -1,7 +1,6 @@
 import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
 import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
-import DNA_positivo_PAGES_mockNovo from "@data/DNA_positivo_PAGES_mockNovo.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
@@ -203,12 +202,12 @@ export default class ApiApp {
       DnafisicoequanticoDados,
       "https://dnafisicoequantico.blogspot.com/feeds/posts"
     );
-    // const posts2 = await ApiApp.verificarSeTemPostNovoNoSite(
-    //   DnapositivoDados,
-    //   "https://dnapositivo.blogspot.com/feeds/pages"
-    // );
 
-    const posts2 = DNA_positivo_PAGES_mockNovo as unknown as IBloggerJson;
+    const posts2 = await ApiApp.verificarSeTemPostNovoNoSite(
+      DnapositivoDados,
+      "https://dnapositivo.blogspot.com/feeds/pages"
+    );
+
     const posts3 = await ApiApp.verificarSeTemPostNovoNoSite(
       InteligenciaartificialpositivaDados,
       "https://inteligenciaartificialpositiva.blogspot.com/feeds/posts"
@@ -253,10 +252,19 @@ export default class ApiApp {
           orderby: "updated",
         },
       });
+
       responseData = response.data as IBloggerJson;
     } catch (error) {
       console.log("error:", error);
     }
+
+    // PAGES NÃO FILTRAM POR "updated-min". Faz a filtragem manual
+    if (responseData?.feed.entry) {
+      responseData.feed.entry = responseData.feed.entry.filter(
+        (post) => new Date(post.updated.$t) > new Date(dataUltimaAtualizacao)
+      );
+    }
+
     return responseData;
   }
 

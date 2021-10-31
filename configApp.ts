@@ -26,6 +26,9 @@ const configApp = {
       href: "https://drive.google.com/drive/folders/1PfTaKsvQZLtEqZog53bt-DqdPwkzsMNS",
     },
   ],
+  muralDeAvisos: [
+    "Os favoritos foram apagados para se adaptar a uma nova estrutura",
+  ],
 };
 
 export default configApp;
