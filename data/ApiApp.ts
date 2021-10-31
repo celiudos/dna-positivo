@@ -1,7 +1,6 @@
 import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
 import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
-import DNA_positivo_POSTS from "@data/DNA_positivo_POSTS.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
@@ -222,7 +221,8 @@ export default class ApiApp {
 
   private static getJsonsEstaticosDePosts() {
     const DnafisicoequanticoDados = DNA_fisico_e_quantico_POSTS as IBloggerJson;
-    const DnapositivoDados = DNA_positivo_POSTS as IBloggerJson;
+    // const DnapositivoDados = DNA_positivo_POSTS as IBloggerJson;
+    const DnapositivoDados = DNA_positivo_PAGES as IBloggerJson; // Ajuste rápido
     const InteligenciaartificialpositivaDados =
       Inteligencia_artificial_positiva_POSTS as IBloggerJson;
 
