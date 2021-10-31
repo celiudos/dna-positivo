@@ -18,8 +18,6 @@ type Props = {
   naoTemMenuDir?: boolean;
 };
 
-let timeout: NodeJS.Timeout;
-
 export default function MainAppBar({
   title,
   hrefVoltar,
@@ -33,23 +31,12 @@ export default function MainAppBar({
 
   React.useEffect(() => {
     dispatch(carregandoPaginaAction(true));
-    limpaForcado();
-    function limpaForcado() {
-      clearTimeout(timeout);
-      timeout = setTimeout(async () => {
-        dispatch(carregandoPaginaAction(true));
-      }, 5000);
-    }
-
-    return () => {
-      clearTimeout(timeout);
-    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <AppBarCss position="static">
+    <AppBar position="static">
       <Toolbar>
         {hrefVoltar ? (
           <Link href={hrefVoltar || ""} passHref>
@@ -85,12 +72,38 @@ export default function MainAppBar({
           </>
         ) : null}
       </Toolbar>
-      {carregandoPagina !== 0 && <LinearProgressCss color="secondary" />}
-    </AppBarCss>
+      {carregandoPagina !== 0 && <LinearDeterminate />}
+    </AppBar>
   );
 }
 
-const AppBarCss = styled(AppBar)``;
+function LinearDeterminate() {
+  const [progress, setProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          return 0;
+        }
+        const diff = Math.random() * 10;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 500);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return (
+    <LinearProgressCss
+      color="secondary"
+      variant="determinate"
+      value={progress}
+    />
+  );
+}
 
 const LinearProgressCss = styled(LinearProgress)`
   margin-top: -4px;
