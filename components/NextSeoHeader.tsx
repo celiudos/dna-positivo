@@ -17,7 +17,7 @@ export default function NextSeoHeader({
     ? `${title} - ${configApp.titulo}`
     : configApp.titulo;
   const descriptionFinal = description ? description : configApp.subtitulo;
-  const urlImgFinal = urlImg ? urlImg : `${configApp.url}/img/logo-180x180.png`;
+  const urlImgFinal = urlImg ? urlImg : `${configApp.url}/img/logo-180x180.jpg`;
 
   return (
     <>
