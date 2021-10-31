@@ -36,9 +36,6 @@ export default function Favoritos() {
                 Os itens favoritos ficam armazenados apenas nesse dispositivo
               </Alert>
             </Box>
-            {/* <Alert severity="info">
-              Os itens favoritos ficam armazenados offline
-            </Alert> */}
           </Grid>
         </Grid>
       </main>

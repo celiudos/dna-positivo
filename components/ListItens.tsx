@@ -1,4 +1,10 @@
-import { ListItem, ListItemButton, Paper } from "@mui/material";
+import {
+  Chip,
+  ListItem,
+  ListItemButton,
+  Paper,
+  Typography,
+} from "@mui/material";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import { carregandoPaginaAction } from "@store/actionCreator";
@@ -44,8 +50,15 @@ export default function ListItens({
                       }}
                     >
                       <ListItemText
-                        primary={item.title}
-                        secondary={`${item.catName}${data}`}
+                        primary={
+                          <>
+                            <Chip label={item.catName} size="small" />{" "}
+                            <Typography variant="subtitle1">
+                              {item.title}
+                            </Typography>
+                          </>
+                        }
+                        secondary={`${item.resumo}...`}
                       />
                     </ListItemButton>
                   </Link>
