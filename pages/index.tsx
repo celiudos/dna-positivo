@@ -82,7 +82,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               <ListItens hasData itens={postsNovos} />
             </Grid>
           ) : null}
-          {postsNovos.length ? (
+          {configApp.muralDeAvisos.length ? (
             <Grid item xs={12}>
               <Alert severity="info">
                 <AlertTitle>Ajustes recentes do App</AlertTitle>
