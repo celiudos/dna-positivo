@@ -1,6 +1,7 @@
 import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
 import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
+import DNA_positivo_PAGES_mockNovo from "@data/DNA_positivo_PAGES_mockNovo.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
@@ -10,6 +11,7 @@ import axios from "axios";
 import configApp from "configApp";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
+import getUuid from "uuid-by-string";
 
 export default class ApiApp {
   static defaultPost: IPost = {
@@ -21,7 +23,7 @@ export default class ApiApp {
     resumo: "",
     cat: 0,
     catName: "",
-    id: 0,
+    id: "",
     isPage: false,
     isSubheader: false,
     href: "",
@@ -66,7 +68,8 @@ export default class ApiApp {
     isPage: boolean = false
   ): IPost[] {
     const itens = posts.map((item: any, key): IPost => {
-      const id = isPage ? key + 1000 : key;
+      const id = getUuid(item.id.$t);
+
       let resumo = sanitizeHtml(item.content.$t, {
         allowedTags: [""],
         allowedAttributes: {},
@@ -198,15 +201,17 @@ export default class ApiApp {
 
     const posts1 = await ApiApp.verificarSeTemPostNovoNoSite(
       DnafisicoequanticoDados,
-      "https://dnafisicoequantico.blogspot.com"
+      "https://dnafisicoequantico.blogspot.com/feeds/posts"
     );
-    const posts2 = await ApiApp.verificarSeTemPostNovoNoSite(
-      DnapositivoDados,
-      "https://dnapositivo.blogspot.com"
-    );
+    // const posts2 = await ApiApp.verificarSeTemPostNovoNoSite(
+    //   DnapositivoDados,
+    //   "https://dnapositivo.blogspot.com/feeds/pages"
+    // );
+
+    const posts2 = DNA_positivo_PAGES_mockNovo as unknown as IBloggerJson;
     const posts3 = await ApiApp.verificarSeTemPostNovoNoSite(
       InteligenciaartificialpositivaDados,
-      "https://inteligenciaartificialpositiva.blogspot.com"
+      "https://inteligenciaartificialpositiva.blogspot.com/feeds/posts"
     );
 
     let posts: any = [];
@@ -241,7 +246,7 @@ export default class ApiApp {
 
     let responseData;
     try {
-      const response = await axios.get(`${urlBase}/feeds/posts/default`, {
+      const response = await axios.get(`${urlBase}/default`, {
         params: {
           alt: "json",
           "updated-min": dataUltimaAtualizacao,

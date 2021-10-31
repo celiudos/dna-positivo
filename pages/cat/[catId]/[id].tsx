@@ -17,6 +17,7 @@ import {
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -24,7 +25,7 @@ import styled from "styled-components";
 
 type Props = {
   post: IPost;
-  converseComDNAPost: IPost;
+  postsAntesDeQualquerDialogo: IPost[];
 };
 
 const FONTE_CONFIG = {
@@ -32,7 +33,7 @@ const FONTE_CONFIG = {
   max: 5,
 };
 
-export default function Post({ post, converseComDNAPost }: Props) {
+export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   const router = useRouter();
   const { catId } = router.query;
 
@@ -46,14 +47,20 @@ export default function Post({ post, converseComDNAPost }: Props) {
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <ListHeader
-              primary="Atenção"
-              secondary={converseComDNAPost.title}
-              modal={{
-                title: converseComDNAPost.title,
-                contentSanitized: converseComDNAPost.contentSanitized,
-              }}
-            />
+            {postsAntesDeQualquerDialogo
+              ? postsAntesDeQualquerDialogo.map((item, key) => (
+                  <ListHeader
+                    key={key}
+                    primary="Atenção"
+                    secondary={item.title}
+                    modal={{
+                      title: item.title,
+                      contentSanitized: item.contentSanitized,
+                    }}
+                  />
+                ))
+              : null}
+
             <Paper>
               <Grid container p={1}>
                 <Grid
@@ -163,9 +170,11 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const posts = ApiApp.getTodos();
 
-  const converseComDNAPost = posts.filter((item) => item.id === 50)[0];
+  const postsAntesDeQualquerDialogo = posts.filter(
+    (item) => configApp.idsPostsAntesDeQualquerDialogo.indexOf(item.id) !== -1
+  );
   const post = posts.filter((item) => item.id.toString() === params.id);
   return {
-    props: { post: post[0], converseComDNAPost },
+    props: { post: post[0], postsAntesDeQualquerDialogo },
   };
 }
