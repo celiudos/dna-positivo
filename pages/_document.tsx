@@ -1,5 +1,4 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import Script from "next/script";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
@@ -38,18 +37,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             rel="stylesheet"
           />
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-1795HP39M2"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || []; function gtag()
-            {dataLayer.push(arguments)}
-            gtag('js', new Date()); gtag('config', 'G-1795HP39M2');`,
-            }}
-          ></script>
         </Head>
         <body>
           <Main />
