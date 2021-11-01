@@ -32,6 +32,8 @@ export default function EstrelaFavorito({
     setFavStorage(jsonStorage);
   }
 
+  const idButton = `EstrelaFavorito-${item.id}`;
+
   const ElemEstrela = isItemComEstrela ? (
     <StarIcon color="secondary" />
   ) : (
@@ -40,6 +42,7 @@ export default function EstrelaFavorito({
 
   return typeBtn ? (
     <Button
+      id={idButton}
       variant="outlined"
       color="inherit"
       endIcon={ElemEstrela}
@@ -48,7 +51,12 @@ export default function EstrelaFavorito({
       Favorito
     </Button>
   ) : (
-    <IconButton edge="end" aria-label="favorito" onClick={onClickIcon}>
+    <IconButton
+      id={idButton}
+      edge="end"
+      aria-label="favorito"
+      onClick={onClickIcon}
+    >
       {ElemEstrela}
     </IconButton>
   );

@@ -6,6 +6,7 @@ import { IListItem } from "@typesApp/IListItem";
 import { IPost } from "@typesApp/IPost";
 import GenericUtils from "@utils/GenericUtils";
 import TextUtils from "@utils/TextUtils";
+import lodash from "lodash";
 import Link from "next/link";
 import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
@@ -101,6 +102,9 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
               {(props: ListChildComponentProps) => {
                 const { index, style } = props;
                 const item = itensFormatados[index];
+                const idListItemButton = `ListItens-ListItemButton-${index}-${lodash.snakeCase(
+                  item.title
+                )}`;
 
                 return item.isSubheader ? (
                   <ListSubheaderCss style={style} key={index}>
@@ -118,7 +122,7 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                     }
                   >
                     <Link href={item.href || ""} passHref>
-                      <ListItemButton component="a">
+                      <ListItemButton component="a" id={idListItemButton}>
                         <ListItemText
                           primary={TextUtils.limitarTexto(item.title, 80)}
                         />

@@ -13,6 +13,7 @@ import {
   LinearProgress,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   Paper,
   Slide,
@@ -27,6 +28,7 @@ import theme from "@styles/theme";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
 import * as JsSearch from "js-search";
+import lodash from "lodash";
 import Link from "next/link";
 import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
@@ -120,6 +122,7 @@ export default function PesquisarDialog() {
   return (
     <>
       <IconButton
+        id="btn-header-pesquisar"
         size="large"
         aria-label="pesquisar"
         color="inherit"
@@ -137,6 +140,7 @@ export default function PesquisarDialog() {
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Input
+                id="input-header-pesquisar"
                 autoFocus
                 fullWidth
                 value={inputPesquisa}
@@ -187,6 +191,10 @@ export default function PesquisarDialog() {
               <Paper>
                 <List dense>
                   {resultadosPesquisa.map((i, keyResult) => {
+                    const idListItemButton = `ListItens-ListItemButton-${keyResult}-${lodash.snakeCase(
+                      i.title
+                    )}`;
+
                     return (
                       <ListItem
                         button
@@ -194,14 +202,29 @@ export default function PesquisarDialog() {
                         divider={keyResult !== qntResultados - 1}
                       >
                         <Link href={i.href} passHref>
-                          <ListItemText
-                            onClick={() => {
-                              handleClose();
-                            }}
-                            primary={
-                              <>
-                                <Chip label={i.catName} size="small" />{" "}
-                                <Typography variant="subtitle1">
+                          <ListItemButton component="a" id={idListItemButton}>
+                            <ListItemText
+                              onClick={() => {
+                                handleClose();
+                              }}
+                              primary={
+                                <>
+                                  <Chip label={i.catName} size="small" />{" "}
+                                  <Typography variant="subtitle1">
+                                    <Highlighter
+                                      highlightStyle={negritoCss}
+                                      searchWords={searchWords}
+                                      autoEscape={true}
+                                      sanitize={(text) =>
+                                        TextUtils.stringToSlugSemHifen(text)
+                                      }
+                                      textToHighlight={i.title}
+                                    />
+                                  </Typography>
+                                </>
+                              }
+                              secondary={
+                                <>
                                   <Highlighter
                                     highlightStyle={negritoCss}
                                     searchWords={searchWords}
@@ -209,26 +232,13 @@ export default function PesquisarDialog() {
                                     sanitize={(text) =>
                                       TextUtils.stringToSlugSemHifen(text)
                                     }
-                                    textToHighlight={i.title}
+                                    textToHighlight={i.resumo}
                                   />
-                                </Typography>
-                              </>
-                            }
-                            secondary={
-                              <>
-                                <Highlighter
-                                  highlightStyle={negritoCss}
-                                  searchWords={searchWords}
-                                  autoEscape={true}
-                                  sanitize={(text) =>
-                                    TextUtils.stringToSlugSemHifen(text)
-                                  }
-                                  textToHighlight={i.resumo}
-                                />
-                                ...
-                              </>
-                            }
-                          />
+                                  ...
+                                </>
+                              }
+                            />
+                          </ListItemButton>
                         </Link>
                       </ListItem>
                     );

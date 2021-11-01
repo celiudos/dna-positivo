@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { carregandoPaginaAction } from "@store/actionCreator";
 import { IListItem } from "@typesApp/IListItem";
 import DateUtils from "@utils/DateUtils";
+import lodash from "lodash";
 import Link from "next/link";
 import * as React from "react";
 import { useDispatch } from "react-redux";
@@ -35,6 +36,10 @@ export default function ListItens({
                   })
                 : "";
 
+              const idListItemButton = `ListItens-ListItemButton-${key}-${lodash.snakeCase(
+                item.title
+              )}`;
+
               return (
                 <ListItem
                   key={key}
@@ -45,6 +50,7 @@ export default function ListItens({
                 >
                   <Link href={item.href || ""} passHref>
                     <ListItemButton
+                      id={idListItemButton}
                       divider
                       onClick={(): void => {
                         dispatch(carregandoPaginaAction());

@@ -10,6 +10,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { IPost } from "@typesApp/IPost";
+import lodash from "lodash";
 import * as React from "react";
 import styled from "styled-components";
 
@@ -27,6 +28,11 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const idListItemButton = `ListItens-IconButton-${lodash.snakeCase(primary)}`;
+  const idListItemButtonFecharModal = `ListItens-IconButtonFecharModal-${lodash.snakeCase(
+    primary
+  )}`;
+
   return (
     <>
       <List dense>
@@ -36,6 +42,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
               <IconButtonCss
                 edge="end"
                 aria-label="mais"
+                id={idListItemButton}
                 onClick={handleClickOpen}
               >
                 <InfoIcon />
@@ -65,7 +72,11 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
             ></DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} autoFocus>
+            <Button
+              onClick={handleClose}
+              autoFocus
+              id={idListItemButtonFecharModal}
+            >
               Entendi
             </Button>
           </DialogActions>

@@ -42,6 +42,7 @@ export default function MainAppBar({
           <Link href={hrefVoltar || ""} passHref>
             <IconButton
               size="large"
+              id="btn-header-voltar"
               aria-label="voltar"
               color="inherit"
               href={hrefVoltar || ""}
@@ -64,7 +65,12 @@ export default function MainAppBar({
         {!naoTemMenuDir ? (
           <>
             <Link href={"/favoritos"} passHref>
-              <IconButton size="large" aria-label="favoritos" color="inherit">
+              <IconButton
+                size="large"
+                aria-label="favoritos"
+                color="inherit"
+                id="btn-header-favoritos"
+              >
                 <StarIcon />
               </IconButton>
             </Link>
