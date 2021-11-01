@@ -251,6 +251,7 @@ export default class ApiApp {
         params: {
           alt: "json",
           "updated-min": dataUltimaAtualizacao,
+          "max-results": "5",
           orderby: "updated",
         },
       });
