@@ -8,7 +8,7 @@ import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import configApp from "configApp";
 import Image from "next/image";
-import packageJson from "../package";
+import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
   return (

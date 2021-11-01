@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { useStore } from "@store/storeConfig";
 import "@styles/globals.css";
 import theme from "@styles/theme";
+import configApp from "configApp";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import * as React from "react";
@@ -15,8 +16,7 @@ export default function MyApp(props: AppProps) {
   return (
     <React.Fragment>
       <Head>
-        <title>Next App</title>
-        <link href="/favicon.ico" rel="icon" />
+        <title>{configApp.titulo}</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
