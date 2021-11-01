@@ -107,9 +107,19 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                 )}`;
 
                 return item.isSubheader ? (
-                  <ListSubheaderCss style={style} key={index}>
+                  <ListSubheader
+                    component="div"
+                    style={{
+                      ...style,
+                      background: "#f4f4f4",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    key={index}
+                  >
                     <Typography variant="h5">{item.title}</Typography>
-                  </ListSubheaderCss>
+                  </ListSubheader>
                 ) : (
                   <ListItem
                     divider
@@ -150,11 +160,4 @@ const ContainerCss = styled.div`
 
 const ContainerAutoSizerCss = styled.div`
   flex: 1;
-`;
-
-const ListSubheaderCss = styled(ListSubheader)`
-  background: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;

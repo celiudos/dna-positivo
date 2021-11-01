@@ -189,7 +189,7 @@ export default function PesquisarDialog() {
 
             {comResultado && (
               <Paper>
-                <List dense>
+                <List dense component="div">
                   {resultadosPesquisa.map((i, keyResult) => {
                     const idListItemButton = `ListItens-ListItemButton-${keyResult}-${lodash.snakeCase(
                       i.title
@@ -197,12 +197,17 @@ export default function PesquisarDialog() {
 
                     return (
                       <ListItem
-                        button
+                        disablePadding
                         key={keyResult}
                         divider={keyResult !== qntResultados - 1}
+                        component="div"
                       >
-                        <Link href={i.href} passHref>
-                          <ListItemButton component="a" id={idListItemButton}>
+                        <Link href={i.href} passHref key={keyResult}>
+                          <ListItemButton
+                            component="a"
+                            id={idListItemButton}
+                            divider={keyResult !== qntResultados - 1}
+                          >
                             <ListItemText
                               onClick={() => {
                                 handleClose();
