@@ -84,7 +84,8 @@ function LinearDeterminate() {
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
         if (oldProgress === 100) {
-          return 0;
+          // return 0;
+          clearInterval(timer);
         }
         const diff = Math.random() * 10;
         return Math.min(oldProgress + diff, 100);
