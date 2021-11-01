@@ -16,7 +16,7 @@ export default function Tecnicas({ posts }: Props) {
   if (router.isFallback) return <TelaLoading />;
 
   return (
-    <ContainerApp>
+    <ContainerApp title={posts[0].catName} description={"Categoria"}>
       <MainAppBar title={posts[0].catName} hrefVoltar="/" />
       <main>
         <ListSection itens={posts} />

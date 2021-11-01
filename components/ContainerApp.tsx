@@ -6,9 +6,11 @@ import NextSeoHeader from "./NextSeoHeader";
 
 type Props = {
   children: React.ReactNode;
+  title?: string;
+  description?: string;
 };
 
-export default function ContainerApp({ children }: Props) {
+export default function ContainerApp({ children, title, description }: Props) {
   return (
     <ContainerCss maxWidth="sm" disableGutters>
       <Script
@@ -25,7 +27,7 @@ export default function ContainerApp({ children }: Props) {
             gtag('config', 'G-1795HP39M2');
         `}
       </Script>
-      <NextSeoHeader />
+      <NextSeoHeader title={title} description={description} />
       {children}
     </ContainerCss>
   );

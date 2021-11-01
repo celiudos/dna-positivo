@@ -136,7 +136,7 @@ export default function PesquisarDialog() {
         open={open}
         onClose={handleClose}
       >
-        <ContainerApp>
+        <ContainerApp title="Pesquisar">
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Input

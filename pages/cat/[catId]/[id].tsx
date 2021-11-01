@@ -41,7 +41,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   if (router.isFallback) return <TelaLoading />;
 
   return (
-    <ContainerApp>
+    <ContainerApp title={post.title} description={post.catName}>
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
       <main>
         <Grid container spacing={2}>

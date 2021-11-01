@@ -3,9 +3,10 @@ import MainAppBar from "@components/MainAppBar";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { Alert, AlertTitle } from "@mui/material";
 import { Box } from "@mui/system";
+
 export default function Offline() {
   return (
-    <ContainerApp>
+    <ContainerApp title={"404"}>
       <MainAppBar />
       <main>
         <Box p={2}>

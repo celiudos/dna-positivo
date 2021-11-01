@@ -4,7 +4,7 @@ import SignalWifiConnectedNoInternet4Icon from "@mui/icons-material/SignalWifiCo
 import { Alert, AlertTitle, Box } from "@mui/material";
 export default function Offline() {
   return (
-    <ContainerApp>
+    <ContainerApp title={"Offline"}>
       <MainAppBar />
       <main>
         <Box p={2}>
