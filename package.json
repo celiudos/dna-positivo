@@ -1,12 +1,12 @@
 {
   "name": "dna-positivo",
-  "version": "0.1.0",
+  "version": "0.1.1-0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "version": "npm version prepatch",
+    "version": "npm version patch",
     "tsc": "tsc -p .",
     "lint": "next lint"
   },
