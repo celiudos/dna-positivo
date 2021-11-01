@@ -154,6 +154,7 @@ export default function PesquisarDialog() {
                 }
                 endAdornment={
                   <IconButton
+                    id="apagar-pesquisa"
                     aria-label="Apagar pesquisa"
                     onClick={zerarPesquisa}
                     edge="end"
@@ -165,7 +166,14 @@ export default function PesquisarDialog() {
             </Toolbar>
             {progress && <LinearProgress />}
           </AppBar>
-          <main>
+          <main
+            onTouchStart={() => {
+              if (window && window.document) {
+                /* @ts-ignore */
+                window.document.getElementById("apagar-pesquisa").focus();
+              }
+            }}
+          >
             {qntResultados > 0 ? (
               <Box m={2}>
                 <Typography variant="subtitle1">
