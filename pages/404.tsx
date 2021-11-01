@@ -1,7 +1,8 @@
 import ContainerApp from "@components/ContainerApp";
 import MainAppBar from "@components/MainAppBar";
-import SignalWifiConnectedNoInternet4Icon from "@mui/icons-material/SignalWifiConnectedNoInternet4";
-import { Alert, AlertTitle, Box } from "@mui/material";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import { Alert, AlertTitle } from "@mui/material";
+import { Box } from "@mui/system";
 export default function Offline() {
   return (
     <ContainerApp>
@@ -10,10 +11,10 @@ export default function Offline() {
         <Box p={2}>
           <Alert
             severity="warning"
-            icon={<SignalWifiConnectedNoInternet4Icon fontSize="inherit" />}
+            icon={<SentimentVeryDissatisfiedIcon fontSize="inherit" />}
           >
-            <AlertTitle>Você está offline</AlertTitle>
-            Verifique suas configurações de rede
+            <AlertTitle>Página não encontrada</AlertTitle>
+            Erro 404
           </Alert>
         </Box>
       </main>
