@@ -1,0 +1,120 @@
+{
+  "id": "bc1860f2-cc38-410a-9ff0-81a419583b6b",
+  "version": "2.0",
+  "name": "dna-positivo",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "c1b58094-7833-4d37-856d-cd90f9f69d8c",
+    "name": "Acessar diálogo",
+    "commands": [{
+      "id": "a12c25d7-e8f7-4236-bf2e-54fd8337d4fc",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16d11bee-1a38-4934-9a8b-0d2835b9d07c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1464x1144",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e6a4e74a-11f3-4b26-9e79-25af3d7553a0",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE",
+      "targets": [
+        ["css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE", "css:finder"],
+        ["xpath=//div[@id='ListItens-ListItemButton-0-dna_positivo']/div/span", "xpath:idRelative"],
+        ["xpath=//div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'DNA Positivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1ecff9a-df82-47aa-aa82-b0e8b524674d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE",
+      "targets": [
+        ["css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE", "css:finder"],
+        ["xpath=//div[@id='ListItens-ListItemButton-0-dna_positivo']/div/span", "xpath:idRelative"],
+        ["xpath=//div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'DNA Positivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e830b25-b2cf-49aa-b859-6fed3658f7e4",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE",
+      "targets": [
+        ["css=#ListItens-ListItemButton-0-dna_positivo .dMcQmE", "css:finder"],
+        ["xpath=//div[@id='ListItens-ListItemButton-0-dna_positivo']/div/span", "xpath:idRelative"],
+        ["xpath=//div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'DNA Positivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad6f6a50-8202-4866-a8d7-666d28a1695d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#ListItens-ListItemButton-1-a_origem_da_doenca_reencarnacao_multiversos_e_as_particulas_do_multiverso .MuiTypography-root-bWKFam",
+      "targets": [
+        ["css=#ListItens-ListItemButton-1-a_origem_da_doenca_reencarnacao_multiversos_e_as_particulas_do_multiverso .MuiTypography-root-bWKFam", "css:finder"],
+        ["xpath=//a[@id='ListItens-ListItemButton-1-a_origem_da_doenca_reencarnacao_multiversos_e_as_particulas_do_multiverso']/div/span", "xpath:idRelative"],
+        ["xpath=//a/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'A Origem da Doença - Reencarnação, Multiversos e as Partículas do Multiverso')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "43a6f296-3cbd-402e-b3d3-7e823619ef2e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=btn-header-voltar",
+      "targets": [
+        ["id=btn-header-voltar", "id"],
+        ["css=#btn-header-voltar", "css:finder"],
+        ["xpath=//a[@id='btn-header-voltar']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div/header/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cat/2')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe6c35a8-3445-40e6-a2d2-a2f5dfdbc667",
+      "comment": "",
+      "command": "click",
+      "target": "id=btn-header-voltar",
+      "targets": [
+        ["id=btn-header-voltar", "id"],
+        ["css=#btn-header-voltar", "css:finder"],
+        ["xpath=//a[@id='btn-header-voltar']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/div/header/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cat/2')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7ea0087-ea36-4c2a-a920-fbd6115cc010",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btn-header-voltar path",
+      "targets": [
+        ["css=#btn-header-voltar path", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "d359650f-77e1-45d7-aeba-94a528d2c4c4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c1b58094-7833-4d37-856d-cd90f9f69d8c"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}
