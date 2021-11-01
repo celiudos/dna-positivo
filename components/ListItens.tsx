@@ -19,6 +19,7 @@ export default function ListItens({
   itens,
   hasData = false,
   hasStar = true,
+  isFormatoCompleto,
 }: IListItem) {
   const dispatch = useDispatch();
 
@@ -49,17 +50,24 @@ export default function ListItens({
                         dispatch(carregandoPaginaAction());
                       }}
                     >
-                      <ListItemText
-                        primary={
-                          <>
-                            <Chip label={item.catName} size="small" />{" "}
-                            <Typography variant="subtitle1">
-                              {item.title}
-                            </Typography>
-                          </>
-                        }
-                        secondary={`${item.resumo}...`}
-                      />
+                      {isFormatoCompleto ? (
+                        <ListItemText
+                          primary={
+                            <>
+                              <Chip label={item.catName} size="small" />{" "}
+                              <Typography variant="subtitle1">
+                                {item.title}
+                              </Typography>
+                            </>
+                          }
+                          secondary={`${item.resumo}...`}
+                        />
+                      ) : (
+                        <ListItemText
+                          primary={item.title}
+                          secondary={`${item.catName}${data}`}
+                        />
+                      )}
                     </ListItemButton>
                   </Link>
                 </ListItem>

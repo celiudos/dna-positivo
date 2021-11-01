@@ -29,7 +29,7 @@ export default function Favoritos() {
       <main>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <ListItens itens={favStorage} />
+            <ListItens itens={favStorage} isFormatoCompleto />
 
             <Box m={2}>
               <Alert severity="info">
