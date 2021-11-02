@@ -8,6 +8,7 @@ import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import configApp from "configApp";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 import packageJson from "../package.json";
 
@@ -18,12 +19,16 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
       <main>
         <ImageContainerCss>
           <Paper>
-            <Image
-              src="/img/logo-180x180.jpg"
-              alt="Logo"
-              width={180}
-              height={180}
-            />
+            <Link href={"/img/logo.jpg"}>
+              <a>
+                <Image
+                  src="/img/logo-180x180.jpg"
+                  alt="Marca"
+                  width={180}
+                  height={180}
+                />
+              </a>
+            </Link>
           </Paper>
         </ImageContainerCss>
 
