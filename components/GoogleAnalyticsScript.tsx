@@ -19,7 +19,7 @@ export default function GoogleAnalyticsScript() {
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
               page_path: window.location.pathname,
             });
-            gtag('set', 'appVersion', ${packageJson.version});
+            gtag('set', 'appVersion', '${packageJson.version}');
         `}
       </Script>
     </>
