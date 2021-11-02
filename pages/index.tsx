@@ -3,11 +3,12 @@ import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
-import { Alert, AlertTitle, Grid, Typography } from "@mui/material";
+import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import configApp from "configApp";
 import Image from "next/image";
+import styled from "styled-components";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
@@ -15,9 +16,16 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
     <ContainerApp>
       <MainAppBar />
       <main>
-        <DisplayFlexCenter>
-          <Image src="/img/logo.png" alt="Logo" width={150} height={97} />
-        </DisplayFlexCenter>
+        <ImageContainerCss>
+          <Paper>
+            <Image
+              src="/img/logo-180x180.jpg"
+              alt="Logo"
+              width={180}
+              height={180}
+            />
+          </Paper>
+        </ImageContainerCss>
 
         <Grid container spacing={4}>
           <Grid item xs={12}>
@@ -113,6 +121,11 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
     </ContainerApp>
   );
 }
+
+const ImageContainerCss = styled(DisplayFlexCenter)`
+  /* width: 180px; */
+  margin-top: 5px;
+`;
 
 export async function getStaticProps() {
   const postsNovos = await ApiApp.getPostsNovos();

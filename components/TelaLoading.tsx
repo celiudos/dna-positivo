@@ -12,7 +12,7 @@ export default function TelaLoading() {
       <main>
         <DisplayFlexCenter>
           <Box sx={{ width: "150px" }}>
-            <Image src="/img/logo.png" alt="Logo" width={150} height={97} />
+            <Image src="/img/logo.jpg" alt="Logo" width={150} height={97} />
             <Typography align="center">Carregando</Typography>
             <LinearProgress />
           </Box>
