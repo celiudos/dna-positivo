@@ -13,7 +13,11 @@ export default function Offline() {
             icon={<SignalWifiConnectedNoInternet4Icon fontSize="inherit" />}
           >
             <AlertTitle>Você está offline</AlertTitle>
-            Verifique suas configurações de rede
+            Verifique suas configurações de rede.
+            <p>
+              Para habilitar essa página offline, você precisa carregá-la ao
+              menos uma vez.
+            </p>
           </Alert>
         </Box>
       </main>
