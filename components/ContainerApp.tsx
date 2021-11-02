@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
-import Script from "next/script";
 import * as React from "react";
 import styled from "styled-components";
+import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 import NextSeoHeader from "./NextSeoHeader";
 
 type Props = {
@@ -13,20 +13,7 @@ type Props = {
 export default function ContainerApp({ children, title, description }: Props) {
   return (
     <ContainerCss maxWidth="sm" disableGutters>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-1795HP39M2"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-1795HP39M2');
-        `}
-      </Script>
+      <GoogleAnalyticsScript />
       <NextSeoHeader title={title} description={description} />
       {children}
     </ContainerCss>
