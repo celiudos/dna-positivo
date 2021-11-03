@@ -66,7 +66,6 @@ export default function ListItens({
                               </Typography>
                             </>
                           }
-                          secondary={`${item.resumo}...`}
                         />
                       ) : (
                         <ListItemText

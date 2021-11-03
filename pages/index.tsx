@@ -99,7 +99,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
           {configApp.muralDeAvisos.length ? (
             <Grid item xs={12}>
               <Alert severity="info">
-                <AlertTitle>Ajustes recentes do App</AlertTitle>
+                <AlertTitle>Avisos</AlertTitle>
                 {configApp.muralDeAvisos
                   ? configApp.muralDeAvisos.map((item, key) => (
                       <div key={key}>{item}</div>
