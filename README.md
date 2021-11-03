@@ -1,23 +1,45 @@
-# Objetivo
+# Rodar o projeto
+
+## Requisitos
+
+- [NodeJs >15](https://nodejs.org/en/download/)
+
+## Instalar
+
+1.  Baixe o [projeto dna-positivo do github](https://github.com/celiudos/dna-positivo)
+
+1.  No diretório do projeto, instale localmente as libs com o comando
+
+        npm install
+
+## Rodar o projeto
+
+1.  Inicie o servidor de desenvolvimento
+
+        npm run dev
+
+# Geral
+
+## Objetivo
 
 Melhorar a Usabilidade do App
 
-# Resumo
+## Resumo
 
 Basicamente, uma remodelagem do que hoje existe no Aplicativo Android, adaptando tudo a um site.
 
-# Melhorias
+## Melhorias
 
 - Criar Favoritos, permitindo acessar os dados de forma offline
 - Aprimorar a busca por Diálogos e outros dados
 - Permitir que usuários de Iphone tenham acesso às mesmas funcionalidades do App pelo site (caso não exista o app para Iphone)
 - Redimensionar a fonte. Facilitar a leitura em smartphone. Letras maiores
 
-# Tecnologias
+## Tecnologias
 
 Todas são gratuitas, inclusive hospedagem
 
-# TODO
+## TODO
 
 - Adicionar número de versão
 - Adicionar testes unitários e E2E
@@ -25,7 +47,7 @@ Todas são gratuitas, inclusive hospedagem
 - Redimensionar fonte (salvar no cookie)
 - Scroll infinito na pesquisa
 
-# URLS
+## URLS
 
 Sites:
 
