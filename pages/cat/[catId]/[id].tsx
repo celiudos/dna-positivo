@@ -5,10 +5,13 @@ import MainAppBar from "@components/MainAppBar";
 import TelaLoading from "@components/TelaLoading";
 import ApiApp from "@data/ApiApp";
 import AddIcon from "@mui/icons-material/Add";
+import LinkIcon from "@mui/icons-material/Link";
 import RemoveIcon from "@mui/icons-material/Remove";
+import ShareIcon from "@mui/icons-material/Share";
 import {
   Button,
   ButtonGroup,
+  Chip,
   Divider,
   Grid,
   Paper,
@@ -21,7 +24,7 @@ import DateUtils from "@utils/DateUtils";
 import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -38,6 +41,16 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   const router = useRouter();
   const { catId } = router.query;
   let [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
+  const [isNativeShare, setNativeShare] = useState(false);
+
+  useEffect(() => {
+    function nav() {
+      if (!!navigator.share) {
+        setNativeShare(true);
+      }
+    }
+    nav();
+  }, []);
 
   if (router.isFallback) return <TelaLoading />;
 
@@ -106,22 +119,16 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
+                  <Chip label={post.catName} size="small" />
                   <Typography
                     variant="h4"
-                    gutterBottom
                     component="div"
                     style={{ fontSize: `2.${tamanhoFonte}25rem` }}
                   >
                     {post.title}
                   </Typography>
-                  <Link href={post.hrefOriginal || ""} passHref>
-                    <Button variant="outlined" href="" target="_blank">
-                      Publicação original
-                    </Button>
-                  </Link>
-
                   <ContainerPostCss>
-                    <Box my={2}>
+                    <Box my={1}>
                       <Divider />
                     </Box>
                     <Typography
@@ -137,25 +144,51 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={12}>
-            <Box p={2}>
-              <Typography variant="body2" gutterBottom component="div">
+          <Grid
+            item
+            container
+            py={2}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={12}>
+              <Typography variant="body2" gutterBottom align="center">
                 Publicado:{" "}
                 {DateUtils.formatarDataDatetimeUX({ data: post.published })}
               </Typography>
-              <Box mb={2}>
+            </Grid>
+            <Grid item xs={12}>
+              <Box m={1}>
                 <Link href={post.hrefOriginal || ""} passHref>
-                  <Button variant="outlined" href="" target="_blank">
-                    Publicação original
+                  <Button
+                    variant="outlined"
+                    href=""
+                    target="_blank"
+                    endIcon={<LinkIcon />}
+                  >
+                    Ver publicação original
                   </Button>
                 </Link>
               </Box>
-              <Box mb={2}>
-                <Button variant="outlined" href="">
-                  Compartilhar
-                </Button>
+              <Box m={1}>
+                {isNativeShare ? (
+                  <Box mb={2}>
+                    <Button
+                      variant="outlined"
+                      endIcon={<ShareIcon />}
+                      onClick={() =>
+                        navigator.share({
+                          title: post.title,
+                          url: post.href,
+                        })
+                      }
+                    >
+                      Compartilhar
+                    </Button>
+                  </Box>
+                ) : null}
               </Box>
-            </Box>
+            </Grid>
           </Grid>
         </Grid>
       </main>

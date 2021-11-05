@@ -1,9 +1,10 @@
 # TODO
 
-- Adicionar compartilhar no post
-- Adicionar categoria/horário no post (talvez)
+- Últimos posts até 15 dias
 - Scroll na listagem com âncora nas tabs
 
+- Adicionar compartilhar no post
+- Adicionar categoria/horário no post (talvez)
 - Modal com texto maior sem formatação
 - Botão de entendi da modal com texto fechar
 - Melhorar layout do botão de modal
