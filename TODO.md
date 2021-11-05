@@ -4,6 +4,7 @@
 - Adicionar categoria/horário no post (talvez)
 - Scroll na listagem com âncora nas tabs
 
+- Melhorar layout do botão de modal
 - Melhorar cor de destaque da pesquisa
 - Ajuste do post correto na Home
 - Adicionar testes unitários
