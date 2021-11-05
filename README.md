@@ -18,6 +18,10 @@
 
         npm run dev
 
+# Publicar manualmente
+
+Inserir uma publicação no arquivo [postsAdicionais.json](data/manual/postsAdicionais.json)
+
 # Geral
 
 ## Objetivo
