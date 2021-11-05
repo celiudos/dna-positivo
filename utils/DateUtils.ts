@@ -80,16 +80,8 @@ export default class DateUtils {
     return differenceInCalendarMonths(dtIni, dtFim);
   }
 
-  static getdiffInCalendarDays({ ini = "", fim = "" }) {
-    if (!DateUtils.isDataValidaRegex(ini) || !DateUtils.isDataValidaRegex(fim))
-      return 0;
-    ini = DateUtils.sanearData(ini);
-    fim = DateUtils.sanearData(fim);
-    const { dtIni, dtFim } = DateUtils.getDatasInTimestamp({
-      ini,
-      fim,
-    });
-    return differenceInCalendarDays(dtIni, dtFim);
+  static getdiffInCalendarDays({ ini = new Date(), fim = new Date() }) {
+    return differenceInCalendarDays(ini, fim);
   }
 
   static isDataValida(dt = "") {

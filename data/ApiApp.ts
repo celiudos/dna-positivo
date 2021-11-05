@@ -6,6 +6,7 @@ import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificia
 import PostsAdicionais from "@data/manual/postsAdicionais.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
+import DateUtils from "@utils/DateUtils";
 import TextUtils from "@utils/TextUtils";
 import axios from "axios";
 import configApp from "configApp";
@@ -234,7 +235,26 @@ export default class ApiApp {
       posts = ApiApp.formatarPostDoBlogParaOApp(posts);
     }
 
+    const todosPostsMaisRecentes = ApiApp.getPostsRecentes();
+
+    posts = posts.concat(todosPostsMaisRecentes);
+
     return posts;
+  }
+
+  private static getPostsRecentes(diasDeDif = 15, maxPosts = 5): IPost[] {
+    const todosPosts = ApiApp.getTodos();
+    let todosPostsMaisRecentes = lodash.orderBy(todosPosts, "updated", "desc");
+
+    todosPostsMaisRecentes = todosPostsMaisRecentes
+      .filter(
+        (post) =>
+          DateUtils.getdiffInCalendarDays({
+            fim: new Date(post.updated),
+          }) < diasDeDif
+      )
+      .slice(0, maxPosts);
+    return todosPostsMaisRecentes;
   }
 
   private static getJsonsEstaticosDePosts() {

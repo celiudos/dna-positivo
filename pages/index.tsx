@@ -74,12 +74,6 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               ]}
             />
           </Grid>
-          {/* <Grid item xs={12}>
-            <ListHeader primary="Publicações mais recentes" />
-            
-              <ListItens hasData itens={ApiApp.getMaisRecentes()} />
-            
-          </Grid> */}
           <Grid item xs={12}>
             <ListHeader primary="Destaques" />
             <ListItens

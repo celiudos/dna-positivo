@@ -1,8 +1,8 @@
 # TODO
 
-- Últimos posts até 15 dias
 - Scroll na listagem com âncora nas tabs
 
+- Últimos posts até 15 dias
 - Adicionar compartilhar no post
 - Adicionar categoria/horário no post (talvez)
 - Modal com texto maior sem formatação
