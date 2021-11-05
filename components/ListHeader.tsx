@@ -87,5 +87,6 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
 }
 
 export const IconButtonCss = styled(IconButton)`
-  background: #d9d9d9 !important;
+  /* background: #d9d9d9 !important; */
+  border: 1px solid #000000a6 !important;
 `;

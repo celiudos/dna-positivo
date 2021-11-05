@@ -131,13 +131,6 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                         __html: post.contentSanitized,
                       }}
                     />
-                    {/* <Divider />
-                    <Typography
-                      variant="body1"
-                      style={{ fontSize: `1.${tamanhoFonte}rem` }}
-                      gutterBottom
-                      dangerouslySetInnerHTML={{ __html: post.content }}
-                    /> */}
                   </ContainerPostCss>
                 </Grid>
               </Grid>
