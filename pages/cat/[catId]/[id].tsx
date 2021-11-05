@@ -17,6 +17,7 @@ import {
 import { Box } from "@mui/system";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import DateUtils from "@utils/DateUtils";
 import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
@@ -135,6 +136,26 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                 </Grid>
               </Grid>
             </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Box p={2}>
+              <Typography variant="body2" gutterBottom component="div">
+                Publicado:{" "}
+                {DateUtils.formatarDataDatetimeUX({ data: post.published })}
+              </Typography>
+              <Box mb={2}>
+                <Link href={post.hrefOriginal || ""} passHref>
+                  <Button variant="outlined" href="" target="_blank">
+                    Publicação original
+                  </Button>
+                </Link>
+              </Box>
+              <Box mb={2}>
+                <Button variant="outlined" href="">
+                  Compartilhar
+                </Button>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
       </main>
