@@ -63,9 +63,10 @@ function getSearchObj() {
 
 const searchObj = getSearchObj();
 
-const negritoCss = {
+const negritoCss: React.CSSProperties = {
   backgroundColor: "inherit",
   color: theme.palette.info.main,
+  fontWeight: "bold",
 };
 
 let timeout: NodeJS.Timeout;
