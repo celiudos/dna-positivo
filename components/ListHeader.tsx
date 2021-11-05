@@ -77,7 +77,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
               autoFocus
               id={idListItemButtonFecharModal}
             >
-              Entendi
+              Fechar
             </Button>
           </DialogActions>
         </Dialog>

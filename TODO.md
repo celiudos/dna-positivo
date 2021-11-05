@@ -1,5 +1,6 @@
 # TODO
 
+- Botão de entendi da modal com texto fechar
 - Adicionar compartilhar no post
 - Adicionar categoria/horário no post (talvez)
 - Scroll na listagem com âncora nas tabs
