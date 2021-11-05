@@ -3,6 +3,7 @@ import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json"
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
+import PostsAdicionais from "@data/manual/postsAdicionais.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
@@ -59,7 +60,18 @@ export default class ApiApp {
       todosPosts = ApiApp.unirPostsIguais(todosPosts);
     }
 
+    todosPosts = ApiApp.incluirPostsAdicionais(todosPosts);
+
     return todosPosts;
+  }
+
+  private static incluirPostsAdicionais(posts: IPost[]): IPost[] {
+    const PostsAdicionaisDados = PostsAdicionais as IEntryComCat[];
+    const postsFormatados =
+      ApiApp.formatarPostDoBlogParaOApp(PostsAdicionaisDados);
+    posts = posts.concat(postsFormatados);
+
+    return posts;
   }
 
   private static formatarPostDoBlogParaOApp(
