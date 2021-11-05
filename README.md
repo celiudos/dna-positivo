@@ -39,14 +39,6 @@ Basicamente, uma remodelagem do que hoje existe no Aplicativo Android, adaptando
 
 Todas são gratuitas, inclusive hospedagem
 
-## TODO
-
-- Adicionar número de versão
-- Adicionar testes unitários e E2E
-- Inserir controladores
-- Redimensionar fonte (salvar no cookie)
-- Scroll infinito na pesquisa
-
 ## URLS
 
 Sites:
@@ -63,4 +55,4 @@ Aux:
   -- https://dnapositivo.blogspot.com/feeds/pages/default?alt=json&start-index=1&max-results=200
 
 - Recuperar últimos posts
-  -- https://dnafisicoequantico.blogspot.com/feeds/posts/default?alt=json&updated-min=2021-10-25T00:00:00&orderby=updated
+  -- https://dnafisicoequantico.blogspot.com/feeds/posts/default?alt=json&updated-min=2021-11-05T00:00:00&orderby=updated
