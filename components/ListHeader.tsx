@@ -68,6 +68,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
           <DialogContent>
             <DialogContentText
               id="alert-dialog-description"
+              style={{ fontSize: `1.1rem` }}
               dangerouslySetInnerHTML={{ __html: modal?.contentSanitized }}
             ></DialogContentText>
           </DialogContent>
