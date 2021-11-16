@@ -21,6 +21,10 @@ const configApp = {
       title: "Controladores",
       href: "https://drive.google.com/drive/folders/1PfTaKsvQZLtEqZog53bt-DqdPwkzsMNS",
     },
+    {
+      title: "Eletricidade no Corpo Humano e o Tratamento de Doenças",
+      href: "https://fabiano.cf/echtd.html",
+    },
   ],
   muralDeAvisos: [],
 };
