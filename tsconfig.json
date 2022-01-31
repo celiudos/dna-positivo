@@ -21,6 +21,7 @@
       "@hooks/*": ["./hooks/*"],
       "@typesApp/*": ["./typesApp/*"],
       "@data/*": ["./data/*"],
+      "@tests/*": ["./tests/*"],
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"],
       "@store/*": ["./store/*"]

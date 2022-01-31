@@ -13,8 +13,6 @@ import styled from "styled-components";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
-  console.log("postsNovos:", postsNovos);
-
   return (
     <ContainerApp>
       <MainAppBar />

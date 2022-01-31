@@ -1,7 +1,6 @@
 import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
 import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
 import DNA_holografico_e_quantico_PAGES from "@data/DNA_holografico_e_quantico_PAGES.json";
-import DNA_holografico_e_quantico_POSTS from "@data/DNA_holografico_e_quantico_POSTS.json";
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
@@ -11,10 +10,10 @@ import { IPost } from "@typesApp/IPost";
 import DateUtils from "@utils/DateUtils";
 import TextUtils from "@utils/TextUtils";
 import axios from "axios";
-import configApp from "configApp";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 import getUuid from "uuid-by-string";
+import configApp from "../configApp";
 
 export default class ApiApp {
   static defaultPost: IPost = {
@@ -229,6 +228,7 @@ export default class ApiApp {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
+      DNA_holografico_e_quantico_Dados,
     } = ApiApp.getJsonsEstaticosDePosts();
 
     const posts1 = await ApiApp.verificarSeTemPostNovoNoSite(
@@ -247,8 +247,8 @@ export default class ApiApp {
     );
 
     const posts4 = await ApiApp.verificarSeTemPostNovoNoSite(
-      InteligenciaartificialpositivaDados,
-      "https://dnaholograficoequantico.blogspot.com/feeds/posts"
+      DNA_holografico_e_quantico_Dados,
+      "https://dnaholograficoequantico.blogspot.com/feeds/pages"
     );
 
     let posts: any = [];
@@ -259,7 +259,6 @@ export default class ApiApp {
     }
 
     const todosPostsMaisRecentes = ApiApp.getPostsRecentes();
-    // console.log("todosPostsMaisRecentes:", todosPostsMaisRecentes);
 
     posts = posts.concat(todosPostsMaisRecentes);
 
@@ -283,12 +282,13 @@ export default class ApiApp {
 
   private static getJsonsEstaticosDePosts() {
     const DnafisicoequanticoDados = DNA_fisico_e_quantico_POSTS as IBloggerJson;
-    // const DnapositivoDados = DNA_positivo_POSTS as IBloggerJson;
-    const DnapositivoDados = DNA_positivo_PAGES as IBloggerJson; // Ajuste rápido
     const InteligenciaartificialpositivaDados =
       Inteligencia_artificial_positiva_POSTS as IBloggerJson;
+
+    // Ajuste rápido: Só busca de PAGES
+    const DnapositivoDados = DNA_positivo_PAGES as IBloggerJson;
     const DNA_holografico_e_quantico_Dados =
-      DNA_holografico_e_quantico_POSTS as IBloggerJson;
+      DNA_holografico_e_quantico_PAGES as IBloggerJson;
 
     return {
       DnafisicoequanticoDados,
@@ -305,6 +305,7 @@ export default class ApiApp {
     const dataUltimaAtualizacao = jsonEstativo.feed.updated.$t;
 
     let responseData;
+
     try {
       const response = await axios.get(`${urlBase}/default`, {
         params: {
