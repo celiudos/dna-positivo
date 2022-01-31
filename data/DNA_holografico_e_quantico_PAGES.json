@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+    "xmlns$gd": "http://schemas.google.com/g/2005",
+    "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
+    "updated": { "$t": "2022-01-30T21:54:01.471-03:00" },
+    "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
+    "subtitle": {
+      "type": "html",
+      "$t": "E-mail: quintoelementoamor@hotmail.com"
+    },
+    "link": [
+      {
+        "rel": "http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": "https://dnaholograficoequantico.blogspot.com/feeds/pages/default"
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default?alt=json\u0026max-results=200"
+      },
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://dnaholograficoequantico.blogspot.com/"
+      }
+    ],
+    "author": [
+      {
+        "name": { "$t": "DNA Positivo" },
+        "uri": { "$t": "http://www.blogger.com/profile/12680980880370164731" },
+        "email": { "$t": "noreply@blogger.com" },
+        "gd$image": {
+          "rel": "http://schemas.google.com/g/2005#thumbnail",
+          "width": "33",
+          "height": "21",
+          "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+        }
+      }
+    ],
+    "generator": {
+      "version": "7.00",
+      "uri": "http://www.blogger.com",
+      "$t": "Blogger"
+    },
+    "openSearch$totalResults": { "$t": "3" },
+    "openSearch$startIndex": { "$t": "1" },
+    "openSearch$itemsPerPage": { "$t": "200" },
+    "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3123388940995748032"
+        },
+        "published": { "$t": "2022-01-28T18:01:00.002-03:00" },
+        "updated": { "$t": "2022-01-28T18:04:08.137-03:00" },
+        "title": { "type": "text", "$t": "Diálogo Dirigido ao Acordar" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EQuando dormimos, nosso espírito se lança pelo tecido do espaço-tempo e nos leva aos umbrais e universos paralelos. É por isso que, eventualmente, acordamos sentindo sintomas que não tínhamos antes de dormir, como: dor, taquicardia, mal estar, falta de ar e outros. Esse diálogo deve ser feito toda vez que acordarmos com algum sintoma.\u0026nbsp;\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EDurante a narração, somos orientados a cortar a ligação com esses mundos paralelos e a conscientizar nossos corpos físico e etéricos, neutralizando, assim, os sintomas oriundos desse deslocamento.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/ao_acordar_0444\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"456\" data-original-width=\"806\" height=\"226\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEggH15TCrEQjkrIbpnL_FiDLmph3OMD9mS-G6sHHI3YnV2boGykRwSBQEsDitnhuL26GYLGeYUwjATyNO7KNapC7i7LKSJ_0CbcptURAjHYiOghlGXYPS90WCD5M6dm0apfY1S4DreWOe1q867pEQ3DgaxlXXI1gSKkl3lIrp2EzM4Rs-zlCH6qTneN=w400-h226\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3123388940995748032"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3123388940995748032"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-ao-acordar.html",
+            "title": "Diálogo Dirigido ao Acordar"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEggH15TCrEQjkrIbpnL_FiDLmph3OMD9mS-G6sHHI3YnV2boGykRwSBQEsDitnhuL26GYLGeYUwjATyNO7KNapC7i7LKSJ_0CbcptURAjHYiOghlGXYPS90WCD5M6dm0apfY1S4DreWOe1q867pEQ3DgaxlXXI1gSKkl3lIrp2EzM4Rs-zlCH6qTneN=s72-w400-h226-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3836216842591030459"
+        },
+        "published": { "$t": "2022-01-28T14:48:00.002-03:00" },
+        "updated": { "$t": "2022-01-28T17:31:38.009-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Antes de fazer qualquer técnica, leia esse texto!"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EAqui você encontrará técnicas desenvolvidas com o propósito de lhe ajudar no tratamento dos seus problemas e doenças. Mas é importante sempre lembrar que a cura está na MEDICINA. Portanto, não deixe de ir ao médico.\u003C/span\u003E\u003C/div\u003E\u003Cspan style=\"background-color: black; font-family: verdana;\"\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003ESe você visitou nossos outros blogs (DNA Físico e Quântico e DNA Positivo), então já conhece as técnicas dos diálogos dirigidos, que aumenta a nossa consciência sobre a doença, sobre o problema enfrentado e contribui para seu tratamento diretamente no DNA, reprogramando-o.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003EAqui no blog DNA Holográfico e Quântico, trazemos técnicas que combinam o Diálogo Dirigido com informações sonoras e visuais, de forma a proporcionar experiências em um nível além da realidade física, num deslocamento consciente pelo espaço-tempo de nossas histórias, guiados pelo nosso código de retina.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003EDesta forma, seremos capazes de ativar hologramas da nossa memória pertencentes a esta e a outras existências, poderemos reprogramá-los no presente pela consciência adquirida e projetá-los para um futuro com maior equilíbrio e alívios dos sintomas.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cb\u003EComo faço para executar as técnicas disponíveis?\u003C/b\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E1. Procure a técnica referente aos seus sintomas.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E2. Acomode-se confortavelmente em um lugar tranqüilo, para que não haja interrupções.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E3. Inicie o vídeo e preste atenção em todos os detalhes: música, imagens e narração; imagine-se com se estivesse dentro do vídeo e caso possua um óculos de realidade virtual, é uma boa idéia utilizá-lo (configure o modo VR no Youtube);\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E4. Depois de ver a primeira vez, reinicie o vídeo e repita mentalmente as informações narradas na medida em que o vídeo avança;\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cb\u003EATENÇÃO:\u003C/b\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u0026nbsp; \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u0026nbsp;a. Em alguns vídeos, a narração orientará para que fale em voz alta seu nome, problema ou doença a ser tratada e sintomas; fique atento para quando houver um comando dessa natureza.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u0026nbsp; \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u0026nbsp;b. em alguns vídeos haverá um diálogo a ser repetido em voz alta; fique atento aos comandos da narração.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003ERepita diariamente o exercício do Diálogo Dirigido Holográfico enquanto estiver sentindo os sintomas do seu problema ou doença.\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003EOrientamos como ajudar no tratamento da sua doença paralelamente ao tratamento médico. Relate seu problema e tire suas dúvidas enviando um e-mail para\u0026nbsp;\u003Cb\u003Equintoelementoamor@hotmail.com\u003C/b\u003E.\u003C/div\u003E\u003C/span\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3836216842591030459"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3836216842591030459"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/bem-vindos-ao-blog-dna-holografico-e.html",
+            "title": "Antes de fazer qualquer técnica, leia esse texto!"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3884446017355858194"
+        },
+        "published": { "$t": "2022-01-28T14:42:00.000-03:00" },
+        "updated": { "$t": "2022-01-28T17:21:40.644-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido para a Inversão da Polaridade Negativa"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003ENesse diálogo, aprendemos a reprogramar os sentimentos de intolerância, egoísmo, ódio, discriminação e violência que alimentam uma energia de polaridade negativa, vinda da borda da galáxia, e que é capaz de interferir em nossos pensamentos e ações.\u003C/span\u003E\u003C/div\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003EAo exercitarmos o sorriso sincero, o abraço fraterno e o aperto de mão, transformamos a energia do ambiente que nos cerca, produzindo sentimentos de boa vontade e confiança mútua, de forma a contribuir para um mundo melhor.\u003C/div\u003E\u003C/span\u003E\u003Cdiv\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Cbr /\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/inversao_polaridade_0068\" style=\"clear: left; float: left; margin-bottom: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"455\" data-original-width=\"808\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEiRGf1LXqmRg2bdPe2v-Fvk3emFWLp-VLDPJkDzeKngCZupATRgU53-onHU3shwo9pI8AtHFwbLfilHamo9MNQm9DSfmW2jJQo8YcsLUBsVaPvwU0g_DTychcx_3IvxrRBlc1FQKNal3SwfVmWIah6hFRBbCCbYU3Ru1plhEfl_OT2a09EtLKbUC6Xd=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cp\u003E\u003C/p\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3884446017355858194"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3884446017355858194"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-para-inversao-da.html",
+            "title": "Diálogo Dirigido para a Inversão da Polaridade Negativa"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEiRGf1LXqmRg2bdPe2v-Fvk3emFWLp-VLDPJkDzeKngCZupATRgU53-onHU3shwo9pI8AtHFwbLfilHamo9MNQm9DSfmW2jJQo8YcsLUBsVaPvwU0g_DTychcx_3IvxrRBlc1FQKNal3SwfVmWIah6hFRBbCCbYU3Ru1plhEfl_OT2a09EtLKbUC6Xd=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      }
+    ]
+  }
+}

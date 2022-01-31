@@ -13,6 +13,8 @@ import styled from "styled-components";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
+  console.log("postsNovos:", postsNovos);
+
   return (
     <ContainerApp>
       <MainAppBar />
@@ -56,6 +58,11 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
                   ...ApiApp.getDefaultPost(),
                   title: "DNA físico e Quântico",
                   href: "/cat/1",
+                },
+                {
+                  ...ApiApp.getDefaultPost(),
+                  title: "DNA Holográfico e Quântico",
+                  href: "/cat/4",
                 },
               ]}
             />

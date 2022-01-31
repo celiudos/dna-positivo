@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+    "xmlns$blogger": "http://schemas.google.com/blogger/2008",
+    "xmlns$georss": "http://www.georss.org/georss",
+    "xmlns$gd": "http://schemas.google.com/g/2005",
+    "xmlns$thr": "http://purl.org/syndication/thread/1.0",
+    "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
+    "updated": { "$t": "2022-01-30T21:54:01.471-03:00" },
+    "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
+    "subtitle": {
+      "type": "html",
+      "$t": "E-mail: quintoelementoamor@hotmail.com"
+    },
+    "link": [
+      {
+        "rel": "http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": "https://dnaholograficoequantico.blogspot.com/feeds/posts/default"
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https://www.blogger.com/feeds/8122934176709728665/posts/default?alt=json\u0026updated-min=2021-11-05T00:00:00\u0026orderby=updated"
+      },
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://dnaholograficoequantico.blogspot.com/"
+      },
+      { "rel": "hub", "href": "http://pubsubhubbub.appspot.com/" }
+    ],
+    "author": [
+      {
+        "name": { "$t": "DNA Positivo" },
+        "uri": { "$t": "http://www.blogger.com/profile/12680980880370164731" },
+        "email": { "$t": "noreply@blogger.com" },
+        "gd$image": {
+          "rel": "http://schemas.google.com/g/2005#thumbnail",
+          "width": "33",
+          "height": "21",
+          "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+        }
+      }
+    ],
+    "generator": {
+      "version": "7.00",
+      "uri": "http://www.blogger.com",
+      "$t": "Blogger"
+    },
+    "openSearch$totalResults": { "$t": "2" },
+    "openSearch$startIndex": { "$t": "1" },
+    "openSearch$itemsPerPage": { "$t": "25" },
+    "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.post-5990570422370569993"
+        },
+        "published": { "$t": "2022-01-28T18:00:00.006-03:00" },
+        "updated": { "$t": "2022-01-28T18:03:48.144-03:00" },
+        "title": { "type": "text", "$t": "Diálogo Dirigido ao Acordar" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EQuando dormimos, nosso espírito se lança pelo tecido do espaço-tempo e nos leva aos umbrais e universos paralelos. É por isso que, eventualmente, acordamos sentindo sintomas que não tínhamos antes de dormir, como: dor, taquicardia, mal estar, falta de ar e outros. Esse diálogo deve ser feito toda vez que acordarmos com algum sintoma.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EDurante a narração, somos orientados a cortar a ligação com esses mundos paralelos e a conscientizar nossos corpos físico e etéricos, neutralizando, assim, os sintomas oriundos desse deslocamento.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/ao_acordar_0444\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"456\" data-original-width=\"806\" height=\"226\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEggH15TCrEQjkrIbpnL_FiDLmph3OMD9mS-G6sHHI3YnV2boGykRwSBQEsDitnhuL26GYLGeYUwjATyNO7KNapC7i7LKSJ_0CbcptURAjHYiOghlGXYPS90WCD5M6dm0apfY1S4DreWOe1q867pEQ3DgaxlXXI1gSKkl3lIrp2EzM4Rs-zlCH6qTneN=w400-h226\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: verdana; font-size: large;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/posts/default/5990570422370569993"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/posts/default/5990570422370569993"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/2022/01/dialogo-dirigido-ao-acordar.html",
+            "title": "Diálogo Dirigido ao Acordar"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEggH15TCrEQjkrIbpnL_FiDLmph3OMD9mS-G6sHHI3YnV2boGykRwSBQEsDitnhuL26GYLGeYUwjATyNO7KNapC7i7LKSJ_0CbcptURAjHYiOghlGXYPS90WCD5M6dm0apfY1S4DreWOe1q867pEQ3DgaxlXXI1gSKkl3lIrp2EzM4Rs-zlCH6qTneN=s72-w400-h226-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.post-5966888304664869543"
+        },
+        "published": { "$t": "2022-01-28T14:33:00.019-03:00" },
+        "updated": { "$t": "2022-01-28T17:21:33.646-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido para a Inversão da Polaridade Negativa"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Ch2 style=\"text-align: left;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both;\"\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium; font-weight: normal;\"\u003ENesse diálogo, aprendemos a reprogramar os sentimentos de intolerância, egoísmo, ódio, discriminação e violência que alimentam uma energia de polaridade negativa, vinda da borda da galáxia, e que é capaz de interferir em nossos pensamentos e ações.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium; font-weight: 400;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium; font-weight: normal;\"\u003E\u003Cdiv style=\"text-align: justify;\"\u003EAo exercitarmos o sorriso sincero, o abraço fraterno e o aperto de mão, transformamos a energia do ambiente que nos cerca, produzindo sentimentos de boa vontade e confiança mútua, de forma a contribuir para um mundo melhor.\u003C/div\u003E\u003C/span\u003E\u003Cspan style=\"font-family: verdana; font-size: large;\"\u003E\u003Ca href=\"https://dialogos.ml/inversao_polaridade_0068\" style=\"clear: left; float: left; margin-bottom: 1em; margin-right: 1em; text-align: justify;\" target=\"_blank\"\u003E\u003Cbr /\u003E\u003C/a\u003E\u003Ca href=\"https://dialogos.ml/inversao_polaridade_0068\" style=\"clear: left; float: left; margin-bottom: 1em; margin-right: 1em; text-align: justify;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"455\" data-original-width=\"808\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEhKrCIszYlTffTNBayq5sVx9tyZ2KbhVh11AgffhgSsYLMIEwbFrrEkWCVIZlkd-n76RhFBVqGmLztLC7Li11mIVThRYYb8aCops2cvHesY3SXYgDfmZmuv7o9BzSYyxTnGjMaKEnKVoSiqufO8O5XDRzYWqhKJuVUT8KwWJj9bndnNYOsdLStYDihT=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/span\u003E\u003C/div\u003E\u003Cspan style=\"font-family: verdana; font-size: large;\"\u003E\u003Cbr /\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/h2\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/posts/default/5966888304664869543"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/posts/default/5966888304664869543"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/2022/01/inversao-da-polaridade-negativa.html",
+            "title": "Diálogo Dirigido para a Inversão da Polaridade Negativa"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEhKrCIszYlTffTNBayq5sVx9tyZ2KbhVh11AgffhgSsYLMIEwbFrrEkWCVIZlkd-n76RhFBVqGmLztLC7Li11mIVThRYYb8aCops2cvHesY3SXYgDfmZmuv7o9BzSYyxTnGjMaKEnKVoSiqufO8O5XDRzYWqhKJuVUT8KwWJj9bndnNYOsdLStYDihT=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      }
+    ]
+  }
+}
