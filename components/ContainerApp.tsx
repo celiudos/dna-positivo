@@ -25,4 +25,6 @@ export const ContainerCss = styled(Container)`
   display: flex !important;
   height: 100%;
   flex-direction: column;
+  z-index: 10;
+  position: relative;
 `;
