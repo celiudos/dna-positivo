@@ -44,9 +44,9 @@ body,
   }
 }
 .rotating {
-  -webkit-animation: rotating 100s linear infinite;
-  -moz-animation: rotating 100s linear infinite;
-  -ms-animation: rotating 100s linear infinite;
-  -o-animation: rotating 100s linear infinite;
-  animation: rotating 100s linear infinite;
+  -webkit-animation: rotating 500s linear infinite;
+  -moz-animation: rotating 500s linear infinite;
+  -ms-animation: rotating 500s linear infinite;
+  -o-animation: rotating 500s linear infinite;
+  animation: rotating 500s linear infinite;
 }
