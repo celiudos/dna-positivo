@@ -61,3 +61,11 @@ Aux:
 
 - Recuperar últimos posts
   -- https://dnafisicoequantico.blogspot.com/feeds/posts/default?alt=json&updated-min=2021-11-05T00:00:00&orderby=updated
+
+# COMMIT
+
+## Versionando GIT e package.json
+
+Utilize **major**, **minor**, ou **patch**
+
+    npm version patch -m "Nova versão"
