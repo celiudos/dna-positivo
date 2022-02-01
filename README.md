@@ -2,7 +2,7 @@
 
 ## Requisitos
 
-- [NodeJs >15](https://nodejs.org/en/download/)
+- [NodeJs > 15](https://nodejs.org/en/download/)
 
 ## Instalar
 
@@ -50,6 +50,7 @@ Sites:
 - https://dnapositivo.blogspot.com/
 - https://dnafisicoequantico.blogspot.com/
 - https://inteligenciaartificialpositiva.blogspot.com/
+- https://dnaholograficoequantico.blogspot.com/
 
 Aux:
 

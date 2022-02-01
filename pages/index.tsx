@@ -18,7 +18,14 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
       <MainAppBar />
       <main>
         <ImageContainerCss>
-          <Paper>
+          <ImageContainerGifCss>
+            <Image
+              src="/img/DNA-Genetics.gif"
+              alt="Genética DNA"
+              layout="fill"
+            />
+          </ImageContainerGifCss>
+          <PaperImgCss elevation={5}>
             <Link href={"/img/logo.jpg"}>
               <a>
                 <Image
@@ -29,7 +36,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
                 />
               </a>
             </Link>
-          </Paper>
+          </PaperImgCss>
         </ImageContainerCss>
 
         <Grid container spacing={4}>
@@ -56,6 +63,11 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
                   ...ApiApp.getDefaultPost(),
                   title: "DNA físico e Quântico",
                   href: "/cat/1",
+                },
+                {
+                  ...ApiApp.getDefaultPost(),
+                  title: "DNA Holográfico e Quântico",
+                  href: "/cat/4",
                 },
               ]}
             />
@@ -121,9 +133,20 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
   );
 }
 
+const ImageContainerGifCss = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+`;
+
+const PaperImgCss = styled(Paper)`
+  padding-top: 5px;
+`;
+
 const ImageContainerCss = styled(DisplayFlexCenter)`
   /* width: 180px; */
-  margin-top: 5px;
+  position: relative;
 `;
 
 export async function getStaticProps() {

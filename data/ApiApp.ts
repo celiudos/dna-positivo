@@ -1,5 +1,6 @@
 import DNA_fisico_e_quantico_PAGES from "@data/DNA_fisico_e_quantico_PAGES.json";
 import DNA_fisico_e_quantico_POSTS from "@data/DNA_fisico_e_quantico_POSTS.json";
+import DNA_holografico_e_quantico_PAGES from "@data/DNA_holografico_e_quantico_PAGES.json";
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
@@ -9,10 +10,10 @@ import { IPost } from "@typesApp/IPost";
 import DateUtils from "@utils/DateUtils";
 import TextUtils from "@utils/TextUtils";
 import axios from "axios";
-import configApp from "configApp";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 import getUuid from "uuid-by-string";
+import configApp from "../configApp";
 
 export default class ApiApp {
   static defaultPost: IPost = {
@@ -36,12 +37,14 @@ export default class ApiApp {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
+      DNA_holografico_e_quantico_Dados,
     } = ApiApp.getJsonsEstaticosDePosts();
 
     let posts = ApiApp.getApenasPostsDoEntry(
       DnafisicoequanticoDados,
       DnapositivoDados,
-      InteligenciaartificialpositivaDados
+      InteligenciaartificialpositivaDados,
+      DNA_holografico_e_quantico_Dados
     );
 
     let { InteligenciaartificialpositivaDadosPages } =
@@ -97,6 +100,7 @@ export default class ApiApp {
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
           allowedAttributes: {
             table: ["border"],
+            // img: ["src", "height", "width"],
             img: ["src"],
             a: ["href", "target"],
           },
@@ -135,11 +139,13 @@ export default class ApiApp {
   private static getApenasPostsDoEntry(
     DnafisicoequanticoDados: IBloggerJson,
     DnapositivoDados: IBloggerJson,
-    InteligenciaartificialpositivaDados: IBloggerJson
+    InteligenciaartificialpositivaDados: IBloggerJson,
+    DNA_holografico_e_quantico_Dados: IBloggerJson
   ): IEntryComCat[] {
     let posts1: any = [];
     let posts2: any = [];
     let posts3: any = [];
+    let posts4: any = [];
 
     try {
       posts1 = DnafisicoequanticoDados.feed.entry.map((p) => ({
@@ -165,7 +171,15 @@ export default class ApiApp {
       }));
     } catch (error) {}
 
-    const posts = [...posts1, ...posts2, ...posts3];
+    try {
+      posts4 = DNA_holografico_e_quantico_Dados.feed.entry.map((p) => ({
+        ...p,
+        cat: 4,
+        catName: "DNA Holográfico e Quântico",
+      }));
+    } catch (error) {}
+
+    const posts = [...posts1, ...posts2, ...posts3, ...posts4];
     return posts;
   }
 
@@ -192,11 +206,14 @@ export default class ApiApp {
     const DnapositivoDadosPages = DNA_positivo_PAGES as IBloggerJson;
     const InteligenciaartificialpositivaDadosPages =
       Inteligencia_artificial_positiva_PAGES as IBloggerJson;
+    const DNA_holografico_e_quanticoPages =
+      DNA_holografico_e_quantico_PAGES as IBloggerJson;
 
     return {
       DnafisicoequanticoDadosPages,
       DnapositivoDadosPages,
       InteligenciaartificialpositivaDadosPages,
+      DNA_holografico_e_quanticoPages,
     };
   }
 
@@ -211,6 +228,7 @@ export default class ApiApp {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
+      DNA_holografico_e_quantico_Dados,
     } = ApiApp.getJsonsEstaticosDePosts();
 
     const posts1 = await ApiApp.verificarSeTemPostNovoNoSite(
@@ -228,10 +246,15 @@ export default class ApiApp {
       "https://inteligenciaartificialpositiva.blogspot.com/feeds/posts"
     );
 
+    const posts4 = await ApiApp.verificarSeTemPostNovoNoSite(
+      DNA_holografico_e_quantico_Dados,
+      "https://dnaholograficoequantico.blogspot.com/feeds/pages"
+    );
+
     let posts: any = [];
 
-    if (posts1 && posts2 && posts3) {
-      posts = ApiApp.getApenasPostsDoEntry(posts1, posts2, posts3);
+    if (posts1 && posts2 && posts3 && posts4) {
+      posts = ApiApp.getApenasPostsDoEntry(posts1, posts2, posts3, posts4);
       posts = ApiApp.formatarPostDoBlogParaOApp(posts);
     }
 
@@ -259,15 +282,19 @@ export default class ApiApp {
 
   private static getJsonsEstaticosDePosts() {
     const DnafisicoequanticoDados = DNA_fisico_e_quantico_POSTS as IBloggerJson;
-    // const DnapositivoDados = DNA_positivo_POSTS as IBloggerJson;
-    const DnapositivoDados = DNA_positivo_PAGES as IBloggerJson; // Ajuste rápido
     const InteligenciaartificialpositivaDados =
       Inteligencia_artificial_positiva_POSTS as IBloggerJson;
+
+    // Ajuste rápido: Só busca de PAGES
+    const DnapositivoDados = DNA_positivo_PAGES as IBloggerJson;
+    const DNA_holografico_e_quantico_Dados =
+      DNA_holografico_e_quantico_PAGES as IBloggerJson;
 
     return {
       DnafisicoequanticoDados,
       DnapositivoDados,
       InteligenciaartificialpositivaDados,
+      DNA_holografico_e_quantico_Dados,
     };
   }
 
@@ -278,6 +305,7 @@ export default class ApiApp {
     const dataUltimaAtualizacao = jsonEstativo.feed.updated.$t;
 
     let responseData;
+
     try {
       const response = await axios.get(`${urlBase}/default`, {
         params: {
