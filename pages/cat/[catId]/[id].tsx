@@ -75,7 +75,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
               : null}
 
             <Paper>
-              <Grid container p={1}>
+              <Grid container p={2}>
                 <Grid
                   item
                   container

@@ -19,11 +19,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
       <main>
         <ImageContainerCss>
           <ImageContainerGifCss>
-            <Image
-              src="/img/DNA-Genetics.gif"
-              alt="Genética DNA"
-              layout="fill"
-            />
+            <Image src="/img/gif-grande.gif" alt="Genética DNA" layout="fill" />
           </ImageContainerGifCss>
           <PaperImgCss elevation={5}>
             <Link href={"/img/logo.jpg"}>

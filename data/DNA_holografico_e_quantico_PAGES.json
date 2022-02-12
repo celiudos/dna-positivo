@@ -6,7 +6,7 @@
     "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
     "xmlns$gd": "http://schemas.google.com/g/2005",
     "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
-    "updated": { "$t": "2022-01-31T22:20:13.289-03:00" },
+    "updated": { "$t": "2022-02-07T08:57:06.944-03:00" },
     "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
     "subtitle": {
       "type": "html",
@@ -47,10 +47,166 @@
       "uri": "http://www.blogger.com",
       "$t": "Blogger"
     },
-    "openSearch$totalResults": { "$t": "7" },
+    "openSearch$totalResults": { "$t": "10" },
     "openSearch$startIndex": { "$t": "1" },
     "openSearch$itemsPerPage": { "$t": "200" },
     "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-5759317234872628227"
+        },
+        "published": { "$t": "2022-02-05T13:31:00.000-03:00" },
+        "updated": { "$t": "2022-02-05T13:32:46.891-03:00" },
+        "title": { "type": "text", "$t": "Diálogo Dirigido com o Sol" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EDiálogo utilizado para auxiliar o bom funcionamento dos sistemas corpóreos por meio da absorção consciente das partículas de luz chamadas fótons, emitidas pelo Sol. Esse diálogo ajuda na regulação dos níveis da Vitamina (hormônio) D e de minerais como o Cálcio, bem como na disposição do corpo e no fortalecimento do Sistema Imunológico.\u003C/span\u003E\u003C/div\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003EMas lembre-se, o vídeo é apenas um recurso! É importante, também, que se crie o hábito de tomar banho de Sol, por 10 a 30 minutos, no horário entre 10h30 e 13h00, e fazer o diálogo disponível no blog \u003Ca href=\"https://dnafisicoequantico.blogspot.com/p/dialogo-dirigido-com-o-sol-e-vitamina.html\" target=\"_blank\"\u003EDNA Físico e Quântico.\u003C/a\u003E\u003C/div\u003E\u003C/span\u003E\u003Cdiv\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both;\"\u003E\u003Ca href=\"https://dialogos.ml/sol_0905\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cspan\u003E\u0026nbsp;\u0026nbsp; \u0026nbsp;\u003C/span\u003E\u003Cimg border=\"0\" data-original-height=\"454\" data-original-width=\"807\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEhY7idDyiUXONuWJHInh94dO9tfx6HZr3gyf89GbiHb-tA1mSgbHCRism2l7HD3gZUYwvAJXY-pFW337pfS3IjXZeTzIk9t8F4GkiZzGqsX8A9Hlez9H8aYSOj1AfWt5wjyC0probgYnWbfzPiEDvDA2o2tHnN3SGg72zbRv_usbgBXupkECgdzShm6=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003C/div\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/5759317234872628227"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/5759317234872628227"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-o-sol.html",
+            "title": "Diálogo Dirigido com o Sol"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEhY7idDyiUXONuWJHInh94dO9tfx6HZr3gyf89GbiHb-tA1mSgbHCRism2l7HD3gZUYwvAJXY-pFW337pfS3IjXZeTzIk9t8F4GkiZzGqsX8A9Hlez9H8aYSOj1AfWt5wjyC0probgYnWbfzPiEDvDA2o2tHnN3SGg72zbRv_usbgBXupkECgdzShm6=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-516352252313581848"
+        },
+        "published": { "$t": "2022-02-05T13:22:00.000-03:00" },
+        "updated": { "$t": "2022-02-05T13:24:31.672-03:00" },
+        "title": { "type": "text", "$t": "Diálogo Dirigido com a Fibromatose" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EDiálogo para o tratamento da Fibromatose, que é uma doença que prolifera o tecido conjuntivo e produz massas espessas ou nódulos no corpo, podendo ser palmar (quando o nódulo se localiza logo abaixo dos dedos das mãos), plantar (quando afeta a planta dos pés e os tendões flexores dos dedos) ou peniana (quando afeta a anatomia do órgão). Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cp style=\"text-align: justify;\"\u003E\u003C/p\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/fibromatose_0584\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"453\" data-original-width=\"806\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEjDao-xMvg5gDTTA2TR43sRw1DpnWRb6q03FbJH0sF7BoloRh9ShFQKXcTO7BZRwTVum0xap0z78GIqtxhfqiCXedD7EMPAjfP_lm2YSXVFsxwyOeexO41uO_waJEjsDhNmsDu3aNV-e0r_t08I1fjNlXgSchlaQtnaxlTiQQ2aD9KvuSr2gCxbUbTP=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cp\u003E\u003C/p\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/516352252313581848"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/516352252313581848"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-fibromatose.html",
+            "title": "Diálogo Dirigido com a Fibromatose"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEjDao-xMvg5gDTTA2TR43sRw1DpnWRb6q03FbJH0sF7BoloRh9ShFQKXcTO7BZRwTVum0xap0z78GIqtxhfqiCXedD7EMPAjfP_lm2YSXVFsxwyOeexO41uO_waJEjsDhNmsDu3aNV-e0r_t08I1fjNlXgSchlaQtnaxlTiQQ2aD9KvuSr2gCxbUbTP=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3799083839930386131"
+        },
+        "published": { "$t": "2022-02-05T13:14:00.000-03:00" },
+        "updated": { "$t": "2022-02-05T13:14:13.369-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Dialogo Dirigido com o Coração e o Sistema Cardíaco"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003EDiálogo para o tratamento de disfunções cardíacas. Utiliza cores e suas funções terapêuticas para o equilíbrio do sistema cardíaco. Fique atento às fases da narração para relatar o seu caso específico e os sintomas, e concentre-se na apresentação das cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"color: #444444; font-family: verdana; font-size: medium;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/coracao_0441\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"454\" data-original-width=\"806\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEgccMnt8F_AZxReOyYtfGSS5xGm4evyzYh5Vc3W4xTuwImTG-sWW4numQs6IDx37pH4DohCWAhwTTXuPLUZ3RX5F2m_tA8OLgSye2MhSZm8JDBp7f-UHyjltFCfO36Epxa0tNU7u20bJ3K1plex-PfTa7sjd8l6MeZTmbTEOtLIIIPvHSl_fG1o0Zdv=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3799083839930386131"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3799083839930386131"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-o-coracao-e-o.html",
+            "title": "Dialogo Dirigido com o Coração e o Sistema Cardíaco"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEgccMnt8F_AZxReOyYtfGSS5xGm4evyzYh5Vc3W4xTuwImTG-sWW4numQs6IDx37pH4DohCWAhwTTXuPLUZ3RX5F2m_tA8OLgSye2MhSZm8JDBp7f-UHyjltFCfO36Epxa0tNU7u20bJ3K1plex-PfTa7sjd8l6MeZTmbTEOtLIIIPvHSl_fG1o0Zdv=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
       {
         "id": {
           "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-6554844439659664737"
