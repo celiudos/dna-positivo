@@ -57,7 +57,7 @@ Aux:
 - https://www.exeideas.com/2016/02/parameters-in-blogspot-feed.html
 
 - Recuperar todos posts ou pages
-  -- https://dnapositivo.blogspot.com/feeds/pages/default?alt=json&start-index=1&max-results=200
+  -- https://dnaholograficoequantico.blogspot.com/feeds/pages/default?alt=json&start-index=1&max-results=200
 
 - Recuperar últimos posts
   -- https://dnafisicoequantico.blogspot.com/feeds/posts/default?alt=json&updated-min=2021-11-05T00:00:00&orderby=updated
