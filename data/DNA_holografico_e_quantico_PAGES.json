@@ -6,7 +6,7 @@
     "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
     "xmlns$gd": "http://schemas.google.com/g/2005",
     "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
-    "updated": { "$t": "2022-02-07T08:57:06.944-03:00" },
+    "updated": { "$t": "2022-02-22T09:08:57.261-03:00" },
     "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
     "subtitle": {
       "type": "html",
@@ -47,10 +47,61 @@
       "uri": "http://www.blogger.com",
       "$t": "Blogger"
     },
-    "openSearch$totalResults": { "$t": "10" },
+    "openSearch$totalResults": { "$t": "11" },
     "openSearch$startIndex": { "$t": "1" },
     "openSearch$itemsPerPage": { "$t": "200" },
     "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-369130211257242816"
+        },
+        "published": { "$t": "2022-02-22T09:05:00.002-03:00" },
+        "updated": { "$t": "2022-02-22T09:07:48.730-03:00" },
+        "title": { "type": "text", "$t": "Diálogo Dirigido com o HD/DNA" },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana; font-size: medium;\"\u003ENosso corpo físico é semelhante a um computador e pode ser reprogramado. As informações e códigos de programação ficam armazenadas em nosso DNA, que é equivalente a um disco rígido, ou HD (hard disk). Conscientes dessa realidade e com o comando correto, podemos alterar as linhas de código do nosso programa e corrigir as informações que causam a doença, ajustando, assim, a frequência do nossos sinais biofísicos.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: center;\"\u003E\u003Cspan style=\"font-family: verdana; font-size: large;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both;\"\u003E\u003Ca href=\"https://dialogos.ml/hd_4580\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"454\" data-original-width=\"805\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEj6kV6wb3B2n1E6ESwvrRpJTFmC-xLJm08Dv_ePiiygNXAv4Ny0pevuZnrF2QoxniXs8ES7MVrZkHODa9y3CH7wTP4Qfeiq0ZOmIRK7DrEVSy6wn7ChNpCI5wdqG3w3xAsLt0VoeKGhYXySKPdjQCNFT9Wvtk_ZQt7PXyD86aX0MXA0FxcObxcN38LW=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/369130211257242816"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/369130211257242816"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-o-hddna.html",
+            "title": "Diálogo Dirigido com o HD/DNA"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEj6kV6wb3B2n1E6ESwvrRpJTFmC-xLJm08Dv_ePiiygNXAv4Ny0pevuZnrF2QoxniXs8ES7MVrZkHODa9y3CH7wTP4Qfeiq0ZOmIRK7DrEVSy6wn7ChNpCI5wdqG3w3xAsLt0VoeKGhYXySKPdjQCNFT9Wvtk_ZQt7PXyD86aX0MXA0FxcObxcN38LW=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
       {
         "id": {
           "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-5759317234872628227"
