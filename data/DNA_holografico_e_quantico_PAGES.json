@@ -6,7 +6,7 @@
     "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
     "xmlns$gd": "http://schemas.google.com/g/2005",
     "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
-    "updated": { "$t": "2022-02-22T09:08:57.261-03:00" },
+    "updated": { "$t": "2022-03-20T14:11:17.175-03:00" },
     "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
     "subtitle": {
       "type": "html",
@@ -47,10 +47,280 @@
       "uri": "http://www.blogger.com",
       "$t": "Blogger"
     },
-    "openSearch$totalResults": { "$t": "11" },
+    "openSearch$totalResults": { "$t": "16" },
     "openSearch$startIndex": { "$t": "1" },
     "openSearch$itemsPerPage": { "$t": "200" },
     "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3676602467862969847"
+        },
+        "published": { "$t": "2022-03-20T14:06:00.000-03:00" },
+        "updated": { "$t": "2022-03-20T14:06:41.120-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Doenças da Pele com Origem Autoimune"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento de doenças na pele com origem autoimune, como a psoríase, pênfigo, vitiligo, urticária crônica espontânea e dermatite atópica. Essas doenças são causadas por desordens do sistema imunológico, fazendo com que os anticorpos agridam o próprio organismo, por considerarem o órgão pele como um ser estranho ao corpo. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/autoimune_pele_0333\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"304\" data-original-width=\"540\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEgTt323IaGtLylax9dDWBws6HQQO3vdUMSVYpQJBlmi-cm3aW1lTeMgXE2ubVavXotuGakMh-RKCly-M9QvHI1HRDXqeHDYi0_Ak20CuTeBVT7xgs62xHKuQSyCBKRkPNY8ftZJ34GjiLluXFmCeuyoPA1qSD-F7NVWpyQtcMxR_5g7oFJoQKrD_6sn=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3676602467862969847"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3676602467862969847"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/doencas-da-pele-com-origem-autoimune.html",
+            "title": "Doenças da Pele com Origem Autoimune"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEgTt323IaGtLylax9dDWBws6HQQO3vdUMSVYpQJBlmi-cm3aW1lTeMgXE2ubVavXotuGakMh-RKCly-M9QvHI1HRDXqeHDYi0_Ak20CuTeBVT7xgs62xHKuQSyCBKRkPNY8ftZJ34GjiLluXFmCeuyoPA1qSD-F7NVWpyQtcMxR_5g7oFJoQKrD_6sn=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-2954546270649533310"
+        },
+        "published": { "$t": "2022-03-20T14:02:00.000-03:00" },
+        "updated": { "$t": "2022-03-20T14:02:19.894-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido com Lesões Císticas e Neoplásicas"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento de lesões Císticas e Neoplásicas. Um cisto pode ser definido como uma lesão neoplásica benigna, sendo uma cavidade patológica preenchida por fluido e revestida, externamente, por uma cápsula de tecido conjuntivo fibroso e, internamente, por epitélio. A neoplasia é uma massa de tecido anormal que surge em diferentes partes do corpo, com características específicas em cada local e apresenta ritmos de crescimento e riscos diferentes. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/tratamento_fonseca_0111\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"303\" data-original-width=\"540\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEgEvLpTEQC4fbSDxzwNfN0cycd2_pN-DULR-lZhfFiboyjzwNHopB42uAQj637lNYSlzTrHaU1FPHL_69qrZEtHSL5eUpoNrraXr2hbpQshFLSBYduc0lP8DU0-3LihBJwsVfRmar-KsSldDHTOha-lVIxpWOtabYcMdL2jSCyS23HeYk22uHqxz-9a=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/2954546270649533310"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/2954546270649533310"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-lesoes-cisticas-e.html",
+            "title": "Diálogo Dirigido com Lesões Císticas e Neoplásicas"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEgEvLpTEQC4fbSDxzwNfN0cycd2_pN-DULR-lZhfFiboyjzwNHopB42uAQj637lNYSlzTrHaU1FPHL_69qrZEtHSL5eUpoNrraXr2hbpQshFLSBYduc0lP8DU0-3LihBJwsVfRmar-KsSldDHTOha-lVIxpWOtabYcMdL2jSCyS23HeYk22uHqxz-9a=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-6248640446249095993"
+        },
+        "published": { "$t": "2022-03-20T13:53:00.000-03:00" },
+        "updated": { "$t": "2022-03-20T13:55:14.980-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Doença Cardíaca Isquêmica Coronariana"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento da Doença Cardíaca Isquêmica Coronariana, que é uma síndrome causada por um espasmo coronariano de alta intensidade, em curto período de tempo, com vasoconstricção das artérias epicárdicas e que leva à oclusão do vaso coronariano. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/doenca_cardiaca_isquemica_0321\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"302\" data-original-width=\"539\" height=\"224\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEiLbKA0pQ0mvNd3iHd3T5KJ-0wBl4NVqAhsTeBrfblRAgyAkogNZ1HYFm3qu3-s3DrqjMA_YVDg4i2jyiIOGLHqyo395vq_CTK4tFLYc9OZKih_l94gJ77htbZInq6rCl6OtyFHMb6AP-1vo1Xo5yvajMrX6XIXdSm1XFlxi3Mf-WccyIWei10jrQZ9=w400-h224\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/6248640446249095993"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/6248640446249095993"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/doenca-cardiaca-isquemica-coronariana.html",
+            "title": "Doença Cardíaca Isquêmica Coronariana"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEiLbKA0pQ0mvNd3iHd3T5KJ-0wBl4NVqAhsTeBrfblRAgyAkogNZ1HYFm3qu3-s3DrqjMA_YVDg4i2jyiIOGLHqyo395vq_CTK4tFLYc9OZKih_l94gJ77htbZInq6rCl6OtyFHMb6AP-1vo1Xo5yvajMrX6XIXdSm1XFlxi3Mf-WccyIWei10jrQZ9=s72-w400-h224-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-7473803042105144076"
+        },
+        "published": { "$t": "2022-03-20T13:48:00.000-03:00" },
+        "updated": { "$t": "2022-03-20T13:54:39.421-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido com o Mal de Parkinson"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cp style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento do Mal de Parkinson, que é uma doença degenerativa do sistema nervoso central, crônica e progressiva, caracterizada pela diminuição da produção da dopamina. A dopamina é um neurotransmissor responsável por transportar os impulsos nervosos, emitidos pelo cérebro, a todas as partes do corpo. A doença de Parkinson compromete os movimentos, causando rigidez muscular e instabilidade na postura. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/p\u003E\u003Cdiv\u003E\u003Cbr /\u003E\u003C/div\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/mal_de_parkinson_0222\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"304\" data-original-width=\"538\" height=\"226\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEj8_TGlLUoZloNAb4mMEOFfqiJVMdLqcsPzNeqCvR5yfVuAxNKhbBDx8SafdmU271TXJt-isYyAVRg7v8s7mVL1d3HiO_pVMg-HEsH_mZmB3h_kd8tORNsMsMnVBOc1TQpCzyXkz40zmhk846kU48Dsdzy7UzDBIIDo0xLZT8ltrXzekSfZAh6C1L4a=w400-h226\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cdiv\u003E\u003Cbr /\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/7473803042105144076"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/7473803042105144076"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-dirigido-com-o-mal-de-parkinson.html",
+            "title": "Diálogo Dirigido com o Mal de Parkinson"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEj8_TGlLUoZloNAb4mMEOFfqiJVMdLqcsPzNeqCvR5yfVuAxNKhbBDx8SafdmU271TXJt-isYyAVRg7v8s7mVL1d3HiO_pVMg-HEsH_mZmB3h_kd8tORNsMsMnVBOc1TQpCzyXkz40zmhk846kU48Dsdzy7UzDBIIDo0xLZT8ltrXzekSfZAh6C1L4a=s72-w400-h226-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-6613592562176337376"
+        },
+        "published": { "$t": "2022-03-08T23:12:00.000-03:00" },
+        "updated": { "$t": "2022-03-08T23:13:05.006-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido para a Urticária Crônica Espontânea"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento da Urticária Crônica Espontânea, que é uma doença da pele com origem autoimune, causada por desordens do sistema imunológico, fazendo com que os anticorpos agridam o próprio organismo por considerarem o órgão pele como um ser estranho ao corpo. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Cspan style=\"font-family: verdana; text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/urticaria_cronica_espontanea_0111\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"302\" data-original-width=\"538\" height=\"225\" src=\"https://blogger.googleusercontent.com/img/a/AVvXsEimdgKhBtGWI3fPzsQTUX83_unazBTB0tIoDkyIm33eRnYAchDOC5fg3xFaa-THu0jIfEJINJQaijBsA5nBsTziOfXcozj2VkjhmOJnenqx3u_sF6-J2VEo2TKaptCZD0KhpCM-YjoP03SEzHkg14Cub1xSxqustw05iDPim6VysAvEt_pyh6KgTgv8=w400-h225\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003Cspan style=\"font-family: verdana; text-align: justify;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/6613592562176337376"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/6613592562176337376"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-para-o-tratamento-da-urticaria.html",
+            "title": "Diálogo Dirigido para a Urticária Crônica Espontânea"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/a/AVvXsEimdgKhBtGWI3fPzsQTUX83_unazBTB0tIoDkyIm33eRnYAchDOC5fg3xFaa-THu0jIfEJINJQaijBsA5nBsTziOfXcozj2VkjhmOJnenqx3u_sF6-J2VEo2TKaptCZD0KhpCM-YjoP03SEzHkg14Cub1xSxqustw05iDPim6VysAvEt_pyh6KgTgv8=s72-w400-h225-c",
+          "height": "72",
+          "width": "72"
+        }
+      },
       {
         "id": {
           "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-369130211257242816"
