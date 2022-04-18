@@ -4,7 +4,6 @@ import DNA_holografico_e_quantico_PAGES from "@data/DNA_holografico_e_quantico_P
 import DNA_positivo_PAGES from "@data/DNA_positivo_PAGES.json";
 import Inteligencia_artificial_positiva_PAGES from "@data/Inteligencia_artificial_positiva_PAGES.json";
 import Inteligencia_artificial_positiva_POSTS from "@data/Inteligencia_artificial_positiva_POSTS.json";
-import PostsAdicionais from "@data/manual/postsAdicionais.json";
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 import DateUtils from "@utils/DateUtils";
@@ -13,7 +12,6 @@ import axios from "axios";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 import getUuid from "uuid-by-string";
-import configApp from "../configApp";
 
 export default class ApiApp {
   static defaultPost: IPost = {
@@ -60,22 +58,8 @@ export default class ApiApp {
     const pagesFormatados = ApiApp.formatarPostDoBlogParaOApp(pages, true);
 
     let todosPosts = [...postsFormatados, ...pagesFormatados];
-    if (configApp.unirPostsComTituloIgual) {
-      todosPosts = ApiApp.unirPostsIguais(todosPosts);
-    }
-
-    todosPosts = ApiApp.incluirPostsAdicionais(todosPosts);
 
     return todosPosts;
-  }
-
-  private static incluirPostsAdicionais(posts: IPost[]): IPost[] {
-    const PostsAdicionaisDados = PostsAdicionais as IEntryComCat[];
-    const postsFormatados =
-      ApiApp.formatarPostDoBlogParaOApp(PostsAdicionaisDados);
-    posts = posts.concat(postsFormatados);
-
-    return posts;
   }
 
   private static formatarPostDoBlogParaOApp(

@@ -1,0 +1,308 @@
+import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
+import { IPost } from "@typesApp/IPost";
+import TextUtils from "@utils/TextUtils";
+import axios from "axios";
+import lodash from "lodash";
+import sanitizeHtml from "sanitize-html";
+import getUuid from "uuid-by-string";
+
+export default class BaixarPostsDoBloger {
+  static bloggerEntities = [
+    {
+      name: "dnafisicoequantico",
+      catId: 1,
+      catName: "DNA Físico e Quântico",
+    },
+    {
+      name: "dnapositivo",
+      catId: 2,
+      catName: "DNA Positivo",
+    },
+    {
+      name: "inteligenciaartificialpositiva",
+      catId: 3,
+      catName: "Inteligência Artificial Positiva",
+    },
+    {
+      name: "dnaholograficoequantico",
+      catId: 4,
+      catName: "DNA Holográfico e Quântico",
+    },
+  ];
+
+  static jsonBloggerPermitidos = [
+    {
+      catId: "1",
+      tipo: "posts",
+    },
+    {
+      catId: "2",
+      tipo: "pages",
+    },
+    {
+      catId: "3",
+      tipo: "posts",
+    },
+    {
+      catId: "3",
+      tipo: "pages",
+    },
+    {
+      catId: "4",
+      tipo: "pages",
+    },
+  ];
+
+  static defaultPost: IPost = {
+    title: "",
+    published: "",
+    updated: "",
+    content: "",
+    contentSanitized: "",
+    resumo: "",
+    cat: 0,
+    catName: "",
+    id: "",
+    isPage: false,
+    isSubheader: false,
+    href: "",
+    hrefOriginal: "",
+  };
+
+  static async getTodosSelecionados(byId?: string): Promise<IPost[]> {
+    let postsBlogspot: IPost[] = [];
+
+    const permitidos = byId
+      ? BaixarPostsDoBloger.jsonBloggerPermitidos.filter((j) =>
+          byId.includes(j.catId)
+        )
+      : BaixarPostsDoBloger.jsonBloggerPermitidos;
+
+    for (const p of permitidos) {
+      const posts = await BaixarPostsDoBloger.getByCatIdETipo(
+        p.catId,
+        p.tipo as "posts" | "pages"
+      );
+      postsBlogspot = postsBlogspot.concat(posts);
+    }
+
+    return postsBlogspot;
+  }
+
+  static async getByCatIdETipo(
+    catId: string,
+    tipo: "posts" | "pages"
+  ): Promise<IPost[]> {
+    let postsBlogspot: IPost[] = [];
+
+    for await (const ent of BaixarPostsDoBloger.bloggerEntities.filter(
+      (b) => b.catId.toString() === catId
+    )) {
+      const posts = await BaixarPostsDoBloger.getPostsFromBlogspot(
+        ent.name,
+        tipo
+      );
+
+      if (posts) {
+        const postsEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
+          posts,
+          ent.catId,
+          ent.catName
+        );
+        const postsFormatados = BaixarPostsDoBloger.formatarPostDoBlogParaOApp(
+          postsEntry,
+          tipo === "pages"
+        );
+
+        postsBlogspot = [...postsBlogspot, ...postsFormatados];
+      }
+    }
+
+    return postsBlogspot;
+  }
+
+  // static async getTodos(): Promise<IPost[]> {
+  //   let postsBlogspot: IPost[] = [];
+
+  //   for await (const ent of BaixarPostsDoBloger.bloggerEntities) {
+  //     const todosOsPosts = await BaixarPostsDoBloger.getTodosByCatId(
+  //       ent.catId.toString()
+  //     );
+  //     postsBlogspot = [...postsBlogspot, ...todosOsPosts];
+  //   }
+
+  //   return postsBlogspot;
+  // }
+
+  // static async getTodosByCatId(id: string): Promise<IPost[]> {
+  //   let postsBlogspot: IPost[] = [];
+
+  //   for await (const ent of BaixarPostsDoBloger.bloggerEntities.filter(
+  //     (b) => b.catId.toString() === id.toString()
+  //   )) {
+  //     const posts = await BaixarPostsDoBloger.getPostsFromBlogspot(
+  //       ent.name,
+  //       "posts"
+  //     );
+  //     const pages = await BaixarPostsDoBloger.getPostsFromBlogspot(
+  //       ent.name,
+  //       "pages"
+  //     );
+
+  //     if (posts) {
+  //       const postsEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
+  //         posts,
+  //         ent.catId,
+  //         ent.catName
+  //       );
+  //       const postsFormatados =
+  //         BaixarPostsDoBloger.formatarPostDoBlogParaOApp(postsEntry);
+
+  //       postsBlogspot = [...postsBlogspot, ...postsFormatados];
+  //     }
+
+  //     if (pages) {
+  //       const pagesEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
+  //         pages,
+  //         ent.catId,
+  //         ent.catName
+  //       );
+  //       const pagesFormatados = BaixarPostsDoBloger.formatarPostDoBlogParaOApp(
+  //         pagesEntry,
+  //         true
+  //       );
+  //       postsBlogspot = [...postsBlogspot, ...pagesFormatados];
+  //     }
+  //   }
+
+  //   return postsBlogspot;
+  // }
+
+  private static tratarDados(posts: IPost[]): IPost[] {
+    let postsTratados = posts.map((p) => {
+      let novoTitle = p.title;
+
+      novoTitle = novoTitle
+        .replace("Diálogo dirigido com o ", "")
+        .replace("Diálogo Dirigido com o ", "")
+        .replace("Diálogo dirigido com a ", "")
+        .replace("Diálogo Dirigido com a ", "")
+        .replace("Diálogo Dirigido com ", "");
+      novoTitle = novoTitle.trim();
+      novoTitle = TextUtils.capitalize(novoTitle);
+
+      p.title = novoTitle;
+
+      return p;
+    });
+
+    postsTratados = postsTratados.filter((p) => p.title !== "");
+
+    return postsTratados;
+  }
+
+  private static formatarPostDoBlogParaOApp(
+    posts: IEntryComCat[],
+    isPage: boolean = false
+  ): IPost[] {
+    const itens = posts.map((item: any, key): IPost => {
+      const id = getUuid(item.id.$t);
+
+      let resumo = sanitizeHtml(item.content.$t, {
+        allowedTags: [""],
+        allowedAttributes: {},
+      });
+      resumo = resumo.slice(0, 180);
+
+      return {
+        title: item.title.$t,
+        published: item.published.$t,
+        updated: item.updated.$t,
+        content: item.content.$t,
+        cat: item.cat,
+        catName: item.catName,
+        id,
+        isSubheader: false,
+        isPage,
+        href: `/cat/${item.cat}/${id}`,
+        hrefOriginal: item.link.filter(
+          (l: any) => l.type === "text/html" && l.rel === "alternate"
+        )[0].href,
+        resumo,
+        contentSanitized: sanitizeHtml(item.content.$t, {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          allowedAttributes: {
+            table: ["border"],
+            // img: ["src", "height", "width"],
+            img: ["src"],
+            a: ["href", "target"],
+          },
+          allowedStyles: {
+            "*": {
+              // Match HEX and RGB
+              color: [
+                /^#(0x)?[0-9a-f]+$/i,
+                /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/,
+              ],
+              "text-align": [/^left$/, /^right$/, /^center$/],
+              // Match any number with px, em, or %
+              // "font-size": [/^\d+(?:px|em|%)$/],
+            },
+            // p: {
+            //   "font-size": [/^\d+rem$/],
+            // },
+          },
+        }),
+      };
+    });
+
+    return BaixarPostsDoBloger.tratarDados(itens);
+  }
+
+  private static getApenasPostsDoEntryGenerico(
+    blogerJson: IBloggerJson,
+    catId: number,
+    catName: string
+  ): IEntryComCat[] {
+    let posts: any = [];
+
+    try {
+      posts = blogerJson.feed.entry.map((p) => ({
+        ...p,
+        cat: catId,
+        catName: catName,
+      }));
+    } catch (error) {}
+    return posts;
+  }
+
+  private static async getPostsFromBlogspot(
+    urlBase: string,
+    urlPost: "posts" | "pages"
+  ): Promise<IBloggerJson | undefined> {
+    let responseData;
+
+    try {
+      const url = `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`;
+      const response = await axios.get(url, {
+        params: {
+          alt: "json",
+          "max-results": "200",
+          "start-index": "1",
+          orderby: "updated",
+        },
+      });
+
+      responseData = response.data as IBloggerJson;
+      // console.log("responseData:", url, response);
+    } catch (error) {
+      console.log("error:", error);
+    }
+    return responseData;
+  }
+
+  static unirPostsComIdsIguais(posts: IPost[]): IPost[] {
+    posts = lodash.uniqBy(posts, "id");
+    return posts;
+  }
+}
