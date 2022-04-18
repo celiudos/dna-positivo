@@ -8,14 +8,13 @@ import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import BaixarPostsDoBloger from "@utils/BaixarPostsDoBloger";
+import axios from "axios";
 import configApp from "configApp";
 import Image from "next/image";
 import Link from "next/link";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
-  console.log("postsNovos:", postsNovos);
-
   return (
     <ContainerApp>
       <MainAppBar />
@@ -154,6 +153,15 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
 
 export function getStaticProps() {
   const postsNovos = ApiSearch.getPostsRecentes();
+
+  //Atualizar somente DNA Holgrafico e Quântico
+  let URL_BASE = configApp.url;
+
+  if (process.env.NODE_ENV === "development") {
+    URL_BASE = "http://localhost:3000/";
+  }
+  axios(`${URL_BASE}api/atualizar?catId=4`);
+
   return {
     props: { postsNovos },
     // Next.js will attempt to re-generate the page:

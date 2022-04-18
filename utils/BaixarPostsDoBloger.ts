@@ -121,63 +121,6 @@ export default class BaixarPostsDoBloger {
     return postsBlogspot;
   }
 
-  // static async getTodos(): Promise<IPost[]> {
-  //   let postsBlogspot: IPost[] = [];
-
-  //   for await (const ent of BaixarPostsDoBloger.bloggerEntities) {
-  //     const todosOsPosts = await BaixarPostsDoBloger.getTodosByCatId(
-  //       ent.catId.toString()
-  //     );
-  //     postsBlogspot = [...postsBlogspot, ...todosOsPosts];
-  //   }
-
-  //   return postsBlogspot;
-  // }
-
-  // static async getTodosByCatId(id: string): Promise<IPost[]> {
-  //   let postsBlogspot: IPost[] = [];
-
-  //   for await (const ent of BaixarPostsDoBloger.bloggerEntities.filter(
-  //     (b) => b.catId.toString() === id.toString()
-  //   )) {
-  //     const posts = await BaixarPostsDoBloger.getPostsFromBlogspot(
-  //       ent.name,
-  //       "posts"
-  //     );
-  //     const pages = await BaixarPostsDoBloger.getPostsFromBlogspot(
-  //       ent.name,
-  //       "pages"
-  //     );
-
-  //     if (posts) {
-  //       const postsEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
-  //         posts,
-  //         ent.catId,
-  //         ent.catName
-  //       );
-  //       const postsFormatados =
-  //         BaixarPostsDoBloger.formatarPostDoBlogParaOApp(postsEntry);
-
-  //       postsBlogspot = [...postsBlogspot, ...postsFormatados];
-  //     }
-
-  //     if (pages) {
-  //       const pagesEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
-  //         pages,
-  //         ent.catId,
-  //         ent.catName
-  //       );
-  //       const pagesFormatados = BaixarPostsDoBloger.formatarPostDoBlogParaOApp(
-  //         pagesEntry,
-  //         true
-  //       );
-  //       postsBlogspot = [...postsBlogspot, ...pagesFormatados];
-  //     }
-  //   }
-
-  //   return postsBlogspot;
-  // }
-
   private static tratarDados(posts: IPost[]): IPost[] {
     let postsTratados = posts.map((p) => {
       let novoTitle = p.title;
@@ -298,6 +241,29 @@ export default class BaixarPostsDoBloger {
     } catch (error) {
       console.log("error:", error);
     }
+    return responseData;
+  }
+
+  static async verificarSeTemPostNovoNoSite(
+    urlBase: string,
+    maxResults = "10"
+  ) {
+    let responseData;
+
+    try {
+      const response = await axios.get(`${urlBase}/default`, {
+        params: {
+          alt: "json",
+          "max-results": maxResults,
+          orderby: "updated",
+        },
+      });
+
+      responseData = response.data as IBloggerJson;
+    } catch (error) {
+      console.log("error:", error);
+    }
+
     return responseData;
   }
 

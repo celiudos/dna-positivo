@@ -183,8 +183,6 @@ export default class ApiSearch {
     const todosPostsSearch = ApiSearch.search({ pageSize });
 
     const todosPosts = todosPostsSearch.results.filter((post) => {
-      console.log("A:", new Date(post.updated));
-
       return (
         DateUtils.getdiffInCalendarDays({
           fim: new Date(post.updated),

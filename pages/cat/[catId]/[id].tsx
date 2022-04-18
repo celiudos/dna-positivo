@@ -3,13 +3,13 @@ import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
 import TelaLoading from "@components/TelaLoading";
-import ApiApp from "@data/ApiApp";
 import styled from "@emotion/styled";
 import baselineAdd from "@iconify/icons-ic/baseline-add";
 import baselineLink from "@iconify/icons-ic/baseline-link";
 import baselineRemove from "@iconify/icons-ic/baseline-remove";
 import outlineShare from "@iconify/icons-ic/outline-share";
 import { Icon } from "@iconify/react";
+import ApiSearch from "@lib/ApiSearch";
 import {
   Button,
   ButtonGroup,
@@ -215,15 +215,15 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const posts = ApiApp.getTodos();
-
-  const postsAntesDeQualquerDialogo = posts.filter(
-    (item) => configApp.idsPostsAntesDeQualquerDialogo.indexOf(item.id) !== -1
-  );
-
-  const post = await ApiApp.getPostsENovosById(params.id);
+  const post = ApiSearch.search({ jsonIds: [params.id] });
+  const postsAntesDeQualquerDialogo = ApiSearch.search({
+    jsonIds: configApp.idsPostsAntesDeQualquerDialogo,
+  });
 
   return {
-    props: { post, postsAntesDeQualquerDialogo },
+    props: {
+      post: post.results[0],
+      postsAntesDeQualquerDialogo: postsAntesDeQualquerDialogo.results,
+    },
   };
 }
