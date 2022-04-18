@@ -151,16 +151,18 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
   position: relative;
 `;
 
-export function getStaticProps() {
+export async function getStaticProps() {
   const postsNovos = ApiSearch.getPostsRecentes();
 
   //Atualizar somente DNA Holgrafico e Quântico
-  let URL_BASE = configApp.url;
+  let URL_BASE = "http://localhost:3000/";
 
-  if (process.env.NODE_ENV === "development") {
-    URL_BASE = "http://localhost:3000/";
+  if (process.env.NODE_ENV === "production") {
+    URL_BASE = configApp.url;
   }
-  axios(`${URL_BASE}api/atualizar?catId=4`);
+  console.log("URL_BASE:", URL_BASE);
+
+  await axios(`${URL_BASE}api/atualizar?catId=4`);
 
   return {
     props: { postsNovos },
@@ -168,7 +170,8 @@ export function getStaticProps() {
     // - When a request comes in
     // - At most once every 10 seconds
     // revalidate: 10, // In seconds
+    revalidate: 3000, // 3 dias
     // revalidate: 86400, // 1 dia
-    revalidate: 86400 * 3, // 3 dias
+    // revalidate: 86400 * 3, // 3 dias
   };
 }

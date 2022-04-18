@@ -23,6 +23,7 @@ export default async function handler(
       posts = await BaixarPostsDoBloger.getTodosSelecionados(catId.toString());
       responseArquivo = await FilesUtils.atualizarArquivo({
         conteudo: posts,
+        formatarConteudo: true,
         arquivo,
       });
     } else {
