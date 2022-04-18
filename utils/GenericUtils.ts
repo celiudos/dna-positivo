@@ -1,3 +1,4 @@
+import configApp from "configApp";
 import lodash from "lodash";
 
 type TGetDinheiroFormatado = {
@@ -143,6 +144,16 @@ export default class GenericUtils {
 
   static isTestingJest() {
     return process.env.JEST_WORKER_ID !== undefined;
+  }
+
+  static getUrlBase() {
+    let URL_BASE = "http://localhost:3000/";
+
+    if (process.env.NODE_ENV === "production") {
+      URL_BASE = configApp.url;
+    }
+
+    return URL_BASE;
   }
 
   static limparCamposVazios(obj = {}): {} {

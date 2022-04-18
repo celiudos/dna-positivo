@@ -6,7 +6,7 @@ export default class FilesUtils {
   static criarArquivo({
     conteudo,
     arquivo,
-    formatarConteudo = false,
+    formatarConteudo = true,
     criarSomenteSeTiverDado = true,
   }: TArquivoParams): Promise<TArquivoParams> {
     return new Promise(async (resolve, reject) => {

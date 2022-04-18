@@ -221,16 +221,18 @@ export default class BaixarPostsDoBloger {
 
   private static async getPostsFromBlogspot(
     urlBase: string,
-    urlPost: "posts" | "pages"
+    urlPost: "posts" | "pages",
+    maxResults = "200"
   ): Promise<IBloggerJson | undefined> {
     let responseData;
 
     try {
       const url = `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`;
+
       const response = await axios.get(url, {
         params: {
           alt: "json",
-          "max-results": "200",
+          "max-results": maxResults,
           "start-index": "1",
           orderby: "updated",
         },
@@ -244,28 +246,30 @@ export default class BaixarPostsDoBloger {
     return responseData;
   }
 
-  static async verificarSeTemPostNovoNoSite(
-    urlBase: string,
-    maxResults = "10"
-  ) {
-    let responseData;
+  // static async verificarSeTemPostNovoNoSite(
+  //   urlBase: string,
+  //   urlPost: "posts" | "pages",
+  //   maxResults = "20"
+  // ) {
+  //   let responseData;
 
-    try {
-      const response = await axios.get(`${urlBase}/default`, {
-        params: {
-          alt: "json",
-          "max-results": maxResults,
-          orderby: "updated",
-        },
-      });
+  //   try {
+  //     const url = `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`;
+  //     const response = await axios.get(url, {
+  //       params: {
+  //         alt: "json",
+  //         "max-results": maxResults,
+  //         orderby: "updated",
+  //       },
+  //     });
 
-      responseData = response.data as IBloggerJson;
-    } catch (error) {
-      console.log("error:", error);
-    }
+  //     responseData = response.data as IBloggerJson;
+  //   } catch (error) {
+  //     console.log("error:", error);
+  //   }
 
-    return responseData;
-  }
+  //   return responseData;
+  // }
 
   static getDefaultPost(): IPost {
     return BaixarPostsDoBloger.defaultPost;

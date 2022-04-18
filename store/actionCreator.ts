@@ -16,3 +16,9 @@ export function carregandoPaginaAction(isZerar?: boolean) {
     valor: isZerar ? 0 : new Date().getTime(),
   };
 }
+export function postsNovosAction(valor: {}) {
+  return {
+    type: "POSTS_NOVOS",
+    valor,
+  };
+}

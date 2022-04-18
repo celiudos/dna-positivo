@@ -33,6 +33,7 @@ const DEFAULT_RESPONSE_VALUES: TSearch = {
 export default class ApiSearch {
   static objJsSearch: JsSearch.Search;
   static fieldsJsSearchPost: string[] | undefined = [];
+  static todosOsPosts = TODOS_OS_POSTS;
 
   static search(params_values: ISearch): TSearch {
     let {
@@ -145,7 +146,11 @@ export default class ApiSearch {
   }
 
   static getAllPosts(): IPost[] {
-    return DATABASES.TODOS_OS_POSTS;
+    return ApiSearch.todosOsPosts;
+  }
+
+  static setAllPosts(posts: IPost[]): IPost[] {
+    return (ApiSearch.todosOsPosts = posts);
   }
 
   private static getError(id: string) {

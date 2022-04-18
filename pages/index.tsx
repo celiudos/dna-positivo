@@ -8,7 +8,6 @@ import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import BaixarPostsDoBloger from "@utils/BaixarPostsDoBloger";
-import axios from "axios";
 import configApp from "configApp";
 import Image from "next/image";
 import Link from "next/link";
@@ -152,25 +151,21 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
 `;
 
 export async function getStaticProps() {
+  // const example = await import("../public/data/mais-todos-os-posts.json");
+  // ApiSearch.setAllPosts(example.default);
   const postsNovos = ApiSearch.getPostsRecentes();
 
   //Atualizar somente DNA Holgrafico e Quântico
-  let URL_BASE = "http://localhost:3000/";
-
-  if (process.env.NODE_ENV === "production") {
-    URL_BASE = configApp.url;
-  }
-  console.log("URL_BASE:", URL_BASE);
-
-  await axios(`${URL_BASE}api/atualizar?catId=4`);
+  // let URL_BASE = GenericUtils.getUrlBase();
+  // await axios(`${URL_BASE}api/atualizar?catId=4`);
 
   return {
     props: { postsNovos },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds
-    // revalidate: 10, // In seconds
-    revalidate: 3000, // 3 dias
+    revalidate: 3, // In seconds
+    // revalidate: 3000, // 3 dias
     // revalidate: 86400, // 1 dia
     // revalidate: 86400 * 3, // 3 dias
   };

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import * as React from "react";
+import BaixarNovosPosts from "./BaixarNovosPosts";
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 import NextSeoHeader from "./NextSeoHeader";
 
@@ -16,6 +17,7 @@ export default function ContainerApp({ children, title, description }: Props) {
       <GoogleAnalyticsScript />
       <NextSeoHeader title={title} description={description} />
       {children}
+      <BaixarNovosPosts />
     </ContainerCss>
   );
 }
