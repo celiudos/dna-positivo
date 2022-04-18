@@ -2,17 +2,20 @@ import ContainerApp from "@components/ContainerApp";
 import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
-import ApiApp from "@data/ApiApp";
 import styled from "@emotion/styled";
+import ApiSearch from "@lib/ApiSearch";
 import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import BaixarPostsDoBloger from "@utils/BaixarPostsDoBloger";
 import configApp from "configApp";
 import Image from "next/image";
 import Link from "next/link";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
+  console.log("postsNovos:", postsNovos);
+
   return (
     <ContainerApp>
       <MainAppBar />
@@ -55,17 +58,17 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               hasStar={false}
               itens={[
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBloger.getDefaultPost(),
                   title: "DNA Positivo",
                   href: "/cat/2",
                 },
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBloger.getDefaultPost(),
                   title: "DNA físico e Quântico",
                   href: "/cat/1",
                 },
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBloger.getDefaultPost(),
                   title: "DNA Holográfico e Quântico",
                   href: "/cat/4",
                 },
@@ -79,7 +82,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               hasStar={false}
               itens={[
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBloger.getDefaultPost(),
                   title: "Inteligência Artificial Positiva",
                   href: "/cat/3",
                 },
@@ -91,7 +94,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
             <ListItens
               hasStar={false}
               itens={configApp.postsDestaques.map((p) => ({
-                ...ApiApp.getDefaultPost(),
+                ...BaixarPostsDoBloger.getDefaultPost(),
                 ...p,
               }))}
             />
@@ -149,14 +152,15 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
   position: relative;
 `;
 
-export async function getStaticProps() {
-  const postsNovos = await ApiApp.getPostsNovos();
+export function getStaticProps() {
+  const postsNovos = ApiSearch.getPostsRecentes();
   return {
     props: { postsNovos },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds
     // revalidate: 10, // In seconds
-    revalidate: 86400, // 1 dia
+    // revalidate: 86400, // 1 dia
+    revalidate: 86400 * 3, // 3 dias
   };
 }

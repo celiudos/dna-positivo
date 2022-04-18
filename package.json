@@ -49,6 +49,7 @@
       "^@components/(.*)": "<rootDir>/components/$1",
       "^@data/(.*)": "<rootDir>/data/$1",
       "^@pages/(.*)": "<rootDir>/pages/$1",
+      "^@lib/(.*)": "<rootDir>/lib/$1",
       "^@public/(.*)": "<rootDir>/public/$1",
       "^@store/(.*)": "<rootDir>/store/$1",
       "^@styles/(.*)": "<rootDir>/styles/$1",

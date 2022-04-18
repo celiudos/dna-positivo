@@ -23,6 +23,7 @@
       "@hooks/*": ["./hooks/*"],
       "@typesApp/*": ["./typesApp/*"],
       "@data/*": ["./data/*"],
+      "@lib/*": ["./lib/*"],
       "@tests/*": ["./tests/*"],
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"],

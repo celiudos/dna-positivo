@@ -1,11 +1,11 @@
 import ContainerApp from "@components/ContainerApp";
-import ApiApp from "@data/ApiApp";
 import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
 import baselineClear from "@iconify/icons-ic/baseline-clear";
 import baselineSearch from "@iconify/icons-ic/baseline-search";
 import outlineInfo from "@iconify/icons-ic/outline-info";
 import outlineReportProblem from "@iconify/icons-ic/outline-report-problem";
 import { Icon } from "@iconify/react";
+import ApiSearch from "@lib/ApiSearch";
 import {
   Alert,
   Chip,
@@ -44,7 +44,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 function getSearchObj() {
-  const itens = ApiApp.getTodos();
+  const itens = ApiSearch.getAllPosts();
 
   const search = new JsSearch.Search("id");
 

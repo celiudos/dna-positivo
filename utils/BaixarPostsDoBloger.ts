@@ -301,6 +301,10 @@ export default class BaixarPostsDoBloger {
     return responseData;
   }
 
+  static getDefaultPost(): IPost {
+    return BaixarPostsDoBloger.defaultPost;
+  }
+
   static unirPostsComIdsIguais(posts: IPost[]): IPost[] {
     posts = lodash.uniqBy(posts, "id");
     return posts;
