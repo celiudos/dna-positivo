@@ -265,6 +265,32 @@ export default class ApiApp {
     return posts;
   }
 
+  static async getPostsNovosApenasDoHolografico() {
+    const { DNA_holografico_e_quantico_Dados } =
+      ApiApp.getJsonsEstaticosDePosts();
+    const posts4 = await ApiApp.verificarSeTemPostNovoNoSite(
+      DNA_holografico_e_quantico_Dados,
+      "https://dnaholograficoequantico.blogspot.com/feeds/pages"
+    );
+
+    let posts: any = [];
+
+    if (posts4) {
+      posts = ApiApp.getApenasPostsDoEntryGenerico(
+        posts4,
+        4,
+        "DNA Holográfico e Quântico"
+      );
+      posts = ApiApp.formatarPostDoBlogParaOApp(posts);
+    }
+
+    const todosPostsMaisRecentes = ApiApp.getPostsRecentes();
+
+    posts = posts.concat(todosPostsMaisRecentes);
+
+    return posts;
+  }
+
   private static getPostsRecentes(diasDeDif = 15, maxPosts = 5): IPost[] {
     const todosPosts = ApiApp.getTodos();
     let todosPostsMaisRecentes = lodash.orderBy(todosPosts, "updated", "desc");
@@ -296,8 +322,9 @@ export default class ApiApp {
 
   static async getTodosENovos(): Promise<IPost[]> {
     const todosPosts = ApiApp.getTodos();
-    const postsNovos = await ApiApp.getPostsNovos();
-    const postsCarregados = todosPosts.concat(postsNovos);
+    const postsNovos = await ApiApp.getPostsNovosApenasDoHolografico();
+    let postsCarregados = todosPosts.concat(postsNovos);
+    postsCarregados = lodash.uniqBy(postsCarregados, "id");
     return postsCarregados;
   }
 
