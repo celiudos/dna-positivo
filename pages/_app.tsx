@@ -1,6 +1,9 @@
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import styled from "@emotion/styled";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { useStore } from "@store/storeConfig";
+import createEmotionCache from "@styles/createEmotionCache";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import "@styles/globals.css";
 import theme from "@styles/theme";
@@ -8,16 +11,22 @@ import configApp from "configApp";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Image from "next/image";
-import * as React from "react";
 import { Provider } from "react-redux";
-import styled from "styled-components";
 
-export default function MyApp(props: AppProps) {
-  const { Component, pageProps } = props;
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+export default function MyApp(props: MyAppProps) {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
   const store = useStore(pageProps.initialReduxState);
 
   return (
-    <React.Fragment>
+    <CacheProvider value={emotionCache}>
       <Head>
         <title>{configApp.titulo}</title>
         <meta
@@ -40,7 +49,7 @@ export default function MyApp(props: AppProps) {
           />
         </ImageContainerCss>
       </ThemeProvider>
-    </React.Fragment>
+    </CacheProvider>
   );
 }
 

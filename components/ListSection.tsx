@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { ListSubheader, Paper, Tab, Tabs, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -11,7 +12,6 @@ import Link from "next/link";
 import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList as List, ListChildComponentProps } from "react-window";
-import styled from "styled-components";
 import EstrelaFavorito from "./EstrelaFavorito";
 
 function agruparPorLetras(rawData: [], key: string) {

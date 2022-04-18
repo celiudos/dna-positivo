@@ -1,5 +1,6 @@
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import baselineStar from "@iconify/icons-ic/baseline-star";
+import outlineStarOutline from "@iconify/icons-ic/outline-star-outline";
+import { Icon } from "@iconify/react";
 import { Button, IconButton } from "@mui/material";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
@@ -35,9 +36,9 @@ export default function EstrelaFavorito({
   const idButton = `EstrelaFavorito-${item.id}`;
 
   const ElemEstrela = isItemComEstrela ? (
-    <StarIcon color="secondary" />
+    <Icon icon={baselineStar} color="secondary" />
   ) : (
-    <StarBorderOutlinedIcon />
+    <Icon icon={outlineStarOutline} />
   );
 
   return typeBtn ? (

@@ -1,5 +1,6 @@
 import ContainerApp from "@components/ContainerApp";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
+import { Icon } from "@iconify/react";
 import { Dialog, Slide, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
@@ -68,7 +69,7 @@ export default function ImageFullDialog({
                 color="inherit"
                 onClick={handleClose}
               >
-                <ArrowBackIcon />
+                <Icon icon={baselineArrowBack} />
               </IconButton>
               <Typography
                 variant="h6"

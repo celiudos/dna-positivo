@@ -1,7 +1,9 @@
 import ContainerApp from "@components/ContainerApp";
 import MainAppBar from "@components/MainAppBar";
-import SignalWifiConnectedNoInternet4Icon from "@mui/icons-material/SignalWifiConnectedNoInternet4";
+import baselineSignalWifiOff from "@iconify/icons-ic/baseline-signal-wifi-off";
+import { Icon } from "@iconify/react";
 import { Alert, AlertTitle, Box } from "@mui/material";
+
 export default function Offline() {
   return (
     <ContainerApp title={"Offline"}>
@@ -10,7 +12,7 @@ export default function Offline() {
         <Box p={2}>
           <Alert
             severity="warning"
-            icon={<SignalWifiConnectedNoInternet4Icon fontSize="inherit" />}
+            icon={<Icon icon={baselineSignalWifiOff} />}
           >
             <AlertTitle>Você está offline</AlertTitle>
             Verifique suas configurações de rede.

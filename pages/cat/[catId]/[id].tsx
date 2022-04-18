@@ -4,10 +4,12 @@ import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
 import TelaLoading from "@components/TelaLoading";
 import ApiApp from "@data/ApiApp";
-import AddIcon from "@mui/icons-material/Add";
-import LinkIcon from "@mui/icons-material/Link";
-import RemoveIcon from "@mui/icons-material/Remove";
-import ShareIcon from "@mui/icons-material/Share";
+import styled from "@emotion/styled";
+import baselineAdd from "@iconify/icons-ic/baseline-add";
+import baselineLink from "@iconify/icons-ic/baseline-link";
+import baselineRemove from "@iconify/icons-ic/baseline-remove";
+import outlineShare from "@iconify/icons-ic/outline-share";
+import { Icon } from "@iconify/react";
 import {
   Button,
   ButtonGroup,
@@ -25,7 +27,6 @@ import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 
 type Props = {
   post: IPost;
@@ -102,7 +103,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                               : setTamanhoFonte(FONTE_CONFIG.min)
                           }
                         >
-                          <RemoveIcon />
+                          <Icon icon={baselineRemove} />{" "}
                         </Button>
                         <Button
                           disabled={FONTE_CONFIG.max === tamanhoFonte}
@@ -112,7 +113,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                               : setTamanhoFonte(FONTE_CONFIG.max)
                           }
                         >
-                          <AddIcon />
+                          <Icon icon={baselineAdd} />{" "}
                         </Button>
                       </ButtonGroup>
                     </DisplayFlexCenter>
@@ -164,7 +165,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                     variant="outlined"
                     href=""
                     target="_blank"
-                    endIcon={<LinkIcon />}
+                    endIcon={<Icon icon={baselineLink} />}
                   >
                     Ver publicação original
                   </Button>
@@ -175,7 +176,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                   <Box mb={2}>
                     <Button
                       variant="outlined"
-                      endIcon={<ShareIcon />}
+                      endIcon={<Icon icon={outlineShare} />}
                       onClick={() =>
                         navigator.share({
                           title: post.title,

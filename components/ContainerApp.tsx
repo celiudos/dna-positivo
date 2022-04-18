@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import * as React from "react";
-import styled from "styled-components";
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 import NextSeoHeader from "./NextSeoHeader";
 

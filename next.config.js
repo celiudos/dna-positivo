@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 const withTM = require("next-transpile-modules")([
   "@mui/material",
   "@mui/system",
@@ -12,13 +14,6 @@ module.exports = withPWA(
       disable: process.env.NODE_ENV === "development",
     },
     reactStrictMode: true,
-    webpack: (config) => {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@mui/styled-engine": "@mui/styled-engine-sc",
-      };
-      return config;
-    },
     excludeFile: (str) => /\*.{spec,test}.js/.test(str),
   })
 );

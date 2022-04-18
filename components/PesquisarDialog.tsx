@@ -1,10 +1,11 @@
 import ContainerApp from "@components/ContainerApp";
 import ApiApp from "@data/ApiApp";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ClearIcon from "@mui/icons-material/Clear";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
+import baselineClear from "@iconify/icons-ic/baseline-clear";
+import baselineSearch from "@iconify/icons-ic/baseline-search";
+import outlineInfo from "@iconify/icons-ic/outline-info";
+import outlineReportProblem from "@iconify/icons-ic/outline-report-problem";
+import { Icon } from "@iconify/react";
 import {
   Alert,
   Chip,
@@ -129,7 +130,7 @@ export default function PesquisarDialog() {
         color="inherit"
         onClick={handleClickOpen}
       >
-        <SearchIcon />
+        <Icon icon={baselineSearch} />
       </IconButton>
       <Dialog
         fullScreen
@@ -154,7 +155,7 @@ export default function PesquisarDialog() {
                     color="inherit"
                     onClick={handleClose}
                   >
-                    <ArrowBackIcon />
+                    <Icon icon={baselineArrowBack} />
                   </IconButton>
                 }
                 endAdornment={
@@ -164,7 +165,7 @@ export default function PesquisarDialog() {
                     onClick={zerarPesquisa}
                     edge="end"
                   >
-                    <ClearIcon />
+                    <Icon icon={baselineClear} />
                   </IconButton>
                 }
               />
@@ -256,7 +257,7 @@ export default function PesquisarDialog() {
             {semResultado && (
               <Box pt={2}>
                 <Alert
-                  icon={<ReportProblemOutlinedIcon fontSize="inherit" />}
+                  icon={<Icon icon={outlineReportProblem} />}
                   severity="warning"
                 >
                   Nenhum resultado encontrado
@@ -266,10 +267,7 @@ export default function PesquisarDialog() {
 
             {nadaPesquisado && (
               <Box pt={2}>
-                <Alert
-                  icon={<InfoOutlinedIcon fontSize="inherit" />}
-                  severity="info"
-                >
+                <Alert icon={<Icon icon={outlineInfo} />} severity="info">
                   Digite algum valor no campo de busca
                 </Alert>
               </Box>

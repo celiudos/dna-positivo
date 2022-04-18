@@ -1,6 +1,7 @@
 import ContainerApp from "@components/ContainerApp";
 import MainAppBar from "@components/MainAppBar";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import roundSentimentDissatisfied from "@iconify/icons-ic/round-sentiment-dissatisfied";
+import { Icon } from "@iconify/react";
 import { Alert, AlertTitle } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -12,7 +13,7 @@ export default function Offline() {
         <Box p={2}>
           <Alert
             severity="warning"
-            icon={<SentimentVeryDissatisfiedIcon fontSize="inherit" />}
+            icon={<Icon icon={roundSentimentDissatisfied} />}
           >
             <AlertTitle>Página não encontrada</AlertTitle>
             Erro 404

@@ -3,13 +3,13 @@ import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import ApiApp from "@data/ApiApp";
+import styled from "@emotion/styled";
 import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import configApp from "configApp";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
