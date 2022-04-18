@@ -39,7 +39,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const posts = ApiApp.getTodos();
+  const posts = await ApiApp.getTodosENovos();
   const postsCat = posts.filter((item) => item.cat.toString() === params.catId);
   return {
     props: { posts: postsCat },

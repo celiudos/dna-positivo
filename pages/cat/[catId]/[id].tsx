@@ -24,7 +24,7 @@ import DateUtils from "@utils/DateUtils";
 import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -219,16 +219,10 @@ export async function getStaticProps({ params }: Params) {
   const postsAntesDeQualquerDialogo = posts.filter(
     (item) => configApp.idsPostsAntesDeQualquerDialogo.indexOf(item.id) !== -1
   );
-  const post = posts.filter((item) => item.id.toString() === params.id);
 
-  let postCarregado = post[0];
-
-  if (!postCarregado) {
-    const postsNovos = await ApiApp.getPostsNovos();
-    postCarregado = postsNovos.filter((np: IPost) => np.id === params.id)[0];
-  }
+  const post = await ApiApp.getPostsENovosById(params.id);
 
   return {
-    props: { post: postCarregado, postsAntesDeQualquerDialogo },
+    props: { post, postsAntesDeQualquerDialogo },
   };
 }

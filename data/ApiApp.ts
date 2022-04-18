@@ -280,6 +280,27 @@ export default class ApiApp {
     return todosPostsMaisRecentes;
   }
 
+  static async getPostsENovosById(id: IPost["id"]): Promise<IPost> {
+    const todosPosts = ApiApp.getTodos();
+    const post = todosPosts.filter((item) => item.id.toString() === id);
+
+    let postCarregado = post[0];
+
+    if (!postCarregado) {
+      const postsNovos = await ApiApp.getPostsNovos();
+      postCarregado = postsNovos.filter((np: IPost) => np.id === id)[0];
+    }
+
+    return postCarregado;
+  }
+
+  static async getTodosENovos(): Promise<IPost[]> {
+    const todosPosts = ApiApp.getTodos();
+    const postsNovos = await ApiApp.getPostsNovos();
+    const postsCarregados = todosPosts.concat(postsNovos);
+    return postsCarregados;
+  }
+
   private static getJsonsEstaticosDePosts() {
     const DnafisicoequanticoDados = DNA_fisico_e_quantico_POSTS as IBloggerJson;
     const InteligenciaartificialpositivaDados =
