@@ -1,5 +1,4 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import CssBaseline from "@mui/material/CssBaseline";
 import { useStore } from "@store/storeConfig";
 import "@styles/globals.css";
 import createEmotionCache from "@theme/createEmotionCache";
@@ -31,9 +30,9 @@ export default function MyApp(props: MyAppProps) {
         />
       </Head>
       <ThemeConfig>
-        <CssBaseline />
         <Provider store={store}>
           <Component {...pageProps} />
+          {/* <InitReducePosts /> */}
         </Provider>
       </ThemeConfig>
     </CacheProvider>

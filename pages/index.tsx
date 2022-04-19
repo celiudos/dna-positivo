@@ -151,22 +151,9 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
 `;
 
 export async function getStaticProps() {
-  // const example = await import("../public/data/mais-todos-os-posts.json");
-  // ApiSearch.setAllPosts(example.default);
-  const postsNovos = ApiPost.getPostsRecentes();
-
-  //Atualizar somente DNA Holgrafico e Quântico
-  // let URL_BASE = GenericUtils.getUrlBase();
-  // await axios(`${URL_BASE}api/atualizar?catId=4`);
-
+  const postsNovos = await ApiPost.getPostsRecentes();
   return {
     props: { postsNovos },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    // revalidate: 3, // In seconds
-    // revalidate: 3000, // 3 dias
-    revalidate: 86400, // 1 dia
-    // revalidate: 86400 * 3, // 3 dias
+    revalidate: configApp.nextJs.revalidate,
   };
 }

@@ -5,6 +5,9 @@ const configApp = {
   subtitulo: "Tratamento de Doenças através do DNA Físico e Quântico",
   email: "quintoelementoamor@hotmail.com",
   isMock: false,
+  nextJs: {
+    revalidate: 86000,
+  },
   idsPostsAntesDeQualquerDialogo: ["61a542c5-499a-59fc-aaee-95796d2eab9f"],
   postsDestaques: [
     {

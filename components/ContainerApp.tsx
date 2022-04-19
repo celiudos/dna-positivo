@@ -1,5 +1,4 @@
 import GoogleAnalyticsScript from "@components/GoogleAnalyticsScript";
-import InitReducePosts from "@components/InitReducePosts";
 import NextSeoHeader from "@components/NextSeoHeader";
 import styled from "@emotion/styled";
 import { Container } from "@mui/material";
@@ -14,7 +13,6 @@ type Props = {
 export default function ContainerApp({ children, title, description }: Props) {
   return (
     <ContainerCss maxWidth="sm" disableGutters>
-      <InitReducePosts />
       <GoogleAnalyticsScript />
       <NextSeoHeader title={title} description={description} />
       {children}
@@ -22,7 +20,7 @@ export default function ContainerApp({ children, title, description }: Props) {
   );
 }
 
-export const ContainerCss = styled(Container)`
+const ContainerCss = styled(Container)`
   background: #f3f3f3;
   display: flex !important;
   height: 100%;

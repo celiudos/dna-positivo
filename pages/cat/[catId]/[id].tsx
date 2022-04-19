@@ -2,6 +2,7 @@ import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
+import TelaEmpty from "@components/TelaEmpty";
 import TelaLoading from "@components/TelaLoading";
 import styled from "@emotion/styled";
 import baselineAdd from "@iconify/icons-ic/baseline-add";
@@ -9,7 +10,7 @@ import baselineLink from "@iconify/icons-ic/baseline-link";
 import baselineRemove from "@iconify/icons-ic/baseline-remove";
 import outlineShare from "@iconify/icons-ic/outline-share";
 import { Icon } from "@iconify/react";
-import ApiSearch from "@lib/ApiSearch";
+import ApiPost from "@lib/ApiPost";
 import {
   Button,
   ButtonGroup,
@@ -24,8 +25,8 @@ import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import DateUtils from "@utils/DateUtils";
 import configApp from "configApp";
-import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -54,6 +55,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   }, []);
 
   if (router.isFallback) return <TelaLoading />;
+  if (!post.id) return <TelaEmpty />;
 
   return (
     <ContainerApp title={post.title} description={post.catName}>
@@ -126,7 +128,10 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                     component="div"
                     style={{ fontSize: `2.${tamanhoFonte}25rem` }}
                   >
-                    {post.title}
+                    {post.title}{" "}
+                    {post.isNovo ? (
+                      <Chip label={"Novo!"} color="secondary" size="small" />
+                    ) : null}
                   </Typography>
                   <ContainerPostCss>
                     <Box my={1}>
@@ -215,15 +220,16 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = ApiSearch.search({ jsonIds: [params.id] });
-  const postsAntesDeQualquerDialogo = ApiSearch.search({
-    jsonIds: configApp.idsPostsAntesDeQualquerDialogo,
-  });
+  const posts = await ApiPost.getPostsByIds([params.id]);
+  const postsAntesDeQualquerDialogo = await ApiPost.getPostsByIds(
+    configApp.idsPostsAntesDeQualquerDialogo
+  );
 
   return {
     props: {
-      post: post.results[0],
-      postsAntesDeQualquerDialogo: postsAntesDeQualquerDialogo.results,
+      post: posts?.[0] || {},
+      postsAntesDeQualquerDialogo: postsAntesDeQualquerDialogo,
     },
+    revalidate: configApp.nextJs.revalidate,
   };
 }

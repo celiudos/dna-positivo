@@ -28,7 +28,6 @@ import { Box } from "@mui/system";
 import theme from "@styles/theme";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
-import * as JsSearch from "js-search";
 import lodash from "lodash";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -42,27 +41,6 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-function getSearchObj() {
-  const itens = ApiSearch.getAllPosts();
-
-  const search = new JsSearch.Search("id");
-
-  search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
-  search.tokenizer = {
-    tokenize(text) {
-      return TextUtils.stringToSlugSemHifen(text).split(" ");
-    },
-  };
-  search.addIndex("title");
-  search.addIndex("resumo");
-
-  search.addDocuments(itens);
-
-  return search;
-}
-
-const searchObj = getSearchObj();
 
 const negritoCss: React.CSSProperties = {
   backgroundColor: "inherit",
@@ -107,10 +85,8 @@ export default function PesquisarDialog() {
 
     clearTimeout(timeout);
     timeout = setTimeout(async () => {
-      if (!searchObj) return false;
-
-      const resultados = searchObj.search(val);
-      setResultadosPesquisa(resultados.slice(0, 50) as IPost[]);
+      const resp = ApiSearch.search({ searchBy: val, pageSize: 50, limit: 50 });
+      setResultadosPesquisa(resp.results as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);
     }, 1000);

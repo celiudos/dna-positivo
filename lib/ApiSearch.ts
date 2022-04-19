@@ -14,7 +14,7 @@ const DEFAULT_PARAMS_VALUES: ISearch = {
   limit: 300,
   jsonIds: [],
   page: 1,
-  pageSize: 10,
+  pageSize: 300,
 };
 
 const DEFAULT_RESPONSE_VALUES: TSearch = {
@@ -141,8 +141,12 @@ export default class ApiSearch {
     return ApiSearch.todosOsPosts;
   }
 
-  static setAllPosts(posts: IPost[]): IPost[] {
-    return (ApiSearch.todosOsPosts = posts);
+  static getPostsJsonEstatico(): IPost[] {
+    return TODOS_OS_POSTS;
+  }
+
+  static setAllPosts(posts: IPost[]): void {
+    ApiSearch.todosOsPosts = posts;
   }
 
   private static getError(id: string) {

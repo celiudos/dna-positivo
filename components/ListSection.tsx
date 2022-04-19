@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
-import { ListSubheader, Paper, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Chip,
+  ListSubheader,
+  Paper,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -134,7 +141,18 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                     <Link href={item.href || ""} passHref>
                       <ListItemButton component="a" id={idListItemButton}>
                         <ListItemText
-                          primary={TextUtils.limitarTexto(item.title, 80)}
+                          primary={
+                            <>
+                              {TextUtils.limitarTexto(item.title, 80)}{" "}
+                              {item.isNovo ? (
+                                <Chip
+                                  label={"Novo!"}
+                                  color="secondary"
+                                  size="small"
+                                />
+                              ) : null}
+                            </>
+                          }
                         />
                       </ListItemButton>
                     </Link>

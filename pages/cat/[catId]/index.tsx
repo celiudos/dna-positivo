@@ -1,9 +1,11 @@
 import ContainerApp from "@components/ContainerApp";
 import ListSection from "@components/ListSection";
 import MainAppBar from "@components/MainAppBar";
+import TelaEmpty from "@components/TelaEmpty";
 import TelaLoading from "@components/TelaLoading";
-import ApiSearch from "@lib/ApiSearch";
+import ApiPost from "@lib/ApiPost";
 import { IPost } from "@typesApp/IPost";
+import configApp from "configApp";
 import { useRouter } from "next/dist/client/router";
 
 type Props = {
@@ -14,8 +16,7 @@ export default function Tecnicas({ posts }: Props) {
   const router = useRouter();
 
   if (router.isFallback) return <TelaLoading />;
-
-  if (!posts.length) return "Nada encontrado";
+  if (!posts.length) return <TelaEmpty />;
 
   return (
     <ContainerApp title={posts[0].catName} description={"Categoria"}>
@@ -41,11 +42,10 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const posts = await ApiSearch.search({
-    filterBy: { cat: parseInt(params.catId) },
-  });
+  const posts = await ApiPost.getPostsByCatId(params.catId);
 
   return {
-    props: { posts: posts.results },
+    props: { posts },
+    revalidate: configApp.nextJs.revalidate,
   };
 }

@@ -69,6 +69,7 @@ export default class BaixarPostsDoBlogger {
     catName: "",
     id: "",
     isPage: false,
+    isNovo: false,
     isSubheader: false,
     href: "",
     hrefOriginal: "",
@@ -178,6 +179,7 @@ export default class BaixarPostsDoBlogger {
         id,
         isSubheader: false,
         isPage,
+        isNovo: false,
         href: `/cat/${item.cat}/${id}`,
         hrefOriginal: item.link.filter(
           (l: any) => l.type === "text/html" && l.rel === "alternate"

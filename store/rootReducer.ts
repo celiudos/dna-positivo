@@ -15,9 +15,9 @@ let stateInicial: ReduxState = {
   favorito: FavoritosStorageUtils.getObjDefault(),
   favoritoAlterado: {},
   carregandoPagina: 0,
-  postsNovos: [],
-  posts: [],
-  allPosts: [],
+  postsNovos: undefined,
+  posts: undefined,
+  allPosts: undefined,
 };
 
 export default function rootReducer(

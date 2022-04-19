@@ -22,10 +22,8 @@ export default function InitReducePosts() {
       const response = await axios(
         `${GenericUtils.getUrlBase()}api/ultimos-posts?catId=4`
       );
-      console.log("response:", response);
-
       if (response.status === 200) {
-        dispatch(postsNovosAction(response.data.results));
+        dispatch(postsNovosAction(response.data.posts));
       }
     }
     init();
@@ -33,15 +31,18 @@ export default function InitReducePosts() {
 
   useEffect(() => {
     async function init() {
-      const posts = await BaixarPostsDoBlogger.getDefaultPost();
+      const posts = await ApiSearch.getAllPosts();
       dispatch(postsAction(posts));
     }
     init();
   }, [dispatch]);
 
   useEffect(() => {
-    async function init() {
-      const allPosts = [...posts, ...postsNovos];
+    function init() {
+      const allPosts = BaixarPostsDoBlogger.unirPostsComIdsIguais([
+        ...posts,
+        ...postsNovos,
+      ]);
       ApiSearch.setAllPosts(allPosts);
       dispatch(allPostsAction(allPosts));
     }

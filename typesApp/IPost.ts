@@ -12,4 +12,5 @@ export interface IPost {
   hrefOriginal: string;
   isSubheader: boolean;
   isPage: boolean;
+  isNovo: boolean;
 }
