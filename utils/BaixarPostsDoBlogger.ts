@@ -254,38 +254,13 @@ export default class BaixarPostsDoBlogger {
       });
 
       responseData = response.data as IBloggerJson;
-      // console.log("responseData:", url, response);
+      console.log("========= url:", url);
     } catch (error) {
-      console.log("error:", error);
+      console.log("Error getPostsFromBlogspot:", error);
     }
     return responseData;
   }
-
-  // static async verificarSeTemPostNovoNoSite(
-  //   urlBase: string,
-  //   urlPost: "posts" | "pages",
-  //   maxResults = "20"
-  // ) {
-  //   let responseData;
-
-  //   try {
-  //     const url = `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`;
-  //     const response = await axios.get(url, {
-  //       params: {
-  //         alt: "json",
-  //         "max-results": maxResults,
-  //         orderby: "updated",
-  //       },
-  //     });
-
-  //     responseData = response.data as IBloggerJson;
-  //   } catch (error) {
-  //     console.log("error:", error);
-  //   }
-
-  //   return responseData;
-  // }
-
+  
   static getDefaultPost(): IPost {
     return BaixarPostsDoBlogger.defaultPost;
   }
