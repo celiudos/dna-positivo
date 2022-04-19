@@ -1,5 +1,5 @@
 import { TArquivoParams } from "@typesApp/IArquivo";
-import BaixarPostsDoBloger from "@utils/BaixarPostsDoBloger";
+import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
 import FilesUtils from "@utils/FileUtils";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -20,13 +20,13 @@ export default async function handler(
 
   try {
     if (catId) {
-      posts = await BaixarPostsDoBloger.getTodosSelecionados(catId.toString());
+      posts = await BaixarPostsDoBlogger.getTodosSelecionados(catId.toString());
       responseArquivo = await FilesUtils.atualizarArquivo({
         conteudo: posts,
         arquivo,
       });
     } else {
-      posts = await BaixarPostsDoBloger.getTodosSelecionados();
+      posts = await BaixarPostsDoBlogger.getTodosSelecionados();
       responseArquivo = await FilesUtils.criarArquivo({
         conteudo: posts,
         arquivo,

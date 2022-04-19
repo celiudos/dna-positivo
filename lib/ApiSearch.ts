@@ -1,14 +1,9 @@
 import { TODOS_OS_POSTS } from "@lib/ApiJsonImport";
 import { IPost } from "@typesApp/IPost";
 import ISearch, { TSearch } from "@typesApp/ISearch";
-import DateUtils from "@utils/DateUtils";
 import TextUtils from "@utils/TextUtils";
 import * as JsSearch from "js-search";
 import lodash from "lodash";
-
-const DATABASES = {
-  TODOS_OS_POSTS,
-};
 
 const DEFAULT_PARAMS_VALUES: ISearch = {
   searchBy: "",
@@ -17,7 +12,6 @@ const DEFAULT_PARAMS_VALUES: ISearch = {
   order: "desc",
   orderBy: "updated",
   limit: 300,
-  jsonName: Object.keys(DATABASES)[0] as unknown as ISearch["jsonName"],
   jsonIds: [],
   page: 1,
   pageSize: 10,
@@ -45,7 +39,6 @@ export default class ApiSearch {
       limit,
       page,
       pageSize,
-      jsonName,
       jsonIds,
     } = { ...DEFAULT_PARAMS_VALUES, ...params_values };
 
@@ -91,7 +84,6 @@ export default class ApiSearch {
       total,
       page,
       pageSize,
-      jsonName,
       jsonIds,
       results,
       error,
@@ -182,18 +174,5 @@ export default class ApiSearch {
           msg: "Ocorreu um erro",
         };
     }
-  }
-
-  static getPostsRecentes(diasDeDif = 15, pageSize = 5): IPost[] {
-    const todosPostsSearch = ApiSearch.search({ pageSize });
-
-    const todosPosts = todosPostsSearch.results.filter((post) => {
-      return (
-        DateUtils.getdiffInCalendarDays({
-          fim: new Date(post.updated),
-        }) < diasDeDif
-      );
-    });
-    return todosPosts;
   }
 }

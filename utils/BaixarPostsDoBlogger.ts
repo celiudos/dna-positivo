@@ -6,7 +6,12 @@ import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 import getUuid from "uuid-by-string";
 
-export default class BaixarPostsDoBloger {
+type TParamsBlogger = {
+  "max-results": string;
+  "start-index": string;
+};
+
+export default class BaixarPostsDoBlogger {
   static bloggerEntities = [
     {
       name: "dnafisicoequantico",
@@ -69,19 +74,23 @@ export default class BaixarPostsDoBloger {
     hrefOriginal: "",
   };
 
-  static async getTodosSelecionados(byId?: string): Promise<IPost[]> {
+  static async getTodosSelecionados(
+    byId?: string,
+    paramsBlogger?: TParamsBlogger
+  ): Promise<IPost[]> {
     let postsBlogspot: IPost[] = [];
 
     const permitidos = byId
-      ? BaixarPostsDoBloger.jsonBloggerPermitidos.filter((j) =>
+      ? BaixarPostsDoBlogger.jsonBloggerPermitidos.filter((j) =>
           byId.includes(j.catId)
         )
-      : BaixarPostsDoBloger.jsonBloggerPermitidos;
+      : BaixarPostsDoBlogger.jsonBloggerPermitidos;
 
     for (const p of permitidos) {
-      const posts = await BaixarPostsDoBloger.getByCatIdETipo(
+      const posts = await BaixarPostsDoBlogger.getByCatIdETipo(
         p.catId,
-        p.tipo as "posts" | "pages"
+        p.tipo as "posts" | "pages",
+        paramsBlogger
       );
       postsBlogspot = postsBlogspot.concat(posts);
     }
@@ -91,25 +100,27 @@ export default class BaixarPostsDoBloger {
 
   static async getByCatIdETipo(
     catId: string,
-    tipo: "posts" | "pages"
+    tipo: "posts" | "pages",
+    paramsBlogger?: TParamsBlogger
   ): Promise<IPost[]> {
     let postsBlogspot: IPost[] = [];
 
-    for await (const ent of BaixarPostsDoBloger.bloggerEntities.filter(
+    for await (const ent of BaixarPostsDoBlogger.bloggerEntities.filter(
       (b) => b.catId.toString() === catId
     )) {
-      const posts = await BaixarPostsDoBloger.getPostsFromBlogspot(
+      const posts = await BaixarPostsDoBlogger.getPostsFromBlogspot(
         ent.name,
-        tipo
+        tipo,
+        paramsBlogger
       );
 
       if (posts) {
-        const postsEntry = BaixarPostsDoBloger.getApenasPostsDoEntryGenerico(
+        const postsEntry = BaixarPostsDoBlogger.getApenasPostsDoEntryGenerico(
           posts,
           ent.catId,
           ent.catName
         );
-        const postsFormatados = BaixarPostsDoBloger.formatarPostDoBlogParaOApp(
+        const postsFormatados = BaixarPostsDoBlogger.formatarPostDoBlogParaOApp(
           postsEntry,
           tipo === "pages"
         );
@@ -199,7 +210,7 @@ export default class BaixarPostsDoBloger {
       };
     });
 
-    return BaixarPostsDoBloger.tratarDados(itens);
+    return BaixarPostsDoBlogger.tratarDados(itens);
   }
 
   private static getApenasPostsDoEntryGenerico(
@@ -222,7 +233,10 @@ export default class BaixarPostsDoBloger {
   private static async getPostsFromBlogspot(
     urlBase: string,
     urlPost: "posts" | "pages",
-    maxResults = "200"
+    paramsBlogger: TParamsBlogger = {
+      "max-results": "200",
+      "start-index": "1",
+    }
   ): Promise<IBloggerJson | undefined> {
     let responseData;
 
@@ -232,9 +246,8 @@ export default class BaixarPostsDoBloger {
       const response = await axios.get(url, {
         params: {
           alt: "json",
-          "max-results": maxResults,
-          "start-index": "1",
           orderby: "updated",
+          ...paramsBlogger,
         },
       });
 
@@ -272,7 +285,7 @@ export default class BaixarPostsDoBloger {
   // }
 
   static getDefaultPost(): IPost {
-    return BaixarPostsDoBloger.defaultPost;
+    return BaixarPostsDoBlogger.defaultPost;
   }
 
   static unirPostsComIdsIguais(posts: IPost[]): IPost[] {

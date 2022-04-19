@@ -1,9 +1,9 @@
+import GoogleAnalyticsScript from "@components/GoogleAnalyticsScript";
+import InitReducePosts from "@components/InitReducePosts";
+import NextSeoHeader from "@components/NextSeoHeader";
 import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import * as React from "react";
-import BaixarNovosPosts from "./BaixarNovosPosts";
-import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
-import NextSeoHeader from "./NextSeoHeader";
 
 type Props = {
   children: React.ReactNode;
@@ -14,10 +14,10 @@ type Props = {
 export default function ContainerApp({ children, title, description }: Props) {
   return (
     <ContainerCss maxWidth="sm" disableGutters>
+      <InitReducePosts />
       <GoogleAnalyticsScript />
       <NextSeoHeader title={title} description={description} />
       {children}
-      <BaixarNovosPosts />
     </ContainerCss>
   );
 }

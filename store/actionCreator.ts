@@ -22,3 +22,9 @@ export function postsNovosAction(valor: {}) {
     valor,
   };
 }
+export function postsAction(valor: {}) {
+  return {
+    type: "POSTS",
+    valor,
+  };
+}

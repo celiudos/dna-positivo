@@ -7,6 +7,7 @@ interface ReduxState {
   favoritoAlterado: IPost | {};
   carregandoPagina: number;
   postsNovos: IPost[] | undefined;
+  posts: IPost[] | undefined;
 }
 
 let stateInicial: ReduxState = {
@@ -14,6 +15,7 @@ let stateInicial: ReduxState = {
   favoritoAlterado: {},
   carregandoPagina: 0,
   postsNovos: [],
+  posts: [],
 };
 
 export default function rootReducer(
@@ -45,6 +47,11 @@ export default function rootReducer(
       return {
         ...state,
         postsNovos: action.valor,
+      };
+    case "POSTS":
+      return {
+        ...state,
+        posts: action.valor,
       };
     default:
       return state;
