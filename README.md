@@ -45,6 +45,12 @@
         },
       ]
 
+# Processo para atualizar publicações
+
+1.  Localmente, suba o servidor
+1.  Acesse http://localhost:3000/api/atualizar. Vai atualizar o arquivo "todos-os-posts.json"
+1.  Commita o arquivo "todos-os-posts.json"
+
 # Geral
 
 ## Objetivo
