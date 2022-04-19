@@ -1,12 +1,12 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useMediaQuery } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider, useTheme } from "@mui/material/styles";
 import { useStore } from "@store/storeConfig";
 import createEmotionCache from "@styles/createEmotionCache";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import "@styles/globals.css";
-import theme from "@styles/theme";
 import configApp from "configApp";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -25,6 +25,9 @@ export default function MyApp(props: MyAppProps) {
 
   const store = useStore(pageProps.initialReduxState);
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -40,13 +43,15 @@ export default function MyApp(props: MyAppProps) {
           <Component {...pageProps} />
         </Provider>
         <ImageContainerCss>
-          <Image
-            className="rotating"
-            src="/img/planeta-maior.jpg"
-            alt="Planeta terra"
-            layout="fill"
-            objectFit="contain"
-          />
+          {matches ? (
+            <Image
+              className="rotating"
+              src="/img/planeta-maior.jpg"
+              alt="Planeta terra"
+              layout="fill"
+              objectFit="contain"
+            />
+          ) : null}
         </ImageContainerCss>
       </ThemeProvider>
     </CacheProvider>
