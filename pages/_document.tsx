@@ -1,5 +1,5 @@
 import createEmotionServer from "@emotion/server/create-instance";
-import createEmotionCache from "@styles/createEmotionCache";
+import createEmotionCache from "@theme/createEmotionCache";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 // https://mui.com/styles/advanced/#next-js

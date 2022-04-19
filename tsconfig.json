@@ -25,6 +25,7 @@
       "@data/*": ["./data/*"],
       "@lib/*": ["./lib/*"],
       "@tests/*": ["./tests/*"],
+      "@theme/*": ["./theme/*"],
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"],
       "@store/*": ["./store/*"]
