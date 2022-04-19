@@ -6,7 +6,7 @@
     "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
     "xmlns$gd": "http://schemas.google.com/g/2005",
     "id": { "$t": "tag:blogger.com,1999:blog-8122934176709728665" },
-    "updated": { "$t": "2022-04-12T21:18:04.319-03:00" },
+    "updated": { "$t": "2022-04-18T21:46:40.640-03:00" },
     "title": { "type": "text", "$t": "DNA Holográfico e Quântico" },
     "subtitle": {
       "type": "html",
@@ -47,10 +47,64 @@
       "uri": "http://www.blogger.com",
       "$t": "Blogger"
     },
-    "openSearch$totalResults": { "$t": "18" },
+    "openSearch$totalResults": { "$t": "19" },
     "openSearch$startIndex": { "$t": "1" },
     "openSearch$itemsPerPage": { "$t": "200" },
     "entry": [
+      {
+        "id": {
+          "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-3210281743524362460"
+        },
+        "published": { "$t": "2022-04-18T21:42:00.002-03:00" },
+        "updated": { "$t": "2022-04-18T21:46:07.313-03:00" },
+        "title": {
+          "type": "text",
+          "$t": "Diálogo Dirigido para Esclerose Múltipla"
+        },
+        "content": {
+          "type": "html",
+          "$t": "\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003EDiálogo para o tratamento da Esclerose Múltipla, que é uma doença neurológica crônica e autoimune, em que as células de defesa do organismo atacam o cérebro, sistema nervoso central e a medula espinhal, destruindo a bainha de mielina. Fique atento às fases da narração para repetir em voz alta as cores e suas funções.\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cspan style=\"font-family: verdana;\"\u003E\u003Cbr /\u003E\u003C/span\u003E\u003C/div\u003E\u003Cdiv style=\"text-align: justify;\"\u003E\u003Cdiv class=\"separator\" style=\"clear: both; text-align: center;\"\u003E\u003Ca href=\"https://dialogos.ml/esclerose_multipla_2815\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\" target=\"_blank\"\u003E\u003Cimg border=\"0\" data-original-height=\"305\" data-original-width=\"539\" height=\"226\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMiz87pqYoSiX-fSpMi_c1whPlFs1dZxcv9I3o_dJGfpbwkMK65VqHjCOseHChjDtiGIrasiYcJDvTxDasK4L51WJOLTEdD7x9B9_GobRMBLN-OI1tjgoRkbc-b4DxGXwwzzz272dW5z74sie-taHoRftV_l5gxVY4MyJy4hsPvEkQqx8fgmNNgGEu/w400-h226/esclerose.png\" width=\"400\" /\u003E\u003C/a\u003E\u003C/div\u003E\u003Cbr /\u003E\u003C/div\u003E"
+        },
+        "link": [
+          {
+            "rel": "edit",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3210281743524362460"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://www.blogger.com/feeds/8122934176709728665/pages/default/3210281743524362460"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://dnaholograficoequantico.blogspot.com/p/dialogo-para-o-tratamento-da-esclerose.html",
+            "title": "Diálogo Dirigido para Esclerose Múltipla"
+          }
+        ],
+        "author": [
+          {
+            "name": { "$t": "DNA Positivo" },
+            "uri": {
+              "$t": "http://www.blogger.com/profile/12680980880370164731"
+            },
+            "email": { "$t": "noreply@blogger.com" },
+            "gd$image": {
+              "rel": "http://schemas.google.com/g/2005#thumbnail",
+              "width": "33",
+              "height": "21",
+              "src": "http://2.bp.blogspot.com/-Ntnmwx5DA8c/VP-QwEjYqrI/AAAAAAAAAt4/L9wLem4HoPw/s220/marca%2Bnova%2Bblog.jpg"
+            }
+          }
+        ],
+        "media$thumbnail": {
+          "xmlns$media": "http://search.yahoo.com/mrss/",
+          "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMiz87pqYoSiX-fSpMi_c1whPlFs1dZxcv9I3o_dJGfpbwkMK65VqHjCOseHChjDtiGIrasiYcJDvTxDasK4L51WJOLTEdD7x9B9_GobRMBLN-OI1tjgoRkbc-b4DxGXwwzzz272dW5z74sie-taHoRftV_l5gxVY4MyJy4hsPvEkQqx8fgmNNgGEu/s72-w400-h226-c/esclerose.png",
+          "height": "72",
+          "width": "72"
+        }
+      },
       {
         "id": {
           "$t": "tag:blogger.com,1999:blog-8122934176709728665.page-482880396845703686"
