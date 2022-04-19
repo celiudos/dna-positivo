@@ -8,6 +8,7 @@ interface ReduxState {
   carregandoPagina: number;
   postsNovos: IPost[] | undefined;
   posts: IPost[] | undefined;
+  allPosts: IPost[] | undefined;
 }
 
 let stateInicial: ReduxState = {
@@ -16,6 +17,7 @@ let stateInicial: ReduxState = {
   carregandoPagina: 0,
   postsNovos: [],
   posts: [],
+  allPosts: [],
 };
 
 export default function rootReducer(
@@ -52,6 +54,11 @@ export default function rootReducer(
       return {
         ...state,
         posts: action.valor,
+      };
+    case "ALL_POSTS":
+      return {
+        ...state,
+        allPosts: action.valor,
       };
     default:
       return state;

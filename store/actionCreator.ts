@@ -28,3 +28,9 @@ export function postsAction(valor: {}) {
     valor,
   };
 }
+export function allPostsAction(valor: {}) {
+  return {
+    type: "ALL_POSTS",
+    valor,
+  };
+}
