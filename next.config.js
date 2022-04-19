@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 const withTM = require("next-transpile-modules")([
   "@mui/material",
   "@mui/system",
@@ -11,14 +13,10 @@ module.exports = withPWA(
       dest: "public",
       disable: process.env.NODE_ENV === "development",
     },
-    reactStrictMode: true,
-    webpack: (config) => {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@mui/styled-engine": "@mui/styled-engine-sc",
-      };
-      return config;
+    images: {
+      domains: [" https://blogger.googleusercontent.com"],
     },
+    reactStrictMode: true,
     excludeFile: (str) => /\*.{spec,test}.js/.test(str),
   })
 );

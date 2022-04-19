@@ -1,8 +1,8 @@
+import GoogleAnalyticsScript from "@components/GoogleAnalyticsScript";
+import NextSeoHeader from "@components/NextSeoHeader";
+import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import * as React from "react";
-import styled from "styled-components";
-import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
-import NextSeoHeader from "./NextSeoHeader";
 
 type Props = {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ export default function ContainerApp({ children, title, description }: Props) {
   );
 }
 
-export const ContainerCss = styled(Container)`
+const ContainerCss = styled(Container)`
   background: #f3f3f3;
   display: flex !important;
   height: 100%;

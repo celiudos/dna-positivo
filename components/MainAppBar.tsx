@@ -1,5 +1,7 @@
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import StarIcon from "@mui/icons-material/StarBorderOutlined";
+import styled from "@emotion/styled";
+import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
+import baselineStarBorder from "@iconify/icons-ic/baseline-star-border";
+import { Icon } from "@iconify/react";
 import { LinearProgress, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
@@ -9,7 +11,6 @@ import { RootState } from "@store/storeConfig";
 import Link from "next/link";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 import PesquisarDialog from "./PesquisarDialog";
 
 type Props = {
@@ -50,7 +51,7 @@ export default function MainAppBar({
                 dispatch(carregandoPaginaAction());
               }}
             >
-              <ArrowBackIcon />
+              <Icon icon={baselineArrowBack} />
             </IconButton>
           </Link>
         ) : null}
@@ -71,7 +72,7 @@ export default function MainAppBar({
                 color="inherit"
                 id="btn-header-favoritos"
               >
-                <StarIcon />
+                <Icon icon={baselineStarBorder} />
               </IconButton>
             </Link>
             <PesquisarDialog />

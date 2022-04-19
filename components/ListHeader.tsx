@@ -1,4 +1,6 @@
-import InfoIcon from "@mui/icons-material/Info";
+import styled from "@emotion/styled";
+import baselineInfo from "@iconify/icons-ic/baseline-info";
+import { Icon } from "@iconify/react";
 import { IconButton, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -12,7 +14,6 @@ import ListItemText from "@mui/material/ListItemText";
 import { IPost } from "@typesApp/IPost";
 import lodash from "lodash";
 import * as React from "react";
-import styled from "styled-components";
 
 type Props = {
   primary?: string;
@@ -45,7 +46,7 @@ export default function ListHeader({ primary, secondary, modal }: Props) {
                 id={idListItemButton}
                 onClick={handleClickOpen}
               >
-                <InfoIcon />
+                <Icon icon={baselineInfo} />
               </IconButtonCss>
             ) : null
           }

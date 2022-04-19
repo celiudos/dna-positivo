@@ -1,4 +1,12 @@
-import { ListSubheader, Paper, Tab, Tabs, Typography } from "@mui/material";
+import styled from "@emotion/styled";
+import {
+  Chip,
+  ListSubheader,
+  Paper,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
@@ -11,7 +19,6 @@ import Link from "next/link";
 import * as React from "react";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList as List, ListChildComponentProps } from "react-window";
-import styled from "styled-components";
 import EstrelaFavorito from "./EstrelaFavorito";
 
 function agruparPorLetras(rawData: [], key: string) {
@@ -134,7 +141,18 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                     <Link href={item.href || ""} passHref>
                       <ListItemButton component="a" id={idListItemButton}>
                         <ListItemText
-                          primary={TextUtils.limitarTexto(item.title, 80)}
+                          primary={
+                            <>
+                              {TextUtils.limitarTexto(item.title, 80)}{" "}
+                              {item.isNovo ? (
+                                <Chip
+                                  label={"Novo!"}
+                                  color="secondary"
+                                  size="small"
+                                />
+                              ) : null}
+                            </>
+                          }
                         />
                       </ListItemButton>
                     </Link>

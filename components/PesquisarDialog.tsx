@@ -1,10 +1,12 @@
 import ContainerApp from "@components/ContainerApp";
-import ApiApp from "@data/ApiApp";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ClearIcon from "@mui/icons-material/Clear";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
+import baselineClear from "@iconify/icons-ic/baseline-clear";
+import baselineSearch from "@iconify/icons-ic/baseline-search";
+import outlineInfo from "@iconify/icons-ic/outline-info";
+import outlineReportProblem from "@iconify/icons-ic/outline-report-problem";
+import { Icon } from "@iconify/react";
+import ApiPost from "@lib/ApiPost";
+import ApiSearch from "@lib/ApiSearch";
 import {
   Alert,
   Chip,
@@ -24,14 +26,16 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { TransitionProps } from "@mui/material/transitions";
 import { Box } from "@mui/system";
+import { allPostsAction } from "@store/actionCreator";
+import { RootState } from "@store/storeConfig";
 import theme from "@styles/theme";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
-import * as JsSearch from "js-search";
 import lodash from "lodash";
 import Link from "next/link";
 import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
+import { useDispatch, useSelector } from "react-redux";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -41,27 +45,6 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-function getSearchObj() {
-  const itens = ApiApp.getTodos();
-
-  const search = new JsSearch.Search("id");
-
-  search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
-  search.tokenizer = {
-    tokenize(text) {
-      return TextUtils.stringToSlugSemHifen(text).split(" ");
-    },
-  };
-  search.addIndex("title");
-  search.addIndex("resumo");
-
-  search.addDocuments(itens);
-
-  return search;
-}
-
-const searchObj = getSearchObj();
 
 const negritoCss: React.CSSProperties = {
   backgroundColor: "inherit",
@@ -78,7 +61,12 @@ export default function PesquisarDialog() {
   const [progress, setProgress] = useState(false);
   const [open, setOpen] = React.useState(false);
 
+  const dispatch = useDispatch();
+  const { allPosts } = useSelector((state: RootState) => state.rootReducer);
+
   const handleClickOpen = () => {
+    if (!allPosts)
+      ApiPost.setAllPosts().then((posts) => dispatch(allPostsAction(posts)));
     setOpen(true);
   };
 
@@ -106,10 +94,14 @@ export default function PesquisarDialog() {
 
     clearTimeout(timeout);
     timeout = setTimeout(async () => {
-      if (!searchObj) return false;
+      const resp = ApiSearch.search({
+        searchBy: val,
+        pageSize: 50,
+        limit: 50,
+        searchFields: ["title", "resumo"],
+      });
 
-      const resultados = searchObj.search(val);
-      setResultadosPesquisa(resultados.slice(0, 50) as IPost[]);
+      setResultadosPesquisa(resp.results as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);
     }, 1000);
@@ -129,7 +121,7 @@ export default function PesquisarDialog() {
         color="inherit"
         onClick={handleClickOpen}
       >
-        <SearchIcon />
+        <Icon icon={baselineSearch} />
       </IconButton>
       <Dialog
         fullScreen
@@ -154,7 +146,7 @@ export default function PesquisarDialog() {
                     color="inherit"
                     onClick={handleClose}
                   >
-                    <ArrowBackIcon />
+                    <Icon icon={baselineArrowBack} />
                   </IconButton>
                 }
                 endAdornment={
@@ -164,7 +156,7 @@ export default function PesquisarDialog() {
                     onClick={zerarPesquisa}
                     edge="end"
                   >
-                    <ClearIcon />
+                    <Icon icon={baselineClear} />
                   </IconButton>
                 }
               />
@@ -256,7 +248,7 @@ export default function PesquisarDialog() {
             {semResultado && (
               <Box pt={2}>
                 <Alert
-                  icon={<ReportProblemOutlinedIcon fontSize="inherit" />}
+                  icon={<Icon icon={outlineReportProblem} />}
                   severity="warning"
                 >
                   Nenhum resultado encontrado
@@ -266,10 +258,7 @@ export default function PesquisarDialog() {
 
             {nadaPesquisado && (
               <Box pt={2}>
-                <Alert
-                  icon={<InfoOutlinedIcon fontSize="inherit" />}
-                  severity="info"
-                >
+                <Alert icon={<Icon icon={outlineInfo} />} severity="info">
                   Digite algum valor no campo de busca
                 </Alert>
               </Box>

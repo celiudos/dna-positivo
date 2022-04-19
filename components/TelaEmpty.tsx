@@ -5,18 +5,18 @@ import { Icon } from "@iconify/react";
 import { Alert, AlertTitle } from "@mui/material";
 import { Box } from "@mui/system";
 
-export default function Offline() {
+export default function TelaEmpty() {
   return (
-    <ContainerApp title={"404"}>
+    <ContainerApp title={"Vazio"}>
       <MainAppBar />
       <main>
         <Box p={2}>
           <Alert
-            severity="warning"
+            severity="info"
             icon={<Icon icon={roundSentimentDissatisfied} />}
           >
-            <AlertTitle>Página não encontrada</AlertTitle>
-            Erro 404
+            <AlertTitle>Nenhuma publicação encontrada</AlertTitle>
+            Verifique o endereço e tente novamente.
           </Alert>
         </Box>
       </main>

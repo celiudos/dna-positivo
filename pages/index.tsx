@@ -2,14 +2,15 @@ import ContainerApp from "@components/ContainerApp";
 import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
-import ApiApp from "@data/ApiApp";
+import styled from "@emotion/styled";
+import ApiPost from "@lib/ApiPost";
 import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
 import configApp from "configApp";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
 import packageJson from "../package.json";
 
 export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
@@ -23,6 +24,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               src="/img/DNA-Genetics.gif"
               alt="Genética DNA"
               layout="fill"
+              objectFit="cover"
             />
           </ImageContainerGifCss>
           <PaperImgCss elevation={5}>
@@ -55,17 +57,17 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               hasStar={false}
               itens={[
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "DNA Positivo",
                   href: "/cat/2",
                 },
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "DNA físico e Quântico",
                   href: "/cat/1",
                 },
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "DNA Holográfico e Quântico",
                   href: "/cat/4",
                 },
@@ -79,7 +81,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               hasStar={false}
               itens={[
                 {
-                  ...ApiApp.getDefaultPost(),
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "Inteligência Artificial Positiva",
                   href: "/cat/3",
                 },
@@ -91,7 +93,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
             <ListItens
               hasStar={false}
               itens={configApp.postsDestaques.map((p) => ({
-                ...ApiApp.getDefaultPost(),
+                ...BaixarPostsDoBlogger.getDefaultPost(),
                 ...p,
               }))}
             />
@@ -117,7 +119,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
           <Grid item xs={12}>
             <ListHeader
               primary="Em caso de dúvidas, envie um e-mail"
-              secondary="quintoelementoamor@hotmail.com"
+              secondary={configApp.email}
             />
           </Grid>
           <Grid item xs={12}>
@@ -150,13 +152,9 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
 `;
 
 export async function getStaticProps() {
-  const postsNovos = await ApiApp.getPostsNovos();
+  const postsNovos = await ApiPost.getPostsRecentes();
   return {
     props: { postsNovos },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    // revalidate: 10, // In seconds
-    revalidate: 86400, // 1 dia
+    revalidate: configApp.nextJs.revalidate,
   };
 }

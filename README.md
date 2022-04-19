@@ -20,7 +20,36 @@
 
 # Publicar manualmente
 
-Inserir uma publicação no arquivo [postsAdicionais.json](data/manual/postsAdicionais.json)
+[Atualizar todos os posts JSON](http://localhost:3000/api/atualizar?catId=4)
+
+    [
+        {
+          name: "dnafisicoequantico",
+          catId: 1,
+          catName: "DNA Físico e Quântico",
+        },
+        {
+          name: "dnapositivo",
+          catId: 2,
+          catName: "DNA Positivo",
+        },
+        {
+          name: "inteligenciaartificialpositiva",
+          catId: 3,
+          catName: "Inteligência Artificial Positiva",
+        },
+        {
+          name: "dnaholograficoequantico",
+          catId: 4,
+          catName: "DNA Holográfico e Quântico",
+        },
+      ]
+
+# Processo para atualizar publicações
+
+1.  Localmente, suba o servidor
+1.  Acesse http://localhost:3000/api/atualizar. Vai atualizar o arquivo "todos-os-posts.json"
+1.  Commita o arquivo "todos-os-posts.json"
 
 # Geral
 

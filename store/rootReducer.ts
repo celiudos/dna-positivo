@@ -6,12 +6,18 @@ interface ReduxState {
   favorito: IFavoritosStorage;
   favoritoAlterado: IPost | {};
   carregandoPagina: number;
+  postsNovos: IPost[] | undefined;
+  posts: IPost[] | undefined;
+  allPosts: IPost[] | undefined;
 }
 
 let stateInicial: ReduxState = {
   favorito: FavoritosStorageUtils.getObjDefault(),
   favoritoAlterado: {},
   carregandoPagina: 0,
+  postsNovos: undefined,
+  posts: undefined,
+  allPosts: undefined,
 };
 
 export default function rootReducer(
@@ -38,6 +44,21 @@ export default function rootReducer(
       return {
         ...state,
         carregandoPagina: action.valor,
+      };
+    case "POSTS_NOVOS":
+      return {
+        ...state,
+        postsNovos: action.valor,
+      };
+    case "POSTS":
+      return {
+        ...state,
+        posts: action.valor,
+      };
+    case "ALL_POSTS":
+      return {
+        ...state,
+        allPosts: action.valor,
       };
     default:
       return state;
