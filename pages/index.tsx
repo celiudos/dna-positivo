@@ -24,6 +24,7 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               src="/img/DNA-Genetics.gif"
               alt="Genética DNA"
               layout="fill"
+              objectFit="cover"
             />
           </ImageContainerGifCss>
           <PaperImgCss elevation={5}>
