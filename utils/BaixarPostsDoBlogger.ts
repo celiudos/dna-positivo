@@ -1,7 +1,6 @@
 import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
-import axios from "axios";
 import lodash from "lodash";
 import sanitizeHtml from "sanitize-html";
 import getUuid from "uuid-by-string";
@@ -243,24 +242,24 @@ export default class BaixarPostsDoBlogger {
     let responseData;
 
     try {
-      const url = `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`;
+      const url = new URL(
+        `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`
+      );
+      const params = {
+        alt: "json",
+        orderby: "updated",
+        ...paramsBlogger,
+      };
+      url.search = new URLSearchParams(params).toString();
 
-      const response = await axios.get(url, {
-        params: {
-          alt: "json",
-          orderby: "updated",
-          ...paramsBlogger,
-        },
-      });
-
-      responseData = response.data as IBloggerJson;
-      console.log("========= url:", url);
+      const response = await fetch(url.toString());
+      responseData = (await response.json()) as IBloggerJson;
     } catch (error) {
       console.log("Error getPostsFromBlogspot:", error);
     }
     return responseData;
   }
-  
+
   static getDefaultPost(): IPost {
     return BaixarPostsDoBlogger.defaultPost;
   }

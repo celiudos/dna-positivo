@@ -3,7 +3,6 @@ import { IPost } from "@typesApp/IPost";
 import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
 import DateUtils from "@utils/DateUtils";
 import GenericUtils from "@utils/GenericUtils";
-import axios from "axios";
 
 export default class ApiPost {
   static async getPostsRecentes(
@@ -43,11 +42,13 @@ export default class ApiPost {
   }
 
   private static async getUltimosPosts(): Promise<IPost[] | []> {
-    const response = await axios(
+    const response = await fetch(
       `${GenericUtils.getUrlBase()}api/ultimos-posts?catId=4`
     );
+
     if (response.status === 200) {
-      const posts = response.data.posts.map((p: IPost) => ({
+      const data = (await response.json()) as any;
+      const posts = data.posts.map((p: IPost) => ({
         ...p,
         isNovo: true,
       }));
