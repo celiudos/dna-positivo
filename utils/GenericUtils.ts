@@ -150,7 +150,11 @@ export default class GenericUtils {
     let URL_BASE = "http://localhost:3000/";
 
     if (process.env.NODE_ENV === "production") {
-      URL_BASE = configApp.url;
+      try {
+        URL_BASE = window.location.origin + "/";
+      } catch (error) {
+        URL_BASE = configApp.url;
+      }
     }
 
     return URL_BASE;

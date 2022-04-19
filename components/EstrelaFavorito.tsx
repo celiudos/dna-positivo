@@ -2,6 +2,7 @@ import baselineStar from "@iconify/icons-ic/baseline-star";
 import outlineStarOutline from "@iconify/icons-ic/outline-star-outline";
 import { Icon } from "@iconify/react";
 import { Button, IconButton } from "@mui/material";
+import { orange } from "@mui/material/colors";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
 import * as React from "react";
@@ -36,7 +37,7 @@ export default function EstrelaFavorito({
   const idButton = `EstrelaFavorito-${item.id}`;
 
   const ElemEstrela = isItemComEstrela ? (
-    <Icon icon={baselineStar} color="secondary" />
+    <Icon icon={baselineStar} color={orange[500]} />
   ) : (
     <Icon icon={outlineStarOutline} />
   );

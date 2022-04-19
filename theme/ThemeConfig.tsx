@@ -27,9 +27,9 @@ export const themeOptions: ThemeOptions = {
     primary: {
       main: "#260273",
     },
-    // secondary: {
-    //   main: "#2ec5d3",
-    // },
+    secondary: {
+      main: "#d9a918",
+    },
     background: {
       default: "#192231",
       // paper: "#24344d",
