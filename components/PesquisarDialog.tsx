@@ -5,6 +5,7 @@ import baselineSearch from "@iconify/icons-ic/baseline-search";
 import outlineInfo from "@iconify/icons-ic/outline-info";
 import outlineReportProblem from "@iconify/icons-ic/outline-report-problem";
 import { Icon } from "@iconify/react";
+import ApiPost from "@lib/ApiPost";
 import ApiSearch from "@lib/ApiSearch";
 import {
   Alert,
@@ -25,6 +26,8 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { TransitionProps } from "@mui/material/transitions";
 import { Box } from "@mui/system";
+import { allPostsAction } from "@store/actionCreator";
+import { RootState } from "@store/storeConfig";
 import theme from "@styles/theme";
 import { IPost } from "@typesApp/IPost";
 import TextUtils from "@utils/TextUtils";
@@ -32,6 +35,7 @@ import lodash from "lodash";
 import Link from "next/link";
 import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
+import { useDispatch, useSelector } from "react-redux";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -57,7 +61,12 @@ export default function PesquisarDialog() {
   const [progress, setProgress] = useState(false);
   const [open, setOpen] = React.useState(false);
 
+  const dispatch = useDispatch();
+  const { allPosts } = useSelector((state: RootState) => state.rootReducer);
+
   const handleClickOpen = () => {
+    if (!allPosts)
+      ApiPost.setAllPosts().then((posts) => dispatch(allPostsAction(posts)));
     setOpen(true);
   };
 
@@ -85,7 +94,13 @@ export default function PesquisarDialog() {
 
     clearTimeout(timeout);
     timeout = setTimeout(async () => {
-      const resp = ApiSearch.search({ searchBy: val, pageSize: 50, limit: 50 });
+      const resp = ApiSearch.search({
+        searchBy: val,
+        pageSize: 50,
+        limit: 50,
+        searchFields: ["title", "resumo"],
+      });
+
       setResultadosPesquisa(resp.results as IPost[]);
       setSearchWords(val.split(" "));
       setProgress(false);

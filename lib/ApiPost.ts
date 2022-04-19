@@ -58,7 +58,7 @@ export default class ApiPost {
     }
   }
 
-  private static async setAllPosts(): Promise<void> {
+  static async setAllPosts(): Promise<IPost[]> {
     const posts = ApiSearch.getPostsJsonEstatico();
     const ultimosPosts = await ApiPost.getUltimosPosts();
 
@@ -68,5 +68,6 @@ export default class ApiPost {
     ]);
 
     ApiSearch.setAllPosts(allPosts);
+    return allPosts;
   }
 }
