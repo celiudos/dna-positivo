@@ -137,7 +137,9 @@ export default class BaixarPostsDoBlogger {
       let novoTitle = p.title;
 
       novoTitle = novoTitle
-        .replace("Diálogo dirigido com o ", "")
+        .replace("Diálogo Dirigido ao ", "")
+        .replace("Diálogo Dirigido para o ", "")
+        .replace("Diálogo Dirigido para a ", "")
         .replace("Diálogo Dirigido com o ", "")
         .replace("Diálogo dirigido com a ", "")
         .replace("Diálogo Dirigido com a ", "")
