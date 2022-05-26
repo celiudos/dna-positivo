@@ -149,7 +149,7 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                           primary={
                             <>
                               {TextUtils.limitarTexto(item.title, 80)}{" "}
-                              {item.isNovo && isPostMenorQueDiasDiff ? (
+                              {isPostMenorQueDiasDiff ? (
                                 <Chip
                                   label={"Novo!"}
                                   color="secondary"
