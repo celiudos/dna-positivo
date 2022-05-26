@@ -12,6 +12,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { IListItem } from "@typesApp/IListItem";
 import { IPost } from "@typesApp/IPost";
+import DateUtils from "@utils/DateUtils";
 import GenericUtils from "@utils/GenericUtils";
 import TextUtils from "@utils/TextUtils";
 import lodash from "lodash";
@@ -113,6 +114,10 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                   item.title
                 )}`;
 
+                const isPostMenorQueDiasDiff = DateUtils.isPostMenorQueDiasDiff(
+                  item.updated
+                );
+
                 return item.isSubheader ? (
                   <ListSubheader
                     component="div"
@@ -144,7 +149,7 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                           primary={
                             <>
                               {TextUtils.limitarTexto(item.title, 80)}{" "}
-                              {item.isNovo ? (
+                              {item.isNovo && isPostMenorQueDiasDiff ? (
                                 <Chip
                                   label={"Novo!"}
                                   color="secondary"

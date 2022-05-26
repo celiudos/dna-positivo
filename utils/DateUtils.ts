@@ -99,4 +99,12 @@ export default class DateUtils {
   static sanearData(dt = "") {
     return dt.replaceAll("-", "/").replaceAll(".", "/");
   }
+
+  static isPostMenorQueDiasDiff(postDateUpdated: string, diasDeDif = 15) {
+    return (
+      DateUtils.getdiffInCalendarDays({
+        fim: new Date(postDateUpdated),
+      }) < diasDeDif
+    );
+  }
 }
