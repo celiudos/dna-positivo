@@ -1,9 +1,9 @@
-import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
-import { IPost } from "@typesApp/IPost";
-import TextUtils from "@utils/TextUtils";
-import lodash from "lodash";
-import sanitizeHtml from "sanitize-html";
-import getUuid from "uuid-by-string";
+import IBloggerJson, { IEntryComCat } from '@typesApp/IBloggerJson';
+import { IPost } from '@typesApp/IPost';
+import TextUtils from '@utils/TextUtils';
+import lodash from 'lodash';
+import sanitizeHtml from 'sanitize-html';
+import getUuid from 'uuid-by-string';
 
 type TParamsBlogger = {
   "max-results": string;
@@ -137,9 +137,11 @@ export default class BaixarPostsDoBlogger {
       let novoTitle = p.title;
 
       novoTitle = novoTitle
+        .replace("Diálogo Dirigido - ", "")
         .replace("Diálogo Dirigido ao ", "")
         .replace("Diálogo Dirigido para o ", "")
         .replace("Diálogo Dirigido para a ", "")
+        .replace("Diálogo Dirigido para ", "")
         .replace("Diálogo Dirigido com o ", "")
         .replace("Diálogo dirigido com a ", "")
         .replace("Diálogo Dirigido com a ", "")
