@@ -1,21 +1,25 @@
-import ApiSearch from "@lib/ApiSearch";
-import { IPost } from "@typesApp/IPost";
-import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
-import DateUtils from "@utils/DateUtils";
-import GenericUtils from "@utils/GenericUtils";
+import ApiSearch from '@lib/ApiSearch';
+import { IPost } from '@typesApp/IPost';
+import BaixarPostsDoBlogger from '@utils/BaixarPostsDoBlogger';
+import DateUtils from '@utils/DateUtils';
+import GenericUtils from '@utils/GenericUtils';
 
 export default class ApiPost {
-  static async getPostsRecentes(
+  static async getPostsRecentes({
     diasDeDif = 15,
-    pageSize = 5
-  ): Promise<IPost[]> {
+    pageSize = 5,
+    orderBy = "published",
+  }): Promise<IPost[]> {
     await ApiPost.setAllPosts();
-    const todosPostsSearch = ApiSearch.search({ pageSize });
+    const todosPostsSearch = ApiSearch.search({
+      pageSize,
+      orderBy: orderBy,
+    });
 
     const todosPosts = todosPostsSearch.results.filter((post) => {
       return (
         DateUtils.getdiffInCalendarDays({
-          fim: new Date(post.updated),
+          fim: new Date(post[orderBy]),
         }) < diasDeDif
       );
     });

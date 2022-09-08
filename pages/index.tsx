@@ -1,19 +1,26 @@
-import ContainerApp from "@components/ContainerApp";
-import ListHeader from "@components/ListHeader";
-import ListItens from "@components/ListItens";
-import MainAppBar from "@components/MainAppBar";
-import styled from "@emotion/styled";
-import ApiPost from "@lib/ApiPost";
-import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
-import { DisplayFlexCenter } from "@styles/DisplayFlex";
-import { IPost } from "@typesApp/IPost";
-import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
-import configApp from "configApp";
-import Image from "next/image";
-import Link from "next/link";
-import packageJson from "../package.json";
+import ContainerApp from '@components/ContainerApp';
+import ListHeader from '@components/ListHeader';
+import ListItens from '@components/ListItens';
+import MainAppBar from '@components/MainAppBar';
+import styled from '@emotion/styled';
+import ApiPost from '@lib/ApiPost';
+import { Alert, AlertTitle, Grid, Paper, Typography } from '@mui/material';
+import { DisplayFlexCenter } from '@styles/DisplayFlex';
+import { IPost } from '@typesApp/IPost';
+import BaixarPostsDoBlogger from '@utils/BaixarPostsDoBlogger';
+import configApp from 'configApp';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
+import packageJson from '../package.json';
+
+export default function Index({
+  postsNovos,
+  postsAlterados,
+}: {
+  postsNovos: IPost[];
+  postsAlterados: IPost[];
+}) {
   return (
     <ContainerApp>
       <MainAppBar />
@@ -104,6 +111,12 @@ export default function Index({ postsNovos }: { postsNovos: IPost[] }) {
               <ListItens hasData itens={postsNovos} />
             </Grid>
           ) : null}
+          {postsAlterados.length ? (
+            <Grid item xs={12}>
+              <ListHeader primary="Publicações atualizadas" />
+              <ListItens hasData itens={postsAlterados} />
+            </Grid>
+          ) : null}
           {configApp.muralDeAvisos.length ? (
             <Grid item xs={12}>
               <Alert severity="info">
@@ -152,9 +165,12 @@ const ImageContainerCss = styled(DisplayFlexCenter)`
 `;
 
 export async function getStaticProps() {
-  const postsNovos = await ApiPost.getPostsRecentes();
+  const postsNovos = await ApiPost.getPostsRecentes({});
+  const postsAlterados = await ApiPost.getPostsRecentes({
+    orderBy: "updated",
+  });
   return {
-    props: { postsNovos },
+    props: { postsNovos, postsAlterados },
     revalidate: configApp.nextJs.revalidate,
   };
 }
