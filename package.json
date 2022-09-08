@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "tsc": "tsc -p .",
+    "test": "jest --watch",
     "unimported": "npx unimported",
     "lint": "next lint"
   },

@@ -244,7 +244,7 @@ export default class BaixarPostsDoBlogger {
     }
   ): Promise<IBloggerJson | undefined> {
     let responseData;
-
+    let txt = "";
     try {
       const url = new URL(
         `https://${urlBase}.blogspot.com/feeds/${urlPost}/default`
@@ -257,11 +257,27 @@ export default class BaixarPostsDoBlogger {
       url.search = new URLSearchParams(params).toString();
 
       const response = await fetch(url.toString());
-      responseData = (await response.json()) as IBloggerJson;
+      txt = await response.text();
+      responseData = BaixarPostsDoBlogger.fixJson(txt) as IBloggerJson;
     } catch (error) {
       console.log("Error getPostsFromBlogspot:", error);
     }
     return responseData;
+  }
+
+  static fixJson(jsonText: string): {} {
+    let jsonFixed = {};
+    try {
+      jsonFixed = JSON.parse(jsonText);
+    } catch (error) {
+      const err = error as any;
+      if (err.message.indexOf("Unexpected token , in JSON at position") > -1) {
+        const pos = parseInt(err.message.split("position ")[1]);
+        const jsonTextFixed = jsonText.slice(0, pos) + jsonText.slice(pos + 1);
+        jsonFixed = BaixarPostsDoBlogger.fixJson(jsonTextFixed);
+      }
+    }
+    return jsonFixed;
   }
 
   static getDefaultPost(): IPost {
