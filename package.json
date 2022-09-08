@@ -1,12 +1,13 @@
 {
   "name": "dna-positivo",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "tsc": "tsc -p .",
+    "test": "jest --watch",
     "unimported": "npx unimported",
     "lint": "next lint"
   },

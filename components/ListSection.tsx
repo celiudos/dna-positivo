@@ -1,26 +1,20 @@
-import styled from "@emotion/styled";
-import {
-  Chip,
-  ListSubheader,
-  Paper,
-  Tab,
-  Tabs,
-  Typography,
-} from "@mui/material";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import { IListItem } from "@typesApp/IListItem";
-import { IPost } from "@typesApp/IPost";
-import DateUtils from "@utils/DateUtils";
-import GenericUtils from "@utils/GenericUtils";
-import TextUtils from "@utils/TextUtils";
-import lodash from "lodash";
-import Link from "next/link";
-import * as React from "react";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { FixedSizeList as List, ListChildComponentProps } from "react-window";
-import EstrelaFavorito from "./EstrelaFavorito";
+import styled from '@emotion/styled';
+import { Chip, ListSubheader, Paper, Tab, Tabs, Typography } from '@mui/material';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import { IListItem } from '@typesApp/IListItem';
+import { IPost } from '@typesApp/IPost';
+import DateUtils from '@utils/DateUtils';
+import GenericUtils from '@utils/GenericUtils';
+import TextUtils from '@utils/TextUtils';
+import lodash from 'lodash';
+import Link from 'next/link';
+import * as React from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+
+import EstrelaFavorito from './EstrelaFavorito';
 
 function agruparPorLetras(rawData: [], key: string) {
   const semEspaco = rawData.map((r: any) => ({
@@ -115,7 +109,7 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                 )}`;
 
                 const isPostMenorQueDiasDiff = DateUtils.isPostMenorQueDiasDiff(
-                  item.updated
+                  item.published
                 );
 
                 return item.isSubheader ? (
