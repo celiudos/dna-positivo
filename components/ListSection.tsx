@@ -138,7 +138,11 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                     }
                   >
                     <Link href={item.href || ""} passHref>
-                      <ListItemButton component="a" id={idListItemButton}>
+                      <ListItemButton
+                        component="a"
+                        id={idListItemButton}
+                        style={{ height: "100%" }}
+                      >
                         <ListItemText
                           primary={
                             <>
