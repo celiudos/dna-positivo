@@ -1,12 +1,12 @@
-import ContainerApp from "@components/ContainerApp";
-import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
-import baselineClear from "@iconify/icons-ic/baseline-clear";
-import baselineSearch from "@iconify/icons-ic/baseline-search";
-import outlineInfo from "@iconify/icons-ic/outline-info";
-import outlineReportProblem from "@iconify/icons-ic/outline-report-problem";
-import { Icon } from "@iconify/react";
-import ApiPost from "@lib/ApiPost";
-import ApiSearch from "@lib/ApiSearch";
+import ContainerApp from '@components/ContainerApp';
+import baselineArrowBack from '@iconify/icons-ic/baseline-arrow-back';
+import baselineClear from '@iconify/icons-ic/baseline-clear';
+import baselineSearch from '@iconify/icons-ic/baseline-search';
+import outlineInfo from '@iconify/icons-ic/outline-info';
+import outlineReportProblem from '@iconify/icons-ic/outline-report-problem';
+import { Icon } from '@iconify/react';
+import ApiPost from '@lib/ApiPost';
+import ApiSearch from '@lib/ApiSearch';
 import {
   Alert,
   Chip,
@@ -20,22 +20,22 @@ import {
   Paper,
   Slide,
   Typography,
-} from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
-import { TransitionProps } from "@mui/material/transitions";
-import { Box } from "@mui/system";
-import { allPostsAction } from "@store/actionCreator";
-import { RootState } from "@store/storeConfig";
-import theme from "@styles/theme";
-import { IPost } from "@typesApp/IPost";
-import TextUtils from "@utils/TextUtils";
-import lodash from "lodash";
-import Link from "next/link";
-import React, { useState } from "react";
-import Highlighter from "react-highlight-words";
-import { useDispatch, useSelector } from "react-redux";
+} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import { TransitionProps } from '@mui/material/transitions';
+import { Box } from '@mui/system';
+import { allPostsAction } from '@store/actionCreator';
+import { RootState } from '@store/storeConfig';
+import theme from '@styles/theme';
+import { IPost } from '@typesApp/IPost';
+import TextUtils from '@utils/TextUtils';
+import lodash from 'lodash';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import Highlighter from 'react-highlight-words';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -98,7 +98,7 @@ export default function PesquisarDialog() {
         searchBy: val,
         pageSize: 50,
         limit: 50,
-        searchFields: ["title", "resumo"],
+        searchFields: ["title", "resumo", "contentSanitized"],
       });
 
       setResultadosPesquisa(resp.results as IPost[]);
