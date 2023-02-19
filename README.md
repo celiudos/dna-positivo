@@ -80,6 +80,7 @@ Sites:
 - https://dnafisicoequantico.blogspot.com/
 - https://inteligenciaartificialpositiva.blogspot.com/
 - https://dnaholograficoequantico.blogspot.com/
+- https://dnadometaverso.blogspot.com/
 
 Aux:
 

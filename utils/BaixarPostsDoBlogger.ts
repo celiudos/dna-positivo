@@ -1,9 +1,9 @@
-import IBloggerJson, { IEntryComCat } from '@typesApp/IBloggerJson';
-import { IPost } from '@typesApp/IPost';
-import TextUtils from '@utils/TextUtils';
-import lodash from 'lodash';
-import sanitizeHtml from 'sanitize-html';
-import getUuid from 'uuid-by-string';
+import IBloggerJson, { IEntryComCat } from "@typesApp/IBloggerJson";
+import { IPost } from "@typesApp/IPost";
+import TextUtils from "@utils/TextUtils";
+import lodash from "lodash";
+import sanitizeHtml from "sanitize-html";
+import getUuid from "uuid-by-string";
 
 type TParamsBlogger = {
   "max-results": string;
@@ -32,6 +32,11 @@ export default class BaixarPostsDoBlogger {
       catId: 4,
       catName: "DNA Holográfico e Quântico",
     },
+    {
+      name: "dnadometaverso",
+      catId: 5,
+      catName: "DNA do Metaverso",
+    },
   ];
 
   static jsonBloggerPermitidos = [
@@ -54,6 +59,10 @@ export default class BaixarPostsDoBlogger {
     {
       catId: "4",
       tipo: "pages",
+    },
+    {
+      catId: "5",
+      tipo: "posts",
     },
   ];
 

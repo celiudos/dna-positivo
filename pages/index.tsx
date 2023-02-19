@@ -1,18 +1,18 @@
-import ContainerApp from '@components/ContainerApp';
-import ListHeader from '@components/ListHeader';
-import ListItens from '@components/ListItens';
-import MainAppBar from '@components/MainAppBar';
-import styled from '@emotion/styled';
-import ApiPost from '@lib/ApiPost';
-import { Alert, AlertTitle, Grid, Paper, Typography } from '@mui/material';
-import { DisplayFlexCenter } from '@styles/DisplayFlex';
-import { IPost } from '@typesApp/IPost';
-import BaixarPostsDoBlogger from '@utils/BaixarPostsDoBlogger';
-import configApp from 'configApp';
-import Image from 'next/image';
-import Link from 'next/link';
+import ContainerApp from "@components/ContainerApp";
+import ListHeader from "@components/ListHeader";
+import ListItens from "@components/ListItens";
+import MainAppBar from "@components/MainAppBar";
+import styled from "@emotion/styled";
+import ApiPost from "@lib/ApiPost";
+import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
+import { DisplayFlexCenter } from "@styles/DisplayFlex";
+import { IPost } from "@typesApp/IPost";
+import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
+import configApp from "configApp";
+import Image from "next/image";
+import Link from "next/link";
 
-import packageJson from '../package.json';
+import packageJson from "../package.json";
 
 export default function Index({
   postsNovos,
@@ -77,6 +77,11 @@ export default function Index({
                   ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "DNA Holográfico e Quântico",
                   href: "/cat/4",
+                },
+                {
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
+                  title: "DNA do Metaverso",
+                  href: "/cat/5",
                 },
               ]}
             />
