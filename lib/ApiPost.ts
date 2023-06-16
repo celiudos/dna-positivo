@@ -1,8 +1,8 @@
-import ApiSearch from '@lib/ApiSearch';
-import { IPost } from '@typesApp/IPost';
-import BaixarPostsDoBlogger from '@utils/BaixarPostsDoBlogger';
-import DateUtils from '@utils/DateUtils';
-import GenericUtils from '@utils/GenericUtils';
+import ApiSearch from "@lib/ApiSearch";
+import { IPost } from "@typesApp/IPost";
+import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
+import DateUtils from "@utils/DateUtils";
+import GenericUtils from "@utils/GenericUtils";
 
 export default class ApiPost {
   static async getPostsRecentes({
@@ -45,9 +45,9 @@ export default class ApiPost {
     return posts.results;
   }
 
-  private static async getUltimosPosts(): Promise<IPost[] | []> {
+  private static async getUltimosPosts(catId: number): Promise<IPost[] | []> {
     const response = await fetch(
-      `${GenericUtils.getUrlBase()}api/ultimos-posts?catId=4`
+      `${GenericUtils.getUrlBase()}api/ultimos-posts?catId=${catId}`
     );
 
     if (response.status === 200) {
@@ -64,11 +64,15 @@ export default class ApiPost {
 
   static async setAllPosts(): Promise<IPost[]> {
     const posts = ApiSearch.getPostsJsonEstatico();
-    const ultimosPosts = await ApiPost.getUltimosPosts();
+    const ultimosPosts_dnaholograficoequantico = await ApiPost.getUltimosPosts(
+      4
+    );
+    const ultimosPosts_dnadometaverso = await ApiPost.getUltimosPosts(5);
 
     const allPosts = BaixarPostsDoBlogger.unirPostsComIdsIguais([
       ...posts,
-      ...ultimosPosts,
+      ...ultimosPosts_dnaholograficoequantico,
+      ...ultimosPosts_dnadometaverso,
     ]);
 
     ApiSearch.setAllPosts(allPosts);

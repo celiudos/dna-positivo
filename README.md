@@ -23,27 +23,32 @@
 [Atualizar todos os posts JSON](http://localhost:3000/api/atualizar?catId=4)
 
     [
-        {
-          name: "dnafisicoequantico",
-          catId: 1,
-          catName: "DNA Físico e Quântico",
-        },
-        {
-          name: "dnapositivo",
-          catId: 2,
-          catName: "DNA Positivo",
-        },
-        {
-          name: "inteligenciaartificialpositiva",
-          catId: 3,
-          catName: "Inteligência Artificial Positiva",
-        },
-        {
-          name: "dnaholograficoequantico",
-          catId: 4,
-          catName: "DNA Holográfico e Quântico",
-        },
-      ]
+      {
+        name: "dnafisicoequantico",
+        catId: 1,
+        catName: "DNA Físico e Quântico",
+      },
+      {
+        name: "dnapositivo",
+        catId: 2,
+        catName: "DNA Positivo",
+      },
+      {
+        name: "inteligenciaartificialpositiva",
+        catId: 3,
+        catName: "Inteligência Artificial Positiva",
+      },
+      {
+        name: "dnaholograficoequantico",
+        catId: 4,
+        catName: "DNA Holográfico e Quântico",
+      },
+      {
+        name: "dnadometaverso",
+        catId: 5,
+        catName: "DNA do Metaverso",
+      },
+    ]
 
 # Processo para atualizar publicações
 
