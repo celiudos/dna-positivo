@@ -11,6 +11,8 @@
 # next.js
 /.next/
 /out/
+/public/sw.js
+/public/fallback*
 
 # production
 /build
@@ -32,3 +34,4 @@ yarn-error.log*
 
 # vercel
 .vercel
+
