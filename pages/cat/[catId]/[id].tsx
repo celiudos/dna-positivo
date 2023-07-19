@@ -140,6 +140,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                     </Box>
                     <Typography
                       variant="body1"
+                      component="div"
                       style={{ fontSize: `1.${tamanhoFonte + 2}rem` }}
                       gutterBottom
                       dangerouslySetInnerHTML={{
