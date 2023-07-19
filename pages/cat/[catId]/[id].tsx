@@ -1,3 +1,4 @@
+import BtnCompartilhar from "@components/BtnCompartilhar";
 import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
 import ListHeader from "@components/ListHeader";
@@ -179,9 +180,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
               <Box m={1}>
                 {isNativeShare ? (
                   <Box mb={2}>
-                    <Button
-                      variant="outlined"
-                      endIcon={<Icon icon={outlineShare} />}
+                    <BtnCompartilhar
                       onClick={() =>
                         navigator.share({
                           title: post.title,
@@ -190,7 +189,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                       }
                     >
                       Compartilhar
-                    </Button>
+                    </BtnCompartilhar>
                   </Box>
                 ) : null}
               </Box>

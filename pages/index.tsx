@@ -4,7 +4,15 @@ import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
 import styled from "@emotion/styled";
 import ApiPost from "@lib/ApiPost";
-import { Alert, AlertTitle, Grid, Paper, Typography } from "@mui/material";
+import {
+  Alert,
+  AlertTitle,
+  Box,
+  Button,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
@@ -13,6 +21,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import packageJson from "../package.json";
+import { Icon } from "@iconify/react";
+import BtnCompartilhar from "@components/BtnCompartilhar";
 
 export default function Index({
   postsNovos,
@@ -138,8 +148,21 @@ export default function Index({
             <ListHeader
               primary="Em caso de dúvidas, envie um e-mail"
               secondary={configApp.email}
-            />
+            />{" "}
+            <Box ml={2}>
+              <BtnCompartilhar
+                onClick={() =>
+                  navigator.share({
+                    title: configApp.titulo,
+                    url: configApp.url,
+                  })
+                }
+              >
+                Compartilhe este Aplicativo
+              </BtnCompartilhar>
+            </Box>
           </Grid>
+
           <Grid item xs={12}>
             <DisplayFlexCenter>
               <Typography variant="caption" align="center" gutterBottom>
