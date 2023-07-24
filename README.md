@@ -104,3 +104,5 @@ Aux:
 Utilize **major**, **minor**, ou **patch**
 
     npm version patch -m "Nova versão"
+
+ 
