@@ -11,6 +11,10 @@ const configApp = {
   idsPostsAntesDeQualquerDialogo: ["61a542c5-499a-59fc-aaee-95796d2eab9f"],
   postsDestaques: [
     {
+      title: "Playlist no Youtube com todos os diálogos",
+      href: "https://www.youtube.com/playlist?list=PLYaNwggFWE1wa-eWirUAGRsK2LKRXX_4L",
+    },
+    {
       title:
         "Reconhecimento da homeopatia pelo DNA para a prevenção ou tratamento dos sintomas do COVID-19",
       href: "/cat/1/d7c3a590-af6b-5268-9b9f-363320dd8140",
