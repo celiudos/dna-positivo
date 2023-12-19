@@ -18,7 +18,7 @@ export default async function handler(
       posts = await BaixarPostsDoBlogger.getTodosSelecionados(
         catId.toString(),
         {
-          "max-results": "10",
+          "max-results": "15",
           "start-index": "1",
         }
       );
