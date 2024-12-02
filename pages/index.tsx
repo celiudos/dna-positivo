@@ -75,13 +75,8 @@ export default function Index({
               itens={[
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
-                  title: "DNA Positivo",
-                  href: "/cat/2",
-                },
-                {
-                  ...BaixarPostsDoBlogger.getDefaultPost(),
-                  title: "DNA físico e Quântico",
-                  href: "/cat/1",
+                  title: "Inteligência Artificial Positiva",
+                  href: "/cat/3",
                 },
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
@@ -90,13 +85,18 @@ export default function Index({
                 },
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
-                  title: "DNA do Metaverso",
-                  href: "/cat/5",
+                  title: "DNA físico e Quântico",
+                  href: "/cat/1",
                 },
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
-                  title: "Inteligência Artificial Positiva",
-                  href: "/cat/3",
+                  title: "DNA Positivo",
+                  href: "/cat/2",
+                },
+                {
+                  ...BaixarPostsDoBlogger.getDefaultPost(),
+                  title: "DNA do Metaverso",
+                  href: "/cat/5",
                 },
               ]}
             />
