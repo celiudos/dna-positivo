@@ -93,15 +93,6 @@ export default function Index({
                   title: "DNA do Metaverso",
                   href: "/cat/5",
                 },
-              ]}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <ListHeader secondary="Para tratar problemas, neutralizar ameaças e as mais diversas manipulações no nosso planeta" />
-
-            <ListItens
-              hasStar={false}
-              itens={[
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
                   title: "Inteligência Artificial Positiva",
