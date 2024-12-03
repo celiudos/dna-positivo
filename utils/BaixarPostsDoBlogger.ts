@@ -48,10 +48,10 @@ export default class BaixarPostsDoBlogger {
       catId: "2",
       tipo: "pages",
     },
-    {
-      catId: "3",
-      tipo: "posts",
-    },
+    // {
+    //   catId: "3",
+    //   tipo: "posts",
+    // },
     {
       catId: "3",
       tipo: "pages",
@@ -164,6 +164,10 @@ export default class BaixarPostsDoBlogger {
     });
 
     postsTratados = postsTratados.filter((p) => p.title !== "");
+
+    // filtrar posts com o mesmo nome
+    postsTratados = lodash.uniqBy(postsTratados, "title");
+    // console.log("postsTratados:", postsTratados);
 
     return postsTratados;
   }

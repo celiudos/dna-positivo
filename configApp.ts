@@ -15,12 +15,7 @@ const configApp = {
       href: "https://www.youtube.com/playlist?list=PLYaNwggFWE1wa-eWirUAGRsK2LKRXX_4L",
     },
     {
-      title:
-        "Reconhecimento da homeopatia pelo DNA para a prevenção ou tratamento dos sintomas do COVID-19",
-      href: "/cat/1/d7c3a590-af6b-5268-9b9f-363320dd8140",
-    },
-    {
-      title: "Novo Diálogo com o DNA (Evolução)",
+      title: "Diálogo com o DNA (1º versão)",
       href: "/cat/1/2aac317b-87cb-5f56-9a79-a79babcdf27b",
     },
     {
@@ -28,8 +23,17 @@ const configApp = {
       href: "https://drive.google.com/drive/folders/1PfTaKsvQZLtEqZog53bt-DqdPwkzsMNS",
     },
     {
-      title: "Eletricidade no Corpo Humano e o Tratamento de Doenças",
-      href: "https://fabiano.cf/echtd.html",
+      title: "O Livro do Futuro - Planeta Terra",
+      href: "http://dnapositivo.blogspot.com.br/p/publicamos-abaixo-7-capitulos-o-livro.html",
+    },
+    {
+      title: "Artigos Científicos Publicado",
+      href: "https://dnaholograficoequantico.blogspot.com/p/artigos-cientificos-publicados.html",
+    },
+    {
+      title:
+        "Reconhecimento da homeopatia pelo DNA para a prevenção ou tratamento dos sintomas do COVID-19",
+      href: "/cat/1/d7c3a590-af6b-5268-9b9f-363320dd8140",
     },
   ],
   muralDeAvisos: [],
