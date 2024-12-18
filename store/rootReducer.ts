@@ -64,3 +64,5 @@ export default function rootReducer(
       return state;
   }
 }
+
+export { stateInicial };

@@ -1,4 +1,5 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import { stateInicial } from "@store/rootReducer";
 import { useStore } from "@store/storeConfig";
 import "@styles/globals.css";
 import createEmotionCache from "@theme/createEmotionCache";
@@ -18,7 +19,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  const store = useStore(pageProps.initialReduxState);
+  let store = useStore(stateInicial);
 
   return (
     <CacheProvider value={emotionCache}>
