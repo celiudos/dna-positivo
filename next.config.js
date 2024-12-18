@@ -14,7 +14,7 @@ module.exports = withPWA(
       disable: process.env.NODE_ENV === "development",
     },
     images: {
-      domains: [" https://blogger.googleusercontent.com"],
+      domains: ["blogger.googleusercontent.com"],
     },
     reactStrictMode: true,
     excludeFile: (str) => /\*.{spec,test}.js/.test(str),

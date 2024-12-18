@@ -28,7 +28,8 @@
       "@theme/*": ["./theme/*"],
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"],
-      "@store/*": ["./store/*"]
+      "@store/*": ["./store/*"],
+      "@hook/*": ["./hook/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "worker/index.js"],

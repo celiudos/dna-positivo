@@ -13,4 +13,16 @@ export interface IPost {
   isSubheader: boolean;
   isPage: boolean;
   isNovo: boolean;
+  youtubeUrl?: string;
+  youtubeUrlEmbed?: string;
+  youtubeLink?: string;
+  youtubeImg?: string;
+}
+
+export interface IPostYoutube extends IPost {
+  score: number;
+  youtubeUrl: string;
+  youtubeUrlEmbed: string;
+  youtubeLink: string;
+  youtubeImg: string;
 }
