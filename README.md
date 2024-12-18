@@ -18,6 +18,10 @@
 
         npm run dev
 
+# npm set url repository default
+
+    npm config set registry https://registry.npmjs.org/
+
 # Publicar manualmente
 
 [Atualizar todos os posts JSON](http://localhost:3000/api/atualizar?catId=4)
@@ -104,5 +108,3 @@ Aux:
 Utilize **major**, **minor**, ou **patch**
 
     npm version patch -m "Nova versão"
-
- 
