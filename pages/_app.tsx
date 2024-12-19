@@ -19,7 +19,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  let store = useStore(stateInicial);
+  const store = useStore(pageProps.initialReduxState);
 
   return (
     <CacheProvider value={emotionCache}>

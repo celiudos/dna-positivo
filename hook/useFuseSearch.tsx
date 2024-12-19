@@ -16,25 +16,19 @@ function extrairUrlYoutube(content: string): string[] {
   return urls;
 }
 
-function extrairLinkYoutube(content: string): string[] {
-  const regex = /<a\s+href="([^"]+)"[^>]*>.*?<\/a>/gi;
-
-  /* @ts-ignore */
-  const matches = [...content.matchAll(regex)];
-  const urls = matches.map((match) => match[0]); // Extrai apenas as URLs
-  return urls;
-}
-
 function extrairImgYoutube(content: string): string[] {
   const regex = /<img\s+[^>]*src="([^"]+)"/gi;
 
   /* @ts-ignore */
   const matches = [...content.matchAll(regex)];
   const urls = matches.map((match) => match[1]); // Extrai apenas as URLs
-  return urls;
+  const urlsAjustadas = urls.map((url) => {
+    return url.replaceAll('"', "'").replaceAll("\\", "");
+  });
+  return urlsAjustadas;
 }
 
-export const useFuseSearch = (textoPesquisa: string) => {
+export const useFuseSearch = (textoPesquisa: string, limiteCerteza = 80) => {
   const [fuseObj, setFuseObj] = useState<Fuse<IPostYoutube> | null>(null);
   const { allPosts } = useSelector((state: RootState) => state.rootReducer);
   const [resultIncerto, setResultIncerto] = useState<IPostYoutube[]>([]);
@@ -61,21 +55,13 @@ export const useFuseSearch = (textoPesquisa: string) => {
     // extract the url from all href param containing "https://www.youtube.com" from youtube to a key "youtubeUrl"
     const formatPosts: IPostYoutube[] = filterPostYoutube.map((result) => {
       let youtubeUrl = "";
-      let youtubeUrlEmbed = "";
-      let youtubeLink = "";
       let youtubeImg = "";
 
       const findYoutube = extrairUrlYoutube(result.contentSanitized);
-      const findLinkYoutube = extrairLinkYoutube(result.contentSanitized);
       const findImgYoutube = extrairImgYoutube(result.contentSanitized);
 
       if (findYoutube) {
         youtubeUrl = findYoutube[0];
-        youtubeUrlEmbed = youtubeUrl.replace("watch?v=", "embed/");
-      }
-
-      if (findLinkYoutube) {
-        youtubeLink = findLinkYoutube[0];
       }
 
       if (findImgYoutube) {
@@ -84,14 +70,18 @@ export const useFuseSearch = (textoPesquisa: string) => {
       return {
         ...result,
         youtubeUrl,
-        youtubeUrlEmbed,
-        youtubeLink,
         youtubeImg,
       };
     });
-    // console.log("formatPosts:", formatPosts);
 
-    setformatPosts(formatPosts);
+    const formatPostsSemAcento = formatPosts.map((post) => ({
+      ...post,
+      titleSemAcento: post.title
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""),
+    }));
+
+    setformatPosts(formatPostsSemAcento);
   }, [allPosts]);
 
   useEffect(() => {
@@ -102,7 +92,7 @@ export const useFuseSearch = (textoPesquisa: string) => {
       threshold: 0.3,
       keys: [
         {
-          name: "title",
+          name: "titleSemAcento",
           weight: 0.7,
         },
         {
@@ -132,7 +122,6 @@ export const useFuseSearch = (textoPesquisa: string) => {
 
     // console.log("resultsPosts:", resultsPosts);
 
-    const limiteCerteza = 80;
     const postCerteza = resultsPosts.filter(
       (post) => post.score >= limiteCerteza
     );
@@ -141,7 +130,7 @@ export const useFuseSearch = (textoPesquisa: string) => {
 
     const postCertezaPrimeiro = postCerteza[0];
     setResultCerteza(postCertezaPrimeiro ? [postCertezaPrimeiro] : []);
-  }, [fuseObj, textoPesquisa]);
+  }, [fuseObj, limiteCerteza, textoPesquisa]);
 
-  return [resultIncerto, resultCerteza];
+  return [resultCerteza, resultIncerto];
 };

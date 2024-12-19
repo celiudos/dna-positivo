@@ -20,9 +20,8 @@ export interface IPost {
 }
 
 export interface IPostYoutube extends IPost {
+  titleSemAcento: string;
   score: number;
   youtubeUrl: string;
-  youtubeUrlEmbed: string;
-  youtubeLink: string;
   youtubeImg: string;
 }
