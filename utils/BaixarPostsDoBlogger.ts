@@ -48,14 +48,14 @@ export default class BaixarPostsDoBlogger {
       catId: "2",
       tipo: "pages",
     },
-    // {
-    //   catId: "3",
-    //   tipo: "posts",
-    // },
     {
       catId: "3",
-      tipo: "pages",
+      tipo: "posts",
     },
+    // {
+    //   catId: "3",
+    //   tipo: "pages",
+    // },
     {
       catId: "4",
       tipo: "pages",
