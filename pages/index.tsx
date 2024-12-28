@@ -75,7 +75,7 @@ export default function Index({
               itens={[
                 {
                   ...BaixarPostsDoBlogger.getDefaultPost(),
-                  title: "Inteligência Artificial Positiva",
+                  title: "Inteligência Virtual Positiva",
                   href: "/cat/3",
                 },
                 {

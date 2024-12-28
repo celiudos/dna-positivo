@@ -23,9 +23,9 @@ export default class BaixarPostsDoBlogger {
       catName: "DNA Positivo",
     },
     {
-      name: "inteligenciaartificialpositiva",
+      name: "inteligenciavirtualpositiva",
       catId: 3,
-      catName: "Inteligência Artificial Positiva",
+      catName: "Inteligência Virtual Positiva",
     },
     {
       name: "dnaholograficoequantico",

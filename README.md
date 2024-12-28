@@ -87,7 +87,7 @@ Sites:
 
 - https://dnapositivo.blogspot.com/
 - https://dnafisicoequantico.blogspot.com/
-- https://inteligenciaartificialpositiva.blogspot.com/
+- https://inteligenciavirtualpositiva.blogspot.com/
 - https://dnaholograficoequantico.blogspot.com/
 - https://dnadometaverso.blogspot.com/
 
