@@ -212,7 +212,7 @@ export default class BaixarPostsDoBlogger {
             a: ["href", "target"],
             iframe: [
               "src",
-              "width",
+              // "width",
               "height",
               "frameborder",
               "allow",
