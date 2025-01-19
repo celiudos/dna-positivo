@@ -202,27 +202,31 @@ export default class BaixarPostsDoBlogger {
         )[0].href,
         resumo,
         contentSanitized: sanitizeHtml(item.content.$t, {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+            "img",
+            "iframe",
+          ]),
           allowedAttributes: {
             table: ["border"],
-            // img: ["src", "height", "width"],
             img: ["src"],
             a: ["href", "target"],
+            iframe: [
+              "src",
+              "width",
+              "height",
+              "frameborder",
+              "allow",
+              "allowfullscreen",
+            ],
           },
           allowedStyles: {
             "*": {
-              // Match HEX and RGB
               color: [
                 /^#(0x)?[0-9a-f]+$/i,
                 /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/,
               ],
               "text-align": [/^left$/, /^right$/, /^center$/],
-              // Match any number with px, em, or %
-              // "font-size": [/^\d+(?:px|em|%)$/],
             },
-            // p: {
-            //   "font-size": [/^\d+rem$/],
-            // },
           },
         }),
       };
