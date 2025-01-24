@@ -62,6 +62,22 @@ export default class ApiPost {
     }
   }
 
+  static async getTodosPosts(): Promise<IPost[] | []> {
+    let url = `${GenericUtils.getUrlBase()}api/atualizar`;
+    const response = await fetch(url);
+
+    if (response.status === 200) {
+      const data = (await response.json()) as any;
+      const posts = data.posts.map((p: IPost) => ({
+        ...p,
+        isNovo: true,
+      }));
+      return posts;
+    } else {
+      return [];
+    }
+  }
+
   static async setAllPosts(): Promise<IPost[]> {
     const posts = ApiSearch.getPostsJsonEstatico();
     const ultimosPosts_dnaholograficoequantico = await ApiPost.getUltimosPosts(
