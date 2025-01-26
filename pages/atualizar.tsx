@@ -32,7 +32,7 @@ export default function Atualizar() {
   const forcarAtualizacao = useCallback(async (abriNovaAba) => {
     setLoading(true);
 
-    const postsTodos = await ApiPost.getTodosPosts();
+    const postsTodos = await ApiPost.getTodosPosts(true);
 
     ApiSearch.setAllPosts(postsTodos);
 

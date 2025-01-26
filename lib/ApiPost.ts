@@ -62,8 +62,12 @@ export default class ApiPost {
     }
   }
 
-  static async getTodosPosts(): Promise<IPost[] | []> {
+  static async getTodosPosts(isForce = false): Promise<IPost[] | []> {
     let url = `${GenericUtils.getUrlBase()}api/atualizar`;
+    if (isForce) {
+      url += "-force";
+    }
+
     const response = await fetch(url);
 
     if (response.status === 200) {
