@@ -88,11 +88,14 @@ export default class ApiPost {
       4
     );
     const ultimosPosts_dnadometaverso = await ApiPost.getUltimosPosts(5);
+    const ultimosPosts_inteligenciavirtualpositiva =
+      await ApiPost.getUltimosPosts(3);
 
     const allPosts = BaixarPostsDoBlogger.unirPostsComIdsIguais([
       ...posts,
       ...ultimosPosts_dnaholograficoequantico,
       ...ultimosPosts_dnadometaverso,
+      ...ultimosPosts_inteligenciavirtualpositiva,
     ]);
 
     ApiSearch.setAllPosts(allPosts);

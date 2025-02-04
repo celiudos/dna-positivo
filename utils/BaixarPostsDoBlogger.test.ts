@@ -1,4 +1,4 @@
-import BaixarPostsDoBlogger from './BaixarPostsDoBlogger';
+import BaixarPostsDoBlogger from "./BaixarPostsDoBlogger";
 
 describe("JSON fix", () => {
   it("deve remover erros de JSON do Blogger", () => {
