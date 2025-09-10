@@ -13,7 +13,6 @@
     "jsxImportSource": "@emotion/react",
     "incremental": true,
     "noEmit": true,
-    "ignoreDeprecations": "6.0",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
 
