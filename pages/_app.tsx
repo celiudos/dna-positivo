@@ -1,7 +1,6 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { stateInicial } from "@store/rootReducer";
 import { useStore } from "@store/storeConfig";
-import "@styles/globals.css";
 import createEmotionCache from "@theme/createEmotionCache";
 import ThemeConfig from "@theme/ThemeConfig";
 import configApp from "configApp";
