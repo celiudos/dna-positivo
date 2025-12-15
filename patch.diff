@@ -1,0 +1,586 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/components/BtnCompartilhar.tsx b/components/BtnCompartilhar.tsx
+index 325abeacbdee4a313df45e5a6fffea3e7b707a8c..df254aef47268430bb1f77e4bcd4cc7b05628bfe 100644
+--- a/components/BtnCompartilhar.tsx
++++ b/components/BtnCompartilhar.tsx
+@@ -1,22 +1,20 @@
+-import styled from "@emotion/styled";
+-import { Button, Container } from "@mui/material";
++import { Button, ButtonProps } from "@mui/material";
+ import * as React from "react";
+ import outlineShare from "@iconify/icons-ic/outline-share";
+ import { Icon } from "@iconify/react";
+ 
+-type Props = {
++type Props = ButtonProps & {
+   children: React.ReactNode;
+-  onClick?: () => void;
+ };
+ 
+ export default function BtnCompartilhar({ children, ...props }: Props) {
+   return (
+     <Button
+       variant="outlined"
+       endIcon={<Icon icon={outlineShare} />}
+       {...props}
+     >
+       {children}
+     </Button>
+   );
+ }
+diff --git a/pages/index.tsx b/pages/index.tsx
+index a305eeab12e59e845bc311b2b05f4ea80857f89a..01e0a195264c30344e2c81f77f56bbf9a651f4e4 100644
+--- a/pages/index.tsx
++++ b/pages/index.tsx
+@@ -1,195 +1,426 @@
++import BtnCompartilhar from "@components/BtnCompartilhar";
+ import ContainerApp from "@components/ContainerApp";
+ import ListHeader from "@components/ListHeader";
+ import ListItens from "@components/ListItens";
+ import MainAppBar from "@components/MainAppBar";
++import { Icon } from "@iconify/react";
+ import styled from "@emotion/styled";
+ import ApiPost from "@lib/ApiPost";
+ import {
+   Alert,
+   AlertTitle,
+   Box,
+   Button,
+   Grid,
+   Paper,
+   Typography,
+ } from "@mui/material";
+ import { DisplayFlexCenter } from "@styles/DisplayFlex";
+ import { IPost } from "@typesApp/IPost";
+ import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
+ import configApp from "configApp";
+ import Image from "next/image";
+-import Link from "next/link";
+ 
+ import packageJson from "../package.json";
+-import { Icon } from "@iconify/react";
+-import BtnCompartilhar from "@components/BtnCompartilhar";
+ 
+ export default function Index({
+   postsNovos,
+   postsAlterados,
+ }: {
+   postsNovos: IPost[];
+   postsAlterados: IPost[];
+ }) {
++  const destaqueInfos = [
++    {
++      title: "Técnicas guiadas",
++      description:
++        "Encontre diálogos e orientações para praticar com clareza e acompanhar cada passo do tratamento.",
++      icon: "mdi:target-variant",
++    },
++    {
++      title: "Biblioteca viva",
++      description:
++        "Destaques e categorias reúnem os conteúdos essenciais em um fluxo organizado e fácil de navegar.",
++      icon: "mdi:layers-outline",
++    },
++    {
++      title: "Atualizações constantes",
++      description:
++        "Novas publicações e revisões aparecem em seções exclusivas para você não perder nenhum aprendizado.",
++      icon: "mdi:clock-check-outline",
++    },
++  ];
++
+   return (
+     <ContainerApp>
+       <MainAppBar />
+-      <main>
+-        <ImageContainerCss>
+-          <ImageContainerGifCss>
++      <MainContent component="main">
++        <HeroSection>
++          <HeroMedia>
+             <Image
+               src="/img/DNA-Genetics.gif"
+               alt="Genética DNA"
+               layout="fill"
+               objectFit="cover"
++              priority
+             />
+-          </ImageContainerGifCss>
+-          <PaperImgCss elevation={5}>
+-            <Link href={"/img/logo.jpg"}>
+-              <a>
+-                <Image
+-                  src="/img/logo-180x180.jpg"
+-                  alt="Marca"
+-                  width={180}
+-                  height={180}
+-                />
+-              </a>
+-            </Link>
+-          </PaperImgCss>
+-        </ImageContainerCss>
+-
+-        <Grid container spacing={4}>
+-          <Grid item xs={12}>
+-            <ListHeader
+-              primary="Início"
+-              secondary="Todas as explicações detalhadas sobre cada técnica"
+-              modal={{
+-                title: "Introdução",
+-                contentSanitized:
+-                  "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
+-              }}
+-            />
+-
+-            <ListItens
+-              hasStar={false}
+-              itens={[
+-                {
+-                  ...BaixarPostsDoBlogger.getDefaultPost(),
+-                  title: "Inteligência Virtual Positiva",
+-                  href: "/cat/3",
+-                },
+-                {
+-                  ...BaixarPostsDoBlogger.getDefaultPost(),
+-                  title: "DNA Holográfico e Quântico",
+-                  href: "/cat/4",
+-                },
+-                {
+-                  ...BaixarPostsDoBlogger.getDefaultPost(),
+-                  title: "DNA físico e Quântico",
+-                  href: "/cat/1",
+-                },
+-                {
+-                  ...BaixarPostsDoBlogger.getDefaultPost(),
+-                  title: "DNA Positivo",
+-                  href: "/cat/2",
+-                },
+-                {
+-                  ...BaixarPostsDoBlogger.getDefaultPost(),
+-                  title: "DNA do Metaverso",
+-                  href: "/cat/5",
+-                },
+-              ]}
+-            />
+-          </Grid>
+-          <Grid item xs={12}>
+-            <ListHeader primary="Destaques" />
+-            <ListItens
+-              hasStar={false}
+-              itens={configApp.postsDestaques.map((p) => ({
+-                ...BaixarPostsDoBlogger.getDefaultPost(),
+-                ...p,
+-              }))}
+-            />
+-          </Grid>
+-          {postsNovos.length ? (
+-            <Grid item xs={12}>
+-              <ListHeader primary="Novas publicações" />
+-              <ListItens hasData itens={postsNovos} />
+-            </Grid>
+-          ) : null}
+-          {postsAlterados.length ? (
+-            <Grid item xs={12}>
+-              <ListHeader primary="Publicações atualizadas" />
+-              <ListItens hasData itens={postsAlterados} />
+-            </Grid>
+-          ) : null}
+-          {configApp.muralDeAvisos.length ? (
+-            <Grid item xs={12}>
+-              <Alert severity="info">
+-                <AlertTitle>Avisos</AlertTitle>
+-                {configApp.muralDeAvisos
+-                  ? configApp.muralDeAvisos.map((item, key) => (
+-                      <div key={key}>{item}</div>
+-                    ))
+-                  : null}
+-              </Alert>
+-            </Grid>
+-          ) : null}
+-          <Grid item xs={12}>
+-            <ListHeader
+-              primary="Em caso de dúvidas, envie um e-mail"
+-              secondary={configApp.email}
+-            />{" "}
+-            <Box ml={2}>
++          </HeroMedia>
++          <HeroOverlay />
++          <HeroContent>
++            <TagPill>Bem-vindo</TagPill>
++            <Typography variant="h3" component="h1" gutterBottom>
++              Conecte-se ao DNA Positivo
++            </Typography>
++            <Typography variant="subtitle1" color="text.secondary" paragraph>
++              {configApp.subtitulo}
++            </Typography>
++            <HeroActions>
++              <Button variant="contained" color="primary" href="#categorias">
++                Explorar conteúdos
++              </Button>
+               <BtnCompartilhar
++                color="secondary"
+                 onClick={() =>
+                   navigator.share({
+                     title: configApp.titulo,
+                     url: configApp.url,
+                   })
+                 }
+               >
+-                Compartilhe este Aplicativo
++                Compartilhar app
+               </BtnCompartilhar>
++            </HeroActions>
++            <Typography variant="body2" color="text.secondary">
++              Em caso de dúvidas, escreva para {configApp.email}
++            </Typography>
++          </HeroContent>
++          <HeroCard elevation={8}>
++            <Box display="flex" alignItems="center" gap={2}>
++              <BrandAvatar>
++                <Image
++                  src="/img/logo-180x180.jpg"
++                  alt="Marca DNA Positivo"
++                  layout="fill"
++                  objectFit="cover"
++                />
++              </BrandAvatar>
++              <div>
++                <Typography variant="subtitle1">DNA Positivo App</Typography>
++                <Typography variant="body2" color="text.secondary">
++                  Versão {`v${packageJson.version || 0}`}
++                </Typography>
++              </div>
+             </Box>
+-          </Grid>
+-
+-          <Grid item xs={12}>
+-            <DisplayFlexCenter>
+-              <Typography variant="caption" align="center" gutterBottom>
+-                Versão {`v${packageJson.version || 0}`}
++            <HeroDivider />
++            <Box display="flex" justifyContent="space-between" alignItems="center">
++              <Typography variant="body2" color="text.secondary">
++                Conteúdos sempre disponíveis e atualizados.
+               </Typography>
+-            </DisplayFlexCenter>
++              <Button
++                variant="outlined"
++                size="small"
++                color="secondary"
++                href={`mailto:${configApp.email}`}
++              >
++                Fale conosco
++              </Button>
++            </Box>
++          </HeroCard>
++        </HeroSection>
++
++        <SectionSpacing>
++          <Grid container spacing={3}>
++            {destaqueInfos.map((info, index) => (
++              <Grid item xs={12} md={4} key={info.title}>
++                <InfoCard elevation={4}>
++                  <InfoIconContainer aria-hidden>
++                    <Icon icon={info.icon} height={28} width={28} />
++                  </InfoIconContainer>
++                  <Typography variant="h6" gutterBottom>
++                    {info.title}
++                  </Typography>
++                  <Typography variant="body2" color="text.secondary">
++                    {info.description}
++                  </Typography>
++                  <InfoIndex>{index + 1}</InfoIndex>
++                </InfoCard>
++              </Grid>
++            ))}
+           </Grid>
+-        </Grid>
+-      </main>
++        </SectionSpacing>
++
++        <SectionPaper id="categorias" elevation={0}>
++          <ListHeader
++            primary="Início"
++            secondary="Todas as explicações detalhadas sobre cada técnica"
++            modal={{
++              title: "Introdução",
++              contentSanitized:
++                "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
++            }}
++          />
++
++          <ListItens
++            hasStar={false}
++            itens={[
++              {
++                ...BaixarPostsDoBlogger.getDefaultPost(),
++                title: "Inteligência Virtual Positiva",
++                href: "/cat/3",
++              },
++              {
++                ...BaixarPostsDoBlogger.getDefaultPost(),
++                title: "DNA Holográfico e Quântico",
++                href: "/cat/4",
++              },
++              {
++                ...BaixarPostsDoBlogger.getDefaultPost(),
++                title: "DNA físico e Quântico",
++                href: "/cat/1",
++              },
++              {
++                ...BaixarPostsDoBlogger.getDefaultPost(),
++                title: "DNA Positivo",
++                href: "/cat/2",
++              },
++              {
++                ...BaixarPostsDoBlogger.getDefaultPost(),
++                title: "DNA do Metaverso",
++                href: "/cat/5",
++              },
++            ]}
++          />
++        </SectionPaper>
++
++        <SectionPaper elevation={0}>
++          <ListHeader primary="Destaques" />
++          <ListItens
++            hasStar={false}
++            itens={configApp.postsDestaques.map((p) => ({
++              ...BaixarPostsDoBlogger.getDefaultPost(),
++              ...p,
++            }))}
++          />
++        </SectionPaper>
++
++        {postsNovos.length ? (
++          <SectionPaper elevation={0}>
++            <ListHeader primary="Novas publicações" />
++            <ListItens hasData itens={postsNovos} />
++          </SectionPaper>
++        ) : null}
++
++        {postsAlterados.length ? (
++          <SectionPaper elevation={0}>
++            <ListHeader primary="Publicações atualizadas" />
++            <ListItens hasData itens={postsAlterados} />
++          </SectionPaper>
++        ) : null}
++
++        {configApp.muralDeAvisos.length ? (
++          <SectionPaper elevation={0}>
++            <Alert severity="info">
++              <AlertTitle>Avisos</AlertTitle>
++              {configApp.muralDeAvisos
++                ? configApp.muralDeAvisos.map((item, key) => (
++                    <div key={key}>{item}</div>
++                  ))
++                : null}
++            </Alert>
++          </SectionPaper>
++        ) : null}
++
++        <SectionPaper elevation={0}>
++          <ListHeader
++            primary="Em caso de dúvidas, envie um e-mail"
++            secondary={configApp.email}
++          />
++          <Box ml={1} mt={1} display="flex" gap={2} flexWrap="wrap">
++            <Button variant="contained" color="secondary" href={`mailto:${configApp.email}`}>
++              Abrir e-mail
++            </Button>
++            <BtnCompartilhar
++              onClick={() =>
++                navigator.share({
++                  title: configApp.titulo,
++                  url: configApp.url,
++                })
++              }
++            >
++              Compartilhe este Aplicativo
++            </BtnCompartilhar>
++          </Box>
++        </SectionPaper>
++
++        <SectionPaper elevation={0}>
++          <DisplayFlexCenter>
++            <Typography variant="caption" align="center" gutterBottom>
++              Versão {`v${packageJson.version || 0}`}
++            </Typography>
++          </DisplayFlexCenter>
++        </SectionPaper>
++      </MainContent>
+     </ContainerApp>
+   );
+ }
+ 
+-const ImageContainerGifCss = styled.div`
+-  width: 100%;
+-  height: 100%;
++const MainContent = styled(Box)`
++  padding: 32px 18px 48px;
++  background: radial-gradient(circle at 10% 20%, rgba(125, 213, 255, 0.25), transparent 25%),
++    radial-gradient(circle at 80% 0, rgba(174, 123, 255, 0.18), transparent 30%),
++    linear-gradient(180deg, rgba(247, 249, 252, 0.9), rgba(247, 249, 252, 0.6));
++
++  @media (min-width: 960px) {
++    padding: 48px 32px 64px;
++  }
++`;
++
++const HeroSection = styled(Box)`
++  position: relative;
++  border-radius: 24px;
++  overflow: hidden;
++  min-height: 340px;
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++  gap: 16px;
++  align-items: stretch;
++`;
++
++const HeroMedia = styled(Box)`
++  position: absolute;
++  inset: 0;
++  z-index: 1;
++`;
++
++const HeroOverlay = styled(Box)`
+   position: absolute;
+-  display: block;
++  inset: 0;
++  z-index: 2;
++  background: linear-gradient(135deg, rgba(9, 18, 32, 0.82), rgba(45, 85, 130, 0.55));
+ `;
+ 
+-const PaperImgCss = styled(Paper)`
+-  padding-top: 5px;
++const HeroContent = styled(Box)`
++  position: relative;
++  z-index: 3;
++  padding: 32px 28px;
++  color: #f9fbff;
++  max-width: 720px;
++
++  h1 {
++    color: #f9fbff;
++  }
++
++  @media (min-width: 960px) {
++    padding: 48px 48px 56px;
++  }
++`;
++
++const TagPill = styled.span`
++  display: inline-flex;
++  align-items: center;
++  padding: 6px 12px;
++  border-radius: 9999px;
++  font-weight: 600;
++  font-size: 0.75rem;
++  color: #0b2e4f;
++  background: linear-gradient(120deg, #d1ecff, #e4d9ff);
++  margin-bottom: 12px;
+ `;
+ 
+-const ImageContainerCss = styled(DisplayFlexCenter)`
+-  /* width: 180px; */
++const HeroActions = styled(Box)`
++  display: flex;
++  gap: 12px;
++  flex-wrap: wrap;
++  margin: 12px 0 18px;
++`;
++
++const HeroCard = styled(Paper)`
+   position: relative;
++  z-index: 4;
++  align-self: flex-end;
++  margin: 24px;
++  padding: 20px 22px;
++  background: rgba(255, 255, 255, 0.94);
++  border: 1px solid rgba(255, 255, 255, 0.6);
++  backdrop-filter: blur(8px);
++  border-radius: 18px;
++  box-shadow: 0px 18px 36px rgba(20, 37, 63, 0.16);
++
++  @media (min-width: 960px) {
++    max-width: 420px;
++    margin: 32px;
++  }
++`;
++
++const BrandAvatar = styled(Box)`
++  position: relative;
++  width: 56px;
++  height: 56px;
++  border-radius: 12px;
++  overflow: hidden;
++  box-shadow: 0 10px 24px rgba(12, 29, 51, 0.16);
++`;
++
++const HeroDivider = styled(Box)`
++  height: 1px;
++  background: linear-gradient(90deg, transparent, rgba(12, 29, 51, 0.16), transparent);
++  margin: 16px 0;
++`;
++
++const SectionSpacing = styled(Box)`
++  margin: 36px 0;
++`;
++
++const InfoCard = styled(Paper)`
++  position: relative;
++  padding: 18px 18px 24px;
++  border-radius: 18px;
++  overflow: hidden;
++  background: #ffffff;
++  border: 1px solid rgba(12, 29, 51, 0.06);
++  box-shadow: 0 12px 30px rgba(12, 29, 51, 0.08);
++`;
++
++const InfoIconContainer = styled(Box)`
++  width: 44px;
++  height: 44px;
++  display: grid;
++  place-items: center;
++  border-radius: 12px;
++  background: linear-gradient(145deg, #e9f5ff, #f2ecff);
++  color: #0f4c81;
++  margin-bottom: 12px;
++`;
++
++const InfoIndex = styled(Box)`
++  position: absolute;
++  right: 14px;
++  bottom: 12px;
++  font-size: 2rem;
++  font-weight: 700;
++  color: rgba(12, 29, 51, 0.08);
++`;
++
++const SectionPaper = styled(Paper)`
++  margin-top: 32px;
++  padding: 18px 18px 8px;
++  border-radius: 18px;
++  background: rgba(255, 255, 255, 0.92);
++  border: 1px solid rgba(12, 29, 51, 0.05);
++  box-shadow: 0 18px 40px rgba(12, 29, 51, 0.06);
++
++  @media (min-width: 960px) {
++    padding: 22px 22px 12px;
++  }
+ `;
+ 
+ export async function getStaticProps() {
+   const postsNovos = await ApiPost.getPostsRecentes({});
+   const postsAlterados = await ApiPost.getPostsRecentes({
+     orderBy: "updated",
+   });
+   return {
+     props: { postsNovos, postsAlterados },
+     revalidate: configApp.nextJs.revalidate,
+   };
+ }
+ 
+EOF
+)
