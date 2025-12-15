@@ -1,37 +1,38 @@
 {
   "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "ignoreDeprecations": "6.0",
-    "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
+    "jsx": "react-jsx",
     "incremental": true,
-    "noEmit": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": ".",
     "paths": {
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
-      "@styles/*": ["./styles/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@typesApp/*": ["./typesApp/*"],
-      "@data/*": ["./data/*"],
-      "@lib/*": ["./lib/*"],
-      "@tests/*": ["./tests/*"],
-      "@theme/*": ["./theme/*"],
-      "@components/*": ["./components/*"],
-      "@utils/*": ["./utils/*"],
-      "@store/*": ["./store/*"],
-      "@hook/*": ["./hook/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "worker/index.js"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "backfill.js",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
   "exclude": ["node_modules"]
 }
