@@ -1,7 +1,6 @@
 import ContainerApp from "@components/ContainerApp";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
-import ApiPost from "@lib/ApiPost";
 import {
   Button,
   CircularProgress,
@@ -32,7 +31,9 @@ export default function Atualizar() {
   const forcarAtualizacao = useCallback(async (abriNovaAba) => {
     setLoading(true);
 
-    const postsTodos = await ApiPost.getTodosPosts(true);
+    const response = await fetch("/api/atualizar");
+    const data = await response.json();
+    const postsTodos = (data.posts || []) as IPost[];
 
     ApiSearch.setAllPosts(postsTodos);
 
@@ -110,7 +111,7 @@ function ListItensDetalhes({ posts }: { posts: IPost[] }) {
         {posts
           ? posts.map((item, key) => {
               const idListItemButton = `ListItens-ListItemButton-${key}-${lodash.snakeCase(
-                item.title
+                item.title,
               )}`;
 
               return (

@@ -6,9 +6,7 @@ const configApp = {
   email: "quintoelementoamor@hotmail.com",
   isMock: false,
   nextJs: {
-    // revalidate: 1 * 60 * 60 * 24, // 1 dia
-    revalidate: 1 * 60 * 60, // 1 hora
-    // revalidate: 1 * 60 * 60 * 12, // 12 horas
+    revalidate: 1 * 60 * 60 * 24, // 1 dia
   },
   idsPostsAntesDeQualquerDialogo: ["61a542c5-499a-59fc-aaee-95796d2eab9f"],
   postsDestaques: [

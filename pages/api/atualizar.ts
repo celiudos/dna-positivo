@@ -3,9 +3,21 @@ import BaixarPostsDoBlogger from "@utils/BaixarPostsDoBlogger";
 import FilesUtils from "@utils/FileUtils";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+async function revalidarRotas(res: NextApiResponse, rotas: string[]) {
+  const revalidate = (
+    res as NextApiResponse & {
+      revalidate?: (path: string) => Promise<void>;
+    }
+  ).revalidate;
+
+  if (!revalidate) return;
+
+  await Promise.all(rotas.map((rota) => revalidate(rota)));
+}
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const {
     query: { catId },
@@ -41,6 +53,17 @@ export default async function handler(
       //   qnt - posts.length
       // )} posts.`;
       status = `Baixados ${posts.length} posts. Total de posts no arquivo: ${qnt}.`;
+
+      const rotasParaRevalidar = catId
+        ? ["/", `/cat/${catId.toString()}`]
+        : [
+            "/",
+            ...BaixarPostsDoBlogger.bloggerEntities.map(
+              (ent) => `/cat/${ent.catId}`,
+            ),
+          ];
+
+      await revalidarRotas(res, rotasParaRevalidar);
     } else {
       status = `Nada encontrado para atualizar`;
     }
