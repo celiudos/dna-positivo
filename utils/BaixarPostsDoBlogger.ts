@@ -282,19 +282,93 @@ export default class BaixarPostsDoBlogger {
     return responseData;
   }
 
-  static fixJson(jsonText: string): {} {
-    let jsonFixed = {};
-    try {
-      jsonFixed = JSON.parse(jsonText);
-    } catch (error) {
-      const err = error as any;
-      if (err.message.indexOf("Unexpected token , in JSON at position") > -1) {
-        const pos = parseInt(err.message.split("position ")[1]);
-        const jsonTextFixed = jsonText.slice(0, pos) + jsonText.slice(pos + 1);
-        jsonFixed = BaixarPostsDoBlogger.fixJson(jsonTextFixed);
+  /**
+   * O feed do Blogger às vezes devolve vírgulas sobrando (`},, {` ou `, ]`),
+   * o que quebra o `JSON.parse`. Percorremos o texto uma vez, ignorando o que
+   * está dentro de strings, e descartamos as vírgulas inválidas.
+   *
+   * A versão anterior dependia da mensagem de erro do V8
+   * ("Unexpected token , in JSON at position N"), que mudou de formato no
+   * Node 20+ e deixou de trazer a posição — por isso o conserto parou de
+   * funcionar e os feeds passaram a voltar vazios.
+   */
+  static removerVirgulasInvalidas(jsonText: string): string {
+    const BARRA_INVERTIDA = String.fromCharCode(92);
+
+    let resultado = "";
+    let dentroDeString = false;
+    let escapado = false;
+    let ultimoToken = "";
+    let posUltimoToken = -1;
+
+    for (const char of jsonText) {
+      if (dentroDeString) {
+        resultado += char;
+        if (escapado) {
+          escapado = false;
+        } else if (char === BARRA_INVERTIDA) {
+          escapado = true;
+        } else if (char === '"') {
+          dentroDeString = false;
+          ultimoToken = '"';
+          posUltimoToken = resultado.length - 1;
+        }
+        continue;
+      }
+
+      if (char === '"') {
+        dentroDeString = true;
+        resultado += char;
+        ultimoToken = '"';
+        posUltimoToken = resultado.length - 1;
+        continue;
+      }
+
+      // vírgula duplicada, ou logo após a abertura de um array/objeto
+      if (char === ",") {
+        if (["", ",", "[", "{"].includes(ultimoToken)) continue;
+        resultado += char;
+        ultimoToken = ",";
+        posUltimoToken = resultado.length - 1;
+        continue;
+      }
+
+      // vírgula sobrando antes do fechamento
+      if (char === "]" || char === "}") {
+        if (ultimoToken === "," && posUltimoToken > -1) {
+          resultado =
+            resultado.slice(0, posUltimoToken) +
+            resultado.slice(posUltimoToken + 1);
+        }
+        resultado += char;
+        ultimoToken = char;
+        posUltimoToken = resultado.length - 1;
+        continue;
+      }
+
+      resultado += char;
+      if (char.trim() !== "") {
+        ultimoToken = char;
+        posUltimoToken = resultado.length - 1;
       }
     }
-    return jsonFixed;
+
+    return resultado;
+  }
+
+  static fixJson(jsonText: string): {} {
+    try {
+      return JSON.parse(jsonText);
+    } catch {
+      try {
+        return JSON.parse(
+          BaixarPostsDoBlogger.removerVirgulasInvalidas(jsonText)
+        );
+      } catch (error) {
+        console.log("Error fixJson:", error);
+        return {};
+      }
+    }
   }
 
   static getDefaultPost(): IPost {
