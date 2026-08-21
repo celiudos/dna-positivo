@@ -28,7 +28,7 @@ export default function Atualizar() {
 
   const pageSize = 5;
 
-  const forcarAtualizacao = useCallback(async (abriNovaAba) => {
+  const forcarAtualizacao = useCallback(async (abriNovaAba: boolean) => {
     setLoading(true);
 
     const response = await fetch("/api/atualizar");
@@ -60,7 +60,7 @@ export default function Atualizar() {
     <ContainerApp>
       <MainAppBar />
       <main>
-        <Grid item xs={12} mt={2}>
+        <Grid size={12} sx={{ mt: 2 }}>
           <DisplayFlexCenter>
             <Stack>
               <Button
@@ -77,7 +77,7 @@ export default function Atualizar() {
             </Stack>
           </DisplayFlexCenter>
         </Grid>
-        <Grid item xs={12} mt={2}>
+        <Grid size={12} sx={{ mt: 2 }}>
           <DisplayFlexCenter>
             <Button variant="outlined" onClick={() => forcarAtualizacao(true)}>
               Apenas exibir posts atualizados abaixo
@@ -87,13 +87,13 @@ export default function Atualizar() {
         </Grid>
         <Grid container spacing={4}>
           {postsNovos.length ? (
-            <Grid item xs={12}>
+            <Grid size={12}>
               <ListHeader primary="Novas publicações" />
               <ListItensDetalhes posts={postsNovos} />
             </Grid>
           ) : null}
           {postsAlterados.length ? (
-            <Grid item xs={12}>
+            <Grid size={12}>
               <ListHeader primary="Publicações atualizadas" />
               <ListItensDetalhes posts={postsAlterados} />
             </Grid>
@@ -116,31 +116,34 @@ function ListItensDetalhes({ posts }: { posts: IPost[] }) {
 
               return (
                 <ListItem key={key} disablePadding>
-                  <Link href={item.href || ""} passHref>
-                    <ListItemButton id={idListItemButton} divider>
-                      <ListItemText
-                        primary={item.title}
-                        secondary={
-                          <Stack component="span">
-                            <span>
-                              Publicado:{" "}
-                              {DateUtils.formatarDataDatetimeUX({
-                                data: item.published,
-                                formato: "dd/MM/yyyy HH:mm",
-                              })}
-                            </span>
-                            <span>
-                              Atualizado:{" "}
-                              {DateUtils.formatarDataDatetimeUX({
-                                data: item.updated,
-                                formato: "dd/MM/yyyy HH:mm",
-                              })}
-                            </span>
-                          </Stack>
-                        }
-                      />
-                    </ListItemButton>
-                  </Link>
+                  <ListItemButton
+                    component={Link}
+                    href={item.href || ""}
+                    id={idListItemButton}
+                    divider
+                  >
+                    <ListItemText
+                      primary={item.title}
+                      secondary={
+                        <Stack component="span">
+                          <span>
+                            Publicado:{" "}
+                            {DateUtils.formatarDataDatetimeUX({
+                              data: item.published,
+                              formato: "dd/MM/yyyy HH:mm",
+                            })}
+                          </span>
+                          <span>
+                            Atualizado:{" "}
+                            {DateUtils.formatarDataDatetimeUX({
+                              data: item.updated,
+                              formato: "dd/MM/yyyy HH:mm",
+                            })}
+                          </span>
+                        </Stack>
+                      }
+                    />
+                  </ListItemButton>
                 </ListItem>
               );
             })

@@ -10,7 +10,7 @@ export default function TelaEmpty() {
     <ContainerApp title={"Vazio"}>
       <MainAppBar />
       <main>
-        <Box p={2}>
+        <Box sx={{ p: 2 }}>
           <Alert
             severity="info"
             icon={<Icon icon={roundSentimentDissatisfied} />}

@@ -1,4 +1,6 @@
-import { NextSeo } from "next-seo";
+import { generateNextSeo } from "next-seo/pages";
+import Head from "next/head";
+import type { JSX } from "react";
 import configApp from "../configApp";
 
 type Props = {
@@ -19,11 +21,11 @@ export default function NextSeoHeader({
   const urlImgFinal = urlImg ? urlImg : `${configApp.url}/img/logo-180x180.jpg`;
 
   return (
-    <>
-      <NextSeo
-        title={titleFinal}
-        description={descriptionFinal}
-        additionalLinkTags={[
+    <Head>
+      {generateNextSeo({
+        title: titleFinal,
+        description: descriptionFinal,
+        additionalLinkTags: [
           {
             rel: "icon",
             href: "/favicon.ico",
@@ -38,8 +40,8 @@ export default function NextSeoHeader({
             sizes: "16x16",
             href: "/favicon/favicon-16x16.png",
           },
-        ]}
-        openGraph={{
+        ],
+        openGraph: {
           type: "website",
           url: configApp.url,
           title: titleFinal,
@@ -52,8 +54,8 @@ export default function NextSeoHeader({
               alt: titleFinal,
             },
           ],
-        }}
-      />
-    </>
+        },
+      })}
+    </Head>
   );
 }

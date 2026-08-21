@@ -40,20 +40,19 @@ export default function MainAppBar({
     <AppBar position="static">
       <Toolbar>
         {hrefVoltar ? (
-          <Link href={hrefVoltar || ""} passHref>
-            <IconButton
-              size="large"
-              id="btn-header-voltar"
-              aria-label="voltar"
-              color="inherit"
-              href={hrefVoltar || ""}
-              onClick={(): void => {
-                dispatch(carregandoPaginaAction());
-              }}
-            >
-              <Icon icon={baselineArrowBack} />
-            </IconButton>
-          </Link>
+          <IconButton
+            component={Link}
+            href={hrefVoltar || ""}
+            size="large"
+            id="btn-header-voltar"
+            aria-label="voltar"
+            color="inherit"
+            onClick={(): void => {
+              dispatch(carregandoPaginaAction());
+            }}
+          >
+            <Icon icon={baselineArrowBack} />
+          </IconButton>
         ) : null}
         <Typography
           variant="h6"
@@ -65,16 +64,16 @@ export default function MainAppBar({
         </Typography>
         {!naoTemMenuDir ? (
           <>
-            <Link href={"/favoritos"} passHref>
-              <IconButton
-                size="large"
-                aria-label="favoritos"
-                color="inherit"
-                id="btn-header-favoritos"
-              >
-                <Icon icon={baselineStarBorder} />
-              </IconButton>
-            </Link>
+            <IconButton
+              component={Link}
+              href={"/favoritos"}
+              size="large"
+              aria-label="favoritos"
+              color="inherit"
+              id="btn-header-favoritos"
+            >
+              <Icon icon={baselineStarBorder} />
+            </IconButton>
             <PesquisarDialog />
           </>
         ) : null}

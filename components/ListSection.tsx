@@ -11,8 +11,7 @@ import TextUtils from '@utils/TextUtils';
 import lodash from 'lodash';
 import Link from 'next/link';
 import * as React from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
+import { List, RowComponentProps, useListRef } from 'react-window';
 
 import EstrelaFavorito from './EstrelaFavorito';
 
@@ -44,10 +43,67 @@ function agruparPorLetras(rawData: [], key: string) {
   return data;
 }
 
+type TRowProps = {
+  itens: IPost[];
+  hasStar: boolean;
+};
+
+function Row({ index, style, itens, hasStar }: RowComponentProps<TRowProps>) {
+  const item = itens[index];
+  const idListItemButton = `ListItens-ListItemButton-${index}-${lodash.snakeCase(
+    item.title
+  )}`;
+
+  const isPostMenorQueDiasDiff = DateUtils.isPostMenorQueDiasDiff(
+    item.published
+  );
+
+  return item.isSubheader ? (
+    <ListSubheader
+      component="div"
+      style={{
+        ...style,
+        background: "#f4f4f4",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Typography variant="h5">{item.title}</Typography>
+    </ListSubheader>
+  ) : (
+    <ListItem
+      divider
+      style={{ ...style, backgroundColor: "#FFF" }}
+      component="div"
+      disablePadding
+      secondaryAction={hasStar ? <EstrelaFavorito item={item} /> : null}
+    >
+      <ListItemButton
+        component={Link}
+        href={item.href || ""}
+        id={idListItemButton}
+        style={{ height: "100%" }}
+      >
+        <ListItemText
+          primary={
+            <>
+              {TextUtils.limitarTexto(item.title, 80)}{" "}
+              {isPostMenorQueDiasDiff ? (
+                <Chip label={"Novo!"} color="secondary" size="small" />
+              ) : null}
+            </>
+          }
+        />
+      </ListItemButton>
+    </ListItem>
+  );
+}
+
 export default function ListSection({ itens, hasStar = true }: IListItem) {
   const [itensFormatados, setItensFormatados] = React.useState<IPost[]>([]);
 
-  const listRef = React.useRef(null);
+  const listRef = useListRef(null);
 
   React.useEffect(() => {
     const itensAgrupados = agruparPorLetras(itens as [], "title") as [];
@@ -63,6 +119,11 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
   const apenasItensSubheaders = itensFormatados
     .map((i, key) => ({ ...i, ind: key }))
     .filter((item) => item.isSubheader);
+
+  const rowProps = React.useMemo(
+    () => ({ itens: itensFormatados, hasStar }),
+    [itensFormatados, hasStar]
+  );
 
   // console.log("itensFormatados:", itensFormatados);
 
@@ -81,90 +142,27 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
                   key={key}
                   value={key}
                   label={item.title}
-                  onClick={() => {
-                    /* @ts-ignore */
-                    return listRef.current.scrollToItem(item.ind, "start");
-                  }}
+                  onClick={() =>
+                    listRef.current?.scrollToRow({
+                      index: item.ind,
+                      align: "start",
+                    })
+                  }
                 />
               ))
             : null}
         </Tabs>
       </Paper>
       <ContainerAutoSizerCss>
-        <AutoSizer>
-          {({ height, width }) => (
-            <List
-              ref={listRef}
-              height={height}
-              width={width}
-              itemSize={76}
-              itemCount={itensFormatados.length}
-              overscanCount={5}
-            >
-              {(props: ListChildComponentProps) => {
-                const { index, style } = props;
-                const item = itensFormatados[index];
-                const idListItemButton = `ListItens-ListItemButton-${index}-${lodash.snakeCase(
-                  item.title
-                )}`;
-
-                const isPostMenorQueDiasDiff = DateUtils.isPostMenorQueDiasDiff(
-                  item.published
-                );
-
-                return item.isSubheader ? (
-                  <ListSubheader
-                    component="div"
-                    style={{
-                      ...style,
-                      background: "#f4f4f4",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    key={index}
-                  >
-                    <Typography variant="h5">{item.title}</Typography>
-                  </ListSubheader>
-                ) : (
-                  <ListItem
-                    divider
-                    style={{ ...style, backgroundColor: "#FFF" }}
-                    key={index}
-                    component="div"
-                    disablePadding
-                    secondaryAction={
-                      hasStar ? <EstrelaFavorito item={item} /> : null
-                    }
-                  >
-                    <Link href={item.href || ""} passHref>
-                      <ListItemButton
-                        component="a"
-                        id={idListItemButton}
-                        style={{ height: "100%" }}
-                      >
-                        <ListItemText
-                          primary={
-                            <>
-                              {TextUtils.limitarTexto(item.title, 80)}{" "}
-                              {isPostMenorQueDiasDiff ? (
-                                <Chip
-                                  label={"Novo!"}
-                                  color="secondary"
-                                  size="small"
-                                />
-                              ) : null}
-                            </>
-                          }
-                        />
-                      </ListItemButton>
-                    </Link>
-                  </ListItem>
-                );
-              }}
-            </List>
-          )}
-        </AutoSizer>
+        <List
+          listRef={listRef}
+          rowComponent={Row}
+          rowCount={itensFormatados.length}
+          rowHeight={76}
+          rowProps={rowProps}
+          overscanCount={5}
+          style={{ height: "100%", width: "100%" }}
+        />
       </ContainerAutoSizerCss>
     </ContainerCss>
   );

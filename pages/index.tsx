@@ -40,26 +40,27 @@ export default function Index({
             <Image
               src="/img/DNA-Genetics.gif"
               alt="Genética DNA"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(min-width: 600px) 600px, 100vw"
+              style={{ objectFit: "cover" }}
+              priority
             />
           </ImageContainerGifCss>
           <PaperImgCss elevation={5}>
             <Link href={"/img/logo.jpg"}>
-              <a>
-                <Image
-                  src="/img/logo-180x180.jpg"
-                  alt="Marca"
-                  width={180}
-                  height={180}
-                />
-              </a>
+              <Image
+                src="/img/logo-180x180.jpg"
+                alt="Marca"
+                width={180}
+                height={180}
+                priority
+              />
             </Link>
           </PaperImgCss>
         </ImageContainerCss>
 
         <Grid container spacing={4}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <ListHeader
               primary="Início"
               secondary="Todas as explicações detalhadas sobre cada técnica"
@@ -101,7 +102,7 @@ export default function Index({
               ]}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <ListHeader primary="Destaques" />
             <ListItens
               hasStar={false}
@@ -112,19 +113,19 @@ export default function Index({
             />
           </Grid>
           {postsNovos.length ? (
-            <Grid item xs={12}>
+            <Grid size={12}>
               <ListHeader primary="Novas publicações" />
               <ListItens hasData itens={postsNovos} />
             </Grid>
           ) : null}
           {postsAlterados.length ? (
-            <Grid item xs={12}>
+            <Grid size={12}>
               <ListHeader primary="Publicações atualizadas" />
               <ListItens hasData itens={postsAlterados} />
             </Grid>
           ) : null}
           {configApp.muralDeAvisos.length ? (
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Alert severity="info">
                 <AlertTitle>Avisos</AlertTitle>
                 {configApp.muralDeAvisos
@@ -135,12 +136,12 @@ export default function Index({
               </Alert>
             </Grid>
           ) : null}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <ListHeader
               primary="Em caso de dúvidas, envie um e-mail"
               secondary={configApp.email}
             />{" "}
-            <Box ml={2}>
+            <Box sx={{ ml: 2 }}>
               <BtnCompartilhar
                 onClick={() =>
                   navigator.share({
@@ -154,7 +155,7 @@ export default function Index({
             </Box>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={12}>
             <DisplayFlexCenter>
               <Typography variant="caption" align="center" gutterBottom>
                 Versão {`v${packageJson.version || 0}`}

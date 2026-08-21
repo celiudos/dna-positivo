@@ -6,32 +6,66 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "incremental": true,
     "noEmit": true,
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
-      "@styles/*": ["./styles/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@typesApp/*": ["./typesApp/*"],
-      "@data/*": ["./data/*"],
-      "@lib/*": ["./lib/*"],
-      "@tests/*": ["./tests/*"],
-      "@theme/*": ["./theme/*"],
-      "@components/*": ["./components/*"],
-      "@utils/*": ["./utils/*"],
-      "@store/*": ["./store/*"],
-      "@hook/*": ["./hook/*"]
+      "@mui/styled-engine": [
+        "./node_modules/@mui/styled-engine-sc"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@typesApp/*": [
+        "./typesApp/*"
+      ],
+      "@data/*": [
+        "./data/*"
+      ],
+      "@lib/*": [
+        "./lib/*"
+      ],
+      "@tests/*": [
+        "./tests/*"
+      ],
+      "@theme/*": [
+        "./theme/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@store/*": [
+        "./store/*"
+      ],
+      "@hook/*": [
+        "./hook/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "worker/index.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "worker/index.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

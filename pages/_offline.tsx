@@ -9,7 +9,7 @@ export default function Offline() {
     <ContainerApp title={"Offline"}>
       <MainAppBar />
       <main>
-        <Box p={2}>
+        <Box sx={{ p: 2 }}>
           <Alert
             severity="warning"
             icon={<Icon icon={baselineSignalWifiOff} />}

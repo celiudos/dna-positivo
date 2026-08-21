@@ -10,7 +10,7 @@ export default function Offline() {
     <ContainerApp title={"404"}>
       <MainAppBar />
       <main>
-        <Box p={2}>
+        <Box sx={{ p: 2 }}>
           <Alert
             severity="warning"
             icon={<Icon icon={roundSentimentDissatisfied} />}

@@ -2,7 +2,7 @@ import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
 import rootReducer from "@store/rootReducer";
 import { useMemo } from "react";
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunkMiddleware from "redux-thunk";
+import { thunk as thunkMiddleware } from "redux-thunk";
 
 let store: any;
 let middleWare: any;

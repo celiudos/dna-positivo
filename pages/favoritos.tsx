@@ -28,10 +28,10 @@ export default function Favoritos() {
       <MainAppBar title="Favoritos" hrefVoltar="/" naoTemMenuDir />
       <main>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <ListItens itens={favStorage} isFormatoCompleto />
 
-            <Box m={2}>
+            <Box sx={{ m: 2 }}>
               <Alert severity="info">
                 Os itens favoritos ficam armazenados apenas nesse dispositivo
               </Alert>

@@ -12,6 +12,7 @@ import {
 } from "@mui/material/styles";
 import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import Image from "next/image";
+import type { JSX } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -63,8 +64,10 @@ export default function ThemeConfig({
               className="rotating"
               src="/img/planeta-maior.jpg"
               alt="Planeta terra"
-              layout="fill"
-              objectFit="contain"
+              fill
+              sizes="100vw"
+              style={{ objectFit: "contain" }}
+              priority
             />
           ) : null}
         </ImageContainerCss>

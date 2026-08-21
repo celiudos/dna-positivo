@@ -22,21 +22,23 @@ export default function Magafla({
   return (
     <section>
       {postComDadosYoutube && (
-        <Box pt={2}>
+        <Box sx={{ pt: 2 }}>
           <Card>
             <CardContent>
               <Typography variant="h6" component="div">
                 {postComDadosYoutube.title}
               </Typography>
-              <Link href={postComDadosYoutube.youtubeUrl} passHref>
-                <a target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={postComDadosYoutube.youtubeImg}
-                    alt={postComDadosYoutube.title}
-                    width={600}
-                    height={400}
-                  />
-                </a>
+              <Link
+                href={postComDadosYoutube.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={postComDadosYoutube.youtubeImg}
+                  alt={postComDadosYoutube.title}
+                  width={600}
+                  height={400}
+                />
               </Link>
             </CardContent>
           </Card>

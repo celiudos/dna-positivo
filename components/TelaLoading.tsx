@@ -12,7 +12,7 @@ export default function TelaLoading({ msg = "Carregando..." }) {
       <MainAppBar title={"..."} hrefVoltar="/" />
       <main>
         <DisplayFlexCenter>
-          <Box sx={{ width: "150px" }} p={2}>
+          <Box sx={{ width: "150px", p: 2 }}>
             <Image src="/img/logo.jpg" alt="Logo" width={360} height={360} />
             <Typography align="center">{msg}</Typography>
             <LinearProgress />

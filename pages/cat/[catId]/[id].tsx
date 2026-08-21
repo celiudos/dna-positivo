@@ -63,7 +63,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
       <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
       <main>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             {postsAntesDeQualquerDialogo
               ? postsAntesDeQualquerDialogo.map((item, key) => (
                   <ListHeader
@@ -79,20 +79,17 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
               : null}
 
             <Paper>
-              <Grid container p={2}>
+              <Grid container sx={{ p: 2 }}>
                 <Grid
-                  item
                   container
-                  py={2}
-                  justifyContent="center"
-                  alignItems="center"
+                  sx={{ py: 2, justifyContent: "center", alignItems: "center" }}
                 >
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <EstrelaFavorito item={post} typeBtn />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <DisplayFlexCenter style={{ justifyContent: "end" }}>
-                      <Box mr={1}>FONTE</Box>
+                      <Box sx={{ mr: 1 }}>FONTE</Box>
                       <ButtonGroup
                         color="inherit"
                         variant="outlined"
@@ -122,7 +119,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                     </DisplayFlexCenter>
                   </Grid>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Chip label={post.catName} size="small" />
                   <Typography
                     variant="h4"
@@ -135,7 +132,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                     ) : null}
                   </Typography>
                   <ContainerPostCss>
-                    <Box my={1}>
+                    <Box sx={{ my: 1 }}>
                       <Divider />
                     </Box>
                     <Typography
@@ -153,34 +150,30 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
             </Paper>
           </Grid>
           <Grid
-            item
             container
-            py={2}
-            justifyContent="center"
-            alignItems="center"
+            sx={{ py: 2, justifyContent: "center", alignItems: "center" }}
           >
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Typography variant="body2" gutterBottom align="center">
                 Publicado:{" "}
                 {DateUtils.formatarDataDatetimeUX({ data: post.published })}
               </Typography>
             </Grid>
-            <Grid item xs={12}>
-              <Box m={1}>
-                <Link href={post.hrefOriginal || ""} passHref>
-                  <Button
-                    variant="outlined"
-                    href=""
-                    target="_blank"
-                    endIcon={<Icon icon={baselineLink} />}
-                  >
-                    Ver publicação original
-                  </Button>
-                </Link>
+            <Grid size={12}>
+              <Box sx={{ m: 1 }}>
+                <Button
+                  component={Link}
+                  href={post.hrefOriginal || ""}
+                  variant="outlined"
+                  target="_blank"
+                  endIcon={<Icon icon={baselineLink} />}
+                >
+                  Ver publicação original
+                </Button>
               </Box>
-              <Box m={1}>
+              <Box sx={{ m: 1 }}>
                 {isNativeShare ? (
-                  <Box mb={2}>
+                  <Box sx={{ mb: 2 }}>
                     <BtnCompartilhar
                       onClick={() =>
                         navigator.share({

@@ -48,33 +48,33 @@ export default function ListItens({
                   }
                   disablePadding
                 >
-                  <Link href={item.href || ""} passHref>
-                    <ListItemButton
-                      id={idListItemButton}
-                      divider
-                      onClick={(): void => {
-                        dispatch(carregandoPaginaAction());
-                      }}
-                    >
-                      {isFormatoCompleto ? (
-                        <ListItemText
-                          primary={
-                            <>
-                              <Chip label={item.catName} size="small" />{" "}
-                              <Typography variant="subtitle1">
-                                {item.title}
-                              </Typography>
-                            </>
-                          }
-                        />
-                      ) : (
-                        <ListItemText
-                          primary={item.title}
-                          secondary={`${item.catName}${data}`}
-                        />
-                      )}
-                    </ListItemButton>
-                  </Link>
+                  <ListItemButton
+                    component={Link}
+                    href={item.href || ""}
+                    id={idListItemButton}
+                    divider
+                    onClick={(): void => {
+                      dispatch(carregandoPaginaAction());
+                    }}
+                  >
+                    {isFormatoCompleto ? (
+                      <ListItemText
+                        primary={
+                          <>
+                            <Chip label={item.catName} size="small" />{" "}
+                            <Typography variant="subtitle1">
+                              {item.title}
+                            </Typography>
+                          </>
+                        }
+                      />
+                    ) : (
+                      <ListItemText
+                        primary={item.title}
+                        secondary={`${item.catName}${data}`}
+                      />
+                    )}
+                  </ListItemButton>
                 </ListItem>
               );
             })

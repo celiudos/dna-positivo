@@ -129,7 +129,7 @@ export default function PesquisarDialog() {
       </IconButton>
       <Dialog
         fullScreen
-        TransitionComponent={Transition}
+        slots={{ transition: Transition }}
         open={open}
         onClose={handleClose}
       >
@@ -177,7 +177,7 @@ export default function PesquisarDialog() {
           >
             <Magafla resultCerteza={resultCerteza} />
             {qntResultados > 0 ? (
-              <Box m={2}>
+              <Box sx={{ m: 2 }}>
                 <Typography variant="subtitle1">
                   {qntResultados} resultado
                   {qntResultados ? "s" : ""}
@@ -200,34 +200,20 @@ export default function PesquisarDialog() {
                         divider={keyResult !== qntResultados - 1}
                         component="div"
                       >
-                        <Link href={i.href} passHref key={keyResult}>
-                          <ListItemButton
-                            component="a"
-                            id={idListItemButton}
-                            divider={keyResult !== qntResultados - 1}
-                          >
-                            <ListItemText
-                              onClick={() => {
-                                handleClose();
-                              }}
-                              primary={
-                                <>
-                                  <Chip label={i.catName} size="small" />{" "}
-                                  <Typography variant="subtitle1">
-                                    <Highlighter
-                                      highlightStyle={negritoCss}
-                                      searchWords={searchWords}
-                                      autoEscape={true}
-                                      sanitize={(text) =>
-                                        TextUtils.stringToSlugSemHifen(text)
-                                      }
-                                      textToHighlight={i.title}
-                                    />
-                                  </Typography>
-                                </>
-                              }
-                              secondary={
-                                <>
+                        <ListItemButton
+                          component={Link}
+                          href={i.href}
+                          id={idListItemButton}
+                          divider={keyResult !== qntResultados - 1}
+                        >
+                          <ListItemText
+                            onClick={() => {
+                              handleClose();
+                            }}
+                            primary={
+                              <>
+                                <Chip label={i.catName} size="small" />{" "}
+                                <Typography variant="subtitle1">
                                   <Highlighter
                                     highlightStyle={negritoCss}
                                     searchWords={searchWords}
@@ -235,14 +221,27 @@ export default function PesquisarDialog() {
                                     sanitize={(text) =>
                                       TextUtils.stringToSlugSemHifen(text)
                                     }
-                                    textToHighlight={i.resumo}
+                                    textToHighlight={i.title}
                                   />
-                                  ...
-                                </>
-                              }
-                            />
-                          </ListItemButton>
-                        </Link>
+                                </Typography>
+                              </>
+                            }
+                            secondary={
+                              <>
+                                <Highlighter
+                                  highlightStyle={negritoCss}
+                                  searchWords={searchWords}
+                                  autoEscape={true}
+                                  sanitize={(text) =>
+                                    TextUtils.stringToSlugSemHifen(text)
+                                  }
+                                  textToHighlight={i.resumo}
+                                />
+                                ...
+                              </>
+                            }
+                          />
+                        </ListItemButton>
                       </ListItem>
                     );
                   })}
@@ -251,7 +250,7 @@ export default function PesquisarDialog() {
             )}
 
             {semResultado && (
-              <Box pt={2}>
+              <Box sx={{ pt: 2 }}>
                 <Alert
                   icon={<Icon icon={outlineReportProblem} />}
                   severity="warning"
@@ -262,7 +261,7 @@ export default function PesquisarDialog() {
             )}
 
             {nadaPesquisado && (
-              <Box pt={2}>
+              <Box sx={{ pt: 2 }}>
                 <Alert icon={<Icon icon={outlineInfo} />} severity="info">
                   Digite algum valor no campo de busca
                 </Alert>
