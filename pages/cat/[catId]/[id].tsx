@@ -1,28 +1,25 @@
+import AvisoImportante from "@components/AvisoImportante";
 import BtnCompartilhar from "@components/BtnCompartilhar";
 import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
-import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
 import TelaEmpty from "@components/TelaEmpty";
 import TelaLoading from "@components/TelaLoading";
-import styled from "@emotion/styled";
-import baselineAdd from "@iconify/icons-ic/baseline-add";
 import baselineLink from "@iconify/icons-ic/baseline-link";
-import baselineRemove from "@iconify/icons-ic/baseline-remove";
-import outlineShare from "@iconify/icons-ic/outline-share";
+import roundAdd from "@iconify/icons-ic/round-add";
+import roundRemove from "@iconify/icons-ic/round-remove";
 import { Icon } from "@iconify/react";
 import ApiPost from "@lib/ApiPost";
 import {
+  Box,
   Button,
   ButtonGroup,
   Chip,
   Divider,
-  Grid,
   Paper,
+  Stack,
   Typography,
 } from "@mui/material";
-import { Box } from "@mui/system";
-import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
 import DateUtils from "@utils/DateUtils";
 import configApp from "configApp";
@@ -43,161 +40,169 @@ const FONTE_CONFIG = {
 export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   const router = useRouter();
   const { catId } = router.query;
-  let [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
+  const [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
   const [isNativeShare, setNativeShare] = useState(false);
 
   useEffect(() => {
-    function nav() {
-      if (!!navigator.share) {
-        setNativeShare(true);
-      }
+    if (typeof navigator !== "undefined" && !!navigator.share) {
+      setNativeShare(true);
     }
-    nav();
   }, []);
 
   if (router.isFallback) return <TelaLoading />;
   if (!post.id) return <TelaEmpty />;
 
+  const tamanhoTitulo = 1.375 + tamanhoFonte * 0.14;
+  const tamanhoTexto = 1 + tamanhoFonte * 0.09;
+
   return (
     <ContainerApp title={post.title} description={post.catName}>
-      <MainAppBar title="Post" hrefVoltar={`/cat/${catId}`} />
+      <MainAppBar title={post.catName || "Post"} hrefVoltar={`/cat/${catId}`} />
       <main>
-        <Grid container spacing={2}>
-          <Grid size={12}>
-            {postsAntesDeQualquerDialogo
-              ? postsAntesDeQualquerDialogo.map((item, key) => (
-                  <ListHeader
-                    key={key}
-                    primary="Atenção"
-                    secondary={item.title}
-                    modal={{
-                      title: item.title,
-                      contentSanitized: item.contentSanitized,
-                    }}
-                  />
-                ))
-              : null}
+        {/* Barra de leitura: favoritar e ajustar o tamanho da fonte */}
+        <Box
+          sx={{
+            position: "sticky",
+            top: 0,
+            zIndex: 5,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 1,
+            px: 2,
+            py: 1,
+            bgcolor: "rgba(245, 246, 251, 0.88)",
+            backdropFilter: "blur(10px)",
+            borderBottom: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          <EstrelaFavorito item={post} typeBtn />
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Typography variant="overline" color="text.secondary">
+              Fonte
+            </Typography>
+            <ButtonGroup
+              size="small"
+              color="inherit"
+              variant="outlined"
+              aria-label="alterar tamanho da fonte"
+            >
+              <Button
+                aria-label="diminuir fonte"
+                disabled={tamanhoFonte === FONTE_CONFIG.min}
+                onClick={() =>
+                  setTamanhoFonte((atual) =>
+                    Math.max(FONTE_CONFIG.min, atual - 1)
+                  )
+                }
+              >
+                <Icon icon={roundRemove} width={18} height={18} />
+              </Button>
+              <Button
+                aria-label="aumentar fonte"
+                disabled={tamanhoFonte === FONTE_CONFIG.max}
+                onClick={() =>
+                  setTamanhoFonte((atual) =>
+                    Math.min(FONTE_CONFIG.max, atual + 1)
+                  )
+                }
+              >
+                <Icon icon={roundAdd} width={18} height={18} />
+              </Button>
+            </ButtonGroup>
+          </Box>
+        </Box>
 
-            <Paper>
-              <Grid container sx={{ p: 2 }}>
-                <Grid
-                  container
-                  sx={{ py: 2, justifyContent: "center", alignItems: "center" }}
-                >
-                  <Grid size={6}>
-                    <EstrelaFavorito item={post} typeBtn />
-                  </Grid>
-                  <Grid size={6}>
-                    <DisplayFlexCenter style={{ justifyContent: "end" }}>
-                      <Box sx={{ mr: 1 }}>FONTE</Box>
-                      <ButtonGroup
-                        color="inherit"
-                        variant="outlined"
-                        aria-label="alterar tamanho da fonte"
-                      >
-                        <Button
-                          disabled={FONTE_CONFIG.min === tamanhoFonte}
-                          onClick={() =>
-                            tamanhoFonte > FONTE_CONFIG.min
-                              ? setTamanhoFonte(--tamanhoFonte)
-                              : setTamanhoFonte(FONTE_CONFIG.min)
-                          }
-                        >
-                          <Icon icon={baselineRemove} />{" "}
-                        </Button>
-                        <Button
-                          disabled={FONTE_CONFIG.max === tamanhoFonte}
-                          onClick={() =>
-                            tamanhoFonte < FONTE_CONFIG.max
-                              ? setTamanhoFonte(++tamanhoFonte)
-                              : setTamanhoFonte(FONTE_CONFIG.max)
-                          }
-                        >
-                          <Icon icon={baselineAdd} />{" "}
-                        </Button>
-                      </ButtonGroup>
-                    </DisplayFlexCenter>
-                  </Grid>
-                </Grid>
-                <Grid size={12}>
-                  <Chip label={post.catName} size="small" />
-                  <Typography
-                    variant="h4"
-                    component="div"
-                    style={{ fontSize: `2.${tamanhoFonte}25rem` }}
-                  >
-                    {post.title}{" "}
-                    {post.isNovo ? (
-                      <Chip label={"Novo!"} color="secondary" size="small" />
-                    ) : null}
-                  </Typography>
-                  <ContainerPostCss>
-                    <Box sx={{ my: 1 }}>
-                      <Divider />
-                    </Box>
-                    <Typography
-                      variant="body1"
-                      component="div"
-                      style={{ fontSize: `1.${tamanhoFonte + 2}rem` }}
-                      gutterBottom
-                      dangerouslySetInnerHTML={{
-                        __html: post.contentSanitized,
-                      }}
-                    />
-                  </ContainerPostCss>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-          <Grid
-            container
-            sx={{ py: 2, justifyContent: "center", alignItems: "center" }}
+        <Stack spacing={2.5} sx={{ px: 2, pt: 2.5, pb: 5 }}>
+          {postsAntesDeQualquerDialogo
+            ? postsAntesDeQualquerDialogo.map((item, key) => (
+                <AvisoImportante
+                  key={key}
+                  titulo={item.title}
+                  contentSanitized={item.contentSanitized}
+                />
+              ))
+            : null}
+
+          <Paper
+            component="article"
+            variant="outlined"
+            sx={{ borderRadius: 3, p: 2.5 }}
           >
-            <Grid size={12}>
-              <Typography variant="body2" gutterBottom align="center">
-                Publicado:{" "}
-                {DateUtils.formatarDataDatetimeUX({ data: post.published })}
-              </Typography>
-            </Grid>
-            <Grid size={12}>
-              <Box sx={{ m: 1 }}>
-                <Button
-                  component={Link}
-                  href={post.hrefOriginal || ""}
-                  variant="outlined"
-                  target="_blank"
-                  endIcon={<Icon icon={baselineLink} />}
-                >
-                  Ver publicação original
-                </Button>
-              </Box>
-              <Box sx={{ m: 1 }}>
-                {isNativeShare ? (
-                  <Box sx={{ mb: 2 }}>
-                    <BtnCompartilhar
-                      onClick={() =>
-                        navigator.share({
-                          title: post.title,
-                          url: post.href,
-                        })
-                      }
-                    >
-                      Compartilhar
-                    </BtnCompartilhar>
-                  </Box>
-                ) : null}
-              </Box>
-            </Grid>
-          </Grid>
-        </Grid>
+            <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
+              <Chip
+                label={post.catName}
+                size="small"
+                sx={{
+                  bgcolor: "rgba(93, 107, 196, 0.10)",
+                  color: "primary.dark",
+                }}
+              />
+              {post.isNovo ? (
+                <Chip label="Novo!" color="secondary" size="small" />
+              ) : null}
+            </Stack>
+
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{ fontSize: `${tamanhoTitulo}rem` }}
+            >
+              {post.title}
+            </Typography>
+
+            <Typography
+              variant="caption"
+              component="p"
+              color="text.secondary"
+              sx={{ mt: 1 }}
+            >
+              Publicado em{" "}
+              {DateUtils.formatarDataDatetimeUX({ data: post.published })}
+            </Typography>
+
+            <Divider sx={{ my: 2 }} />
+
+            <Box
+              className="conteudo-post"
+              sx={{ fontSize: `${tamanhoTexto}rem`, lineHeight: 1.7 }}
+              dangerouslySetInnerHTML={{ __html: post.contentSanitized }}
+            />
+          </Paper>
+
+          <Stack spacing={1.5}>
+            {isNativeShare ? (
+              <BtnCompartilhar
+                fullWidth
+                variant="contained"
+                onClick={() =>
+                  navigator.share({
+                    title: post.title,
+                    url: post.href,
+                  })
+                }
+              >
+                Compartilhar
+              </BtnCompartilhar>
+            ) : null}
+            <Button
+              component={Link}
+              href={post.hrefOriginal || ""}
+              variant="outlined"
+              fullWidth
+              target="_blank"
+              rel="noopener noreferrer"
+              endIcon={<Icon icon={baselineLink} width={18} height={18} />}
+            >
+              Ver publicação original
+            </Button>
+          </Stack>
+        </Stack>
       </main>
     </ContainerApp>
   );
 }
-
-export const ContainerPostCss = styled.div`
-  overflow-y: auto;
-`;
 
 export async function getStaticPaths() {
   return {

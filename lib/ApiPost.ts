@@ -26,6 +26,22 @@ export default class ApiPost {
     return todosPosts;
   }
 
+  /**
+   * Quantidade de publicações por categoria, usada nos cards da Home.
+   * Lê direto de `getAllPosts` porque `search` aplica `limit` antes da contagem.
+   */
+  static async getTotalPorCategoria(): Promise<{ [cat: string]: number }> {
+    await ApiPost.setAllPosts();
+
+    return ApiSearch.getAllPosts().reduce(
+      (total: { [cat: string]: number }, post) => {
+        total[post.cat] = (total[post.cat] || 0) + 1;
+        return total;
+      },
+      {}
+    );
+  }
+
   static async getPostsByIds(ids: string[]): Promise<IPost[]> {
     let posts = ApiSearch.search({ jsonIds: ids });
 

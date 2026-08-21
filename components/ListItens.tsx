@@ -1,12 +1,9 @@
-import {
-  Chip,
-  ListItem,
-  ListItemButton,
-  Paper,
-  Typography,
-} from "@mui/material";
+import roundChevronRight from "@iconify/icons-ic/round-chevron-right";
+import { Icon } from "@iconify/react";
+import { Box, Chip, ListItem, ListItemButton, Paper } from "@mui/material";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
 import { carregandoPaginaAction } from "@store/actionCreator";
 import { IListItem } from "@typesApp/IListItem";
 import DateUtils from "@utils/DateUtils";
@@ -25,14 +22,14 @@ export default function ListItens({
   const dispatch = useDispatch();
 
   return (
-    <Paper>
+    <Paper variant="outlined" sx={{ borderRadius: 3, overflow: "hidden" }}>
       <List component="nav" aria-label="Lista de itens" disablePadding>
         {itens
           ? itens.map((item, key) => {
               const data = hasData
-                ? " - " +
-                  DateUtils.formatarDataDatetimeUX({
+                ? DateUtils.formatarDataDatetimeUX({
                     data: item.updated,
+                    formato: "dd/MM/yyyy",
                   })
                 : "";
 
@@ -47,33 +44,64 @@ export default function ListItens({
                     hasStar ? <EstrelaFavorito item={item} /> : null
                   }
                   disablePadding
+                  sx={{
+                    "&:not(:last-of-type)": {
+                      borderBottom: "1px solid",
+                      borderColor: "divider",
+                    },
+                  }}
                 >
                   <ListItemButton
                     component={Link}
                     href={item.href || ""}
                     id={idListItemButton}
-                    divider
                     onClick={(): void => {
                       dispatch(carregandoPaginaAction());
                     }}
+                    sx={{ px: 2, py: 1.5, gap: 1 }}
                   >
                     {isFormatoCompleto ? (
                       <ListItemText
+                        disableTypography
                         primary={
-                          <>
-                            <Chip label={item.catName} size="small" />{" "}
+                          <Box>
+                            <Chip
+                              label={item.catName}
+                              size="small"
+                              sx={{
+                                mb: 0.75,
+                                bgcolor: "rgba(93, 107, 196, 0.10)",
+                                color: "primary.dark",
+                              }}
+                            />
                             <Typography variant="subtitle1">
                               {item.title}
                             </Typography>
-                          </>
+                          </Box>
                         }
                       />
                     ) : (
                       <ListItemText
                         primary={item.title}
-                        secondary={`${item.catName}${data}`}
+                        secondary={
+                          item.catName || data
+                            ? [item.catName, data].filter(Boolean).join(" · ")
+                            : null
+                        }
                       />
                     )}
+                    {!hasStar ? (
+                      <Box
+                        aria-hidden
+                        sx={{
+                          display: "flex",
+                          color: "text.disabled",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Icon icon={roundChevronRight} width={22} height={22} />
+                      </Box>
+                    ) : null}
                   </ListItemButton>
                 </ListItem>
               );

@@ -1,24 +1,23 @@
 import ContainerApp from "@components/ContainerApp";
 import ListHeader from "@components/ListHeader";
 import MainAppBar from "@components/MainAppBar";
+import ApiSearch from "@lib/ApiSearch";
 import {
+  Alert,
+  Box,
   Button,
   CircularProgress,
-  Grid,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   Paper,
   Stack,
-  Typography,
 } from "@mui/material";
-import { DisplayFlexCenter } from "@styles/DisplayFlex";
 import { IPost } from "@typesApp/IPost";
+import DateUtils from "@utils/DateUtils";
 import lodash from "lodash";
 import Link from "next/link";
-import ApiSearch from "@lib/ApiSearch";
-import DateUtils from "@utils/DateUtils";
 import { useCallback, useState } from "react";
 
 export default function Atualizar() {
@@ -57,48 +56,54 @@ export default function Atualizar() {
   }, []);
 
   return (
-    <ContainerApp>
-      <MainAppBar />
+    <ContainerApp title="Atualizar">
+      <MainAppBar title="Atualizar conteúdo" hrefVoltar="/" />
       <main>
-        <Grid size={12} sx={{ mt: 2 }}>
-          <DisplayFlexCenter>
-            <Stack>
+        <Stack spacing={3} sx={{ px: 2, py: 2.5, pb: 5 }}>
+          <Paper variant="outlined" sx={{ borderRadius: 3, p: 2.5 }}>
+            <Stack spacing={1.5}>
               <Button
                 variant="contained"
+                fullWidth
+                disabled={loading}
                 onClick={() => forcarAtualizacao(false)}
+                endIcon={
+                  loading ? <CircularProgress color="inherit" size={18} /> : null
+                }
               >
-                Forçar Atualização
-                {loading && <CircularProgress color="success" size={24} />}
+                Forçar atualização
               </Button>
-              <span>
-                Vai abrir nova aba na Home. É necessário para concluir a
-                atualização!.
-              </span>
+              <Button
+                variant="outlined"
+                fullWidth
+                disabled={loading}
+                onClick={() => forcarAtualizacao(true)}
+                endIcon={
+                  loading ? <CircularProgress color="inherit" size={18} /> : null
+                }
+              >
+                Apenas exibir posts atualizados
+              </Button>
+              <Alert severity="info">
+                O botão de forçar atualização abre uma nova aba na Home. Isso é
+                necessário para concluir a atualização.
+              </Alert>
             </Stack>
-          </DisplayFlexCenter>
-        </Grid>
-        <Grid size={12} sx={{ mt: 2 }}>
-          <DisplayFlexCenter>
-            <Button variant="outlined" onClick={() => forcarAtualizacao(true)}>
-              Apenas exibir posts atualizados abaixo
-              {loading && <CircularProgress color="success" size={24} />}
-            </Button>
-          </DisplayFlexCenter>
-        </Grid>
-        <Grid container spacing={4}>
+          </Paper>
+
           {postsNovos.length ? (
-            <Grid size={12}>
+            <Box component="section">
               <ListHeader primary="Novas publicações" />
               <ListItensDetalhes posts={postsNovos} />
-            </Grid>
+            </Box>
           ) : null}
           {postsAlterados.length ? (
-            <Grid size={12}>
+            <Box component="section">
               <ListHeader primary="Publicações atualizadas" />
               <ListItensDetalhes posts={postsAlterados} />
-            </Grid>
+            </Box>
           ) : null}
-        </Grid>
+        </Stack>
       </main>
     </ContainerApp>
   );
@@ -106,21 +111,30 @@ export default function Atualizar() {
 
 function ListItensDetalhes({ posts }: { posts: IPost[] }) {
   return (
-    <Paper>
+    <Paper variant="outlined" sx={{ borderRadius: 3, overflow: "hidden" }}>
       <List component="nav" aria-label="Lista de itens" disablePadding>
         {posts
           ? posts.map((item, key) => {
               const idListItemButton = `ListItens-ListItemButton-${key}-${lodash.snakeCase(
-                item.title,
+                item.title
               )}`;
 
               return (
-                <ListItem key={key} disablePadding>
+                <ListItem
+                  key={key}
+                  disablePadding
+                  sx={{
+                    "&:not(:last-of-type)": {
+                      borderBottom: "1px solid",
+                      borderColor: "divider",
+                    },
+                  }}
+                >
                   <ListItemButton
                     component={Link}
                     href={item.href || ""}
                     id={idListItemButton}
-                    divider
+                    sx={{ px: 2, py: 1.5 }}
                   >
                     <ListItemText
                       primary={item.title}

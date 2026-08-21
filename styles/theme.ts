@@ -1,18 +1,8 @@
-import { createTheme } from "@mui/material/styles";
+import { theme } from "@theme/ThemeConfig";
 
-// Create a theme instance.
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#260273",
-    },
-    secondary: {
-      main: "#D9A918",
-    },
-    info: {
-      main: "#578BF2",
-    },
-  },
-});
-
+/**
+ * Reexporta a instância única do tema do app.
+ * Serve para os poucos pontos que precisam das cores fora da árvore React
+ * (ex.: estilos inline do react-highlight-words).
+ */
 export default theme;

@@ -9,6 +9,55 @@ const configApp = {
     revalidate: 1 * 60 * 60 * 24, // 1 dia
   },
   idsPostsAntesDeQualquerDialogo: ["61a542c5-499a-59fc-aaee-95796d2eab9f"],
+  introducao: {
+    title: "Introdução",
+    contentSanitized:
+      "A nossa proposta é usar a Internet e toda sua tecnologia. Hoje, essa mesma Internet vem sendo utilizada como principal meio de disseminação de diversas informações e manipulações que têm agravado as situações de desequilíbrio planetárias. Porém, também através da Internet podemos produzir uma energia que se espalhará pelo planeta. \n Aqui você encontrará técnicas que vão te ajudar no tratamento dos seus problemas e suas doenças, lembrando sempre que quem cura é a MEDICINA, portanto, não deixe de ir ao médico!",
+  },
+  // Cada categoria espelha um dos blogs de origem. `icone` é a chave mapeada
+  // para um ícone do @iconify/icons-mdi em components/CategoriaGrid.tsx.
+  categorias: [
+    {
+      cat: 3,
+      title: "Inteligência Virtual Positiva",
+      href: "/cat/3",
+      icone: "brain",
+      cor: "#5D6BC4",
+      corFundo: "#EDEFFA",
+    },
+    {
+      cat: 4,
+      title: "DNA Holográfico e Quântico",
+      href: "/cat/4",
+      icone: "atom",
+      cor: "#8E7BD4",
+      corFundo: "#F2EEFC",
+    },
+    {
+      cat: 1,
+      title: "DNA físico e Quântico",
+      href: "/cat/1",
+      icone: "dna",
+      cor: "#3F9E8F",
+      corFundo: "#E8F5F2",
+    },
+    {
+      cat: 2,
+      title: "DNA Positivo",
+      href: "/cat/2",
+      icone: "shimmer",
+      cor: "#C98F3C",
+      corFundo: "#FBF3E5",
+    },
+    {
+      cat: 5,
+      title: "DNA do Metaverso",
+      href: "/cat/5",
+      icone: "metaverso",
+      cor: "#5C8FD6",
+      corFundo: "#EAF1FB",
+    },
+  ],
   postsDestaques: [
     {
       title: "Playlist no Youtube com todos os diálogos",

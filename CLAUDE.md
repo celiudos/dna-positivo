@@ -51,8 +51,14 @@ npm run unimported          # detecta arquivos/exports não utilizados
 
 ### Estilo e tema
 
-MUI v5 + Emotion, com `jsxImportSource: "@emotion/react"` (ver [.babelrc](.babelrc) e [tsconfig.json](tsconfig.json)) — não é necessário importar `jsx` do Emotion manualmente. Tema e paleta central em [theme/ThemeConfig.tsx](theme/ThemeConfig.tsx).
+MUI + Emotion, com `jsxImportSource: "@emotion/react"` (ver [.babelrc](.babelrc) e [tsconfig.json](tsconfig.json)) — não é necessário importar `jsx` do Emotion manualmente.
+
+[theme/ThemeConfig.tsx](theme/ThemeConfig.tsx) é a única fonte de verdade visual: paleta suave (indigo `#5D6BC4` + dourado `#D9A64E` sobre `#F5F6FB`), tipografia Plus Jakarta Sans (carregada em [pages/_document.tsx](pages/_document.tsx)), `shape.borderRadius`, sombras e os `styleOverrides` dos componentes MUI. Exporta também `tokens` (gradiente da marca, bordas, sombras) para os poucos estilos que ficam fora do tema, e a instância `theme`, reexportada por [styles/theme.ts](styles/theme.ts) para uso fora da árvore React.
+
+[styles/globals.css](styles/globals.css) cuida do fundo da página e da classe `.conteudo-post`, que formata o HTML sanitizado vindo do Blogger (imagens responsíveis, iframes 16:9, links, citações).
+
+O app é mobile-first: [components/ContainerApp.tsx](components/ContainerApp.tsx) usa `Container maxWidth="sm"` (600px), então qualquer mudança de layout deve ser pensada e validada em telas de até 600px — no desktop a mesma moldura apenas fica centralizada sobre o fundo.
 
 ### Configuração do app
 
-[configApp.ts](configApp.ts) na raiz centraliza textos, URLs, e-mail de contato, posts em destaque e o intervalo de revalidação do ISR — é o primeiro lugar a olhar para mudanças de conteúdo fixo/institucional (fora dos posts do Blogger).
+[configApp.ts](configApp.ts) na raiz centraliza textos, URLs, e-mail de contato, o texto da introdução, as categorias exibidas na Home (`categorias`: título, rota, ícone e cores de cada blog de origem), posts em destaque e o intervalo de revalidação do ISR — é o primeiro lugar a olhar para mudanças de conteúdo fixo/institucional (fora dos posts do Blogger).

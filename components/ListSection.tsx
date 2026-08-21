@@ -1,34 +1,31 @@
-import styled from '@emotion/styled';
-import { Chip, ListSubheader, Paper, Tab, Tabs, Typography } from '@mui/material';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { IListItem } from '@typesApp/IListItem';
-import { IPost } from '@typesApp/IPost';
-import DateUtils from '@utils/DateUtils';
-import GenericUtils from '@utils/GenericUtils';
-import TextUtils from '@utils/TextUtils';
-import lodash from 'lodash';
-import Link from 'next/link';
-import * as React from 'react';
-import { List, RowComponentProps, useListRef } from 'react-window';
+import styled from "@emotion/styled";
+import roundChevronRight from "@iconify/icons-ic/round-chevron-right";
+import { Icon } from "@iconify/react";
+import { Box, Chip, Paper, Tab, Tabs, Typography } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import { IListItem } from "@typesApp/IListItem";
+import { IPost } from "@typesApp/IPost";
+import DateUtils from "@utils/DateUtils";
+import GenericUtils from "@utils/GenericUtils";
+import TextUtils from "@utils/TextUtils";
+import lodash from "lodash";
+import Link from "next/link";
+import * as React from "react";
+import { List, RowComponentProps, useListRef } from "react-window";
 
-import EstrelaFavorito from './EstrelaFavorito';
+import EstrelaFavorito from "./EstrelaFavorito";
 
 function agruparPorLetras(rawData: [], key: string) {
   const semEspaco = rawData.map((r: any) => ({
     ...r,
     [key]: r[key].trim(),
   })) as [];
-  // const ordenado = lodash.orderBy(semEspaco, key);
   const ordenado = GenericUtils.orderByLocale(semEspaco, key);
   let firstLetterActual = "";
   let data = ordenado.reduce((r: any, e: any) => {
     let firstLetter = TextUtils.stringToSlugSemHifen(e[key][0]);
-
-    // if (firstLetter === "o") {
-    //   console.log("e[key]:", e[key], firstLetter);
-    // }
 
     if (firstLetter !== firstLetterActual) {
       r.push({
@@ -59,31 +56,55 @@ function Row({ index, style, itens, hasStar }: RowComponentProps<TRowProps>) {
   );
 
   return item.isSubheader ? (
-    <ListSubheader
+    <Box
       component="div"
-      style={{
-        ...style,
-        background: "#f4f4f4",
+      style={style}
+      sx={{
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
+        px: 2,
+        bgcolor: "var(--app-superficie, #f5f6fb)",
       }}
     >
-      <Typography variant="h5">{item.title}</Typography>
-    </ListSubheader>
+      <Box
+        sx={{
+          width: 30,
+          height: 30,
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: "rgba(93, 107, 196, 0.12)",
+          color: "primary.dark",
+          mr: 1.5,
+        }}
+      >
+        <Typography variant="subtitle2" component="span">
+          {item.title}
+        </Typography>
+      </Box>
+      <Box
+        sx={{ flexGrow: 1, height: "1px", bgcolor: "divider" }}
+        aria-hidden
+      />
+    </Box>
   ) : (
     <ListItem
-      divider
-      style={{ ...style, backgroundColor: "#FFF" }}
+      style={style}
       component="div"
       disablePadding
       secondaryAction={hasStar ? <EstrelaFavorito item={item} /> : null}
+      sx={{
+        bgcolor: "background.paper",
+        borderBottom: "1px solid",
+        borderColor: "divider",
+      }}
     >
       <ListItemButton
         component={Link}
         href={item.href || ""}
         id={idListItemButton}
-        style={{ height: "100%" }}
+        sx={{ height: "100%", px: 2, gap: 1 }}
       >
         <ListItemText
           primary={
@@ -95,6 +116,11 @@ function Row({ index, style, itens, hasStar }: RowComponentProps<TRowProps>) {
             </>
           }
         />
+        {!hasStar ? (
+          <Box aria-hidden sx={{ display: "flex", color: "text.disabled" }}>
+            <Icon icon={roundChevronRight} width={22} height={22} />
+          </Box>
+        ) : null}
       </ListItemButton>
     </ListItem>
   );
@@ -125,16 +151,25 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
     [itensFormatados, hasStar]
   );
 
-  // console.log("itensFormatados:", itensFormatados);
-
   return (
     <ContainerCss>
-      <Paper variant="outlined" square>
+      <Paper
+        elevation={0}
+        square
+        sx={{
+          borderBottom: "1px solid",
+          borderColor: "divider",
+          bgcolor: "background.paper",
+        }}
+      >
         <Tabs
           variant="scrollable"
           scrollButtons="auto"
+          allowScrollButtonsMobile
           value={valueTab}
           onChange={handleChangeTab}
+          aria-label="Filtrar publicações por letra"
+          sx={{ minHeight: 46, px: 0.5 }}
         >
           {apenasItensSubheaders
             ? apenasItensSubheaders.map((item, key) => (
@@ -169,8 +204,6 @@ export default function ListSection({ itens, hasStar = true }: IListItem) {
 }
 
 const ContainerCss = styled.div`
-  /* height: 80vh;
-  width: 100%; */
   display: flex;
   flex-direction: column;
   height: 100%;

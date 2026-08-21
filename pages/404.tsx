@@ -1,24 +1,20 @@
 import ContainerApp from "@components/ContainerApp";
+import EstadoVazio from "@components/EstadoVazio";
 import MainAppBar from "@components/MainAppBar";
 import roundSentimentDissatisfied from "@iconify/icons-ic/round-sentiment-dissatisfied";
-import { Icon } from "@iconify/react";
-import { Alert, AlertTitle } from "@mui/material";
-import { Box } from "@mui/system";
 
-export default function Offline() {
+export default function NaoEncontrado() {
   return (
     <ContainerApp title={"404"}>
-      <MainAppBar />
+      <MainAppBar hrefVoltar="/" />
       <main>
-        <Box sx={{ p: 2 }}>
-          <Alert
-            severity="warning"
-            icon={<Icon icon={roundSentimentDissatisfied} />}
-          >
-            <AlertTitle>Página não encontrada</AlertTitle>
-            Erro 404
-          </Alert>
-        </Box>
+        <EstadoVazio
+          icone={roundSentimentDissatisfied}
+          titulo="Página não encontrada"
+          descricao="O endereço acessado não existe ou foi movido. (Erro 404)"
+          cor="secondary"
+          acao={{ label: "Voltar para o início", href: "/" }}
+        />
       </main>
     </ContainerApp>
   );

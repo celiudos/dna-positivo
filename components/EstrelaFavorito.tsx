@@ -1,8 +1,7 @@
-import baselineStar from "@iconify/icons-ic/baseline-star";
-import outlineStarOutline from "@iconify/icons-ic/outline-star-outline";
+import roundStar from "@iconify/icons-ic/round-star";
+import roundStarBorder from "@iconify/icons-ic/round-star-border";
 import { Icon } from "@iconify/react";
 import { Button, IconButton } from "@mui/material";
-import { orange } from "@mui/material/colors";
 import { IPost } from "@typesApp/IPost";
 import FavoritosStorageUtils from "@utils/FavoritosStorageUtils";
 import * as React from "react";
@@ -36,28 +35,35 @@ export default function EstrelaFavorito({
 
   const idButton = `EstrelaFavorito-${item.id}`;
 
-  const ElemEstrela = isItemComEstrela ? (
-    <Icon icon={baselineStar} color={orange[500]} />
-  ) : (
-    <Icon icon={outlineStarOutline} />
+  const ElemEstrela = (
+    <Icon
+      icon={isItemComEstrela ? roundStar : roundStarBorder}
+      width={20}
+      height={20}
+    />
   );
 
   return typeBtn ? (
     <Button
       id={idButton}
-      variant="outlined"
-      color="inherit"
-      endIcon={ElemEstrela}
+      size="small"
+      variant={isItemComEstrela ? "contained" : "outlined"}
+      color="secondary"
+      startIcon={ElemEstrela}
       onClick={onClickIcon}
+      sx={{ color: isItemComEstrela ? undefined : "text.secondary" }}
     >
-      Favorito
+      {isItemComEstrela ? "Favoritado" : "Favoritar"}
     </Button>
   ) : (
     <IconButton
       id={idButton}
       edge="end"
-      aria-label="favorito"
+      aria-label={
+        isItemComEstrela ? "remover dos favoritos" : "adicionar aos favoritos"
+      }
       onClick={onClickIcon}
+      sx={{ color: isItemComEstrela ? "secondary.main" : "text.disabled" }}
     >
       {ElemEstrela}
     </IconButton>

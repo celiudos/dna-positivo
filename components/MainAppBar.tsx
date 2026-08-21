@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import baselineArrowBack from "@iconify/icons-ic/baseline-arrow-back";
-import baselineStarBorder from "@iconify/icons-ic/baseline-star-border";
+import roundArrowBack from "@iconify/icons-ic/round-arrow-back";
+import roundStarBorder from "@iconify/icons-ic/round-star-border";
 import { Icon } from "@iconify/react";
 import { LinearProgress, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import { carregandoPaginaAction } from "@store/actionCreator";
 import { RootState } from "@store/storeConfig";
+import configApp from "configApp";
 import Link from "next/link";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,12 +20,20 @@ type Props = {
   naoTemMenuDir?: boolean;
 };
 
+const acaoCss = {
+  color: "inherit",
+  bgcolor: "rgba(255, 255, 255, 0.14)",
+  width: 40,
+  height: 40,
+  "&:hover": { bgcolor: "rgba(255, 255, 255, 0.24)" },
+};
+
 export default function MainAppBar({
   title,
   hrefVoltar,
   naoTemMenuDir,
 }: Props) {
-  const titleDefinitivo = title || "Página Inicial";
+  const titleDefinitivo = title || configApp.site;
   const carregandoPagina = useSelector(
     (state: RootState) => state.rootReducer.carregandoPagina
   );
@@ -38,27 +47,27 @@ export default function MainAppBar({
 
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar sx={{ gap: 1, px: 1.5 }}>
         {hrefVoltar ? (
           <IconButton
             component={Link}
             href={hrefVoltar || ""}
-            size="large"
             id="btn-header-voltar"
             aria-label="voltar"
-            color="inherit"
+            sx={acaoCss}
             onClick={(): void => {
               dispatch(carregandoPaginaAction());
             }}
           >
-            <Icon icon={baselineArrowBack} />
+            <Icon icon={roundArrowBack} width={22} height={22} />
           </IconButton>
         ) : null}
         <Typography
           variant="h6"
           color="inherit"
           component="div"
-          sx={{ flexGrow: 1 }}
+          noWrap
+          sx={{ flexGrow: 1, minWidth: 0, pl: hrefVoltar ? 0 : 0.5 }}
         >
           {titleDefinitivo}
         </Typography>
@@ -67,12 +76,11 @@ export default function MainAppBar({
             <IconButton
               component={Link}
               href={"/favoritos"}
-              size="large"
               aria-label="favoritos"
-              color="inherit"
               id="btn-header-favoritos"
+              sx={acaoCss}
             >
-              <Icon icon={baselineStarBorder} />
+              <Icon icon={roundStarBorder} width={22} height={22} />
             </IconButton>
             <PesquisarDialog />
           </>
@@ -113,5 +121,5 @@ function LinearDeterminate() {
 }
 
 const LinearProgressCss = styled(LinearProgress)`
-  margin-top: -4px;
+  margin-top: -3px;
 `;

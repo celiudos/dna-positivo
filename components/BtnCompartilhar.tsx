@@ -1,19 +1,17 @@
-import styled from "@emotion/styled";
-import { Button, Container } from "@mui/material";
-import * as React from "react";
 import outlineShare from "@iconify/icons-ic/outline-share";
 import { Icon } from "@iconify/react";
+import { Button, ButtonProps } from "@mui/material";
+import * as React from "react";
 
-type Props = {
+type Props = ButtonProps & {
   children: React.ReactNode;
-  onClick?: () => void;
 };
 
 export default function BtnCompartilhar({ children, ...props }: Props) {
   return (
     <Button
       variant="outlined"
-      endIcon={<Icon icon={outlineShare} />}
+      endIcon={<Icon icon={outlineShare} width={18} height={18} />}
       {...props}
     >
       {children}

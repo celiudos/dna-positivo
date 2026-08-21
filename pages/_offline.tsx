@@ -1,27 +1,19 @@
 import ContainerApp from "@components/ContainerApp";
+import EstadoVazio from "@components/EstadoVazio";
 import MainAppBar from "@components/MainAppBar";
 import baselineSignalWifiOff from "@iconify/icons-ic/baseline-signal-wifi-off";
-import { Icon } from "@iconify/react";
-import { Alert, AlertTitle, Box } from "@mui/material";
 
 export default function Offline() {
   return (
     <ContainerApp title={"Offline"}>
       <MainAppBar />
       <main>
-        <Box sx={{ p: 2 }}>
-          <Alert
-            severity="warning"
-            icon={<Icon icon={baselineSignalWifiOff} />}
-          >
-            <AlertTitle>Você está offline</AlertTitle>
-            Verifique suas configurações de rede.
-            <p>
-              Para habilitar essa página offline, você precisa carregá-la ao
-              menos uma vez.
-            </p>
-          </Alert>
-        </Box>
+        <EstadoVazio
+          icone={baselineSignalWifiOff}
+          titulo="Você está offline"
+          cor="secondary"
+          descricao="Verifique suas configurações de rede. Para habilitar esta página offline, você precisa carregá-la ao menos uma vez."
+        />
       </main>
     </ContainerApp>
   );

@@ -20,11 +20,16 @@ export default function ContainerApp({ children, title, description }: Props) {
   );
 }
 
+/**
+ * Moldura do app: no mobile ocupa a tela toda; a partir de 600px vira um
+ * "aparelho" centralizado sobre o fundo suave definido em globals.css.
+ */
 const ContainerCss = styled(Container)`
-  background: #f3f3f3;
+  background: var(--app-superficie, #f5f6fb);
   display: flex !important;
   height: 100%;
   flex-direction: column;
   z-index: 10;
   position: relative;
+  box-shadow: 0 0 48px rgba(37, 41, 57, 0.12);
 `;
