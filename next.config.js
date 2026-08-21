@@ -12,11 +12,15 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
-  // Empacota as dependências do servidor em vez de deixá-las como `require()`
-  // em runtime. O `sanitize-html` é CommonJS mas depende do `htmlparser2@12`,
-  // que é ESM puro: em runtimes sem `require(esm)` (Node < 22.12, caso da
-  // Vercel) isso estoura ERR_REQUIRE_ESM e derruba toda função serverless.
-  // Deixando o webpack resolver, o ESM é tratado em tempo de build.
+  // O `sanitize-html` é CommonJS mas depende do `htmlparser2@12`, que é ESM
+  // puro (nenhuma versão >= 11 tem build CommonJS). Em runtimes sem suporte a
+  // `require(esm)` — Node < 22.12, que é o caso do servidor da Vercel — isso
+  // estoura ERR_REQUIRE_ESM e derruba TODA invocação da função serverless.
+  //
+  // A dupla abaixo resolve em tempo de build: `bundlePagesRouterDependencies`
+  // empacota as dependências do servidor em vez de deixá-las como `require()`
+  // em runtime, e `esmExternals: "loose"` autoriza o webpack a resolver o
+  // `require()` de um pacote ESM feito por um pacote CommonJS.
   bundlePagesRouterDependencies: true,
   experimental: {
     esmExternals: "loose",
