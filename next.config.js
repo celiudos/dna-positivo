@@ -12,6 +12,15 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  // Empacota as dependências do servidor em vez de deixá-las como `require()`
+  // em runtime. O `sanitize-html` é CommonJS mas depende do `htmlparser2@12`,
+  // que é ESM puro: em runtimes sem `require(esm)` (Node < 22.12, caso da
+  // Vercel) isso estoura ERR_REQUIRE_ESM e derruba toda função serverless.
+  // Deixando o webpack resolver, o ESM é tratado em tempo de build.
+  bundlePagesRouterDependencies: true,
+  experimental: {
+    esmExternals: "loose",
+  },
 };
 
 module.exports = (phase) => {
