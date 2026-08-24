@@ -6,6 +6,7 @@ import HomeHero from "@components/HomeHero";
 import ListHeader from "@components/ListHeader";
 import ListItens from "@components/ListItens";
 import MainAppBar from "@components/MainAppBar";
+import PublicacoesRecomendadas from "@components/PublicacoesRecomendadas";
 import ApiPost from "@lib/ApiPost";
 import { Alert, AlertTitle, Box, Stack } from "@mui/material";
 import { IPost } from "@typesApp/IPost";
@@ -14,12 +15,14 @@ import configApp from "configApp";
 type Props = {
   postsNovos: IPost[];
   postsAlterados: IPost[];
+  postsParaRecomendacao: IPost[];
   totalPorCategoria: { [cat: string]: number };
 };
 
 export default function Index({
   postsNovos,
   postsAlterados,
+  postsParaRecomendacao,
   totalPorCategoria,
 }: Props) {
   return (
@@ -45,6 +48,8 @@ export default function Index({
             />
             <DestaquesLista itens={configApp.postsDestaques} />
           </Box>
+
+          <PublicacoesRecomendadas posts={postsParaRecomendacao} />
 
           {postsNovos.length ? (
             <Box component="section">
@@ -93,9 +98,15 @@ export async function getStaticProps() {
     excluirIds: postsNovos.map((post) => post.id),
   });
   const totalPorCategoria = await ApiPost.getTotalPorCategoria();
+  const postsParaRecomendacao = await ApiPost.getPostsParaRecomendacao();
 
   return {
-    props: { postsNovos, postsAlterados, totalPorCategoria },
+    props: {
+      postsNovos,
+      postsAlterados,
+      postsParaRecomendacao,
+      totalPorCategoria,
+    },
     revalidate: configApp.nextJs.revalidate,
   };
 }

@@ -3,6 +3,7 @@ import BtnCompartilhar from "@components/BtnCompartilhar";
 import ContainerApp from "@components/ContainerApp";
 import EstrelaFavorito from "@components/EstrelaFavorito";
 import MainAppBar from "@components/MainAppBar";
+import RegistrarVisualizacaoPost from "@components/RegistrarVisualizacaoPost";
 import TelaEmpty from "@components/TelaEmpty";
 import TelaLoading from "@components/TelaLoading";
 import baselineLink from "@iconify/icons-ic/baseline-link";
@@ -57,6 +58,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
 
   return (
     <ContainerApp title={post.title} description={post.catName}>
+      <RegistrarVisualizacaoPost post={post} />
       <MainAppBar title={post.catName || "Post"} hrefVoltar={`/cat/${catId}`} />
       <main>
         {/* Barra de leitura: favoritar e ajustar o tamanho da fonte */}

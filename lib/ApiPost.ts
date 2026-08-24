@@ -73,6 +73,25 @@ export default class ApiPost {
     return posts.results;
   }
 
+  /**
+   * Catálogo completo em versão enxuta (sem os campos de HTML pesados),
+   * usado só para alimentar o algoritmo de recomendação no cliente: título
+   * e resumo já bastam para casar palavras-chave, e evitam mandar todo o
+   * `content`/`contentSanitized` de ~300 posts pra Home.
+   */
+  static async getPostsParaRecomendacao(): Promise<IPost[]> {
+    await ApiPost.setAllPosts();
+
+    return ApiSearch.getAllPosts()
+      .filter((post) => !post.isPage && !post.isSubheader)
+      .map((post) => ({
+        ...post,
+        content: "",
+        contentSanitized: "",
+        hrefOriginal: "",
+      }));
+  }
+
   private static async getUltimosPosts(catId: number): Promise<IPost[] | []> {
     const response = await fetch(
       `${GenericUtils.getUrlBase()}api/ultimos-posts?catId=${catId}`
