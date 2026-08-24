@@ -41,16 +41,6 @@ export default function Index({
             <CategoriaGrid totalPorCategoria={totalPorCategoria} />
           </Box>
 
-          <Box component="section">
-            <ListHeader
-              primary="Destaques"
-              secondary="Conteúdos selecionados para começar"
-            />
-            <DestaquesLista itens={configApp.postsDestaques} />
-          </Box>
-
-          <PublicacoesRecomendadas posts={postsParaRecomendacao} />
-
           {postsNovos.length ? (
             <Box component="section">
               <ListHeader
@@ -70,6 +60,16 @@ export default function Index({
               <ListItens hasData itens={postsAlterados} />
             </Box>
           ) : null}
+
+          {/* <PublicacoesRecomendadas posts={postsParaRecomendacao} /> */}
+
+          <Box component="section">
+            <ListHeader
+              primary="Destaques"
+              secondary="Conteúdos selecionados para começar"
+            />
+            <DestaquesLista itens={configApp.postsDestaques} />
+          </Box>
 
           {configApp.muralDeAvisos.length ? (
             <Alert severity="info">
