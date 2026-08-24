@@ -20,8 +20,3 @@ Ajustes realizados nas telas de:
 **Post**
 
 - Removido o alerta de "ATENÇÃO..."
-
-NOVIDADES (sujeita à aprovação):
-
-- Novo ícone para o aplicativo no mobile
-- Alterada a ordem das seções na Página inicial, considerando as publicações novas mais acima na tela
