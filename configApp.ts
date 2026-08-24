@@ -2,7 +2,7 @@ const configApp = {
   url: "https://dna-positivo.vercel.app/",
   site: "DNA Positivo",
   titulo: "DNA Positivo App",
-  subtitulo: "Tratamento de Doenças através do DNA Físico e Quântico",
+  subtitulo: "Tratamento de Doenças através da Inteligência Virtual Positiva",
   email: "quintoelementoamor@hotmail.com",
   isMock: false,
   nextJs: {
@@ -79,11 +79,11 @@ const configApp = {
       title: "Artigos Científicos Publicado",
       href: "https://dnaholograficoequantico.blogspot.com/p/artigos-cientificos-publicados.html",
     },
-    {
-      title:
-        "Reconhecimento da homeopatia pelo DNA para a prevenção ou tratamento dos sintomas do COVID-19",
-      href: "/cat/1/d7c3a590-af6b-5268-9b9f-363320dd8140",
-    },
+    // {
+    //   title:
+    //     "Reconhecimento da homeopatia pelo DNA para a prevenção ou tratamento dos sintomas do COVID-19",
+    //   href: "/cat/1/d7c3a590-af6b-5268-9b9f-363320dd8140",
+    // },
   ],
   muralDeAvisos: [],
 };

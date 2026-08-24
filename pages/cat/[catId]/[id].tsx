@@ -93,7 +93,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                 disabled={tamanhoFonte === FONTE_CONFIG.min}
                 onClick={() =>
                   setTamanhoFonte((atual) =>
-                    Math.max(FONTE_CONFIG.min, atual - 1)
+                    Math.max(FONTE_CONFIG.min, atual - 1),
                   )
                 }
               >
@@ -104,7 +104,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                 disabled={tamanhoFonte === FONTE_CONFIG.max}
                 onClick={() =>
                   setTamanhoFonte((atual) =>
-                    Math.min(FONTE_CONFIG.max, atual + 1)
+                    Math.min(FONTE_CONFIG.max, atual + 1),
                   )
                 }
               >
@@ -115,7 +115,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
         </Box>
 
         <Stack spacing={2.5} sx={{ px: 2, pt: 2.5, pb: 5 }}>
-          {postsAntesDeQualquerDialogo
+          {/* {postsAntesDeQualquerDialogo
             ? postsAntesDeQualquerDialogo.map((item, key) => (
                 <AvisoImportante
                   key={key}
@@ -123,7 +123,7 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
                   contentSanitized={item.contentSanitized}
                 />
               ))
-            : null}
+            : null} */}
 
           <Paper
             component="article"
@@ -220,7 +220,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const posts = await ApiPost.getPostsByIds([params.id]);
   const postsAntesDeQualquerDialogo = await ApiPost.getPostsByIds(
-    configApp.idsPostsAntesDeQualquerDialogo
+    configApp.idsPostsAntesDeQualquerDialogo,
   );
 
   return {

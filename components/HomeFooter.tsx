@@ -49,6 +49,8 @@ export default function HomeFooter() {
               justifyContent: "center",
               bgcolor: "rgba(93, 107, 196, 0.10)",
               color: "primary.main",
+              // Abaixo de 400px o icone rouba largura demais e o e-mail quebra em duas linhas
+              "@media (max-width: 399.95px)": { display: "none" },
             }}
           >
             <Icon icon={outlineMail} width={21} height={21} />
