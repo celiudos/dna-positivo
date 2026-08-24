@@ -5,15 +5,27 @@ import DateUtils from "@utils/DateUtils";
 import GenericUtils from "@utils/GenericUtils";
 
 export default class ApiPost {
+  /**
+   * Publicações recentes segundo `orderBy` (`published` ou `updated`).
+   * `excluirIds` existe para que a Home não repita o mesmo post nas seções
+   * "Novas publicações" e "Publicações atualizadas".
+   */
   static async getPostsRecentes({
     diasDeDif = 15,
     pageSize = 5,
     orderBy = "published",
+    excluirIds = [],
+  }: {
+    diasDeDif?: number;
+    pageSize?: number;
+    orderBy?: string;
+    excluirIds?: string[];
   }): Promise<IPost[]> {
     await ApiPost.setAllPosts();
     const todosPostsSearch = ApiSearch.search({
       pageSize,
       orderBy: orderBy,
+      excluirIds,
     });
 
     const todosPosts = todosPostsSearch.results.filter((post) => {

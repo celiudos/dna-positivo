@@ -84,8 +84,13 @@ export default function Index({
 
 export async function getStaticProps() {
   const postsNovos = await ApiPost.getPostsRecentes({});
+
+  // Um post recém-publicado também conta como recém-atualizado. Excluindo os
+  // novos aqui, cada post aparece em uma seção só e "Publicações atualizadas"
+  // fica reservada para o que foi de fato revisado depois de publicado.
   const postsAlterados = await ApiPost.getPostsRecentes({
     orderBy: "updated",
+    excluirIds: postsNovos.map((post) => post.id),
   });
   const totalPorCategoria = await ApiPost.getTotalPorCategoria();
 

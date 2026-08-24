@@ -15,10 +15,13 @@ npm run start              # roda o build de produção
 npm run tsc                # checagem de tipos (tsc -p .), sem emitir
 npm run lint                # next lint (eslint-config-next)
 npm test                    # jest --watch
+npm run test:e2e            # playwright test (sobe o dev server e roda a suíte e2e)
+npm run test:e2e:ui         # idem, no modo interativo (--ui) do Playwright
 npm run unimported          # detecta arquivos/exports não utilizados
 ```
 
-- Rodar um único teste: `npx jest utils/BaixarPostsDoBlogger.test.ts` (ou `npx jest -t "nome do teste"`). Os testes ficam ao lado do código-fonte (`*.test.ts`), não em `tests/` — `tests/e2e/` guarda apenas um script legado do Selenium IDE.
+- Rodar um único teste: `npx jest utils/BaixarPostsDoBlogger.test.ts` (ou `npx jest -t "nome do teste"`). Os testes ficam ao lado do código-fonte (`*.test.ts`), não em `tests/`.
+- `tests/e2e/` guarda a suíte Playwright (`*.spec.ts`, configurada em [playwright.config.ts](playwright.config.ts)) — cobre as telas Home, Categoria e Post navegando pelo app de verdade contra o `next dev` local. Como essas páginas usam `getStaticProps` e buscam posts recentes ao vivo no Blogger (`pages/api/ultimos-posts.ts`), rodar a suíte requer acesso à internet. `jest.testPathIgnorePatterns` exclui essa pasta do `npm test`, e vice-versa (o Playwright só olha para `tests/e2e/`) — os dois runners não se cruzam. O `.side` também presente ali é um script legado do Selenium IDE, sem uso corrente.
 - Versionamento: usar `npm version patch|minor|major -m "Nova versão"` (o número de versão é exibido no rodapé da Home a partir de `package.json`).
 
 ## Arquitetura

@@ -21,7 +21,14 @@ export default function Tecnicas({ posts }: Props) {
   return (
     <ContainerApp title={posts[0].catName} description={"Categoria"}>
       <MainAppBar title={posts[0].catName} hrefVoltar="/" />
-      <main>
+      {/*
+        O <main> global (styles/globals.css) usa `flex: 1 0 auto`, pensado para paginas de
+        leitura onde a pagina toda deve rolar. Aqui a lista precisa do inverso: caber na
+        altura do navegador para a ListSection controlar seu proprio scroll interno (senao
+        o menu de letras da trilha fica "solto" no meio de uma pagina rolavel). O style
+        inline vence a regra global (seletor por ID) sem alterar as outras paginas.
+      */}
+      <main style={{ flex: "1 1 0%", minHeight: 0 }}>
         <ListSection itens={posts} />
       </main>
     </ContainerApp>

@@ -8,6 +8,8 @@
     "start": "next start",
     "tsc": "tsc -p .",
     "test": "jest --watch",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "unimported": "npx unimported",
     "lint": "eslint ."
   },
@@ -42,6 +44,10 @@
     "moduleDirectories": [
       "node_modules"
     ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/tests/e2e/"
+    ],
     "moduleNameMapper": {
       "^@components/(.*)": "<rootDir>/components/$1",
       "^@data/(.*)": "<rootDir>/data/$1",
@@ -64,6 +70,7 @@
     "@iconify/icons-ic": "^1.2.13",
     "@iconify/icons-mdi": "^1.2.48",
     "@iconify/react": "^6.0.2",
+    "@playwright/test": "^1.62.1",
     "@types/autosuggest-highlight": "^3.2.3",
     "@types/jest": "^30.0.0",
     "@types/js-search": "^1.4.4",

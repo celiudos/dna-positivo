@@ -7,6 +7,7 @@ interface ISearch {
   limit?: number;
   jsonName?: "TODOS_OS_POSTS";
   jsonIds?: string[];
+  excluirIds?: string[];
   page?: number;
   pageSize?: number;
 }

@@ -13,6 +13,7 @@ const DEFAULT_PARAMS_VALUES: ISearch = {
   orderBy: "updated",
   limit: 300,
   jsonIds: [],
+  excluirIds: [],
   page: 1,
   pageSize: 300,
 };
@@ -40,6 +41,7 @@ export default class ApiSearch {
       page,
       pageSize,
       jsonIds,
+      excluirIds,
     } = { ...DEFAULT_PARAMS_VALUES, ...params_values };
 
     let total = 0;
@@ -56,6 +58,11 @@ export default class ApiSearch {
 
     if (jsonIds && jsonIds.length)
       results = results.filter((r: any) => jsonIds?.indexOf(r.id) !== -1);
+
+    // Remove ids antes de ordenar/paginar para que a lista continue devolvendo
+    // `pageSize` itens mesmo quando parte dos resultados é descartada.
+    if (excluirIds && excluirIds.length)
+      results = results.filter((r: any) => excluirIds?.indexOf(r.id) === -1);
 
     if (filterBy) results = lodash.filter(results, filterBy);
 
@@ -85,6 +92,7 @@ export default class ApiSearch {
       page,
       pageSize,
       jsonIds,
+      excluirIds,
       results,
       error,
     };
