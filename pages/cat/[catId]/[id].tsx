@@ -10,6 +10,7 @@ import baselineLink from "@iconify/icons-ic/baseline-link";
 import roundAdd from "@iconify/icons-ic/round-add";
 import roundRemove from "@iconify/icons-ic/round-remove";
 import { Icon } from "@iconify/react";
+import usePreferenciaTamanhoFonte from "@hook/usePreferenciaTamanhoFonte";
 import ApiPost from "@lib/ApiPost";
 import {
   Box,
@@ -33,15 +34,11 @@ type Props = {
   postsAntesDeQualquerDialogo: IPost[];
 };
 
-const FONTE_CONFIG = {
-  min: 0,
-  max: 5,
-};
-
 export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
   const router = useRouter();
   const { catId } = router.query;
-  const [tamanhoFonte, setTamanhoFonte] = useState(FONTE_CONFIG.min);
+  const { tamanhoFonte, aumentar, diminuir, podeAumentar, podeDiminuir } =
+    usePreferenciaTamanhoFonte();
   const [isNativeShare, setNativeShare] = useState(false);
 
   useEffect(() => {
@@ -92,23 +89,15 @@ export default function Post({ post, postsAntesDeQualquerDialogo }: Props) {
             >
               <Button
                 aria-label="diminuir fonte"
-                disabled={tamanhoFonte === FONTE_CONFIG.min}
-                onClick={() =>
-                  setTamanhoFonte((atual) =>
-                    Math.max(FONTE_CONFIG.min, atual - 1),
-                  )
-                }
+                disabled={!podeDiminuir}
+                onClick={diminuir}
               >
                 <Icon icon={roundRemove} width={18} height={18} />
               </Button>
               <Button
                 aria-label="aumentar fonte"
-                disabled={tamanhoFonte === FONTE_CONFIG.max}
-                onClick={() =>
-                  setTamanhoFonte((atual) =>
-                    Math.min(FONTE_CONFIG.max, atual + 1),
-                  )
-                }
+                disabled={!podeAumentar}
+                onClick={aumentar}
               >
                 <Icon icon={roundAdd} width={18} height={18} />
               </Button>
